@@ -86,6 +86,21 @@ const GGL_LINKS = {
 
     ]
   },
+   Website: {
+
+    title: "Website",
+    subtitle: "Company Official Sites",
+
+    links: [
+
+      {
+        name: "Gaerish Logistics",
+        url: "https://www.gaerishlogistics.com/",
+        icon: "fa-uncharted"
+      }
+
+    ]
+  },
 
    Zoho: {
 
