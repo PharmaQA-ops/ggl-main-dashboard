@@ -1086,23 +1086,27 @@ function setupModal() {
 
 
 /* =========================================
-   START PORTAL
+   WELCOME / LOADING SCREEN
 ========================================= */
 
-function startPortal() {
+function hideWelcomeScreen() {
 
-  setDate();
+  const welcomeScreen =
+    document.getElementById("welcomeScreen");
 
-  loadTheme();
+  if (!welcomeScreen) return;
 
-  setupSearch();
+  setTimeout(function () {
 
-  setupModal();
+    welcomeScreen.classList.add("hide");
 
+    setTimeout(function () {
 
-  console.log(
-    "GGL Main Portal ready."
-  );
+      welcomeScreen.remove();
+
+    }, 900);
+
+  }, 2600);
 
 }
 
