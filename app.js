@@ -53,7 +53,7 @@ const GGL_LINKS = {
       {
         name: "Defence",
         url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=1706426280#gid=1706426280",
-        icon: "fa-chart-line"
+        icon: "fa-radiation"
       }
 
     ]
