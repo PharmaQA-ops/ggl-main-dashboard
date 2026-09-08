@@ -1,43 +1,170 @@
-function doGet() {
+// ===============================
+// GGL MAIN DASHBOARD
+// ===============================
 
-  const sheet = SpreadsheetApp
-    .getActiveSpreadsheet()
-    .getSheetByName("Sheet1");
+let GGL_LINKS = {};
 
-  const data =
-    sheet.getDataRange().getValues();
+const CATEGORY_INFO = {
+    "ERP": {
+        subtitle: "Enterprise Resource Planning",
+        icon: "fa-desktop"
+    },
 
-  data.shift();
+    "G-SHEETS": {
+        subtitle: "Google Sheets & Dashboards",
+        icon: "fa-table"
+    },
 
-  const result = data
-    .filter(row => row[0] && row[4] === true)
-    .map(row => ({
+    "QMS": {
+        subtitle: "Quality Management System",
+        icon: "fa-shield"
+    },
 
-      category: row[0],
+    "WCA": {
+        subtitle: "Worldwide Cargo Alliance",
+        icon: "fa-globe"
+    },
 
-      name: row[1],
+    "LINERS": {
+        subtitle: "Shipping Line Portals",
+        icon: "fa-ship"
+    },
 
-      description: row[2],
+    "DOCUMENTS": {
+        subtitle: "Documents & Records",
+        icon: "fa-folder"
+    },
 
-      url: row[3],
+    "HR": {
+        subtitle: "Human Resources",
+        icon: "fa-users"
+    },
 
-      active: row[4],
+    "IT": {
+        subtitle: "Information Technology",
+        icon: "fa-computer"
+    },
 
-      order: row[5],
+    "GOVERNMENT": {
+        subtitle: "Government Portals",
+        icon: "fa-landmark"
+    },
 
-      icon: row[6] || "fa-link",
+    "NETWORKS": {
+        subtitle: "Business Networks",
+        icon: "fa-network-wired"
+    }
+};
 
-      keywords: row[7] || ""
 
-    }));
+// ===============================
+// LOAD LINKS FROM links.json
+// ===============================
+
+async function loadLinks() {
+
+    try {
+
+        const response = await fetch("links.json");
+
+        if (!response.ok) {
+            throw new Error("Could not load links.json");
+        }
+
+        const data = await response.json();
+
+        GGL_LINKS = {};
+
+        data.forEach(item => {
+
+            if (!item.active) return;
+
+            if (!GGL_LINKS[item.category]) {
+
+                GGL_LINKS[item.category] = {
+
+                    title: item.category,
+
+                    subtitle:
+                        CATEGORY_INFO[item.category]?.subtitle || "",
+
+                    icon:
+                        CATEGORY_INFO[item.category]?.icon || "fa-link",
+
+                    links: []
+
+                };
+            }
+
+            GGL_LINKS[item.category].links.push({
+
+                name: item.name,
+
+                description:
+                    item.description || "",
+
+                keywords:
+                    item.keywords || "",
+
+                url:
+                    item.url,
+
+                icon:
+                    item.icon || "fa-link",
+
+                order:
+                    Number(item.order) || 999
+
+            });
+
+        });
 
 
-  return ContentService
-    .createTextOutput(
-      JSON.stringify(result)
-    )
-    .setMimeType(
-      ContentService.MimeType.JSON
-    );
+        // Sort links by order
+
+        Object.keys(GGL_LINKS).forEach(category => {
+
+            GGL_LINKS[category].links.sort(
+                (a, b) => a.order - b.order
+            );
+
+        });
+
+
+        console.log(
+            "GGL links loaded:",
+            GGL_LINKS
+        );
+
+
+        // Continue with your existing dashboard rendering
+
+        if (typeof renderCategories === "function") {
+            renderCategories();
+        }
+
+
+    } catch (error) {
+
+        console.error(
+            "Error loading links.json:",
+            error
+        );
+
+    }
 
 }
+
+
+// ===============================
+// START DASHBOARD
+// ===============================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    () => {
+
+        loadLinks();
+
+    }
+);
