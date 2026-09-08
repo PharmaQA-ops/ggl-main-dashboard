@@ -1158,3 +1158,12 @@ body.dark .search-shortcut {
   }
 
 }
+/* =========================================
+   LOADING SCREEN FAIL-SAFE
+========================================= */
+
+.welcome-screen.hide {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
