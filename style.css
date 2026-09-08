@@ -800,3 +800,8 @@ body.dark .search-shortcut {
   }
 
 }
+.company-logo {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+}
