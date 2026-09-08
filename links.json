@@ -24,4 +24,17 @@
       }
     ]
   }
-}
+},
+{
+  "ERP": {
+    "title": "GGL QMS",
+    "subtitle": "Operations & business management",
+    "links": [
+      {
+        "name": "GGL ERP",
+        "url": "https://script.google.com/a/~/macros/s/AKfycbwpDLadlpO3ZnFSHk1T0WShLs7V403jIGKhHE5UQHUZQ7W3VbA2lfRy0z7lc-JfovYPgw/exec",
+        "icon": "fa-desktop",
+        "keywords": "erp operations"
+      }
+    ]
+  }
