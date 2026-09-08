@@ -45,8 +45,8 @@ const GGL_LINKS = {
       },
 
       {
-        name: "Management Dashboard",
-        url: "#",
+        name: "Defence",
+        url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=1706426280#gid=1706426280",
         icon: "fa-chart-line"
       }
 
@@ -56,14 +56,14 @@ const GGL_LINKS = {
 
   QMS: {
 
-    title: "QMS",
+    title: "GGL QMS",
     subtitle: "Quality Management System",
 
     links: [
 
       {
         name: "GGL QMS",
-        url: "#",
+        url: "https://script.google.com/a/~/macros/s/AKfycbwpDLadlpO3ZnFSHk1T0WShLs7V403jIGKhHE5UQHUZQ7W3VbA2lfRy0z7lc-JfovYPgw/exec",
         icon: "fa-shield-halved"
       }
 
@@ -80,7 +80,7 @@ const GGL_LINKS = {
 
       {
         name: "WCA",
-        url: "#",
+        url: "https://www.wcaworld.com/Home",
         icon: "fa-globe"
       }
 
@@ -97,49 +97,49 @@ const GGL_LINKS = {
 
       {
         name: "Maersk",
-        url: "#",
+        url: "https://www.maersk.com/",
         icon: "fa-ship"
       },
 
       {
         name: "MSC",
-        url: "#",
+        url: "https://www.msc.com/en/solutions/our-trade-services?utm_source=google&utm_medium=cpc&utm_campaign=21679704469&utm_term=M-&utm_adgrp=173902303184&utm_source_platform=Google+Ads&utm_id=&&&&&gclsrc=aw.ds&gad_source=1&gad_campaignid=21679704469&gbraid=0AAAAABYXqUuey-tOMASobL1fKH3fYvF4V&gclid=Cj0KCQjw5P7UBhDaARIsAOSlS1P65WLC_JAd9zeg1FZizS_2JCuj2eZgBJPJL0wg1IYH_5nOOn2xrwoaApDEEALw_wcB",
         icon: "fa-ship"
       },
 
       {
         name: "CMA CGM",
-        url: "#",
+        url: "https://www.cma-cgm.com/",
         icon: "fa-ship"
       },
 
       {
         name: "Hapag-Lloyd",
-        url: "#",
+        url: "https://www.hapag-lloyd.com/en/home.html",
         icon: "fa-ship"
       },
 
       {
         name: "ONE",
-        url: "#",
+        url: "https://www.one-line.com/en/local-information/in",
         icon: "fa-ship"
       },
 
       {
         name: "COSCO",
-        url: "#",
+        url: "https://lines.coscoshipping.com/home",
         icon: "fa-ship"
       },
 
       {
         name: "Evergreen",
-        url: "#",
+        url: "https://www.evergreen-line.com/",
         icon: "fa-ship"
       },
 
       {
         name: "ZIM",
-        url: "#",
+        url: "https://www.zim.com/",
         icon: "fa-ship"
       }
 
@@ -162,13 +162,13 @@ const GGL_LINKS = {
 
       {
         name: "Policies",
-        url: "#",
+        url: "https://drive.google.com/drive/folders/1xMXE0VhhqradKT4IjC_STx3jLNyTDLce?usp=sharing",
         icon: "fa-file-lines"
       },
 
       {
         name: "SOPs",
-        url: "#",
+        url: "https://drive.google.com/drive/folders/1zrPg07iboGhNlQ2Z4u6igtJsXOW0A3KP?usp=sharing",
         icon: "fa-file-lines"
       },
 
@@ -203,7 +203,7 @@ const GGL_LINKS = {
 
       {
         name: "Keka HRMS",
-        url: "#",
+        url: "https://gaerish.keka.com/#/home/dashboard",
         icon: "fa-users"
       }
 
@@ -220,13 +220,13 @@ const GGL_LINKS = {
 
       {
         name: "IT Support",
-        url: "#",
+        url: "https://forms.gle/cpDyKdebZqyA7Su57",
         icon: "fa-headset"
       },
 
       {
         name: "IT Applications",
-        url: "#",
+        url: "https://script.google.com/a/~/macros/s/AKfycbzLny-kwJPf-0t0IKZ3p2uScQ2q4m10_hnAOdu2-pzawLHvnl1rMe7jieVbVDsSkNvevA/exec",
         icon: "fa-computer"
       },
 
@@ -249,13 +249,13 @@ const GGL_LINKS = {
 
       {
         name: "ICEGATE",
-        url: "#",
+        url: "https://foservices.icegate.gov.in/#/login",
         icon: "fa-building-columns"
       },
 
       {
         name: "DGFT",
-        url: "#",
+        url: "https://www.dgft.gov.in/CP/",
         icon: "fa-building-columns"
       },
 
@@ -284,7 +284,7 @@ const GGL_LINKS = {
 
       {
         name: "WPA",
-        url: "#",
+        url: "https://ourwpa.com/",
         icon: "fa-network-wired"
       },
 
