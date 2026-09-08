@@ -35,7 +35,7 @@ const GGL_LINKS = {
       {
         name: "Sea Export",
         url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=2105414371#gid=2105414371",
-        icon: "fa-table"
+        icon: "fa-ship"
       },
 
       {
@@ -43,11 +43,22 @@ const GGL_LINKS = {
         url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=486617436#gid=486617436",
         icon: "fa-plane"
       },
+      {
+        name: "Sea Import",
+        url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=0#gid=0",
+        icon: "fa-ship"
+      },
 
+      {
+        name: "Air Import",
+        url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=1420573940#gid=1420573940",
+        icon: "fa-plane"
+      },
+      
       {
         name: "NAP",
         url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=570041459#gid=570041459",
-        icon: "fa-prescription-bottle-medical"
+        icon: "fa-flag-usa"
       },
 
       {
