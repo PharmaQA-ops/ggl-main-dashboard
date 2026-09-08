@@ -70,6 +70,22 @@ const GGL_LINKS = {
     ]
   },
 
+   Zoho: {
+
+    title: "Zoho",
+    subtitle: "The operating system for business",
+
+    links: [
+
+      {
+        name: "Zoho",
+        url: "https://accounts.zoho.in/signin?servicename=ZohoHome&signupurl=https://www.zoho.com/signup.html",
+        icon: "fa-globe"
+      }
+
+    ]
+  },
+
 
   WCA: {
 
