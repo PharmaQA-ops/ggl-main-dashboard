@@ -97,7 +97,7 @@ const GGL_LINKS = {
       {
         name: "Gaerish Logistics",
         url: "https://www.gaerishlogistics.com/",
-        icon: "fa-uncharted"
+        icon: "fa-vsco"
       }
 
     ]
