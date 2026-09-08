@@ -3,7 +3,6 @@
    URL CONFIGURATION
 ========================================= */
 
-
 const GGL_LINKS = {
 
   ERP: {
@@ -11,13 +10,11 @@ const GGL_LINKS = {
     subtitle: "Operations & business management",
 
     links: [
-
       {
         name: "GGL ERP",
         url: "#",
         icon: "fa-desktop"
       }
-
     ]
   },
 
@@ -246,9 +243,7 @@ const GGL_LINKS = {
   GOVERNMENT: {
 
     title: "GOVERNMENT",
-
-    subtitle:
-      "Government & regulatory portals",
+    subtitle: "Government & regulatory portals",
 
     links: [
 
@@ -283,9 +278,7 @@ const GGL_LINKS = {
   NETWORKS: {
 
     title: "NETWORKS",
-
-    subtitle:
-      "Freight forwarding networks",
+    subtitle: "Freight forwarding networks",
 
     links: [
 
@@ -317,42 +310,57 @@ const GGL_LINKS = {
    OPEN PANEL
 ========================================= */
 
-
 function openPanel(category) {
 
-  const data =
-    GGL_LINKS[category];
+  const data = GGL_LINKS[category];
 
   if (!data) return;
 
 
-  document.getElementById("modalTitle")
-    .innerText = data.title;
+  const title =
+    document.getElementById("modalTitle");
+
+  const subtitle =
+    document.getElementById("modalSubtitle");
+
+  const content =
+    document.getElementById("modalContent");
+
+  const modal =
+    document.getElementById("modal");
 
 
-  document.getElementById("modalSubtitle")
-    .innerText = data.subtitle;
+  if (!title || !subtitle || !content || !modal) {
+    console.error("Modal elements not found.");
+    return;
+  }
+
+
+  title.innerText = data.title;
+
+  subtitle.innerText = data.subtitle;
 
 
   let html =
     '<div class="resource-grid">';
 
 
-  data.links.forEach(function(link) {
+  data.links.forEach(function(link, index) {
 
     html += `
 
       <a
         class="resource"
-        href="${link.url}"
+        href="${safeUrl(link.url)}"
         target="_blank"
         rel="noopener noreferrer"
+        style="animation-delay:${index * 50}ms"
       >
 
-        <i class="fa-solid ${link.icon}"></i>
+        <i class="fa-solid ${escapeHtml(link.icon)}"></i>
 
         <span>
-          ${link.name}
+          ${escapeHtml(link.name)}
         </span>
 
       </a>
@@ -365,12 +373,12 @@ function openPanel(category) {
   html += "</div>";
 
 
-  document.getElementById("modalContent")
-    .innerHTML = html;
+  content.innerHTML = html;
 
 
-  document.getElementById("modal")
-    .classList.add("show");
+  modal.classList.add("show");
+
+  document.body.classList.add("modal-open");
 
 }
 
@@ -379,20 +387,26 @@ function openPanel(category) {
    DIRECT LINK
 ========================================= */
 
-
 function openLink(category) {
 
   const data =
     GGL_LINKS[category];
 
-  if (!data || !data.links.length) return;
+  if (!data || !data.links.length) {
+    return;
+  }
 
 
   const url =
     data.links[0].url;
 
 
-  if (url === "#") {
+  /*
+     If URL is not configured,
+     open the category panel.
+  */
+
+  if (!url || url === "#") {
 
     openPanel(category);
 
@@ -403,7 +417,8 @@ function openLink(category) {
 
   window.open(
     url,
-    "_blank"
+    "_blank",
+    "noopener,noreferrer"
   );
 
 }
@@ -413,18 +428,30 @@ function openLink(category) {
    CLOSE MODAL
 ========================================= */
 
-
 function closeModal() {
 
-  document.getElementById("modal")
-    .classList.remove("show");
+  const modal =
+    document.getElementById("modal");
+
+
+  if (!modal) return;
+
+
+  modal.classList.remove("show");
+
+  document.body.classList.remove("modal-open");
 
 }
 
 
+/* =========================================
+   CLOSE MODAL OUTSIDE
+========================================= */
+
 function closeModalOutside(event) {
 
   if (
+    event.target &&
     event.target.id === "modal"
   ) {
 
@@ -436,34 +463,58 @@ function closeModalOutside(event) {
 
 
 /* =========================================
-   SEARCH
+   FAST LIVE SEARCH
+   RUNS ON EVERY LETTER
 ========================================= */
-
 
 function searchPortal() {
 
-  const input =
-    document.getElementById("searchInput")
-      .value
-      .toLowerCase()
-      .trim();
-
+  const inputElement =
+    document.getElementById("searchInput");
 
   const results =
     document.getElementById("searchResults");
 
 
+  if (!inputElement || !results) {
+    return;
+  }
+
+
+  const input =
+    inputElement.value
+      .toLowerCase()
+      .trim();
+
+
+  /*
+     Clear results when search is empty.
+  */
+
   if (!input) {
 
     results.innerHTML = "";
+
+    results.classList.remove(
+      "search-active"
+    );
 
     return;
 
   }
 
 
+  results.classList.add(
+    "search-active"
+  );
+
+
   let matches = [];
 
+
+  /*
+     SEARCH ALL CATEGORIES
+  */
 
   Object.keys(GGL_LINKS)
     .forEach(function(category) {
@@ -474,17 +525,22 @@ function searchPortal() {
 
       data.links.forEach(function(link) {
 
-        const searchable =
-          (
-            category +
-            " " +
-            data.title +
-            " " +
-            data.subtitle +
-            " " +
-            link.name
-          ).toLowerCase();
+        const searchable = (
 
+          category + " " +
+
+          data.title + " " +
+
+          data.subtitle + " " +
+
+          link.name
+
+        ).toLowerCase();
+
+
+        /*
+           Every-letter live matching
+        */
 
         if (
           searchable.includes(input)
@@ -502,7 +558,10 @@ function searchPortal() {
               link.icon,
 
             url:
-              link.url
+              link.url,
+
+            searchable:
+              searchable
 
           });
 
@@ -513,13 +572,21 @@ function searchPortal() {
     });
 
 
+  /*
+     NO RESULTS
+  */
+
   if (!matches.length) {
 
     results.innerHTML = `
 
       <div class="search-result-empty">
 
-        No matching resource found.
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <span>
+          No matching resource found
+        </span>
 
       </div>
 
@@ -530,41 +597,51 @@ function searchPortal() {
   }
 
 
+  /*
+     BUILD RESULTS
+  */
+
   let html = "";
 
 
-  matches.forEach(function(match) {
+  matches.forEach(
+    function(match, index) {
 
-    html += `
+      html += `
 
-      <a
-        class="resource"
-        href="${match.url}"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+        <a
+          class="resource search-result"
+          href="${safeUrl(match.url)}"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="animation-delay:${index * 35}ms"
+        >
 
-        <i class="fa-solid ${match.icon}"></i>
+          <i class="fa-solid ${escapeHtml(match.icon)}"></i>
 
-        <div>
+          <div>
 
-          <strong>
-            ${match.name}
-          </strong>
+            <strong>
+              ${highlightText(
+                match.name,
+                input
+              )}
+            </strong>
 
-          <br>
+            <br>
 
-          <small>
-            ${match.category}
-          </small>
+            <small>
+              ${escapeHtml(match.category)}
+            </small>
 
-        </div>
+          </div>
 
-      </a>
+        </a>
 
-    `;
+      `;
 
-  });
+    }
+  );
 
 
   results.innerHTML = `
@@ -581,20 +658,144 @@ function searchPortal() {
 
 
 /* =========================================
+   HIGHLIGHT SEARCH TEXT
+========================================= */
+
+function highlightText(
+  text,
+  search
+) {
+
+  const safeText =
+    escapeHtml(text);
+
+
+  if (!search) {
+    return safeText;
+  }
+
+
+  const safeSearch =
+    escapeRegExp(search);
+
+
+  const regex =
+    new RegExp(
+      "(" + safeSearch + ")",
+      "gi"
+    );
+
+
+  return safeText.replace(
+    regex,
+    "<mark>$1</mark>"
+  );
+
+}
+
+
+/* =========================================
+   ESCAPE REGEX
+========================================= */
+
+function escapeRegExp(value) {
+
+  return String(value)
+    .replace(
+      /[.*+?^${}()|[\]\\]/g,
+      "\\$&"
+    );
+
+}
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHtml(value) {
+
+  return String(value ?? "")
+    .replace(
+      /&/g,
+      "&amp;"
+    )
+    .replace(
+      /</g,
+      "&lt;"
+    )
+    .replace(
+      />/g,
+      "&gt;"
+    )
+    .replace(
+      /"/g,
+      "&quot;"
+    )
+    .replace(
+      /'/g,
+      "&#039;"
+    );
+
+}
+
+
+/* =========================================
+   SAFE URL
+========================================= */
+
+function safeUrl(url) {
+
+  if (!url) {
+    return "#";
+  }
+
+
+  const value =
+    String(url).trim();
+
+
+  /*
+     Allow normal web URLs,
+     Google URLs and internal HTTP/HTTPS URLs.
+  */
+
+  if (
+    value === "#" ||
+    value.startsWith("https://") ||
+    value.startsWith("http://")
+  ) {
+
+    return escapeHtml(value);
+
+  }
+
+
+  return "#";
+
+}
+
+
+/* =========================================
    DATE
 ========================================= */
 
-
 function setDate() {
+
+  const dateElement =
+    document.getElementById(
+      "currentDate"
+    );
+
+
+  if (!dateElement) return;
+
 
   const date =
     new Date();
 
 
-  document.getElementById(
-    "currentDate"
-  ).innerText =
-
+  dateElement.innerText =
     date.toLocaleDateString(
       "en-IN",
       {
@@ -611,38 +812,134 @@ function setDate() {
    DARK MODE
 ========================================= */
 
-
 function toggleTheme() {
 
   document.body
     .classList
     .toggle("dark");
 
+
+  /*
+     Remember user's preference
+  */
+
+  const isDark =
+    document.body.classList.contains(
+      "dark"
+    );
+
+
+  localStorage.setItem(
+    "ggl-theme",
+    isDark ? "dark" : "light"
+  );
+
 }
 
 
 /* =========================================
-   KEYBOARD SEARCH
+   LOAD SAVED THEME
 ========================================= */
 
+function loadTheme() {
+
+  const savedTheme =
+    localStorage.getItem(
+      "ggl-theme"
+    );
+
+
+  if (savedTheme === "dark") {
+
+    document.body
+      .classList
+      .add("dark");
+
+  }
+
+}
+
+
+/* =========================================
+   KEYBOARD SHORTCUTS
+========================================= */
 
 document.addEventListener(
   "keydown",
   function(event) {
 
+    const activeElement =
+      document.activeElement;
+
+
+    /*
+       "/" = Search
+    */
+
     if (
+
       event.key === "/" &&
-      document.activeElement.tagName !== "INPUT"
+
+      activeElement &&
+      activeElement.tagName !== "INPUT" &&
+
+      activeElement.tagName !== "TEXTAREA"
+
     ) {
 
       event.preventDefault();
 
-      document.getElementById(
-        "searchInput"
-      ).focus();
+
+      const search =
+        document.getElementById(
+          "searchInput"
+        );
+
+
+      if (search) {
+
+        search.focus();
+
+      }
 
     }
 
+
+    /*
+       CTRL + K = Search
+    */
+
+    if (
+
+      (event.ctrlKey || event.metaKey) &&
+
+      event.key.toLowerCase() === "k"
+
+    ) {
+
+      event.preventDefault();
+
+
+      const search =
+        document.getElementById(
+          "searchInput"
+        );
+
+
+      if (search) {
+
+        search.focus();
+
+        search.select();
+
+      }
+
+    }
+
+
+    /*
+       ESC = Close modal
+    */
 
     if (
       event.key === "Escape"
@@ -657,8 +954,126 @@ document.addEventListener(
 
 
 /* =========================================
+   SEARCH INPUT SETUP
+   IMPORTANT:
+   Search fires on EVERY LETTER
+========================================= */
+
+function setupSearch() {
+
+  const searchInput =
+    document.getElementById(
+      "searchInput"
+    );
+
+
+  if (!searchInput) {
+
+    console.warn(
+      "searchInput not found"
+    );
+
+    return;
+
+  }
+
+
+  /*
+     Remove inline dependency.
+
+     This means search works even if
+     oninput="searchPortal()" is missing.
+  */
+
+  searchInput.addEventListener(
+    "input",
+    searchPortal
+  );
+
+
+  /*
+     Prevent form submission
+  */
+
+  searchInput.addEventListener(
+    "keydown",
+    function(event) {
+
+      if (
+        event.key === "Enter"
+      ) {
+
+        event.preventDefault();
+
+      }
+
+    }
+  );
+
+}
+
+
+/* =========================================
+   MODAL SETUP
+========================================= */
+
+function setupModal() {
+
+  const modal =
+    document.getElementById(
+      "modal"
+    );
+
+
+  if (!modal) return;
+
+
+  modal.addEventListener(
+    "click",
+    closeModalOutside
+  );
+
+}
+
+
+/* =========================================
+   START PORTAL
+========================================= */
+
+function startPortal() {
+
+  setDate();
+
+  loadTheme();
+
+  setupSearch();
+
+  setupModal();
+
+
+  console.log(
+    "GGL Main Portal ready."
+  );
+
+}
+
+
+/* =========================================
    START
 ========================================= */
 
+if (
+  document.readyState === "loading"
+) {
 
-setDate();
+  document.addEventListener(
+    "DOMContentLoaded",
+    startPortal
+  );
+
+}
+else {
+
+  startPortal();
+
+}
