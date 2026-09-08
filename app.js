@@ -12,7 +12,7 @@ const GGL_LINKS = {
     links: [
       {
         name: "GGL ERP",
-        url: "#",
+        url: "https://gaerish.mylogisys.com/Login",
         icon: "fa-desktop"
       }
     ]
@@ -28,19 +28,19 @@ const GGL_LINKS = {
 
       {
         name: "Sea Export",
-        url: "#",
+        url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=2105414371#gid=2105414371",
         icon: "fa-table"
       },
 
       {
         name: "Air Export",
-        url: "#",
+        url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=486617436#gid=486617436",
         icon: "fa-plane"
       },
 
       {
-        name: "Pharma",
-        url: "#",
+        name: "NAP",
+        url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=570041459#gid=570041459",
         icon: "fa-prescription-bottle-medical"
       },
 
