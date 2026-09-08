@@ -1,0 +1,27 @@
+{
+  "ERP": {
+    "title": "ERP",
+    "subtitle": "Operations & business management",
+    "links": [
+      {
+        "name": "GGL ERP",
+        "url": "https://example.com",
+        "icon": "fa-desktop",
+        "keywords": "erp operations"
+      }
+    ]
+  },
+
+  "LINERS": {
+    "title": "LINERS",
+    "subtitle": "Shipping line portals",
+    "links": [
+      {
+        "name": "Maersk",
+        "url": "https://www.maersk.com",
+        "icon": "fa-ship",
+        "keywords": "liner shipping vessel container"
+      }
+    ]
+  }
+}
