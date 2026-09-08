@@ -4,7 +4,7 @@
 ========================================= */
 
 
-const GGL_LINKS = {
+const API_URL = "YOUR_APPS_SCRIPT_URL";  let GGL_LINKS = {};  async function loadLinks() {      const response = await fetch(API_URL);      const data = await response.json();      GGL_LINKS = {};      data.forEach(item => {          if (!GGL_LINKS[item.category]) {             GGL_LINKS[item.category] = [];         }          GGL_LINKS[item.category].push({             name: item.name,             description: item.description,             url: item.url         });      });  }
 
   ERP: {
     title: "ERP",
