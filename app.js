@@ -1087,6 +1087,7 @@ function setupModal() {
 
 /* =========================================
    WELCOME / LOADING SCREEN
+   FAIL-SAFE
 ========================================= */
 
 function hideWelcomeScreen() {
@@ -1096,19 +1097,52 @@ function hideWelcomeScreen() {
 
   if (!welcomeScreen) return;
 
+  // Always hide after 2.5 seconds
   setTimeout(function () {
 
     welcomeScreen.classList.add("hide");
 
+    // Completely remove it after animation
     setTimeout(function () {
 
-      welcomeScreen.remove();
+      if (welcomeScreen) {
+        welcomeScreen.remove();
+      }
 
     }, 900);
 
-  }, 2600);
-
+  }, 2500);
 }
+
+
+/*
+   FAIL-SAFE:
+   Even if another JavaScript function has an error,
+   the loading screen will disappear.
+*/
+
+window.addEventListener("load", function () {
+
+  setTimeout(function () {
+
+    const screen =
+      document.getElementById("welcomeScreen");
+
+    if (screen) {
+
+      screen.classList.add("hide");
+
+      setTimeout(function () {
+
+        screen.remove();
+
+      }, 900);
+
+    }
+
+  }, 3000);
+
+});
 
 
 /* =========================================
