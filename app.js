@@ -11,12 +11,12 @@ const GGL_LINKS = {
 
     links: [
       {
-        name: "GGL ERP",
+        name: "GGL ERP Logisys",
         url: "https://gaerish.mylogisys.com/Login",
         icon: "fa-uikit"
       },
       {
-        name: "GGD ERP",
+        name: "GGL ERP Sentinel",
         url: "https://gaerish.mylogisys.com/Login",
         icon: "fa-gun"
       }
