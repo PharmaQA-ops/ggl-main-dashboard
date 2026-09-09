@@ -120,9 +120,9 @@ const GGL_LINKS = {
   },
 
 
-  WCA: {
+  Pricing: {
 
-    title: "WCA",
+    title: "Pricing",
     subtitle: "Global forwarding network",
 
     links: [
@@ -130,7 +130,7 @@ const GGL_LINKS = {
       {
         name: "WCA",
         url: "https://www.wcaworld.com/Home",
-        icon: "fa-globe"
+        icon: "fa-fa-circle-notch"
       }
 
     ]
