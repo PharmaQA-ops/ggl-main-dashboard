@@ -98,6 +98,16 @@ const GGL_LINKS = {
         name: "Gaerish Logistics",
         url: "https://www.gaerishlogistics.com/",
         icon: "fa-g"
+      },
+      {
+        name: "Gaerish Defence",
+        url: "https://www.gaerishdefence.com/",
+        icon: "fa-g"
+      },
+      {
+        name: "Gaerish E-trade",
+        url: "https://www.gaerishetrade.com/",
+        icon: "fa-g"
       }
 
     ]
