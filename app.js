@@ -1,320 +1,387 @@
 /* =========================================================
-   GGL MAIN BUSINESS PORTAL
+   GGL MAIN PORTAL
    GAERISH LOGISTICS PVT. LTD.
-========================================================= */
+   ========================================================= */
 
 
 /* =========================================================
    GGL RESOURCE DATABASE
-========================================================= */
+   ========================================================= */
 
 const GGL_LINKS = {
 
+    /* -----------------------------------------------------
+       ERP
+    ----------------------------------------------------- */
+
     ERP: [
         {
-            name: "GGL ERP - Logisys",
-            description: "Main ERP system for operations and business management",
+            name: "GGL ERP",
+            description: "Gaerish Logistics ERP system",
             url: "#",
-            keywords: "erp logisys operations shipment"
-        },
-        {
-            name: "GGL ERP - Sentinel",
-            description: "Sentinel ERP system",
-            url: "#",
-            keywords: "erp sentinel"
+            keywords: "erp system operations shipment logistics"
         }
     ],
 
+
+    /* -----------------------------------------------------
+       G-SHEETS
+    ----------------------------------------------------- */
 
     "G-SHEETS": [
         {
-            name: "Sea Export",
-            description: "Sea export operational sheets and dashboards",
+            name: "Sea Export Dashboard",
+            description: "Sea export operations dashboard",
             url: "#",
-            keywords: "sea export export shipping"
+            keywords: "sea export dashboard operations"
         },
+
         {
-            name: "Air Export",
-            description: "Air export operational sheets and dashboards",
+            name: "Air Export Dashboard",
+            description: "Air export operations dashboard",
             url: "#",
-            keywords: "air export export air freight"
+            keywords: "air export dashboard operations"
         },
+
         {
-            name: "Sea Import",
-            description: "Sea import operational sheets and dashboards",
+            name: "Pharma Dashboard",
+            description: "Pharma business dashboard",
             url: "#",
-            keywords: "sea import import shipping"
+            keywords: "pharma dashboard pharma logistics"
         },
+
         {
-            name: "Air Import",
-            description: "Air import operational sheets and dashboards",
+            name: "Management Dashboard",
+            description: "Management reporting dashboard",
             url: "#",
-            keywords: "air import import air freight"
-        },
-        {
-            name: "NAP",
-            description: "North American Project resources",
-            url: "#",
-            keywords: "nap north american project"
-        },
-        {
-            name: "Defence",
-            description: "Defence cargo operational resources",
-            url: "#",
-            keywords: "defence cargo defence"
+            keywords: "management dashboard MIS reports"
         }
     ],
 
+
+    /* -----------------------------------------------------
+       QMS
+    ----------------------------------------------------- */
 
     QMS: [
         {
             name: "GGL QMS",
             description: "Gaerish Logistics Quality Management System",
             url: "#",
-            keywords: "qms quality capa ncr audit compliance gdp"
+            keywords: "qms quality management capa ncr audit deviation"
         }
     ],
 
+
+    /* -----------------------------------------------------
+       WCA
+    ----------------------------------------------------- */
 
     WCA: [
         {
             name: "WCA World",
-            description: "Worldwide freight forwarding network",
+            description: "World Cargo Alliance",
             url: "https://www.wcaworld.com/",
-            keywords: "wca world network agents freight forwarding"
+            keywords: "wca world freight network agents"
         }
     ],
 
 
+    /* -----------------------------------------------------
+       LINERS
+    ----------------------------------------------------- */
+
     LINERS: [
+
         {
             name: "Maersk",
             description: "Maersk shipping line",
             url: "https://www.maersk.com/",
-            keywords: "maersk liner shipping carrier"
+            keywords: "maersk liner shipping container"
         },
+
         {
             name: "MSC",
-            description: "Mediterranean Shipping Company",
+            description: "MSC shipping line",
             url: "https://www.msc.com/",
-            keywords: "msc liner shipping carrier"
+            keywords: "msc liner shipping container"
         },
+
         {
             name: "CMA CGM",
             description: "CMA CGM shipping line",
             url: "https://www.cma-cgm.com/",
-            keywords: "cma cgm liner shipping carrier"
+            keywords: "cma cgm liner shipping container"
         },
+
         {
             name: "Hapag-Lloyd",
             description: "Hapag-Lloyd shipping line",
             url: "https://www.hapag-lloyd.com/",
-            keywords: "hapag lloyd liner shipping carrier"
+            keywords: "hapag lloyd liner shipping container"
         },
+
         {
             name: "ONE",
             description: "Ocean Network Express",
             url: "https://www.one-line.com/",
             keywords: "one ocean network express liner"
         },
+
         {
             name: "COSCO",
             description: "COSCO Shipping",
             url: "https://www.coscon.com/",
-            keywords: "cosco liner shipping carrier"
+            keywords: "cosco shipping liner container"
         },
+
         {
             name: "Evergreen",
             description: "Evergreen Marine",
             url: "https://www.evergreen-marine.com/",
-            keywords: "evergreen liner shipping carrier"
+            keywords: "evergreen marine liner container"
         },
+
         {
             name: "ZIM",
             description: "ZIM Integrated Shipping Services",
             url: "https://www.zim.com/",
-            keywords: "zim liner shipping carrier"
+            keywords: "zim liner shipping container"
         }
+
     ],
 
+
+    /* -----------------------------------------------------
+       DOCUMENTS
+    ----------------------------------------------------- */
 
     DOCUMENTS: [
+
         {
             name: "Google Drive",
-            description: "GGL company documents and shared files",
+            description: "GGL company documents",
             url: "#",
-            keywords: "google drive documents files"
+            keywords: "google drive documents files folders SOP policies"
         },
+
         {
-            name: "Policies",
-            description: "Company policies",
-            url: "#",
-            keywords: "policies policy"
-        },
-        {
-            name: "SOPs",
+            name: "SOP Library",
             description: "Standard Operating Procedures",
             url: "#",
-            keywords: "sop sops standard operating procedure"
+            keywords: "sop procedures quality GDP AEO"
         },
+
         {
-            name: "Work Instructions",
-            description: "Department work instructions",
+            name: "Company Documents",
+            description: "Company forms and documents",
             url: "#",
-            keywords: "work instruction wi"
-        },
-        {
-            name: "Forms & Formats",
-            description: "Company forms and formats",
-            url: "#",
-            keywords: "forms formats templates"
-        },
-        {
-            name: "Manuals",
-            description: "Company and department manuals",
-            url: "#",
-            keywords: "manual manuals"
+            keywords: "documents forms templates company"
         }
+
     ],
 
+
+    /* -----------------------------------------------------
+       HR
+    ----------------------------------------------------- */
 
     HR: [
+
         {
             name: "Keka",
-            description: "GGL HRMS and employee portal",
+            description: "Employee HR management system",
             url: "#",
-            keywords: "hr keka employee hrms payroll"
+            keywords: "keka hr human resources employee leave payroll"
         }
+
     ],
 
+
+    /* -----------------------------------------------------
+       IT
+    ----------------------------------------------------- */
 
     IT: [
+
         {
             name: "IT Support",
-            description: "IT support and assistance",
+            description: "IT systems and support resources",
             url: "#",
-            keywords: "it support helpdesk"
-        },
-        {
-            name: "IT Applications",
-            description: "Company IT applications",
-            url: "#",
-            keywords: "it applications software systems"
-        },
-        {
-            name: "IT Documents",
-            description: "IT policies and documents",
-            url: "#",
-            keywords: "it documents"
+            keywords: "IT support computer technology system"
         }
+
     ],
 
 
+    /* -----------------------------------------------------
+       GOVERNMENT
+    ----------------------------------------------------- */
+
     GOVERNMENT: [
+
         {
             name: "ICEGATE",
             description: "Indian Customs electronic gateway",
-            url: "#",
-            keywords: "icegate customs"
+            url: "https://www.icegate.gov.in/",
+            keywords: "icegate customs import export"
         },
+
         {
             name: "DGFT",
             description: "Directorate General of Foreign Trade",
-            url: "#",
-            keywords: "dgft export import government"
+            url: "https://www.dgft.gov.in/",
+            keywords: "dgft foreign trade license export import"
         },
+
         {
             name: "GST",
             description: "Goods and Services Tax portal",
-            url: "#",
+            url: "https://www.gst.gov.in/",
             keywords: "gst tax government"
-        },
-        {
-            name: "Customs",
-            description: "Customs resources and portals",
-            url: "#",
-            keywords: "customs government"
         }
+
     ],
 
+
+    /* -----------------------------------------------------
+       NETWORKS
+    ----------------------------------------------------- */
 
     NETWORKS: [
+
         {
             name: "WPA",
-            description: "Worldwide freight forwarding network",
+            description: "Worldwide Partners Alliance",
             url: "#",
-            keywords: "wpa network freight forwarding"
+            keywords: "wpa network freight forwarding agents"
         },
+
         {
             name: "OPEC",
-            description: "OPEC freight forwarding network",
+            description: "Freight forwarding network",
             url: "#",
-            keywords: "opec network freight forwarding"
-        },
-        {
-            name: "Other Networks",
-            description: "Other forwarding networks",
-            url: "#",
-            keywords: "other network agents forwarding"
+            keywords: "opec network agents freight"
         }
+
     ],
 
+
+    /* -----------------------------------------------------
+       WEBSITE
+    ----------------------------------------------------- */
 
     Website: [
+
         {
-            name: "Gaerish Logistics",
+            name: "Gaerish Logistics Website",
             description: "Official Gaerish Logistics website",
             url: "#",
-            keywords: "gaerish logistics website company"
+            keywords: "gaerish website company"
         },
+
         {
-            name: "Gaerish Defence",
-            description: "Gaerish Defence website",
-            url: "#",
-            keywords: "gaerish defence website"
-        },
-        {
-            name: "Gaerish E-Trade",
-            description: "Gaerish E-Trade website",
-            url: "#",
-            keywords: "gaerish etrade website"
+            name: "Live Tracking",
+            description: "Gaerish shipment live tracking",
+            url: "https://gaerish.logitrack.live/direct-tracking",
+            keywords: "tracking live shipment track container"
         }
+
     ],
 
 
-    Zoho: [
+    /* -----------------------------------------------------
+       SUGGESTION
+    ----------------------------------------------------- */
+
+    SUGGESTION: [
+
         {
-            name: "Zoho",
-            description: "GGL Zoho applications",
+            name: "Suggestion Box",
+            description: "Submit ideas and suggestions for improving GGL",
             url: "#",
-            keywords: "zoho crm mail applications"
+            keywords: "suggestion ideas improvement feedback innovation"
         }
+
+    ],
+
+
+    /* -----------------------------------------------------
+       SALES
+    ----------------------------------------------------- */
+
+    SALES: [
+
+        {
+            name: "Sales Resources",
+            description: "Sales tools, reports and business resources",
+            url: "#",
+            keywords: "sales customer business development leads prospects"
+        }
+
+    ],
+
+
+    /* -----------------------------------------------------
+       PRICING
+    ----------------------------------------------------- */
+
+    PRICING: [
+
+        {
+            name: "Pricing Resources",
+            description: "Rates, quotations and commercial resources",
+            url: "#",
+            keywords: "pricing quotation rates commercial tariff costing"
+        }
+
+    ],
+
+
+    /* -----------------------------------------------------
+       TOOLS & UTILITIES
+    ----------------------------------------------------- */
+
+    "TOOLS & UTILITIES": [
+
+        {
+            name: "GGL Tools",
+            description: "Useful business calculators and utilities",
+            url: "#",
+            keywords: "tools utilities calculator converter business"
+        }
+
     ]
 
 };
 
 
+
 /* =========================================================
-   OPEN CATEGORY DIRECTLY
-========================================================= */
+   OPEN FIRST RESOURCE
+   ========================================================= */
 
 function openLink(category) {
 
     const resources = GGL_LINKS[category];
 
     if (!resources || resources.length === 0) {
+
+        openPanel(category);
+
         return;
     }
 
-    const firstResource = resources[0];
 
-    if (
-        firstResource.url &&
-        firstResource.url !== "#"
-    ) {
+    const resource = resources.find(
+        item => item.url && item.url !== "#"
+    );
+
+
+    if (resource) {
 
         window.open(
-            firstResource.url,
+            resource.url,
             "_blank",
             "noopener,noreferrer"
         );
@@ -324,295 +391,236 @@ function openLink(category) {
         openPanel(category);
 
     }
+
 }
+
 
 
 /* =========================================================
    OPEN RESOURCE PANEL
-========================================================= */
+   ========================================================= */
 
 function openPanel(category) {
 
     const modal = document.getElementById("modal");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalSubtitle = document.getElementById("modalSubtitle");
-    const modalContent = document.getElementById("modalContent");
+    const title = document.getElementById("modalTitle");
+    const subtitle = document.getElementById("modalSubtitle");
+    const content = document.getElementById("modalContent");
 
-    if (!modal || !modalTitle || !modalContent) {
-        return;
-    }
-
-    const resources = GGL_LINKS[category];
-
-    if (!resources) {
-        return;
-    }
+    if (!modal || !content) return;
 
 
-    /* Title */
-
-    modalTitle.textContent = category;
+    const resources = GGL_LINKS[category] || [];
 
 
-    /* Subtitle */
+    title.textContent = category;
 
-    if (modalSubtitle) {
-
-        const subtitles = {
-            ERP: "Enterprise resource planning systems",
-            "G-SHEETS": "Operational sheets & dashboards",
-            QMS: "Quality management system",
-            WCA: "Global forwarding network",
-            LINERS: "Shipping lines & carrier portals",
-            DOCUMENTS: "Company documents and resources",
-            HR: "Human resources systems",
-            IT: "IT systems and support",
-            GOVERNMENT: "Government & regulatory portals",
-            NETWORKS: "Freight forwarding networks",
-            Website: "Gaerish Logistics websites",
-            Zoho: "Zoho applications"
-        };
-
-        modalSubtitle.textContent =
-            subtitles[category] || "Access resources";
-    }
+    subtitle.textContent =
+        resources.length +
+        (resources.length === 1
+            ? " resource available"
+            : " resources available");
 
 
-    /* Clear old content */
-
-    modalContent.innerHTML = "";
+    content.innerHTML = "";
 
 
-    /* Create resource items */
+    if (resources.length === 0) {
 
-    resources.forEach((resource) => {
+        content.innerHTML = `
+            <div class="empty-state">
+                <i class="fa-solid fa-circle-info"></i>
+                <h3>No resources configured</h3>
+                <p>This section is ready for resources to be added.</p>
+            </div>
+        `;
 
-        const item = document.createElement("div");
+    } else {
 
-        item.className = "modal-resource";
+        resources.forEach(resource => {
 
+            const item = document.createElement("div");
 
-        /* Icon */
-
-        const icon = document.createElement("div");
-
-        icon.className = "modal-resource-icon";
-
-        icon.innerHTML = getResourceIcon(
-            category,
-            resource.name
-        );
+            item.className = "modal-resource";
 
 
-        /* Info */
-
-        const info = document.createElement("div");
-
-        info.className = "modal-resource-info";
-
-
-        const name = document.createElement("h3");
-
-        name.textContent = resource.name;
-
-
-        const description = document.createElement("p");
-
-        description.textContent =
-            resource.description || "";
-
-
-        info.appendChild(name);
-        info.appendChild(description);
-
-
-        /* Arrow */
-
-        const arrow = document.createElement("i");
-
-        arrow.className =
-            "fa-solid fa-arrow-up-right-from-square modal-resource-arrow";
-
-
-        item.appendChild(icon);
-        item.appendChild(info);
-        item.appendChild(arrow);
-
-
-        /* Click */
-
-        item.addEventListener("click", function () {
-
-            if (
+            const isConfigured =
                 resource.url &&
-                resource.url !== "#"
-            ) {
+                resource.url !== "#";
 
-                window.open(
-                    resource.url,
-                    "_blank",
-                    "noopener,noreferrer"
-                );
 
-            } else {
+            item.innerHTML = `
 
-                alert(
-                    `${resource.name} link is not configured yet.`
-                );
+                <div class="resource-icon">
 
-            }
+                    <i class="${getResourceIcon(category)}"></i>
+
+                </div>
+
+
+                <div class="resource-info">
+
+                    <h3>
+                        ${escapeHtml(resource.name)}
+                    </h3>
+
+                    <p>
+                        ${escapeHtml(resource.description || "")}
+                    </p>
+
+                </div>
+
+
+                <div class="resource-action">
+
+                    ${
+                        isConfigured
+                            ? `
+                                <button
+                                    type="button"
+                                    onclick="openResource('${encodeURIComponent(resource.url)}')"
+                                >
+                                    Open
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </button>
+                              `
+                            : `
+                                <span class="not-configured">
+                                    Coming soon
+                                </span>
+                              `
+                    }
+
+                </div>
+
+            `;
+
+
+            content.appendChild(item);
 
         });
 
+    }
 
-        modalContent.appendChild(item);
-
-    });
-
-
-    /* Show modal */
 
     modal.classList.add("show");
 
     document.body.classList.add("modal-open");
+
 }
+
+
+
+/* =========================================================
+   OPEN RESOURCE FROM MODAL
+   ========================================================= */
+
+function openResource(encodedUrl) {
+
+    const url = decodeURIComponent(encodedUrl);
+
+    if (!url || url === "#") return;
+
+
+    window.open(
+        url,
+        "_blank",
+        "noopener,noreferrer"
+    );
+
+}
+
 
 
 /* =========================================================
    RESOURCE ICONS
-========================================================= */
+   ========================================================= */
 
-function getResourceIcon(category, name) {
+function getResourceIcon(category) {
 
-    const lowerName =
-        name.toLowerCase();
+    const icons = {
 
+        ERP: "fa-solid fa-desktop",
 
-    if (category === "LINERS") {
+        "G-SHEETS": "fa-solid fa-table",
 
-        return '<i class="fa-solid fa-ship"></i>';
+        QMS: "fa-solid fa-shield-halved",
 
-    }
+        WCA: "fa-solid fa-globe",
 
-    if (category === "WCA") {
+        LINERS: "fa-solid fa-ship",
 
-        return '<i class="fa-solid fa-globe"></i>';
+        DOCUMENTS: "fa-solid fa-folder-open",
 
-    }
+        HR: "fa-solid fa-users",
 
-    if (category === "ERP") {
+        IT: "fa-solid fa-computer",
 
-        return '<i class="fa-solid fa-desktop"></i>';
+        GOVERNMENT: "fa-solid fa-building-columns",
 
-    }
+        NETWORKS: "fa-solid fa-network-wired",
 
-    if (category === "G-SHEETS") {
+        Website: "fa-solid fa-globe",
 
-        return '<i class="fa-solid fa-table"></i>';
+        SUGGESTION: "fa-solid fa-lightbulb",
 
-    }
+        SALES: "fa-solid fa-chart-line",
 
-    if (category === "QMS") {
+        PRICING: "fa-solid fa-tags",
 
-        return '<i class="fa-solid fa-shield-halved"></i>';
+        "TOOLS & UTILITIES":
+            "fa-solid fa-screwdriver-wrench"
 
-    }
-
-    if (category === "DOCUMENTS") {
-
-        if (lowerName.includes("drive")) {
-            return '<i class="fa-brands fa-google-drive"></i>';
-        }
-
-        if (lowerName.includes("sop")) {
-            return '<i class="fa-solid fa-file-lines"></i>';
-        }
-
-        return '<i class="fa-solid fa-folder-open"></i>';
-    }
-
-    if (category === "HR") {
-
-        return '<i class="fa-solid fa-users"></i>';
-
-    }
-
-    if (category === "IT") {
-
-        return '<i class="fa-solid fa-computer"></i>';
-
-    }
-
-    if (category === "GOVERNMENT") {
-
-        return '<i class="fa-solid fa-building-columns"></i>';
-
-    }
-
-    if (category === "NETWORKS") {
-
-        return '<i class="fa-solid fa-network-wired"></i>';
-
-    }
-
-    if (category === "Website") {
-
-        return '<i class="fa-solid fa-globe"></i>';
-
-    }
-
-    if (category === "Zoho") {
-
-        return '<i class="fa-solid fa-cloud"></i>';
-
-    }
+    };
 
 
-    return '<i class="fa-solid fa-link"></i>';
+    return icons[category] ||
+           "fa-solid fa-link";
+
 }
+
 
 
 /* =========================================================
    CLOSE MODAL
-========================================================= */
+   ========================================================= */
 
 function closeModal() {
 
-    const modal =
-        document.getElementById("modal");
+    const modal = document.getElementById("modal");
 
-    if (!modal) {
-        return;
-    }
+    if (!modal) return;
+
 
     modal.classList.remove("show");
 
     document.body.classList.remove("modal-open");
+
 }
+
 
 
 /* =========================================================
    CLOSE MODAL WHEN CLICKING OUTSIDE
-========================================================= */
+   ========================================================= */
 
 function closeModalOutside(event) {
 
-    if (
-        event.target &&
-        event.target.id === "modal"
-    ) {
+    if (event.target.id === "modal") {
 
         closeModal();
 
     }
+
 }
 
 
-/* =========================================================
-   SEARCH
-========================================================= */
 
-function searchPortal(query) {
+/* =========================================================
+   SEARCH PORTAL
+   ========================================================= */
+
+function searchPortal() {
 
     const input =
         document.getElementById("searchInput");
@@ -621,53 +629,36 @@ function searchPortal(query) {
         document.getElementById("searchResults");
 
 
-    /* Support both direct calls and input events */
-
-    if (
-        typeof query !== "string" &&
-        input
-    ) {
-
-        query = input.value;
-
-    }
+    if (!input || !results) return;
 
 
-    query =
-        (query || "").trim();
+    const query =
+        input.value.trim().toLowerCase();
 
 
-    if (!results) {
-        return;
-    }
+    results.innerHTML = "";
 
+    results.dataset.hasMatches = "false";
 
-    /* Empty search */
 
     if (!query) {
 
-        results.innerHTML = "";
-
         results.classList.remove("show");
 
-        results.dataset.hasMatches = "false";
-
         return;
+
     }
-
-
-    const searchTerm =
-        query.toLowerCase();
 
 
     const matches = [];
 
 
-    /* Search all categories */
+    Object.keys(GGL_LINKS).forEach(category => {
 
-    Object.keys(GGL_LINKS).forEach((category) => {
+        const resources = GGL_LINKS[category] || [];
 
-        GGL_LINKS[category].forEach((resource) => {
+
+        resources.forEach(resource => {
 
             const searchableText = [
 
@@ -684,13 +675,13 @@ function searchPortal(query) {
                 .toLowerCase();
 
 
-            if (
-                searchableText.includes(searchTerm)
-            ) {
+            if (searchableText.includes(query)) {
 
                 matches.push({
-                    category: category,
-                    resource: resource
+
+                    category,
+                    resource
+
                 });
 
             }
@@ -700,169 +691,254 @@ function searchPortal(query) {
     });
 
 
-    /* Clear previous results */
+    /* -----------------------------------------------------
+       ALSO SEARCH CATEGORY NAMES
+    ----------------------------------------------------- */
 
-    results.innerHTML = "";
+    Object.keys(GGL_LINKS).forEach(category => {
 
+        if (
+            category
+                .toLowerCase()
+                .includes(query)
+        ) {
 
-    /* Matches found */
-
-    if (matches.length > 0) {
-
-        results.dataset.hasMatches = "true";
-
-        results.classList.add("show");
-
-
-        matches
-            .slice(0, 10)
-            .forEach((match) => {
-
-                const result =
-                    document.createElement("div");
-
-                result.className =
-                    "search-result";
-
-
-                const icon =
-                    document.createElement("div");
-
-                icon.className =
-                    "search-result-icon";
-
-                icon.innerHTML =
-                    getResourceIcon(
-                        match.category,
-                        match.resource.name
-                    );
-
-
-                const info =
-                    document.createElement("div");
-
-                info.className =
-                    "search-result-info";
-
-
-                const title =
-                    document.createElement("strong");
-
-                title.innerHTML =
-                    highlightText(
-                        match.resource.name,
-                        query
-                    );
-
-
-                const description =
-                    document.createElement("span");
-
-                description.innerHTML =
-                    highlightText(
-                        match.resource.description,
-                        query
-                    );
-
-
-                const category =
-                    document.createElement("small");
-
-                category.textContent =
-                    match.category;
-
-
-                info.appendChild(title);
-                info.appendChild(description);
-                info.appendChild(category);
-
-
-                result.appendChild(icon);
-                result.appendChild(info);
-
-
-                result.addEventListener(
-                    "click",
-                    function () {
-
-                        const resource =
-                            match.resource;
-
-
-                        if (
-                            resource.url &&
-                            resource.url !== "#"
-                        ) {
-
-                            window.open(
-                                resource.url,
-                                "_blank",
-                                "noopener,noreferrer"
-                            );
-
-                        } else {
-
-                            openPanel(
-                                match.category
-                            );
-
-                        }
-
-                        results.classList.remove("show");
-
-                    }
+            const alreadyExists =
+                matches.some(
+                    match =>
+                        match.category === category
                 );
 
 
-                results.appendChild(result);
+            if (!alreadyExists) {
 
-            });
+                matches.push({
+
+                    category,
+
+                    resource: {
+
+                        name: category,
+
+                        description:
+                            "Open " +
+                            category +
+                            " resources",
+
+                        url: "#"
+
+                    }
+
+                });
+
+            }
+
+        }
+
+    });
 
 
-    } else {
+    /* -----------------------------------------------------
+       NO RESULTS
+    ----------------------------------------------------- */
 
-        /* No internal result */
+    if (matches.length === 0) {
 
-        results.dataset.hasMatches = "false";
+        results.innerHTML = `
 
-        results.classList.add("show");
+            <div class="search-no-result">
 
+                <i class="fa-brands fa-google"></i>
 
-        const noResult =
-            document.createElement("div");
+                <div>
 
-        noResult.className =
-            "search-no-result";
+                    <strong>
+                        Search Google
+                    </strong>
 
+                    <span>
+                        Press Enter to search the web
+                    </span>
 
-        noResult.innerHTML = `
+                </div>
 
-            <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-arrow-up-right-from-square"></i>
 
-            <div>
-                <strong>No GGL resource found</strong>
-                <span>Press Enter to search Google</span>
             </div>
 
         `;
 
 
-        results.appendChild(noResult);
+        results.classList.add("show");
+
+        results.dataset.hasMatches = "false";
+
+
+        results.querySelector(
+            ".search-no-result"
+        ).addEventListener(
+            "click",
+            () => openGoogleSearch(query)
+        );
+
+
+        return;
 
     }
+
+
+
+    /* -----------------------------------------------------
+       LIMIT RESULTS
+    ----------------------------------------------------- */
+
+    const limitedMatches =
+        matches.slice(0, 10);
+
+
+    results.dataset.hasMatches = "true";
+
+
+    limitedMatches.forEach(match => {
+
+        const result = document.createElement("div");
+
+        result.className = "search-result";
+
+
+        const icon =
+            getResourceIcon(match.category);
+
+
+        result.innerHTML = `
+
+            <div class="search-result-icon">
+
+                <i class="${icon}"></i>
+
+            </div>
+
+
+            <div class="search-result-info">
+
+                <strong>
+                    ${highlightText(
+                        match.resource.name,
+                        query
+                    )}
+                </strong>
+
+                <span>
+
+                    ${escapeHtml(
+                        match.resource.description || ""
+                    )}
+
+                    ·
+
+                    ${escapeHtml(
+                        match.category
+                    )}
+
+                </span>
+
+            </div>
+
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        `;
+
+
+        result.addEventListener(
+            "click",
+            () => {
+
+                if (
+                    match.resource.url &&
+                    match.resource.url !== "#"
+                ) {
+
+                    window.open(
+                        match.resource.url,
+                        "_blank",
+                        "noopener,noreferrer"
+                    );
+
+                } else {
+
+                    openPanel(match.category);
+
+                }
+
+
+                results.classList.remove("show");
+
+                input.value = match.resource.name;
+
+            }
+        );
+
+
+        results.appendChild(result);
+
+    });
+
+
+    results.classList.add("show");
 
 }
 
 
+
 /* =========================================================
-   SEARCH KEYBOARD
-========================================================= */
+   GOOGLE SEARCH
+   ========================================================= */
+
+function openGoogleSearch(query) {
+
+    if (!query) return;
+
+
+    const googleUrl =
+        "https://www.google.com/search?q=" +
+        encodeURIComponent(query);
+
+
+    /*
+       Anchor-click method is more reliable than
+       window.open() in some browsers.
+    */
+
+    const link =
+        document.createElement("a");
+
+
+    link.href = googleUrl;
+
+    link.target = "_blank";
+
+    link.rel =
+        "noopener noreferrer";
+
+
+    document.body.appendChild(link);
+
+    link.click();
+
+    link.remove();
+
+}
+
+
+
+/* =========================================================
+   SEARCH ENTER KEY
+   ========================================================= */
 
 function handleSearchKey(event) {
 
-    if (event.key !== "Enter") {
-        return;
-    }
+    if (event.key !== "Enter") return;
 
 
     const input =
@@ -872,97 +948,98 @@ function handleSearchKey(event) {
         document.getElementById("searchResults");
 
 
-    if (!input) {
-        return;
-    }
+    if (!input) return;
 
 
     const query =
         input.value.trim();
 
 
-    if (!query) {
-        return;
-    }
+    if (!query) return;
 
 
-    const hasMatches =
+    event.preventDefault();
+
+
+    /*
+       If GGL has an exact/local result,
+       open the first result.
+    */
+
+    if (
         results &&
-        results.dataset.hasMatches === "true";
+        results.dataset.hasMatches === "true"
+    ) {
 
-
-    /* Internal result */
-
-    if (hasMatches) {
-
-        const firstResult =
+        const first =
             results.querySelector(
                 ".search-result"
             );
 
 
-        if (firstResult) {
+        if (first) {
 
-            firstResult.click();
+            first.click();
+
+            return;
 
         }
 
-        return;
     }
 
 
-    /* Google fallback */
+    /*
+       No GGL result:
+       Search Google.
+    */
 
-    const googleUrl =
-        "https://www.google.com/search?q=" +
-        encodeURIComponent(query);
-
-
-    window.open(
-        googleUrl,
-        "_blank",
-        "noopener,noreferrer"
-    );
+    openGoogleSearch(query);
 
 }
 
 
+
 /* =========================================================
-   SEARCH TEXT HIGHLIGHT
-========================================================= */
+   HIGHLIGHT SEARCH TEXT
+   ========================================================= */
 
 function highlightText(text, query) {
 
-    if (!text) {
-        return "";
-    }
+    if (!text) return "";
+
 
     const safeText =
         escapeHtml(text);
 
-    const safeQuery =
-        escapeRegExp(query);
+
+    if (!query) return safeText;
 
 
-    if (!safeQuery) {
-        return safeText;
-    }
+    const regex =
+        new RegExp(
+            "(" +
+            escapeRegExp(query) +
+            ")",
+            "gi"
+        );
 
 
     return safeText.replace(
-        new RegExp(`(${safeQuery})`, "gi"),
+        regex,
         "<mark>$1</mark>"
     );
+
 }
+
 
 
 /* =========================================================
    ESCAPE HTML
-========================================================= */
+   ========================================================= */
 
 function escapeHtml(value) {
 
-    return String(value)
+    return String(value ?? "")
         .replace(/&/g, "&amp;")
         .replace(/</g, "&lt;")
         .replace(/>/g, "&gt;")
@@ -972,74 +1049,40 @@ function escapeHtml(value) {
 }
 
 
+
 /* =========================================================
    ESCAPE REGEX
-========================================================= */
+   ========================================================= */
 
 function escapeRegExp(value) {
 
-    return String(value)
-        .replace(
-            /[.*+?^${}()|[\]\\]/g,
-            "\\$&"
-        );
+    return value.replace(
+        /[.*+?^${}()|[\]\\]/g,
+        "\\$&"
+    );
 
 }
 
 
-/* =========================================================
-   SAFE URL
-========================================================= */
-
-function safeUrl(url) {
-
-    if (!url) {
-        return "#";
-    }
-
-    try {
-
-        const parsed =
-            new URL(url);
-
-        if (
-            parsed.protocol === "http:" ||
-            parsed.protocol === "https:"
-        ) {
-
-            return parsed.href;
-
-        }
-
-    } catch (error) {
-
-        return "#";
-
-    }
-
-    return "#";
-}
-
 
 /* =========================================================
-   DATE
-========================================================= */
+   CURRENT DATE
+   ========================================================= */
 
 function setDate() {
 
-    const dateElement =
+    const element =
         document.getElementById("currentDate");
 
-    if (!dateElement) {
-        return;
-    }
+
+    if (!element) return;
 
 
     const now =
         new Date();
 
 
-    dateElement.textContent =
+    element.textContent =
         now.toLocaleDateString(
             "en-IN",
             {
@@ -1053,9 +1096,68 @@ function setDate() {
 }
 
 
+
 /* =========================================================
-   THEME
+   WORLD CLOCK
 ========================================================= */
+
+function updateWorldClock() {
+
+    const cities = {
+
+        china:
+            "Asia/Shanghai",
+
+        usa:
+            "America/New_York",
+
+        france:
+            "Europe/Paris",
+
+        philippines:
+            "Asia/Manila"
+
+    };
+
+
+    Object.keys(cities).forEach(city => {
+
+        const element =
+            document.getElementById(
+                `clock-${city}`
+            );
+
+
+        if (!element) return;
+
+
+        element.textContent =
+            new Date().toLocaleTimeString(
+                "en-US",
+                {
+                    timeZone:
+                        cities[city],
+
+                    hour:
+                        "2-digit",
+
+                    minute:
+                        "2-digit",
+
+                    hour12:
+                        true
+                }
+            );
+
+    });
+
+}
+
+
+
+/* =========================================================
+   DARK / LIGHT MODE
+   ========================================================= */
 
 function toggleTheme() {
 
@@ -1072,7 +1174,9 @@ function toggleTheme() {
 
     localStorage.setItem(
         "ggl-theme",
-        isDark ? "dark" : "light"
+        isDark
+            ? "dark"
+            : "light"
     );
 
 
@@ -1081,9 +1185,10 @@ function toggleTheme() {
 }
 
 
+
 /* =========================================================
    UPDATE THEME ICON
-========================================================= */
+   ========================================================= */
 
 function updateThemeIcon() {
 
@@ -1093,9 +1198,7 @@ function updateThemeIcon() {
         );
 
 
-    if (!button) {
-        return;
-    }
+    if (!button) return;
 
 
     const isDark =
@@ -1119,9 +1222,10 @@ function updateThemeIcon() {
 }
 
 
+
 /* =========================================================
    LOAD SAVED THEME
-========================================================= */
+   ========================================================= */
 
 function loadTheme() {
 
@@ -1137,12 +1241,6 @@ function loadTheme() {
             "dark-mode"
         );
 
-    } else {
-
-        document.body.classList.remove(
-            "dark-mode"
-        );
-
     }
 
 
@@ -1151,18 +1249,20 @@ function loadTheme() {
 }
 
 
+
 /* =========================================================
    KEYBOARD SHORTCUTS
-========================================================= */
+   ========================================================= */
 
 function setupKeyboardShortcuts() {
 
     document.addEventListener(
         "keydown",
-        function (event) {
+        event => {
 
-
-            /* "/" → Search */
+            /*
+               "/" = focus search
+            */
 
             if (
                 event.key === "/" &&
@@ -1172,93 +1272,25 @@ function setupKeyboardShortcuts() {
 
                 event.preventDefault();
 
-                const input =
+
+                const search =
                     document.getElementById(
                         "searchInput"
                     );
 
 
-                if (input) {
+                if (search) {
 
-                    input.focus();
-
-                }
-
-            }
-
-
-            /* Ctrl + K → Search */
-
-            if (
-                event.ctrlKey &&
-                event.key.toLowerCase() === "k"
-            ) {
-
-                event.preventDefault();
-
-                const input =
-                    document.getElementById(
-                        "searchInput"
-                    );
-
-
-                if (input) {
-
-                    input.focus();
-
-                    input.select();
+                    search.focus();
 
                 }
 
             }
 
 
-            /* Escape → Close modal/search */
-
-            if (event.key === "Escape") {
-
-                closeModal();
-
-                const results =
-                    document.getElementById(
-                        "searchResults"
-                    );
-
-
-                if (results) {
-
-                    results.classList.remove(
-                        "show"
-                    );
-
-                }
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   MODAL SETUP
-========================================================= */
-
-function setupModal() {
-
-    const modal =
-        document.getElementById("modal");
-
-
-    if (!modal) {
-        return;
-    }
-
-
-    document.addEventListener(
-        "keydown",
-        function (event) {
+            /*
+               ESC = close modal
+            */
 
             if (event.key === "Escape") {
 
@@ -1272,9 +1304,10 @@ function setupModal() {
 }
 
 
+
 /* =========================================================
-   SEARCH SETUP
-========================================================= */
+   SEARCH EVENT SETUP
+   ========================================================= */
 
 function setupSearch() {
 
@@ -1284,28 +1317,61 @@ function setupSearch() {
         );
 
 
-    if (!input) {
-        return;
-    }
+    if (!input) return;
 
 
     input.addEventListener(
         "input",
-        function () {
-
-            searchPortal(
-                input.value
-            );
-
-        }
+        searchPortal
     );
 
 
     input.addEventListener(
         "keydown",
-        function (event) {
+        handleSearchKey
+    );
 
-            handleSearchKey(event);
+}
+
+
+
+/* =========================================================
+   CLICK OUTSIDE SEARCH RESULTS
+   ========================================================= */
+
+function setupSearchOutsideClick() {
+
+    document.addEventListener(
+        "click",
+        event => {
+
+            const searchContainer =
+                document.querySelector(
+                    ".search-container"
+                );
+
+            const results =
+                document.getElementById(
+                    "searchResults"
+                );
+
+
+            if (
+                !searchContainer ||
+                !results
+            ) return;
+
+
+            if (
+                !searchContainer.contains(event.target) &&
+                !results.contains(event.target)
+            ) {
+
+                results.classList.remove(
+                    "show"
+                );
+
+            }
 
         }
     );
@@ -1313,108 +1379,97 @@ function setupSearch() {
 }
 
 
+
 /* =========================================================
    WELCOME SCREEN
-========================================================= */
+   ========================================================= */
 
 function hideWelcomeScreen() {
 
-    const welcomeScreen =
+    const screen =
         document.getElementById(
             "welcomeScreen"
         );
 
 
-    if (!welcomeScreen) {
-        return;
-    }
+    if (!screen) return;
 
 
     setTimeout(
-        function () {
+        () => {
 
-            welcomeScreen.classList.add(
-                "hidden"
+            screen.classList.add(
+                "hide"
             );
 
 
             setTimeout(
-                function () {
+                () => {
 
-                    welcomeScreen.remove();
+                    screen.style.display =
+                        "none";
 
                 },
-                900
+                700
             );
 
         },
-        2500
+        1800
     );
 
 }
 
 
+
 /* =========================================================
    START PORTAL
-========================================================= */
+   ========================================================= */
 
 function startPortal() {
 
     setDate();
 
+    updateWorldClock();
+
     loadTheme();
 
     setupSearch();
 
-    setupModal();
+    setupSearchOutsideClick();
 
     setupKeyboardShortcuts();
 
     hideWelcomeScreen();
 
+
+    /*
+       World clock refresh
+    */
+
+    setInterval(
+        updateWorldClock,
+        1000
+    );
+
+
+    /*
+       Date refresh
+    */
+
+    setInterval(
+        setDate,
+        60000
+    );
+
 }
 
 
-/* =========================================================
-   PAGE LOAD
-========================================================= */
-
-window.addEventListener(
-    "load",
-    function () {
-
-        startPortal();
-
-    }
-);
-
 
 /* =========================================================
-   FAIL-SAFE
-========================================================= */
+   START WHEN PAGE LOADS
+   ========================================================= */
 
-setTimeout(
-    function () {
-
-        const welcomeScreen =
-            document.getElementById(
-                "welcomeScreen"
-            );
-
-
-        if (
-            welcomeScreen &&
-            !welcomeScreen.classList.contains(
-                "hidden"
-            )
-        ) {
-
-            welcomeScreen.classList.add(
-                "hidden"
-            );
-
-        }
-
-    },
-    6000
+document.addEventListener(
+    "DOMContentLoaded",
+    startPortal
 );
