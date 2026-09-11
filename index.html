@@ -10,19 +10,23 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>
-        GGL Main Business Portal
-    </title>
+    <title>GGL Main Business Portal</title>
 
 
-    <!-- Font Awesome -->
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     >
 
 
-    <!-- Main CSS -->
+    <!-- =====================================================
+         MAIN CSS
+    ====================================================== -->
+
     <link
         rel="stylesheet"
         href="style.css"
@@ -58,7 +62,7 @@
             </div>
 
 
-            <!-- COMPANY -->
+            <!-- COMPANY NAME -->
 
             <div class="welcome-company">
 
@@ -76,7 +80,7 @@
             </div>
 
 
-            <!-- WELCOME TEXT -->
+            <!-- WELCOME MESSAGE -->
 
             <div class="welcome-text">
 
@@ -85,7 +89,7 @@
             </div>
 
 
-            <!-- LOADING BAR -->
+            <!-- LOADING -->
 
             <div class="loading-container">
 
@@ -111,7 +115,7 @@
 
 
     <!-- =====================================================
-         MAIN CONTAINER
+         MAIN PORTAL
     ====================================================== -->
 
     <main class="main-container">
@@ -124,13 +128,14 @@
         <header class="hero">
 
 
+            <!-- TOP HEADER -->
+
             <div class="hero-top">
 
 
                 <!-- BRAND -->
 
                 <div class="brand">
-
 
                     <img
                         src="logo.png"
@@ -154,6 +159,7 @@
                 </div>
 
 
+
                 <!-- RIGHT SIDE -->
 
                 <div class="hero-actions">
@@ -169,11 +175,13 @@
                         class="theme-button"
                         onclick="toggleTheme()"
                         title="Toggle dark mode"
+                        aria-label="Toggle dark mode"
                     >
 
                         <i class="fa-solid fa-moon"></i>
 
                     </button>
+
 
                 </div>
 
@@ -201,18 +209,21 @@
                     id="searchInput"
                     placeholder="Search ERP, Sheets, WCA, Liners, Documents..."
                     autocomplete="off"
+                    aria-label="Search GGL resources"
                 >
 
 
                 <div class="search-shortcut">
 
                     <span>CTRL</span>
+
                     <span>K</span>
 
                 </div>
 
 
             </div>
+
 
 
             <!-- SEARCH RESULTS -->
@@ -251,12 +262,16 @@
             </div>
 
 
+
             <div class="quick-access">
 
 
-                <!-- ERP -->
+                <!-- =================================================
+                     ERP
+                ================================================== -->
 
                 <button
+                    class="quick-btn quick-erp"
                     onclick="openLink('ERP')"
                 >
 
@@ -269,9 +284,13 @@
                 </button>
 
 
-                <!-- QMS -->
+
+                <!-- =================================================
+                     QMS
+                ================================================== -->
 
                 <button
+                    class="quick-btn quick-qms"
                     onclick="openLink('QMS')"
                 >
 
@@ -284,9 +303,13 @@
                 </button>
 
 
-                <!-- G-SHEETS -->
+
+                <!-- =================================================
+                     G-SHEETS
+                ================================================== -->
 
                 <button
+                    class="quick-btn quick-gsheets"
                     onclick="openPanel('G-SHEETS')"
                 >
 
@@ -299,9 +322,13 @@
                 </button>
 
 
-                <!-- WCA -->
+
+                <!-- =================================================
+                     WCA
+                ================================================== -->
 
                 <button
+                    class="quick-btn quick-wca"
                     onclick="openLink('WCA')"
                 >
 
@@ -329,6 +356,7 @@
 
             <div class="section-header">
 
+
                 <div>
 
                     <span class="section-label">
@@ -352,9 +380,14 @@
 
                 </div>
 
+
             </div>
 
 
+
+            <!-- =================================================
+                 RESOURCE GRID
+            ================================================== -->
 
             <div class="portal-grid">
 
@@ -775,6 +808,9 @@
     <div
         class="modal"
         id="resourceModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTitle"
     >
 
 
@@ -803,6 +839,7 @@
                     class="modal-close"
                     onclick="closeModal()"
                     title="Close"
+                    aria-label="Close"
                 >
 
                     <i class="fa-solid fa-xmark"></i>
