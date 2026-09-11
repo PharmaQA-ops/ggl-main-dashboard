@@ -5,25 +5,37 @@
 
 const GGL_LINKS = {
 
+  /* =========================================
+     ERP
+  ========================================= */
+
   ERP: {
+
     title: "ERP",
     subtitle: "Operations & business management",
 
     links: [
+
       {
         name: "GGL ERP Logisys",
         url: "https://gaerish.mylogisys.com/Login",
-        icon: "fa-uikit"
+        icon: "fa-desktop"
       },
+
       {
         name: "GGL ERP Sentinel",
         url: "https://gaerish.mylogisys.com/Login",
-        icon: "fa-gun"
+        icon: "fa-shield-halved"
       }
+
     ]
-      
+
   },
 
+
+  /* =========================================
+     G-SHEETS
+  ========================================= */
 
   "G-SHEETS": {
 
@@ -43,6 +55,7 @@ const GGL_LINKS = {
         url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=486617436#gid=486617436",
         icon: "fa-plane"
       },
+
       {
         name: "Sea Import",
         url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=0#gid=0",
@@ -54,7 +67,7 @@ const GGL_LINKS = {
         url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=1420573940#gid=1420573940",
         icon: "fa-plane"
       },
-      
+
       {
         name: "NAP",
         url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=570041459#gid=570041459",
@@ -68,8 +81,13 @@ const GGL_LINKS = {
       }
 
     ]
+
   },
 
+
+  /* =========================================
+     QMS
+  ========================================= */
 
   QMS: {
 
@@ -85,8 +103,14 @@ const GGL_LINKS = {
       }
 
     ]
+
   },
-   
+
+
+  /* =========================================
+     WEBSITE
+  ========================================= */
+
   Website: {
 
     title: "Website",
@@ -97,23 +121,31 @@ const GGL_LINKS = {
       {
         name: "Gaerish Logistics",
         url: "https://www.gaerishlogistics.com/",
-        icon: "fa-g"
+        icon: "fa-globe"
       },
+
       {
         name: "Gaerish Defence",
         url: "https://www.gaerishdefence.com/",
-        icon: "fa-g"
+        icon: "fa-globe"
       },
+
       {
-        name: "Gaerish E-trade",
+        name: "Gaerish E-Trade",
         url: "https://www.gaerishetrade.com/",
-        icon: "fa-g"
+        icon: "fa-globe"
       }
 
     ]
+
   },
 
-   Zoho: {
+
+  /* =========================================
+     ZOHO
+  ========================================= */
+
+  Zoho: {
 
     title: "Zoho",
     subtitle: "The operating system for business",
@@ -127,25 +159,13 @@ const GGL_LINKS = {
       }
 
     ]
+
   },
 
 
-  WCA: {
-
-    title: "WCA",
-    subtitle: "Global forwarding network",
-
-    links: [
-
-      {
-        name: "WCA",
-        url: "https://www.wcaworld.com/Home",
-        icon: "fa-fa-circle-notch"
-      }
-
-    ]
-  },
-
+  /* =========================================
+     LINERS
+  ========================================= */
 
   LINERS: {
 
@@ -162,7 +182,7 @@ const GGL_LINKS = {
 
       {
         name: "MSC",
-        url: "https://www.msc.com/en/solutions/our-trade-services?utm_source=google&utm_medium=cpc&utm_campaign=21679704469&utm_term=M-&utm_adgrp=173902303184&utm_source_platform=Google+Ads&utm_id=&&&&&gclsrc=aw.ds&gad_source=1&gad_campaignid=21679704469&gbraid=0AAAAABYXqUuey-tOMASobL1fKH3fYvF4V&gclid=Cj0KCQjw5P7UBhDaARIsAOSlS1P65WLC_JAd9zeg1FZizS_2JCuj2eZgBJPJL0wg1IYH_5nOOn2xrwoaApDEEALw_wcB",
+        url: "https://www.msc.com/",
         icon: "fa-ship"
       },
 
@@ -203,8 +223,13 @@ const GGL_LINKS = {
       }
 
     ]
+
   },
 
+
+  /* =========================================
+     DOCUMENTS
+  ========================================= */
 
   DOCUMENTS: {
 
@@ -250,8 +275,13 @@ const GGL_LINKS = {
       }
 
     ]
+
   },
 
+
+  /* =========================================
+     HR
+  ========================================= */
 
   HR: {
 
@@ -267,8 +297,13 @@ const GGL_LINKS = {
       }
 
     ]
+
   },
 
+
+  /* =========================================
+     IT
+  ========================================= */
 
   IT: {
 
@@ -296,8 +331,13 @@ const GGL_LINKS = {
       }
 
     ]
+
   },
 
+
+  /* =========================================
+     GOVERNMENT
+  ========================================= */
 
   GOVERNMENT: {
 
@@ -331,8 +371,13 @@ const GGL_LINKS = {
       }
 
     ]
+
   },
 
+
+  /* =========================================
+     NETWORKS
+  ========================================= */
 
   NETWORKS: {
 
@@ -360,9 +405,11 @@ const GGL_LINKS = {
       }
 
     ]
+
   }
 
 };
+
 
 
 /* =========================================
@@ -390,8 +437,11 @@ function openPanel(category) {
 
 
   if (!title || !subtitle || !content || !modal) {
+
     console.error("Modal elements not found.");
+
     return;
+
   }
 
 
@@ -434,12 +484,12 @@ function openPanel(category) {
 
   content.innerHTML = html;
 
-
   modal.classList.add("show");
 
   document.body.classList.add("modal-open");
 
 }
+
 
 
 /* =========================================
@@ -450,6 +500,7 @@ function openLink(category) {
 
   const data =
     GGL_LINKS[category];
+
 
   if (!data || !data.links.length) {
     return;
@@ -462,7 +513,7 @@ function openLink(category) {
 
   /*
      If URL is not configured,
-     open the category panel.
+     open category panel.
   */
 
   if (!url || url === "#") {
@@ -481,6 +532,7 @@ function openLink(category) {
   );
 
 }
+
 
 
 /* =========================================
@@ -503,6 +555,7 @@ function closeModal() {
 }
 
 
+
 /* =========================================
    CLOSE MODAL OUTSIDE
 ========================================= */
@@ -521,9 +574,9 @@ function closeModalOutside(event) {
 }
 
 
+
 /* =========================================
-   FAST LIVE SEARCH
-   RUNS ON EVERY LETTER
+   LIVE SEARCH
 ========================================= */
 
 function searchPortal() {
@@ -547,32 +600,30 @@ function searchPortal() {
 
 
   /*
-     Clear results when search is empty.
+     Empty search
   */
 
   if (!input) {
 
     results.innerHTML = "";
 
-    results.classList.remove(
-      "search-active"
-    );
+    results.classList.remove("search-active");
+
+    results.dataset.hasMatches = "false";
 
     return;
 
   }
 
 
-  results.classList.add(
-    "search-active"
-  );
+  results.classList.add("search-active");
 
 
   let matches = [];
 
 
   /*
-     SEARCH ALL CATEGORIES
+     SEARCH ALL GGL RESOURCES
   */
 
   Object.keys(GGL_LINKS)
@@ -597,30 +648,21 @@ function searchPortal() {
         ).toLowerCase();
 
 
-        /*
-           Every-letter live matching
-        */
-
         if (
           searchable.includes(input)
         ) {
 
           matches.push({
 
-            category:
-              category,
+            category: category,
 
-            name:
-              link.name,
+            name: link.name,
 
-            icon:
-              link.icon,
+            icon: link.icon,
 
-            url:
-              link.url,
+            url: link.url,
 
-            searchable:
-              searchable
+            searchable: searchable
 
           });
 
@@ -631,11 +673,15 @@ function searchPortal() {
     });
 
 
-  /*
-     NO RESULTS
-  */
+
+  /* =========================================
+     NO INTERNAL RESULTS
+  ========================================= */
 
   if (!matches.length) {
+
+    results.dataset.hasMatches = "false";
+
 
     results.innerHTML = `
 
@@ -644,8 +690,12 @@ function searchPortal() {
         <i class="fa-solid fa-magnifying-glass"></i>
 
         <span>
-          No matching resource found
+          No matching GGL resource found
         </span>
+
+        <small>
+          Press Enter to search Google
+        </small>
 
       </div>
 
@@ -656,9 +706,13 @@ function searchPortal() {
   }
 
 
-  /*
-     BUILD RESULTS
-  */
+
+  /* =========================================
+     INTERNAL RESULTS FOUND
+  ========================================= */
+
+  results.dataset.hasMatches = "true";
+
 
   let html = "";
 
@@ -716,6 +770,75 @@ function searchPortal() {
 }
 
 
+
+/* =========================================
+   GOOGLE SEARCH FALLBACK
+========================================= */
+
+function handleSearchKey(event) {
+
+  if (event.key !== "Enter") {
+    return;
+  }
+
+
+  const input =
+    document.getElementById("searchInput");
+
+
+  if (!input) {
+    return;
+  }
+
+
+  const query =
+    input.value.trim();
+
+
+  if (!query) {
+    return;
+  }
+
+
+  const results =
+    document.getElementById("searchResults");
+
+
+  /*
+     Check REAL internal matches,
+     not merely whether the results
+     container has HTML.
+  */
+
+  const hasInternalResults =
+    results &&
+    results.dataset.hasMatches === "true";
+
+
+  /*
+     If GGL search has no result,
+     search Google.
+  */
+
+  if (!hasInternalResults) {
+
+    const googleUrl =
+      "https://www.google.com/search?q=" +
+      encodeURIComponent(query);
+
+
+    window.open(
+      googleUrl,
+      "_blank",
+      "noopener,noreferrer"
+    );
+
+  }
+
+}
+
+
+
 /* =========================================
    HIGHLIGHT SEARCH TEXT
 ========================================= */
@@ -753,6 +876,7 @@ function highlightText(
 }
 
 
+
 /* =========================================
    ESCAPE REGEX
 ========================================= */
@@ -768,6 +892,7 @@ function escapeRegExp(value) {
 }
 
 
+
 /* =========================================
    ESCAPE HTML
 ========================================= */
@@ -775,28 +900,14 @@ function escapeRegExp(value) {
 function escapeHtml(value) {
 
   return String(value ?? "")
-    .replace(
-      /&/g,
-      "&amp;"
-    )
-    .replace(
-      /</g,
-      "&lt;"
-    )
-    .replace(
-      />/g,
-      "&gt;"
-    )
-    .replace(
-      /"/g,
-      "&quot;"
-    )
-    .replace(
-      /'/g,
-      "&#039;"
-    );
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
 
 }
+
 
 
 /* =========================================
@@ -814,11 +925,6 @@ function safeUrl(url) {
     String(url).trim();
 
 
-  /*
-     Allow normal web URLs,
-     Google URLs and internal HTTP/HTTPS URLs.
-  */
-
   if (
     value === "#" ||
     value.startsWith("https://") ||
@@ -835,6 +941,7 @@ function safeUrl(url) {
 }
 
 
+
 /* =========================================
    DATE
 ========================================= */
@@ -842,12 +949,12 @@ function safeUrl(url) {
 function setDate() {
 
   const dateElement =
-    document.getElementById(
-      "currentDate"
-    );
+    document.getElementById("currentDate");
 
 
-  if (!dateElement) return;
+  if (!dateElement) {
+    return;
+  }
 
 
   const date =
@@ -867,6 +974,7 @@ function setDate() {
 }
 
 
+
 /* =========================================
    DARK MODE
 ========================================= */
@@ -878,14 +986,8 @@ function toggleTheme() {
     .toggle("dark");
 
 
-  /*
-     Remember user's preference
-  */
-
   const isDark =
-    document.body.classList.contains(
-      "dark"
-    );
+    document.body.classList.contains("dark");
 
 
   localStorage.setItem(
@@ -896,6 +998,7 @@ function toggleTheme() {
 }
 
 
+
 /* =========================================
    LOAD SAVED THEME
 ========================================= */
@@ -903,9 +1006,7 @@ function toggleTheme() {
 function loadTheme() {
 
   const savedTheme =
-    localStorage.getItem(
-      "ggl-theme"
-    );
+    localStorage.getItem("ggl-theme");
 
 
   if (savedTheme === "dark") {
@@ -917,6 +1018,7 @@ function loadTheme() {
   }
 
 }
+
 
 
 /* =========================================
@@ -950,9 +1052,7 @@ document.addEventListener(
 
 
       const search =
-        document.getElementById(
-          "searchInput"
-        );
+        document.getElementById("searchInput");
 
 
       if (search) {
@@ -980,9 +1080,7 @@ document.addEventListener(
 
 
       const search =
-        document.getElementById(
-          "searchInput"
-        );
+        document.getElementById("searchInput");
 
 
       if (search) {
@@ -1012,18 +1110,15 @@ document.addEventListener(
 );
 
 
+
 /* =========================================
-   SEARCH INPUT SETUP
-   IMPORTANT:
-   Search fires on EVERY LETTER
+   SEARCH SETUP
 ========================================= */
 
 function setupSearch() {
 
   const searchInput =
-    document.getElementById(
-      "searchInput"
-    );
+    document.getElementById("searchInput");
 
 
   if (!searchInput) {
@@ -1038,10 +1133,7 @@ function setupSearch() {
 
 
   /*
-     Remove inline dependency.
-
-     This means search works even if
-     oninput="searchPortal()" is missing.
+     Live search
   */
 
   searchInput.addEventListener(
@@ -1051,25 +1143,16 @@ function setupSearch() {
 
 
   /*
-     Prevent form submission
+     Enter = Google fallback
   */
 
   searchInput.addEventListener(
     "keydown",
-    function(event) {
-
-      if (
-        event.key === "Enter"
-      ) {
-
-        event.preventDefault();
-
-      }
-
-    }
+    handleSearchKey
   );
 
 }
+
 
 
 /* =========================================
@@ -1079,12 +1162,12 @@ function setupSearch() {
 function setupModal() {
 
   const modal =
-    document.getElementById(
-      "modal"
-    );
+    document.getElementById("modal");
 
 
-  if (!modal) return;
+  if (!modal) {
+    return;
+  }
 
 
   modal.addEventListener(
@@ -1095,9 +1178,9 @@ function setupModal() {
 }
 
 
+
 /* =========================================
-   WELCOME / LOADING SCREEN
-   FAIL-SAFE
+   WELCOME SCREEN
 ========================================= */
 
 function hideWelcomeScreen() {
@@ -1105,54 +1188,163 @@ function hideWelcomeScreen() {
   const welcomeScreen =
     document.getElementById("welcomeScreen");
 
-  if (!welcomeScreen) return;
 
-  // Always hide after 2.5 seconds
-  setTimeout(function () {
+  if (!welcomeScreen) {
+    return;
+  }
 
-    welcomeScreen.classList.add("hide");
 
-    // Completely remove it after animation
-    setTimeout(function () {
+  setTimeout(
+    function() {
 
-      if (welcomeScreen) {
-        welcomeScreen.remove();
-      }
+      welcomeScreen.classList.add("hide");
 
-    }, 900);
 
-  }, 2500);
+      setTimeout(
+        function() {
+
+          if (welcomeScreen) {
+            welcomeScreen.remove();
+          }
+
+        },
+        900
+      );
+
+    },
+    2500
+  );
+
 }
 
 
-/*
-   FAIL-SAFE:
-   Even if another JavaScript function has an error,
-   the loading screen will disappear.
-*/
 
-window.addEventListener("load", function () {
+/* =========================================
+   FAIL-SAFE WELCOME SCREEN
+========================================= */
 
-  setTimeout(function () {
+window.addEventListener(
+  "load",
+  function() {
 
-    const screen =
-      document.getElementById("welcomeScreen");
+    setTimeout(
+      function() {
 
-    if (screen) {
+        const screen =
+          document.getElementById(
+            "welcomeScreen"
+          );
 
-      screen.classList.add("hide");
 
-      setTimeout(function () {
+        if (screen) {
 
-        screen.remove();
+          screen.classList.add("hide");
 
-      }, 900);
 
-    }
+          setTimeout(
+            function() {
 
-  }, 3000);
+              if (screen) {
+                screen.remove();
+              }
 
-});
+            },
+            900
+          );
+
+        }
+
+      },
+      3000
+    );
+
+  }
+);
+
+
+
+/* =========================================
+   START PORTAL
+========================================= */
+
+function startPortal() {
+
+  try {
+
+    setDate();
+
+  }
+  catch (error) {
+
+    console.error(
+      "Date setup error:",
+      error
+    );
+
+  }
+
+
+  try {
+
+    loadTheme();
+
+  }
+  catch (error) {
+
+    console.error(
+      "Theme setup error:",
+      error
+    );
+
+  }
+
+
+  try {
+
+    setupSearch();
+
+  }
+  catch (error) {
+
+    console.error(
+      "Search setup error:",
+      error
+    );
+
+  }
+
+
+  try {
+
+    setupModal();
+
+  }
+  catch (error) {
+
+    console.error(
+      "Modal setup error:",
+      error
+    );
+
+  }
+
+
+  try {
+
+    hideWelcomeScreen();
+
+  }
+  catch (error) {
+
+    console.error(
+      "Welcome screen error:",
+      error
+    );
+
+  }
+
+}
+
 
 
 /* =========================================
@@ -1173,44 +1365,4 @@ else {
 
   startPortal();
 
-}
-/* =========================================
-   GOOGLE SEARCH FALLBACK
-========================================= */
-
-function handleSearchKey(event) {
-
-    if (event.key !== "Enter") return;
-
-    const input = document.getElementById("searchInput");
-
-    if (!input) return;
-
-    const query = input.value.trim();
-
-    if (!query) return;
-
-    const results = document.getElementById("searchResults");
-
-    /*
-       Check whether GGL internal search
-       found anything.
-    */
-    const hasInternalResults =
-        results &&
-        results.children.length > 0;
-
-    /*
-       If GGL has no result,
-       search Google instead.
-    */
-    if (!hasInternalResults) {
-
-        const googleUrl =
-            "https://www.google.com/search?q=" +
-            encodeURIComponent(query);
-
-        window.open(googleUrl, "_blank");
-
-    }
 }
