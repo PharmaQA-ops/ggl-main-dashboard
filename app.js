@@ -1,1368 +1,1264 @@
-/* =========================================
-   GGL MAIN PORTAL
-   URL CONFIGURATION
-========================================= */
+/* =========================================================
+   GGL MAIN BUSINESS PORTAL
+   GAERISH LOGISTICS
+========================================================= */
+
+
+/* =========================================================
+   GGL RESOURCE DATABASE
+========================================================= */
 
 const GGL_LINKS = {
 
-  /* =========================================
-     ERP
-  ========================================= */
+    /* ================= ERP ================= */
 
-  ERP: {
+    ERP: [
 
-    title: "ERP",
-    subtitle: "Operations & business management",
+        {
+            name: "GGL ERP Logisys",
+            description: "Operations ERP",
+            url: "#",
+            icon: "fa-solid fa-desktop",
+            keywords: "erp logisys operations shipment export import"
+        },
 
-    links: [
+        {
+            name: "GGL ERP Sentinel",
+            description: "Management ERP",
+            url: "#",
+            icon: "fa-solid fa-chart-line",
+            keywords: "erp sentinel management dashboard"
+        }
 
-      {
-        name: "GGL ERP Logisys",
-        url: "https://gaerish.mylogisys.com/Login",
-        icon: "fa-desktop"
-      },
+    ],
 
-      {
-        name: "GGL ERP Sentinel",
-        url: "https://gaerish.mylogisys.com/Login",
-        icon: "fa-shield-halved"
-      }
+
+    /* ================= G-SHEETS ================= */
+
+    "G-SHEETS": [
+
+        {
+            name: "Sea Export",
+            description: "Sea Export Operations",
+            url: "#",
+            icon: "fa-solid fa-ship",
+            keywords: "sea export shipping export"
+        },
+
+        {
+            name: "Air Export",
+            description: "Air Export Operations",
+            url: "#",
+            icon: "fa-solid fa-plane-departure",
+            keywords: "air export freight forwarding"
+        },
+
+        {
+            name: "Sea Import",
+            description: "Sea Import Operations",
+            url: "#",
+            icon: "fa-solid fa-ship",
+            keywords: "sea import shipping"
+        },
+
+        {
+            name: "Air Import",
+            description: "Air Import Operations",
+            url: "#",
+            icon: "fa-solid fa-plane-arrival",
+            keywords: "air import freight"
+        },
+
+        {
+            name: "NAP",
+            description: "North American Project",
+            url: "#",
+            icon: "fa-solid fa-earth-americas",
+            keywords: "nap north american project usa canada"
+        },
+
+        {
+            name: "Defence",
+            description: "Defence Cargo Operations",
+            url: "#",
+            icon: "fa-solid fa-shield-halved",
+            keywords: "defence defense cargo military"
+        }
+
+    ],
+
+
+    /* ================= QMS ================= */
+
+    QMS: [
+
+        {
+            name: "GGL QMS",
+            description: "Quality Management System",
+            url: "#",
+            icon: "fa-solid fa-shield-check",
+            keywords: "qms quality management system quality assurance qa qc capa deviation audit"
+        }
+
+    ],
+
+
+    /* ================= WCA ================= */
+
+    WCA: [
+
+        {
+            name: "WCA World",
+            description: "World Cargo Alliance",
+            url: "https://www.wcaworld.com/",
+            icon: "fa-solid fa-globe",
+            keywords: "wca world cargo alliance freight forwarding network"
+        }
+
+    ],
+
+
+    /* ================= LINERS ================= */
+
+    LINERS: [
+
+        {
+            name: "Maersk",
+            description: "Maersk Line",
+            url: "https://www.maersk.com/",
+            icon: "fa-solid fa-ship",
+            keywords: "maersk shipping liner carrier vessel"
+        },
+
+        {
+            name: "MSC",
+            description: "Mediterranean Shipping Company",
+            url: "https://www.msc.com/",
+            icon: "fa-solid fa-ship",
+            keywords: "msc shipping liner carrier vessel"
+        },
+
+        {
+            name: "CMA CGM",
+            description: "CMA CGM",
+            url: "https://www.cma-cgm.com/",
+            icon: "fa-solid fa-ship",
+            keywords: "cma cgm shipping liner carrier"
+        },
+
+        {
+            name: "Hapag-Lloyd",
+            description: "Hapag-Lloyd",
+            url: "https://www.hapag-lloyd.com/",
+            icon: "fa-solid fa-ship",
+            keywords: "hapag lloyd shipping liner carrier"
+        },
+
+        {
+            name: "ONE",
+            description: "Ocean Network Express",
+            url: "https://www.one-line.com/",
+            icon: "fa-solid fa-ship",
+            keywords: "one ocean network express shipping liner"
+        },
+
+        {
+            name: "COSCO",
+            description: "COSCO Shipping",
+            url: "https://lines.coscoshipping.com/",
+            icon: "fa-solid fa-ship",
+            keywords: "cosco shipping liner carrier"
+        },
+
+        {
+            name: "Evergreen",
+            description: "Evergreen Marine",
+            url: "https://www.evergreen-marine.com/",
+            icon: "fa-solid fa-ship",
+            keywords: "evergreen shipping liner carrier"
+        },
+
+        {
+            name: "ZIM",
+            description: "ZIM Integrated Shipping",
+            url: "https://www.zim.com/",
+            icon: "fa-solid fa-ship",
+            keywords: "zim shipping liner carrier"
+        }
+
+    ],
+
+
+    /* ================= DOCUMENTS ================= */
+
+    DOCUMENTS: [
+
+        {
+            name: "Google Drive",
+            description: "GGL Shared Documents",
+            url: "#",
+            icon: "fa-brands fa-google-drive",
+            keywords: "drive documents files shared folders"
+        },
+
+        {
+            name: "Policies",
+            description: "Company Policies",
+            url: "#",
+            icon: "fa-solid fa-file-shield",
+            keywords: "policy policies company compliance"
+        },
+
+        {
+            name: "SOPs",
+            description: "Standard Operating Procedures",
+            url: "#",
+            icon: "fa-solid fa-file-lines",
+            keywords: "sop sops standard operating procedure procedures"
+        },
+
+        {
+            name: "Work Instructions",
+            description: "Work Instructions",
+            url: "#",
+            icon: "fa-solid fa-list-check",
+            keywords: "work instruction wi instructions"
+        },
+
+        {
+            name: "Forms & Formats",
+            description: "Company Forms and Formats",
+            url: "#",
+            icon: "fa-solid fa-file-signature",
+            keywords: "forms formats templates"
+        },
+
+        {
+            name: "Manuals",
+            description: "Company Manuals",
+            url: "#",
+            icon: "fa-solid fa-book",
+            keywords: "manual manuals handbook"
+        }
+
+    ],
+
+
+    /* ================= HR ================= */
+
+    HR: [
+
+        {
+            name: "Keka",
+            description: "HR & Employee Portal",
+            url: "#",
+            icon: "fa-solid fa-users",
+            keywords: "keka hr employee payroll leave attendance"
+        }
+
+    ],
+
+
+    /* ================= IT ================= */
+
+    IT: [
+
+        {
+            name: "IT Support",
+            description: "IT Support",
+            url: "#",
+            icon: "fa-solid fa-headset",
+            keywords: "it support helpdesk computer technical"
+        },
+
+        {
+            name: "IT Applications",
+            description: "Internal Applications",
+            url: "#",
+            icon: "fa-solid fa-laptop-code",
+            keywords: "applications software apps"
+        },
+
+        {
+            name: "IT Documents",
+            description: "IT Documentation",
+            url: "#",
+            icon: "fa-solid fa-file-code",
+            keywords: "it documents documentation"
+        }
+
+    ],
+
+
+    /* ================= GOVERNMENT ================= */
+
+    GOVERNMENT: [
+
+        {
+            name: "ICEGATE",
+            description: "Indian Customs Portal",
+            url: "https://www.icegate.gov.in/",
+            icon: "fa-solid fa-landmark",
+            keywords: "icegate customs import export india"
+        },
+
+        {
+            name: "DGFT",
+            description: "Directorate General of Foreign Trade",
+            url: "https://www.dgft.gov.in/",
+            icon: "fa-solid fa-building-columns",
+            keywords: "dgft foreign trade export import license"
+        },
+
+        {
+            name: "GST",
+            description: "GST Portal",
+            url: "#",
+            icon: "fa-solid fa-file-invoice",
+            keywords: "gst tax goods services tax"
+        },
+
+        {
+            name: "Customs",
+            description: "Customs Resources",
+            url: "#",
+            icon: "fa-solid fa-scale-balanced",
+            keywords: "customs customs duty clearance"
+        }
+
+    ],
+
+
+    /* ================= NETWORKS ================= */
+
+    NETWORKS: [
+
+        {
+            name: "WPA",
+            description: "World Freight Network",
+            url: "#",
+            icon: "fa-solid fa-network-wired",
+            keywords: "wpa network freight forwarding"
+        },
+
+        {
+            name: "OPEC",
+            description: "Freight Network",
+            url: "#",
+            icon: "fa-solid fa-network-wired",
+            keywords: "opec freight network"
+        },
+
+        {
+            name: "Other Networks",
+            description: "Other Freight Networks",
+            url: "#",
+            icon: "fa-solid fa-globe",
+            keywords: "freight networks logistics network"
+        }
+
+    ],
+
+
+    /* ================= WEBSITE ================= */
+
+    Website: [
+
+        {
+            name: "Gaerish Logistics",
+            description: "Company Website",
+            url: "#",
+            icon: "fa-solid fa-globe",
+            keywords: "gaerish logistics website company"
+        },
+
+        {
+            name: "Gaerish Defence",
+            description: "Defence Business",
+            url: "#",
+            icon: "fa-solid fa-shield-halved",
+            keywords: "gaerish defence defense website"
+        },
+
+        {
+            name: "Gaerish E-Trade",
+            description: "E-Trade Business",
+            url: "#",
+            icon: "fa-solid fa-cart-shopping",
+            keywords: "gaerish etrade e trade aluminium containers scrap"
+        }
+
+    ],
+
+
+    /* ================= ZOHO ================= */
+
+    Zoho: [
+
+        {
+            name: "Zoho",
+            description: "GGL Zoho Applications",
+            url: "#",
+            icon: "fa-solid fa-cloud",
+            keywords: "zoho crm mail applications"
+        }
 
     ]
-
-  },
-
-
-  /* =========================================
-     G-SHEETS
-  ========================================= */
-
-  "G-SHEETS": {
-
-    title: "G-SHEETS",
-    subtitle: "Operational sheets & dashboards",
-
-    links: [
-
-      {
-        name: "Sea Export",
-        url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=2105414371#gid=2105414371",
-        icon: "fa-ship"
-      },
-
-      {
-        name: "Air Export",
-        url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=486617436#gid=486617436",
-        icon: "fa-plane"
-      },
-
-      {
-        name: "Sea Import",
-        url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=0#gid=0",
-        icon: "fa-ship"
-      },
-
-      {
-        name: "Air Import",
-        url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=1420573940#gid=1420573940",
-        icon: "fa-plane"
-      },
-
-      {
-        name: "NAP",
-        url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=570041459#gid=570041459",
-        icon: "fa-flag-usa"
-      },
-
-      {
-        name: "Defence",
-        url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=1706426280#gid=1706426280",
-        icon: "fa-radiation"
-      }
-
-    ]
-
-  },
-
-
-  /* =========================================
-     QMS
-  ========================================= */
-
-  QMS: {
-
-    title: "GGL QMS",
-    subtitle: "Quality Management System",
-
-    links: [
-
-      {
-        name: "GGL QMS",
-        url: "https://script.google.com/a/~/macros/s/AKfycbwpDLadlpO3ZnFSHk1T0WShLs7V403jIGKhHE5UQHUZQ7W3VbA2lfRy0z7lc-JfovYPgw/exec",
-        icon: "fa-shield-halved"
-      }
-
-    ]
-
-  },
-
-
-  /* =========================================
-     WEBSITE
-  ========================================= */
-
-  Website: {
-
-    title: "Website",
-    subtitle: "Company Official Sites",
-
-    links: [
-
-      {
-        name: "Gaerish Logistics",
-        url: "https://www.gaerishlogistics.com/",
-        icon: "fa-globe"
-      },
-
-      {
-        name: "Gaerish Defence",
-        url: "https://www.gaerishdefence.com/",
-        icon: "fa-globe"
-      },
-
-      {
-        name: "Gaerish E-Trade",
-        url: "https://www.gaerishetrade.com/",
-        icon: "fa-globe"
-      }
-
-    ]
-
-  },
-
-
-  /* =========================================
-     ZOHO
-  ========================================= */
-
-  Zoho: {
-
-    title: "Zoho",
-    subtitle: "The operating system for business",
-
-    links: [
-
-      {
-        name: "Zoho",
-        url: "https://accounts.zoho.in/signin?servicename=ZohoHome&signupurl=https://www.zoho.com/signup.html",
-        icon: "fa-globe"
-      }
-
-    ]
-
-  },
-
-
-  /* =========================================
-     LINERS
-  ========================================= */
-
-  LINERS: {
-
-    title: "LINERS",
-    subtitle: "Shipping line portals",
-
-    links: [
-
-      {
-        name: "Maersk",
-        url: "https://www.maersk.com/",
-        icon: "fa-ship"
-      },
-
-      {
-        name: "MSC",
-        url: "https://www.msc.com/",
-        icon: "fa-ship"
-      },
-
-      {
-        name: "CMA CGM",
-        url: "https://www.cma-cgm.com/",
-        icon: "fa-ship"
-      },
-
-      {
-        name: "Hapag-Lloyd",
-        url: "https://www.hapag-lloyd.com/en/home.html",
-        icon: "fa-ship"
-      },
-
-      {
-        name: "ONE",
-        url: "https://www.one-line.com/en/local-information/in",
-        icon: "fa-ship"
-      },
-
-      {
-        name: "COSCO",
-        url: "https://lines.coscoshipping.com/home",
-        icon: "fa-ship"
-      },
-
-      {
-        name: "Evergreen",
-        url: "https://www.evergreen-line.com/",
-        icon: "fa-ship"
-      },
-
-      {
-        name: "ZIM",
-        url: "https://www.zim.com/",
-        icon: "fa-ship"
-      }
-
-    ]
-
-  },
-
-
-  /* =========================================
-     DOCUMENTS
-  ========================================= */
-
-  DOCUMENTS: {
-
-    title: "DOCUMENTS",
-    subtitle: "Policies, SOPs & company documents",
-
-    links: [
-
-      {
-        name: "Google Drive",
-        url: "#",
-        icon: "fa-folder-open"
-      },
-
-      {
-        name: "Policies",
-        url: "https://drive.google.com/drive/folders/1xMXE0VhhqradKT4IjC_STx3jLNyTDLce?usp=sharing",
-        icon: "fa-file-lines"
-      },
-
-      {
-        name: "SOPs",
-        url: "https://drive.google.com/drive/folders/1zrPg07iboGhNlQ2Z4u6igtJsXOW0A3KP?usp=sharing",
-        icon: "fa-file-lines"
-      },
-
-      {
-        name: "Work Instructions",
-        url: "#",
-        icon: "fa-file-lines"
-      },
-
-      {
-        name: "Forms & Formats",
-        url: "#",
-        icon: "fa-file-lines"
-      },
-
-      {
-        name: "Manuals",
-        url: "#",
-        icon: "fa-book"
-      }
-
-    ]
-
-  },
-
-
-  /* =========================================
-     HR
-  ========================================= */
-
-  HR: {
-
-    title: "HR",
-    subtitle: "HRMS & employee resources",
-
-    links: [
-
-      {
-        name: "Keka HRMS",
-        url: "https://gaerish.keka.com/#/home/dashboard",
-        icon: "fa-users"
-      }
-
-    ]
-
-  },
-
-
-  /* =========================================
-     IT
-  ========================================= */
-
-  IT: {
-
-    title: "IT",
-    subtitle: "IT systems & support",
-
-    links: [
-
-      {
-        name: "IT Support",
-        url: "https://forms.gle/cpDyKdebZqyA7Su57",
-        icon: "fa-headset"
-      },
-
-      {
-        name: "IT Applications",
-        url: "https://script.google.com/a/~/macros/s/AKfycbzLny-kwJPf-0t0IKZ3p2uScQ2q4m10_hnAOdu2-pzawLHvnl1rMe7jieVbVDsSkNvevA/exec",
-        icon: "fa-computer"
-      },
-
-      {
-        name: "IT Documents",
-        url: "#",
-        icon: "fa-file-lines"
-      }
-
-    ]
-
-  },
-
-
-  /* =========================================
-     GOVERNMENT
-  ========================================= */
-
-  GOVERNMENT: {
-
-    title: "GOVERNMENT",
-    subtitle: "Government & regulatory portals",
-
-    links: [
-
-      {
-        name: "ICEGATE",
-        url: "https://foservices.icegate.gov.in/#/login",
-        icon: "fa-building-columns"
-      },
-
-      {
-        name: "DGFT",
-        url: "https://www.dgft.gov.in/CP/",
-        icon: "fa-building-columns"
-      },
-
-      {
-        name: "GST",
-        url: "#",
-        icon: "fa-building-columns"
-      },
-
-      {
-        name: "Customs",
-        url: "#",
-        icon: "fa-building-columns"
-      }
-
-    ]
-
-  },
-
-
-  /* =========================================
-     NETWORKS
-  ========================================= */
-
-  NETWORKS: {
-
-    title: "NETWORKS",
-    subtitle: "Freight forwarding networks",
-
-    links: [
-
-      {
-        name: "WPA",
-        url: "https://ourwpa.com/",
-        icon: "fa-network-wired"
-      },
-
-      {
-        name: "OPEC",
-        url: "#",
-        icon: "fa-network-wired"
-      },
-
-      {
-        name: "Other Networks",
-        url: "#",
-        icon: "fa-network-wired"
-      }
-
-    ]
-
-  }
 
 };
 
 
-
-/* =========================================
-   OPEN PANEL
-========================================= */
-
-function openPanel(category) {
-
-  const data = GGL_LINKS[category];
-
-  if (!data) return;
-
-
-  const title =
-    document.getElementById("modalTitle");
-
-  const subtitle =
-    document.getElementById("modalSubtitle");
-
-  const content =
-    document.getElementById("modalContent");
-
-  const modal =
-    document.getElementById("modal");
-
-
-  if (!title || !subtitle || !content || !modal) {
-
-    console.error("Modal elements not found.");
-
-    return;
-
-  }
-
-
-  title.innerText = data.title;
-
-  subtitle.innerText = data.subtitle;
-
-
-  let html =
-    '<div class="resource-grid">';
-
-
-  data.links.forEach(function(link, index) {
-
-    html += `
-
-      <a
-        class="resource"
-        href="${safeUrl(link.url)}"
-        target="_blank"
-        rel="noopener noreferrer"
-        style="animation-delay:${index * 50}ms"
-      >
-
-        <i class="fa-solid ${escapeHtml(link.icon)}"></i>
-
-        <span>
-          ${escapeHtml(link.name)}
-        </span>
-
-      </a>
-
-    `;
-
-  });
-
-
-  html += "</div>";
-
-
-  content.innerHTML = html;
-
-  modal.classList.add("show");
-
-  document.body.classList.add("modal-open");
-
-}
-
-
-
-/* =========================================
-   DIRECT LINK
-========================================= */
+/* =========================================================
+   OPEN A SINGLE RESOURCE
+========================================================= */
 
 function openLink(category) {
 
-  const data =
-    GGL_LINKS[category];
+    if (!GGL_LINKS[category]) {
+        return;
+    }
 
+    const links = GGL_LINKS[category];
 
-  if (!data || !data.links.length) {
-    return;
-  }
+    if (!links.length) {
+        return;
+    }
 
+    const firstLink = links[0];
 
-  const url =
-    data.links[0].url;
+    if (firstLink.url && firstLink.url !== "#") {
 
+        window.open(
+            firstLink.url,
+            "_blank",
+            "noopener,noreferrer"
+        );
 
-  /*
-     If URL is not configured,
-     open category panel.
-  */
+    } else {
 
-  if (!url || url === "#") {
+        openPanel(category);
 
-    openPanel(category);
-
-    return;
-
-  }
-
-
-  window.open(
-    url,
-    "_blank",
-    "noopener,noreferrer"
-  );
-
+    }
 }
 
 
+/* =========================================================
+   OPEN CATEGORY PANEL
+========================================================= */
 
-/* =========================================
+function openPanel(category) {
+
+    const modal = document.getElementById("resourceModal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalBody = document.getElementById("modalBody");
+
+    if (!modal || !modalTitle || !modalBody) {
+        return;
+    }
+
+    const links = GGL_LINKS[category];
+
+    if (!links) {
+        return;
+    }
+
+    modalTitle.textContent = category;
+
+    modalBody.innerHTML = "";
+
+    links.forEach(link => {
+
+        const item = document.createElement("div");
+
+        item.className = "modal-resource";
+
+        item.innerHTML = `
+            <div class="modal-resource-icon">
+                <i class="${link.icon || "fa-solid fa-link"}"></i>
+            </div>
+
+            <div class="modal-resource-info">
+                <h4>${escapeHtml(link.name)}</h4>
+                <p>${escapeHtml(link.description || "")}</p>
+            </div>
+
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        `;
+
+        item.addEventListener("click", function () {
+
+            if (link.url && link.url !== "#") {
+
+                window.open(
+                    link.url,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
+
+            } else {
+
+                alert(
+                    `${link.name} link is not configured yet.`
+                );
+
+            }
+
+        });
+
+        modalBody.appendChild(item);
+
+    });
+
+    modal.classList.add("show");
+}
+
+
+/* =========================================================
    CLOSE MODAL
-========================================= */
+========================================================= */
 
 function closeModal() {
 
-  const modal =
-    document.getElementById("modal");
+    const modal = document.getElementById("resourceModal");
 
-
-  if (!modal) return;
-
-
-  modal.classList.remove("show");
-
-  document.body.classList.remove("modal-open");
+    if (modal) {
+        modal.classList.remove("show");
+    }
 
 }
 
-
-
-/* =========================================
-   CLOSE MODAL OUTSIDE
-========================================= */
 
 function closeModalOutside(event) {
 
-  if (
-    event.target &&
-    event.target.id === "modal"
-  ) {
-
-    closeModal();
-
-  }
+    if (
+        event.target &&
+        event.target.id === "resourceModal"
+    ) {
+        closeModal();
+    }
 
 }
 
 
+/* =========================================================
+   LOCAL GGL SEARCH
+========================================================= */
 
-/* =========================================
-   LIVE SEARCH
-========================================= */
+function searchPortal(query) {
 
-function searchPortal() {
+    const results =
+        document.getElementById("searchResults");
 
-  const inputElement =
-    document.getElementById("searchInput");
+    const searchInput =
+        document.getElementById("searchInput");
 
-  const results =
-    document.getElementById("searchResults");
+    if (!results) {
+        return;
+    }
 
-
-  if (!inputElement || !results) {
-    return;
-  }
-
-
-  const input =
-    inputElement.value
-      .toLowerCase()
-      .trim();
-
-
-  /*
-     Empty search
-  */
-
-  if (!input) {
+    query = query.trim().toLowerCase();
 
     results.innerHTML = "";
 
-    results.classList.remove("search-active");
+    /* Empty search */
 
-    results.dataset.hasMatches = "false";
+    if (!query) {
 
-    return;
+        results.classList.remove("show");
 
-  }
+        results.dataset.hasMatches = "false";
 
-
-  results.classList.add("search-active");
-
-
-  let matches = [];
+        return;
+    }
 
 
-  /*
-     SEARCH ALL GGL RESOURCES
-  */
-
-  Object.keys(GGL_LINKS)
-    .forEach(function(category) {
-
-      const data =
-        GGL_LINKS[category];
+    let matches = [];
 
 
-      data.links.forEach(function(link) {
+    /* Search every category */
 
-        const searchable = (
+    Object.keys(GGL_LINKS).forEach(category => {
 
-          category + " " +
+        GGL_LINKS[category].forEach(link => {
 
-          data.title + " " +
+            const searchableText = (
 
-          data.subtitle + " " +
+                category + " " +
+                link.name + " " +
+                (link.description || "") + " " +
+                (link.keywords || "")
 
-          link.name
-
-        ).toLowerCase();
+            ).toLowerCase();
 
 
-        if (
-          searchable.includes(input)
-        ) {
+            if (
+                searchableText.includes(query)
+            ) {
 
-          matches.push({
+                matches.push({
 
-            category: category,
+                    category: category,
 
-            name: link.name,
+                    ...link
 
-            icon: link.icon,
+                });
 
-            url: link.url,
+            }
 
-            searchable: searchable
-
-          });
-
-        }
-
-      });
+        });
 
     });
 
 
+    /* =====================================================
+       LOCAL RESULTS FOUND
+    ===================================================== */
 
-  /* =========================================
-     NO INTERNAL RESULTS
-  ========================================= */
+    if (matches.length > 0) {
 
-  if (!matches.length) {
+        results.dataset.hasMatches = "true";
+
+        results.classList.add("show");
+
+
+        matches.slice(0, 10).forEach(link => {
+
+            const item =
+                document.createElement("div");
+
+            item.className = "search-result";
+
+
+            item.innerHTML = `
+
+                <div class="search-result-icon">
+
+                    <i class="${
+                        link.icon ||
+                        "fa-solid fa-link"
+                    }"></i>
+
+                </div>
+
+
+                <div class="search-result-content">
+
+                    <strong>
+                        ${highlightText(
+                            link.name,
+                            query
+                        )}
+                    </strong>
+
+                    <small>
+
+                        ${escapeHtml(
+                            link.category
+                        )}
+
+                        ${
+                            link.description
+                            ? " • " +
+                              escapeHtml(
+                                  link.description
+                              )
+                            : ""
+                        }
+
+                    </small>
+
+                </div>
+
+
+                <i class="
+                    fa-solid
+                    fa-arrow-up-right-from-square
+                "></i>
+
+            `;
+
+
+            item.addEventListener(
+                "click",
+                function () {
+
+                    if (
+                        link.url &&
+                        link.url !== "#"
+                    ) {
+
+                        window.open(
+                            link.url,
+                            "_blank",
+                            "noopener,noreferrer"
+                        );
+
+                    } else {
+
+                        openPanel(
+                            link.category
+                        );
+
+                    }
+
+
+                    results.classList.remove(
+                        "show"
+                    );
+
+                    if (searchInput) {
+                        searchInput.value = "";
+                    }
+
+                }
+            );
+
+
+            results.appendChild(item);
+
+        });
+
+
+        return;
+    }
+
+
+    /* =====================================================
+       NO LOCAL RESULT
+    ===================================================== */
 
     results.dataset.hasMatches = "false";
+
+    results.classList.add("show");
 
 
     results.innerHTML = `
 
-      <div class="search-result-empty">
+        <div class="search-no-result">
 
-        <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="
+                fa-solid
+                fa-magnifying-glass
+            "></i>
 
-        <span>
-          No matching GGL resource found
-        </span>
+            <span>
 
-        <small>
-          Press Enter to search Google
-        </small>
+                No GGL resource found for
 
-      </div>
+                <strong>
+                    ${escapeHtml(query)}
+                </strong>
+
+            </span>
+
+            <small>
+                Press Enter to search Google
+            </small>
+
+        </div>
 
     `;
 
-    return;
-
-  }
-
-
-
-  /* =========================================
-     INTERNAL RESULTS FOUND
-  ========================================= */
-
-  results.dataset.hasMatches = "true";
-
-
-  let html = "";
-
-
-  matches.forEach(
-    function(match, index) {
-
-      html += `
-
-        <a
-          class="resource search-result"
-          href="${safeUrl(match.url)}"
-          target="_blank"
-          rel="noopener noreferrer"
-          style="animation-delay:${index * 35}ms"
-        >
-
-          <i class="fa-solid ${escapeHtml(match.icon)}"></i>
-
-          <div>
-
-            <strong>
-              ${highlightText(
-                match.name,
-                input
-              )}
-            </strong>
-
-            <br>
-
-            <small>
-              ${escapeHtml(match.category)}
-            </small>
-
-          </div>
-
-        </a>
-
-      `;
-
-    }
-  );
-
-
-  results.innerHTML = `
-
-    <div class="resource-grid">
-
-      ${html}
-
-    </div>
-
-  `;
-
 }
 
 
-
-/* =========================================
-   GOOGLE SEARCH FALLBACK
-========================================= */
+/* =========================================================
+   SEARCH KEYBOARD CONTROL
+========================================================= */
 
 function handleSearchKey(event) {
 
-  if (event.key !== "Enter") {
-    return;
-  }
+    if (event.key !== "Enter") {
+        return;
+    }
+
+    const searchInput =
+        document.getElementById("searchInput");
+
+    const results =
+        document.getElementById("searchResults");
+
+    if (!searchInput) {
+        return;
+    }
+
+    const query =
+        searchInput.value.trim();
+
+    if (!query) {
+        return;
+    }
 
 
-  const input =
-    document.getElementById("searchInput");
+    /* =====================================================
+       LOCAL RESULT EXISTS
+    ===================================================== */
+
+    if (
+        results &&
+        results.dataset.hasMatches === "true"
+    ) {
+
+        const firstResult =
+            results.querySelector(
+                ".search-result"
+            );
+
+        if (firstResult) {
+
+            firstResult.click();
+
+        }
+
+        return;
+    }
 
 
-  if (!input) {
-    return;
-  }
+    /* =====================================================
+       NO LOCAL RESULT → GOOGLE
+    ===================================================== */
 
-
-  const query =
-    input.value.trim();
-
-
-  if (!query) {
-    return;
-  }
-
-
-  const results =
-    document.getElementById("searchResults");
-
-
-  /*
-     Check REAL internal matches,
-     not merely whether the results
-     container has HTML.
-  */
-
-  const hasInternalResults =
-    results &&
-    results.dataset.hasMatches === "true";
-
-
-  /*
-     If GGL search has no result,
-     search Google.
-  */
-
-  if (!hasInternalResults) {
-
-    const googleUrl =
-      "https://www.google.com/search?q=" +
-      encodeURIComponent(query);
+    const googleURL =
+        "https://www.google.com/search?q=" +
+        encodeURIComponent(query);
 
 
     window.open(
-      googleUrl,
-      "_blank",
-      "noopener,noreferrer"
-    );
-
-  }
-
-}
-
-
-
-/* =========================================
-   HIGHLIGHT SEARCH TEXT
-========================================= */
-
-function highlightText(
-  text,
-  search
-) {
-
-  const safeText =
-    escapeHtml(text);
-
-
-  if (!search) {
-    return safeText;
-  }
-
-
-  const safeSearch =
-    escapeRegExp(search);
-
-
-  const regex =
-    new RegExp(
-      "(" + safeSearch + ")",
-      "gi"
-    );
-
-
-  return safeText.replace(
-    regex,
-    "<mark>$1</mark>"
-  );
-
-}
-
-
-
-/* =========================================
-   ESCAPE REGEX
-========================================= */
-
-function escapeRegExp(value) {
-
-  return String(value)
-    .replace(
-      /[.*+?^${}()|[\]\\]/g,
-      "\\$&"
+        googleURL,
+        "_blank",
+        "noopener,noreferrer"
     );
 
 }
 
 
-
-/* =========================================
-   ESCAPE HTML
-========================================= */
-
-function escapeHtml(value) {
-
-  return String(value ?? "")
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
-
-}
-
-
-
-/* =========================================
-   SAFE URL
-========================================= */
-
-function safeUrl(url) {
-
-  if (!url) {
-    return "#";
-  }
-
-
-  const value =
-    String(url).trim();
-
-
-  if (
-    value === "#" ||
-    value.startsWith("https://") ||
-    value.startsWith("http://")
-  ) {
-
-    return escapeHtml(value);
-
-  }
-
-
-  return "#";
-
-}
-
-
-
-/* =========================================
-   DATE
-========================================= */
-
-function setDate() {
-
-  const dateElement =
-    document.getElementById("currentDate");
-
-
-  if (!dateElement) {
-    return;
-  }
-
-
-  const date =
-    new Date();
-
-
-  dateElement.innerText =
-    date.toLocaleDateString(
-      "en-IN",
-      {
-        day: "2-digit",
-        month: "short",
-        year: "numeric"
-      }
-    );
-
-}
-
-
-
-/* =========================================
-   DARK MODE
-========================================= */
-
-function toggleTheme() {
-
-  document.body
-    .classList
-    .toggle("dark");
-
-
-  const isDark =
-    document.body.classList.contains("dark");
-
-
-  localStorage.setItem(
-    "ggl-theme",
-    isDark ? "dark" : "light"
-  );
-
-}
-
-
-
-/* =========================================
-   LOAD SAVED THEME
-========================================= */
-
-function loadTheme() {
-
-  const savedTheme =
-    localStorage.getItem("ggl-theme");
-
-
-  if (savedTheme === "dark") {
-
-    document.body
-      .classList
-      .add("dark");
-
-  }
-
-}
-
-
-
-/* =========================================
-   KEYBOARD SHORTCUTS
-========================================= */
-
-document.addEventListener(
-  "keydown",
-  function(event) {
-
-    const activeElement =
-      document.activeElement;
-
-
-    /*
-       "/" = Search
-    */
-
-    if (
-
-      event.key === "/" &&
-
-      activeElement &&
-      activeElement.tagName !== "INPUT" &&
-
-      activeElement.tagName !== "TEXTAREA"
-
-    ) {
-
-      event.preventDefault();
-
-
-      const search =
-        document.getElementById("searchInput");
-
-
-      if (search) {
-
-        search.focus();
-
-      }
-
-    }
-
-
-    /*
-       CTRL + K = Search
-    */
-
-    if (
-
-      (event.ctrlKey || event.metaKey) &&
-
-      event.key.toLowerCase() === "k"
-
-    ) {
-
-      event.preventDefault();
-
-
-      const search =
-        document.getElementById("searchInput");
-
-
-      if (search) {
-
-        search.focus();
-
-        search.select();
-
-      }
-
-    }
-
-
-    /*
-       ESC = Close modal
-    */
-
-    if (
-      event.key === "Escape"
-    ) {
-
-      closeModal();
-
-    }
-
-  }
-);
-
-
-
-/* =========================================
-   SEARCH SETUP
-========================================= */
+/* =========================================================
+   SETUP SEARCH
+========================================================= */
 
 function setupSearch() {
 
-  const searchInput =
-    document.getElementById("searchInput");
+    const searchInput =
+        document.getElementById("searchInput");
+
+    if (!searchInput) {
+        return;
+    }
 
 
-  if (!searchInput) {
+    /* Live local search */
 
-    console.warn(
-      "searchInput not found"
+    searchInput.addEventListener(
+        "input",
+        function () {
+
+            searchPortal(
+                this.value
+            );
+
+        }
     );
 
-    return;
 
-  }
+    /* Enter */
 
-
-  /*
-     Live search
-  */
-
-  searchInput.addEventListener(
-    "input",
-    searchPortal
-  );
-
-
-  /*
-     Enter = Google fallback
-  */
-
-  searchInput.addEventListener(
-    "keydown",
-    handleSearchKey
-  );
+    searchInput.addEventListener(
+        "keydown",
+        handleSearchKey
+    );
 
 }
 
 
+/* =========================================================
+   TEXT HIGHLIGHT
+========================================================= */
 
-/* =========================================
+function highlightText(text, query) {
+
+    if (!text) {
+        return "";
+    }
+
+    const safeQuery =
+        escapeRegExp(query);
+
+    const regex =
+        new RegExp(
+            `(${safeQuery})`,
+            "gi"
+        );
+
+    return escapeHtml(text)
+        .replace(
+            regex,
+            "<mark>$1</mark>"
+        );
+
+}
+
+
+/* =========================================================
+   ESCAPE REGEX
+========================================================= */
+
+function escapeRegExp(string) {
+
+    return string.replace(
+        /[.*+?^${}()|[\]\\]/g,
+        "\\$&"
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHtml(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================================
+   SAFE URL
+========================================================= */
+
+function safeUrl(url) {
+
+    if (!url) {
+        return "#";
+    }
+
+    return String(url)
+        .replace(/"/g, "&quot;");
+
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+function setDate() {
+
+    const dateElement =
+        document.getElementById("currentDate");
+
+    if (!dateElement) {
+        return;
+    }
+
+    const now = new Date();
+
+    const options = {
+
+        weekday: "long",
+
+        year: "numeric",
+
+        month: "long",
+
+        day: "numeric"
+
+    };
+
+    dateElement.textContent =
+        now.toLocaleDateString(
+            "en-IN",
+            options
+        );
+
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+function toggleTheme() {
+
+    document.body.classList.toggle(
+        "dark-mode"
+    );
+
+
+    const isDark =
+        document.body.classList.contains(
+            "dark-mode"
+        );
+
+
+    localStorage.setItem(
+        "ggl-theme",
+        isDark
+            ? "dark"
+            : "light"
+    );
+
+}
+
+
+/* =========================================================
+   LOAD THEME
+========================================================= */
+
+function loadTheme() {
+
+    const savedTheme =
+        localStorage.getItem(
+            "ggl-theme"
+        );
+
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add(
+            "dark-mode"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   KEYBOARD SHORTCUTS
+========================================================= */
+
+function setupKeyboardShortcuts() {
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            const searchInput =
+                document.getElementById(
+                    "searchInput"
+                );
+
+
+            /* "/" → Search */
+
+            if (
+                event.key === "/" &&
+                document.activeElement !==
+                    searchInput
+            ) {
+
+                event.preventDefault();
+
+                if (searchInput) {
+
+                    searchInput.focus();
+
+                }
+
+            }
+
+
+            /* Ctrl + K → Search */
+
+            if (
+                event.ctrlKey &&
+                event.key.toLowerCase() === "k"
+            ) {
+
+                event.preventDefault();
+
+                if (searchInput) {
+
+                    searchInput.focus();
+
+                }
+
+            }
+
+
+            /* Escape */
+
+            if (
+                event.key === "Escape"
+            ) {
+
+                closeModal();
+
+                if (searchInput) {
+
+                    searchInput.value = "";
+
+                }
+
+                const results =
+                    document.getElementById(
+                        "searchResults"
+                    );
+
+                if (results) {
+
+                    results.classList.remove(
+                        "show"
+                    );
+
+                }
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
    MODAL SETUP
-========================================= */
+========================================================= */
 
 function setupModal() {
 
-  const modal =
-    document.getElementById("modal");
+    const modal =
+        document.getElementById(
+            "resourceModal"
+        );
 
 
-  if (!modal) {
-    return;
-  }
+    if (!modal) {
+        return;
+    }
 
 
-  modal.addEventListener(
-    "click",
-    closeModalOutside
-  );
+    modal.addEventListener(
+        "click",
+        closeModalOutside
+    );
 
 }
 
 
-
-/* =========================================
+/* =========================================================
    WELCOME SCREEN
-========================================= */
+========================================================= */
 
 function hideWelcomeScreen() {
 
-  const welcomeScreen =
-    document.getElementById("welcomeScreen");
+    const screen =
+        document.getElementById(
+            "welcomeScreen"
+        );
 
 
-  if (!welcomeScreen) {
-    return;
-  }
+    if (!screen) {
+        return;
+    }
 
 
-  setTimeout(
-    function() {
+    setTimeout(
+        function () {
 
-      welcomeScreen.classList.add("hide");
+            screen.classList.add(
+                "hide"
+            );
 
 
-      setTimeout(
-        function() {
+            setTimeout(
+                function () {
 
-          if (welcomeScreen) {
-            welcomeScreen.remove();
-          }
+                    if (screen) {
+
+                        screen.remove();
+
+                    }
+
+                },
+                900
+            );
 
         },
-        900
-      );
-
-    },
-    2500
-  );
+        2500
+    );
 
 }
 
 
+/* =========================================================
+   PORTAL START
+========================================================= */
 
-/* =========================================
-   FAIL-SAFE WELCOME SCREEN
-========================================= */
+function startPortal() {
+
+    setDate();
+
+    loadTheme();
+
+    setupSearch();
+
+    setupModal();
+
+    setupKeyboardShortcuts();
+
+    hideWelcomeScreen();
+
+}
+
+
+/* =========================================================
+   START WHEN PAGE LOADS
+========================================================= */
 
 window.addEventListener(
-  "load",
-  function() {
+    "load",
+    function () {
 
-    setTimeout(
-      function() {
+        startPortal();
+
+    }
+);
+
+
+/* =========================================================
+   WELCOME SCREEN FAIL-SAFE
+   Prevents loading screen from staying forever
+========================================================= */
+
+setTimeout(
+    function () {
 
         const screen =
-          document.getElementById(
-            "welcomeScreen"
-          );
+            document.getElementById(
+                "welcomeScreen"
+            );
 
 
         if (screen) {
 
-          screen.classList.add("hide");
+            screen.classList.add(
+                "hide"
+            );
 
 
-          setTimeout(
-            function() {
+            setTimeout(
+                function () {
 
-              if (screen) {
-                screen.remove();
-              }
+                    if (screen) {
 
-            },
-            900
-          );
+                        screen.remove();
+
+                    }
+
+                },
+                900
+            );
 
         }
 
-      },
-      3000
-    );
-
-  }
+    },
+    6000
 );
-
-
-
-/* =========================================
-   START PORTAL
-========================================= */
-
-function startPortal() {
-
-  try {
-
-    setDate();
-
-  }
-  catch (error) {
-
-    console.error(
-      "Date setup error:",
-      error
-    );
-
-  }
-
-
-  try {
-
-    loadTheme();
-
-  }
-  catch (error) {
-
-    console.error(
-      "Theme setup error:",
-      error
-    );
-
-  }
-
-
-  try {
-
-    setupSearch();
-
-  }
-  catch (error) {
-
-    console.error(
-      "Search setup error:",
-      error
-    );
-
-  }
-
-
-  try {
-
-    setupModal();
-
-  }
-  catch (error) {
-
-    console.error(
-      "Modal setup error:",
-      error
-    );
-
-  }
-
-
-  try {
-
-    hideWelcomeScreen();
-
-  }
-  catch (error) {
-
-    console.error(
-      "Welcome screen error:",
-      error
-    );
-
-  }
-
-}
-
-
-
-/* =========================================
-   START
-========================================= */
-
-if (
-  document.readyState === "loading"
-) {
-
-  document.addEventListener(
-    "DOMContentLoaded",
-    startPortal
-  );
-
-}
-else {
-
-  startPortal();
-
-}
