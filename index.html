@@ -1,636 +1,1420 @@
-<!DOCTYPE html>
-<html lang="en">
+/* =========================================================
+   GGL MAIN BUSINESS PORTAL
+   GAERISH LOGISTICS PVT. LTD.
+========================================================= */
+
+
+/* =========================================================
+   GGL RESOURCE DATABASE
+========================================================= */
+
+const GGL_LINKS = {
+
+    ERP: [
+        {
+            name: "GGL ERP - Logisys",
+            description: "Main ERP system for operations and business management",
+            url: "#",
+            keywords: "erp logisys operations shipment"
+        },
+        {
+            name: "GGL ERP - Sentinel",
+            description: "Sentinel ERP system",
+            url: "#",
+            keywords: "erp sentinel"
+        }
+    ],
+
+
+    "G-SHEETS": [
+        {
+            name: "Sea Export",
+            description: "Sea export operational sheets and dashboards",
+            url: "#",
+            keywords: "sea export export shipping"
+        },
+        {
+            name: "Air Export",
+            description: "Air export operational sheets and dashboards",
+            url: "#",
+            keywords: "air export export air freight"
+        },
+        {
+            name: "Sea Import",
+            description: "Sea import operational sheets and dashboards",
+            url: "#",
+            keywords: "sea import import shipping"
+        },
+        {
+            name: "Air Import",
+            description: "Air import operational sheets and dashboards",
+            url: "#",
+            keywords: "air import import air freight"
+        },
+        {
+            name: "NAP",
+            description: "North American Project resources",
+            url: "#",
+            keywords: "nap north american project"
+        },
+        {
+            name: "Defence",
+            description: "Defence cargo operational resources",
+            url: "#",
+            keywords: "defence cargo defence"
+        }
+    ],
+
+
+    QMS: [
+        {
+            name: "GGL QMS",
+            description: "Gaerish Logistics Quality Management System",
+            url: "#",
+            keywords: "qms quality capa ncr audit compliance gdp"
+        }
+    ],
+
+
+    WCA: [
+        {
+            name: "WCA World",
+            description: "Worldwide freight forwarding network",
+            url: "https://www.wcaworld.com/",
+            keywords: "wca world network agents freight forwarding"
+        }
+    ],
+
+
+    LINERS: [
+        {
+            name: "Maersk",
+            description: "Maersk shipping line",
+            url: "https://www.maersk.com/",
+            keywords: "maersk liner shipping carrier"
+        },
+        {
+            name: "MSC",
+            description: "Mediterranean Shipping Company",
+            url: "https://www.msc.com/",
+            keywords: "msc liner shipping carrier"
+        },
+        {
+            name: "CMA CGM",
+            description: "CMA CGM shipping line",
+            url: "https://www.cma-cgm.com/",
+            keywords: "cma cgm liner shipping carrier"
+        },
+        {
+            name: "Hapag-Lloyd",
+            description: "Hapag-Lloyd shipping line",
+            url: "https://www.hapag-lloyd.com/",
+            keywords: "hapag lloyd liner shipping carrier"
+        },
+        {
+            name: "ONE",
+            description: "Ocean Network Express",
+            url: "https://www.one-line.com/",
+            keywords: "one ocean network express liner"
+        },
+        {
+            name: "COSCO",
+            description: "COSCO Shipping",
+            url: "https://www.coscon.com/",
+            keywords: "cosco liner shipping carrier"
+        },
+        {
+            name: "Evergreen",
+            description: "Evergreen Marine",
+            url: "https://www.evergreen-marine.com/",
+            keywords: "evergreen liner shipping carrier"
+        },
+        {
+            name: "ZIM",
+            description: "ZIM Integrated Shipping Services",
+            url: "https://www.zim.com/",
+            keywords: "zim liner shipping carrier"
+        }
+    ],
+
+
+    DOCUMENTS: [
+        {
+            name: "Google Drive",
+            description: "GGL company documents and shared files",
+            url: "#",
+            keywords: "google drive documents files"
+        },
+        {
+            name: "Policies",
+            description: "Company policies",
+            url: "#",
+            keywords: "policies policy"
+        },
+        {
+            name: "SOPs",
+            description: "Standard Operating Procedures",
+            url: "#",
+            keywords: "sop sops standard operating procedure"
+        },
+        {
+            name: "Work Instructions",
+            description: "Department work instructions",
+            url: "#",
+            keywords: "work instruction wi"
+        },
+        {
+            name: "Forms & Formats",
+            description: "Company forms and formats",
+            url: "#",
+            keywords: "forms formats templates"
+        },
+        {
+            name: "Manuals",
+            description: "Company and department manuals",
+            url: "#",
+            keywords: "manual manuals"
+        }
+    ],
+
+
+    HR: [
+        {
+            name: "Keka",
+            description: "GGL HRMS and employee portal",
+            url: "#",
+            keywords: "hr keka employee hrms payroll"
+        }
+    ],
+
+
+    IT: [
+        {
+            name: "IT Support",
+            description: "IT support and assistance",
+            url: "#",
+            keywords: "it support helpdesk"
+        },
+        {
+            name: "IT Applications",
+            description: "Company IT applications",
+            url: "#",
+            keywords: "it applications software systems"
+        },
+        {
+            name: "IT Documents",
+            description: "IT policies and documents",
+            url: "#",
+            keywords: "it documents"
+        }
+    ],
+
+
+    GOVERNMENT: [
+        {
+            name: "ICEGATE",
+            description: "Indian Customs electronic gateway",
+            url: "#",
+            keywords: "icegate customs"
+        },
+        {
+            name: "DGFT",
+            description: "Directorate General of Foreign Trade",
+            url: "#",
+            keywords: "dgft export import government"
+        },
+        {
+            name: "GST",
+            description: "Goods and Services Tax portal",
+            url: "#",
+            keywords: "gst tax government"
+        },
+        {
+            name: "Customs",
+            description: "Customs resources and portals",
+            url: "#",
+            keywords: "customs government"
+        }
+    ],
+
+
+    NETWORKS: [
+        {
+            name: "WPA",
+            description: "Worldwide freight forwarding network",
+            url: "#",
+            keywords: "wpa network freight forwarding"
+        },
+        {
+            name: "OPEC",
+            description: "OPEC freight forwarding network",
+            url: "#",
+            keywords: "opec network freight forwarding"
+        },
+        {
+            name: "Other Networks",
+            description: "Other forwarding networks",
+            url: "#",
+            keywords: "other network agents forwarding"
+        }
+    ],
+
+
+    Website: [
+        {
+            name: "Gaerish Logistics",
+            description: "Official Gaerish Logistics website",
+            url: "#",
+            keywords: "gaerish logistics website company"
+        },
+        {
+            name: "Gaerish Defence",
+            description: "Gaerish Defence website",
+            url: "#",
+            keywords: "gaerish defence website"
+        },
+        {
+            name: "Gaerish E-Trade",
+            description: "Gaerish E-Trade website",
+            url: "#",
+            keywords: "gaerish etrade website"
+        }
+    ],
+
+
+    Zoho: [
+        {
+            name: "Zoho",
+            description: "GGL Zoho applications",
+            url: "#",
+            keywords: "zoho crm mail applications"
+        }
+    ]
+
+};
+
+
+/* =========================================================
+   OPEN CATEGORY DIRECTLY
+========================================================= */
+
+function openLink(category) {
+
+    const resources = GGL_LINKS[category];
+
+    if (!resources || resources.length === 0) {
+        return;
+    }
+
+    const firstResource = resources[0];
+
+    if (
+        firstResource.url &&
+        firstResource.url !== "#"
+    ) {
+
+        window.open(
+            firstResource.url,
+            "_blank",
+            "noopener,noreferrer"
+        );
+
+    } else {
+
+        openPanel(category);
+
+    }
+}
+
+
+/* =========================================================
+   OPEN RESOURCE PANEL
+========================================================= */
+
+function openPanel(category) {
+
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalSubtitle = document.getElementById("modalSubtitle");
+    const modalContent = document.getElementById("modalContent");
+
+    if (!modal || !modalTitle || !modalContent) {
+        return;
+    }
+
+    const resources = GGL_LINKS[category];
+
+    if (!resources) {
+        return;
+    }
+
+
+    /* Title */
+
+    modalTitle.textContent = category;
+
+
+    /* Subtitle */
+
+    if (modalSubtitle) {
+
+        const subtitles = {
+            ERP: "Enterprise resource planning systems",
+            "G-SHEETS": "Operational sheets & dashboards",
+            QMS: "Quality management system",
+            WCA: "Global forwarding network",
+            LINERS: "Shipping lines & carrier portals",
+            DOCUMENTS: "Company documents and resources",
+            HR: "Human resources systems",
+            IT: "IT systems and support",
+            GOVERNMENT: "Government & regulatory portals",
+            NETWORKS: "Freight forwarding networks",
+            Website: "Gaerish Logistics websites",
+            Zoho: "Zoho applications"
+        };
+
+        modalSubtitle.textContent =
+            subtitles[category] || "Access resources";
+    }
+
+
+    /* Clear old content */
+
+    modalContent.innerHTML = "";
+
+
+    /* Create resource items */
+
+    resources.forEach((resource) => {
+
+        const item = document.createElement("div");
+
+        item.className = "modal-resource";
+
+
+        /* Icon */
+
+        const icon = document.createElement("div");
+
+        icon.className = "modal-resource-icon";
+
+        icon.innerHTML = getResourceIcon(
+            category,
+            resource.name
+        );
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        /* Info */
 
-  <title>Gaerish Logistics Main Portal</title>
+        const info = document.createElement("div");
 
-  <link rel="stylesheet" href="style.css">
+        info.className = "modal-resource-info";
 
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  >
-</head>
 
-<body>
+        const name = document.createElement("h3");
 
-<!-- ================================
-     GGL WELCOME / LOADING SCREEN
-================================= -->
+        name.textContent = resource.name;
 
-<div id="welcomeScreen" class="welcome-screen">
 
-  <div class="welcome-content">
+        const description = document.createElement("p");
 
-    <div class="welcome-logo-wrap">
-      <img
-        src="logo.png"
-        alt="Gaerish Logistics"
-        class="welcome-logo"
-      >
-    </div>
+        description.textContent =
+            resource.description || "";
 
-    <div class="welcome-company">
-      GAERISH LOGISTICS
-    </div>
 
-    <div class="welcome-portal">
-      MAIN BUSINESS PORTAL
-    </div>
+        info.appendChild(name);
+        info.appendChild(description);
 
-    <div class="welcome-line"></div>
 
-    <div class="welcome-message">
-      Welcome to GGL
-    </div>
+        /* Arrow */
 
-    <div class="loading-area">
+        const arrow = document.createElement("i");
 
-      <div class="loading-bar">
-        <div class="loading-progress"></div>
-      </div>
+        arrow.className =
+            "fa-solid fa-arrow-up-right-from-square modal-resource-arrow";
 
-      <div class="loading-text">
-        Loading your workspace...
-      </div>
 
-    </div>
+        item.appendChild(icon);
+        item.appendChild(info);
+        item.appendChild(arrow);
 
-  </div>
 
-</div>
+        /* Click */
 
+        item.addEventListener("click", function () {
 
-<!-- ================================
-     HEADER
-================================= -->
+            if (
+                resource.url &&
+                resource.url !== "#"
+            ) {
 
-<header class="topbar">
+                window.open(
+                    resource.url,
+                    "_blank",
+                    "noopener,noreferrer"
+                );
 
-  <div class="brand">
+            } else {
 
-    <div class="brand-logo">
-      <img
-        src="logo.png"
-        alt="Gaerish Logistics"
-        class="company-logo"
-      >
-    </div>
+                alert(
+                    `${resource.name} link is not configured yet.`
+                );
 
-    <div>
+            }
 
-      <div class="company-name">
-        GAERISH LOGISTICS
-      </div>
+        });
 
-      <div class="portal-name">
-        MAIN PORTAL
-      </div>
 
-    </div>
+        modalContent.appendChild(item);
 
-  </div>
+    });
 
 
-  <div class="header-right">
+    /* Show modal */
 
-    <span id="currentDate"></span>
+    modal.classList.add("show");
 
-    <button
-      class="icon-btn"
-      onclick="toggleTheme()"
-      aria-label="Toggle theme"
-    >
-      <i class="fa-solid fa-moon"></i>
-    </button>
+    document.body.classList.add("modal-open");
+}
 
-  </div>
 
-</header>
+/* =========================================================
+   RESOURCE ICONS
+========================================================= */
 
+function getResourceIcon(category, name) {
 
-<!-- ================================
-     MAIN
-================================= -->
+    const lowerName =
+        name.toLowerCase();
 
-<main class="main-container">
 
+    if (category === "LINERS") {
 
-  <!-- ================================
-       HERO
-  ================================= -->
+        return '<i class="fa-solid fa-ship"></i>';
 
-  <section class="hero">
+    }
 
-    <div class="hero-text">
+    if (category === "WCA") {
 
-      <p class="welcome">
-        “Great things are done by a series of small things brought together.”
-      </p>
+        return '<i class="fa-solid fa-globe"></i>';
 
-      <h1>
-        Welcome to Gaerish Logistics Main Portal
-      </h1>
+    }
 
-      <p class="subtitle">
-        One place for all your business systems, tools,
-        networks and resources.
-      </p>
+    if (category === "ERP") {
 
-    </div>
+        return '<i class="fa-solid fa-desktop"></i>';
 
+    }
 
-    <!-- SEARCH -->
+    if (category === "G-SHEETS") {
 
-    <div class="search-container">
+        return '<i class="fa-solid fa-table"></i>';
 
-      <i class="fa-solid fa-magnifying-glass"></i>
+    }
 
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Search ERP, Sheets, WCA, Liners, Documents..."
-        oninput="searchPortal()"
-        onkeydown="handleSearchKey(event)"
-      >
+    if (category === "QMS") {
 
-      <span class="search-shortcut">
-        /
-      </span>
+        return '<i class="fa-solid fa-shield-halved"></i>';
 
-    </div>
+    }
 
-    <div
-      id="searchResults"
-      class="search-results"
-    ></div>
+    if (category === "DOCUMENTS") {
 
-  </section>
+        if (lowerName.includes("drive")) {
+            return '<i class="fa-brands fa-google-drive"></i>';
+        }
 
+        if (lowerName.includes("sop")) {
+            return '<i class="fa-solid fa-file-lines"></i>';
+        }
 
-  <!-- ================================
-       QUICK ACCESS
-  ================================= -->
+        return '<i class="fa-solid fa-folder-open"></i>';
+    }
 
-  <section class="section">
+    if (category === "HR") {
 
-    <div class="section-heading">
+        return '<i class="fa-solid fa-users"></i>';
 
-      <h2>
-        <i class="fa-solid fa-star"></i>
-        Quick Access
-      </h2>
+    }
 
-    </div>
+    if (category === "IT") {
 
+        return '<i class="fa-solid fa-computer"></i>';
 
-    <div class="quick-access">
+    }
 
+    if (category === "GOVERNMENT") {
 
-      <!-- ERP -->
+        return '<i class="fa-solid fa-building-columns"></i>';
 
-      <button
-        class="quick-btn quick-erp"
-        onclick="openLink('ERP')"
-      >
-        <i class="fa-solid fa-desktop"></i>
-        <span>ERP</span>
-      </button>
+    }
 
+    if (category === "NETWORKS") {
 
-      <!-- QMS -->
+        return '<i class="fa-solid fa-network-wired"></i>';
 
-      <button
-        class="quick-btn quick-qms"
-        onclick="openLink('QMS')"
-      >
-        <i class="fa-solid fa-shield-halved"></i>
-        <span>QMS</span>
-      </button>
+    }
 
+    if (category === "Website") {
 
-      <!-- G-SHEETS -->
+        return '<i class="fa-solid fa-globe"></i>';
 
-      <button
-        class="quick-btn quick-gsheets"
-        onclick="openPanel('G-SHEETS')"
-      >
-        <i class="fa-solid fa-table"></i>
-        <span>G-Sheets</span>
-      </button>
+    }
 
+    if (category === "Zoho") {
 
-      <!-- WCA -->
+        return '<i class="fa-solid fa-cloud"></i>';
 
-      <button
-        class="quick-btn quick-wca"
-        onclick="openLink('WCA')"
-      >
-        <i class="fa-solid fa-globe"></i>
-        <span>WCA</span>
-      </button>
+    }
 
 
-    </div>
+    return '<i class="fa-solid fa-link"></i>';
+}
 
-  </section>
 
+/* =========================================================
+   CLOSE MODAL
+========================================================= */
 
-  <!-- ================================
-       ALL RESOURCES
-  ================================= -->
+function closeModal() {
 
-  <section class="section">
+    const modal =
+        document.getElementById("modal");
 
-    <div class="section-heading">
+    if (!modal) {
+        return;
+    }
 
-      <div>
+    modal.classList.remove("show");
 
-        <h2>
-          All Resources
-        </h2>
+    document.body.classList.remove("modal-open");
+}
 
-        <p>
-          Access everything from one place
-        </p>
 
-      </div>
+/* =========================================================
+   CLOSE MODAL WHEN CLICKING OUTSIDE
+========================================================= */
 
-    </div>
+function closeModalOutside(event) {
 
+    if (
+        event.target &&
+        event.target.id === "modal"
+    ) {
 
-    <div class="tile-grid">
+        closeModal();
 
+    }
+}
 
-      <!-- ================================
-           ERP
-      ================================= -->
 
-      <div
-        class="portal-card"
-        onclick="openPanel('ERP')"
-        data-search="erp system operations shipment logistics"
-      >
+/* =========================================================
+   SEARCH
+========================================================= */
 
-        <div class="card-icon erp">
-          <i class="fa-solid fa-desktop"></i>
-        </div>
+function searchPortal(query) {
 
-        <div class="card-content">
+    const input =
+        document.getElementById("searchInput");
 
-          <h3>ERP</h3>
+    const results =
+        document.getElementById("searchResults");
 
-          <p>
-            Operations & business management
-          </p>
 
-        </div>
+    /* Support both direct calls and input events */
 
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
+    if (
+        typeof query !== "string" &&
+        input
+    ) {
 
-      </div>
+        query = input.value;
 
+    }
 
-      <!-- ================================
-           G-SHEETS
-      ================================= -->
 
-      <div
-        class="portal-card"
-        onclick="openPanel('G-SHEETS')"
-        data-search="google sheets sheets reports operations"
-      >
+    query =
+        (query || "").trim();
 
-        <div class="card-icon sheets">
-          <i class="fa-solid fa-table"></i>
-        </div>
 
-        <div class="card-content">
+    if (!results) {
+        return;
+    }
 
-          <h3>G-SHEETS</h3>
 
-          <p>
-            Operational sheets & dashboards
-          </p>
+    /* Empty search */
 
-        </div>
+    if (!query) {
 
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
+        results.innerHTML = "";
 
-      </div>
+        results.classList.remove("show");
 
+        results.dataset.hasMatches = "false";
 
-      <!-- ================================
-           QMS
-      ================================= -->
+        return;
+    }
 
-      <div
-        class="portal-card"
-        onclick="openLink('QMS')"
-        data-search="qms quality management capa ncr audits"
-      >
 
-        <div class="card-icon qms">
-          <i class="fa-solid fa-shield-halved"></i>
-        </div>
+    const searchTerm =
+        query.toLowerCase();
 
-        <div class="card-content">
 
-          <h3>QMS</h3>
+    const matches = [];
 
-          <p>
-            Quality management system
-          </p>
 
-        </div>
+    /* Search all categories */
 
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
+    Object.keys(GGL_LINKS).forEach((category) => {
 
-      </div>
+        GGL_LINKS[category].forEach((resource) => {
 
+            const searchableText = [
 
-      <!-- ================================
-           LINERS
-      ================================= -->
+                category,
 
-      <div
-        class="portal-card"
-        onclick="openPanel('LINERS')"
-        data-search="liners shipping lines carrier maersk msc cma cgm hapag lloyd one cosco evergreen zim"
-      >
+                resource.name,
 
-        <div class="card-icon liners">
-          <i class="fa-solid fa-ship"></i>
-        </div>
+                resource.description,
 
-        <div class="card-content">
+                resource.keywords
 
-          <h3>LINERS</h3>
+            ]
+                .join(" ")
+                .toLowerCase();
 
-          <p>
-            Shipping lines & carrier portals
-          </p>
 
-        </div>
+            if (
+                searchableText.includes(searchTerm)
+            ) {
 
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
+                matches.push({
+                    category: category,
+                    resource: resource
+                });
 
-      </div>
+            }
 
+        });
 
-      <!-- ================================
-           DOCUMENTS
-      ================================= -->
+    });
 
-      <div
-        class="portal-card"
-        onclick="openPanel('DOCUMENTS')"
-        data-search="documents google drive policies sop manuals forms"
-      >
 
-        <div class="card-icon documents">
-          <i class="fa-solid fa-folder-open"></i>
-        </div>
+    /* Clear previous results */
 
-        <div class="card-content">
+    results.innerHTML = "";
 
-          <h3>DOCUMENTS</h3>
 
-          <p>
-            Policies, SOPs & company documents
-          </p>
+    /* Matches found */
 
-        </div>
+    if (matches.length > 0) {
 
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
+        results.dataset.hasMatches = "true";
 
-      </div>
+        results.classList.add("show");
 
 
-      <!-- ================================
-           HR
-      ================================= -->
+        matches
+            .slice(0, 10)
+            .forEach((match) => {
 
-      <div
-        class="portal-card"
-        onclick="openPanel('HR')"
-        data-search="hr human resources keka employee"
-      >
+                const result =
+                    document.createElement("div");
 
-        <div class="card-icon hr">
-          <i class="fa-solid fa-users"></i>
-        </div>
+                result.className =
+                    "search-result";
 
-        <div class="card-content">
 
-          <h3>HR</h3>
+                const icon =
+                    document.createElement("div");
 
-          <p>
-            HRMS & employee resources
-          </p>
+                icon.className =
+                    "search-result-icon";
 
-        </div>
+                icon.innerHTML =
+                    getResourceIcon(
+                        match.category,
+                        match.resource.name
+                    );
 
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
 
-      </div>
+                const info =
+                    document.createElement("div");
 
+                info.className =
+                    "search-result-info";
 
-      <!-- ================================
-           IT
-      ================================= -->
 
-      <div
-        class="portal-card"
-        onclick="openPanel('IT')"
-        data-search="it technology support systems"
-      >
+                const title =
+                    document.createElement("strong");
 
-        <div class="card-icon it">
-          <i class="fa-solid fa-computer"></i>
-        </div>
+                title.innerHTML =
+                    highlightText(
+                        match.resource.name,
+                        query
+                    );
 
-        <div class="card-content">
 
-          <h3>IT</h3>
+                const description =
+                    document.createElement("span");
 
-          <p>
-            IT systems & support
-          </p>
+                description.innerHTML =
+                    highlightText(
+                        match.resource.description,
+                        query
+                    );
 
-        </div>
 
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
+                const category =
+                    document.createElement("small");
 
-      </div>
+                category.textContent =
+                    match.category;
 
 
-      <!-- ================================
-           GOVERNMENT
-      ================================= -->
+                info.appendChild(title);
+                info.appendChild(description);
+                info.appendChild(category);
 
-      <div
-        class="portal-card"
-        onclick="openPanel('GOVERNMENT')"
-        data-search="government icegate dgft gst customs"
-      >
 
-        <div class="card-icon government">
-          <i class="fa-solid fa-building-columns"></i>
-        </div>
+                result.appendChild(icon);
+                result.appendChild(info);
 
-        <div class="card-content">
 
-          <h3>GOVERNMENT</h3>
+                result.addEventListener(
+                    "click",
+                    function () {
 
-          <p>
-            Government & regulatory portals
-          </p>
+                        const resource =
+                            match.resource;
 
-        </div>
 
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
+                        if (
+                            resource.url &&
+                            resource.url !== "#"
+                        ) {
 
-      </div>
+                            window.open(
+                                resource.url,
+                                "_blank",
+                                "noopener,noreferrer"
+                            );
 
+                        } else {
 
-      <!-- ================================
-           NETWORKS
-      ================================= -->
+                            openPanel(
+                                match.category
+                            );
 
-      <div
-        class="portal-card"
-        onclick="openPanel('NETWORKS')"
-        data-search="network wpa opec agents freight forwarding"
-      >
+                        }
 
-        <div class="card-icon networks">
-          <i class="fa-solid fa-network-wired"></i>
-        </div>
+                        results.classList.remove("show");
 
-        <div class="card-content">
+                    }
+                );
 
-          <h3>NETWORKS</h3>
 
-          <p>
-            Freight forwarding networks
-          </p>
+                results.appendChild(result);
 
-        </div>
+            });
 
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
 
-      </div>
+    } else {
 
+        /* No internal result */
 
-      <!-- ================================
-           WEBSITE
-      ================================= -->
+        results.dataset.hasMatches = "false";
 
-      <div
-        class="portal-card"
-        onclick="openPanel('Website')"
-        data-search="website company gaerish online tracking logistics"
-      >
+        results.classList.add("show");
 
-        <div class="card-icon website">
-          <i class="fa-solid fa-globe"></i>
-        </div>
 
-        <div class="card-content">
+        const noResult =
+            document.createElement("div");
 
-          <h3>WEBSITE</h3>
+        noResult.className =
+            "search-no-result";
 
-          <p>
-            Company websites & online tracking
-          </p>
 
-        </div>
+        noResult.innerHTML = `
 
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
+            <i class="fa-solid fa-magnifying-glass"></i>
 
-      </div>
+            <div>
+                <strong>No GGL resource found</strong>
+                <span>Press Enter to search Google</span>
+            </div>
 
+        `;
 
-    </div>
 
-  </section>
+        results.appendChild(noResult);
 
+    }
 
-  <!-- ================================
-       FOOTER
-  ================================= -->
+}
 
-  <footer>
 
-    <span>
-      © 2026 Gaerish Logistics Pvt. Ltd.
-    </span>
+/* =========================================================
+   SEARCH KEYBOARD
+========================================================= */
 
-    <span>
-      GGL Main Portal
-    </span>
+function handleSearchKey(event) {
 
-  </footer>
+    if (event.key !== "Enter") {
+        return;
+    }
 
-</main>
 
+    const input =
+        document.getElementById("searchInput");
 
-<!-- ================================
-     MODAL
-================================= -->
+    const results =
+        document.getElementById("searchResults");
 
-<div
-  class="modal"
-  id="modal"
-  onclick="closeModalOutside(event)"
->
 
-  <div class="modal-box">
+    if (!input) {
+        return;
+    }
 
-    <div class="modal-header">
 
-      <div>
+    const query =
+        input.value.trim();
 
-        <h2 id="modalTitle">
-          Resources
-        </h2>
 
-        <p id="modalSubtitle">
-          Access resources
-        </p>
+    if (!query) {
+        return;
+    }
 
-      </div>
 
-      <button
-        class="close-btn"
-        onclick="closeModal()"
-        aria-label="Close"
-      >
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+    const hasMatches =
+        results &&
+        results.dataset.hasMatches === "true";
 
-    </div>
 
+    /* Internal result */
 
-    <div
-      id="modalContent"
-      class="modal-content"
-    ></div>
+    if (hasMatches) {
 
-  </div>
+        const firstResult =
+            results.querySelector(
+                ".search-result"
+            );
 
-</div>
 
+        if (firstResult) {
 
-<!-- ================================
-     JAVASCRIPT
-================================= -->
+            firstResult.click();
 
-<script src="app.js"></script>
+        }
 
-</body>
-</html>
+        return;
+    }
+
+
+    /* Google fallback */
+
+    const googleUrl =
+        "https://www.google.com/search?q=" +
+        encodeURIComponent(query);
+
+
+    window.open(
+        googleUrl,
+        "_blank",
+        "noopener,noreferrer"
+    );
+
+}
+
+
+/* =========================================================
+   SEARCH TEXT HIGHLIGHT
+========================================================= */
+
+function highlightText(text, query) {
+
+    if (!text) {
+        return "";
+    }
+
+    const safeText =
+        escapeHtml(text);
+
+    const safeQuery =
+        escapeRegExp(query);
+
+
+    if (!safeQuery) {
+        return safeText;
+    }
+
+
+    return safeText.replace(
+        new RegExp(`(${safeQuery})`, "gi"),
+        "<mark>$1</mark>"
+    );
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHtml(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* =========================================================
+   ESCAPE REGEX
+========================================================= */
+
+function escapeRegExp(value) {
+
+    return String(value)
+        .replace(
+            /[.*+?^${}()|[\]\\]/g,
+            "\\$&"
+        );
+
+}
+
+
+/* =========================================================
+   SAFE URL
+========================================================= */
+
+function safeUrl(url) {
+
+    if (!url) {
+        return "#";
+    }
+
+    try {
+
+        const parsed =
+            new URL(url);
+
+        if (
+            parsed.protocol === "http:" ||
+            parsed.protocol === "https:"
+        ) {
+
+            return parsed.href;
+
+        }
+
+    } catch (error) {
+
+        return "#";
+
+    }
+
+    return "#";
+}
+
+
+/* =========================================================
+   DATE
+========================================================= */
+
+function setDate() {
+
+    const dateElement =
+        document.getElementById("currentDate");
+
+    if (!dateElement) {
+        return;
+    }
+
+
+    const now =
+        new Date();
+
+
+    dateElement.textContent =
+        now.toLocaleDateString(
+            "en-IN",
+            {
+                weekday: "short",
+                day: "2-digit",
+                month: "short",
+                year: "numeric"
+            }
+        );
+
+}
+
+
+/* =========================================================
+   THEME
+========================================================= */
+
+function toggleTheme() {
+
+    document.body.classList.toggle(
+        "dark-mode"
+    );
+
+
+    const isDark =
+        document.body.classList.contains(
+            "dark-mode"
+        );
+
+
+    localStorage.setItem(
+        "ggl-theme",
+        isDark ? "dark" : "light"
+    );
+
+
+    updateThemeIcon();
+
+}
+
+
+/* =========================================================
+   UPDATE THEME ICON
+========================================================= */
+
+function updateThemeIcon() {
+
+    const button =
+        document.querySelector(
+            ".icon-btn i"
+        );
+
+
+    if (!button) {
+        return;
+    }
+
+
+    const isDark =
+        document.body.classList.contains(
+            "dark-mode"
+        );
+
+
+    if (isDark) {
+
+        button.className =
+            "fa-solid fa-sun";
+
+    } else {
+
+        button.className =
+            "fa-solid fa-moon";
+
+    }
+
+}
+
+
+/* =========================================================
+   LOAD SAVED THEME
+========================================================= */
+
+function loadTheme() {
+
+    const savedTheme =
+        localStorage.getItem(
+            "ggl-theme"
+        );
+
+
+    if (savedTheme === "dark") {
+
+        document.body.classList.add(
+            "dark-mode"
+        );
+
+    } else {
+
+        document.body.classList.remove(
+            "dark-mode"
+        );
+
+    }
+
+
+    updateThemeIcon();
+
+}
+
+
+/* =========================================================
+   KEYBOARD SHORTCUTS
+========================================================= */
+
+function setupKeyboardShortcuts() {
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+
+            /* "/" → Search */
+
+            if (
+                event.key === "/" &&
+                document.activeElement.tagName !== "INPUT" &&
+                document.activeElement.tagName !== "TEXTAREA"
+            ) {
+
+                event.preventDefault();
+
+                const input =
+                    document.getElementById(
+                        "searchInput"
+                    );
+
+
+                if (input) {
+
+                    input.focus();
+
+                }
+
+            }
+
+
+            /* Ctrl + K → Search */
+
+            if (
+                event.ctrlKey &&
+                event.key.toLowerCase() === "k"
+            ) {
+
+                event.preventDefault();
+
+                const input =
+                    document.getElementById(
+                        "searchInput"
+                    );
+
+
+                if (input) {
+
+                    input.focus();
+
+                    input.select();
+
+                }
+
+            }
+
+
+            /* Escape → Close modal/search */
+
+            if (event.key === "Escape") {
+
+                closeModal();
+
+                const results =
+                    document.getElementById(
+                        "searchResults"
+                    );
+
+
+                if (results) {
+
+                    results.classList.remove(
+                        "show"
+                    );
+
+                }
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   MODAL SETUP
+========================================================= */
+
+function setupModal() {
+
+    const modal =
+        document.getElementById("modal");
+
+
+    if (!modal) {
+        return;
+    }
+
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Escape") {
+
+                closeModal();
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SEARCH SETUP
+========================================================= */
+
+function setupSearch() {
+
+    const input =
+        document.getElementById(
+            "searchInput"
+        );
+
+
+    if (!input) {
+        return;
+    }
+
+
+    input.addEventListener(
+        "input",
+        function () {
+
+            searchPortal(
+                input.value
+            );
+
+        }
+    );
+
+
+    input.addEventListener(
+        "keydown",
+        function (event) {
+
+            handleSearchKey(event);
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   WELCOME SCREEN
+========================================================= */
+
+function hideWelcomeScreen() {
+
+    const welcomeScreen =
+        document.getElementById(
+            "welcomeScreen"
+        );
+
+
+    if (!welcomeScreen) {
+        return;
+    }
+
+
+    setTimeout(
+        function () {
+
+            welcomeScreen.classList.add(
+                "hidden"
+            );
+
+
+            setTimeout(
+                function () {
+
+                    welcomeScreen.remove();
+
+                },
+                900
+            );
+
+        },
+        2500
+    );
+
+}
+
+
+/* =========================================================
+   START PORTAL
+========================================================= */
+
+function startPortal() {
+
+    setDate();
+
+    loadTheme();
+
+    setupSearch();
+
+    setupModal();
+
+    setupKeyboardShortcuts();
+
+    hideWelcomeScreen();
+
+}
+
+
+/* =========================================================
+   PAGE LOAD
+========================================================= */
+
+window.addEventListener(
+    "load",
+    function () {
+
+        startPortal();
+
+    }
+);
+
+
+/* =========================================================
+   FAIL-SAFE
+========================================================= */
+
+setTimeout(
+    function () {
+
+        const welcomeScreen =
+            document.getElementById(
+                "welcomeScreen"
+            );
+
+
+        if (
+            welcomeScreen &&
+            !welcomeScreen.classList.contains(
+                "hidden"
+            )
+        ) {
+
+            welcomeScreen.classList.add(
+                "hidden"
+            );
+
+        }
+
+    },
+    6000
+);
