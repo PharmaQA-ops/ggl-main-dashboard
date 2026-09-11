@@ -1174,3 +1174,43 @@ else {
   startPortal();
 
 }
+/* =========================================
+   GOOGLE SEARCH FALLBACK
+========================================= */
+
+function handleSearchKey(event) {
+
+    if (event.key !== "Enter") return;
+
+    const input = document.getElementById("searchInput");
+
+    if (!input) return;
+
+    const query = input.value.trim();
+
+    if (!query) return;
+
+    const results = document.getElementById("searchResults");
+
+    /*
+       Check whether GGL internal search
+       found anything.
+    */
+    const hasInternalResults =
+        results &&
+        results.children.length > 0;
+
+    /*
+       If GGL has no result,
+       search Google instead.
+    */
+    if (!hasInternalResults) {
+
+        const googleUrl =
+            "https://www.google.com/search?q=" +
+            encodeURIComponent(query);
+
+        window.open(googleUrl, "_blank");
+
+    }
+}
