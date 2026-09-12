@@ -5,7 +5,7 @@
 
 
 /* =========================================================
-   GGL RESOURCE DATABASE
+   RESOURCE DATABASE
 ========================================================= */
 
 const GGL_LINKS = {
@@ -15,7 +15,7 @@ const GGL_LINKS = {
             name: "GGL ERP - Logisys",
             description: "Main ERP system for operations and business management",
             url: "#",
-            keywords: "erp logisys operations shipment"
+            keywords: "erp logisys operations shipment logistics"
         },
         {
             name: "GGL ERP - Sentinel",
@@ -24,7 +24,6 @@ const GGL_LINKS = {
             keywords: "erp sentinel"
         }
     ],
-
 
     "G-SHEETS": [
         {
@@ -37,7 +36,7 @@ const GGL_LINKS = {
             name: "Air Export",
             description: "Air export operational sheets and dashboards",
             url: "#",
-            keywords: "air export export air freight"
+            keywords: "air export air freight"
         },
         {
             name: "Sea Import",
@@ -61,10 +60,9 @@ const GGL_LINKS = {
             name: "Defence",
             description: "Defence cargo operational resources",
             url: "#",
-            keywords: "defence cargo defence"
+            keywords: "defence cargo"
         }
     ],
-
 
     QMS: [
         {
@@ -75,7 +73,6 @@ const GGL_LINKS = {
         }
     ],
 
-
     WCA: [
         {
             name: "WCA World",
@@ -84,7 +81,6 @@ const GGL_LINKS = {
             keywords: "wca world network agents freight forwarding"
         }
     ],
-
 
     LINERS: [
         {
@@ -137,7 +133,6 @@ const GGL_LINKS = {
         }
     ],
 
-
     DOCUMENTS: [
         {
             name: "Google Drive",
@@ -161,7 +156,7 @@ const GGL_LINKS = {
             name: "Work Instructions",
             description: "Department work instructions",
             url: "#",
-            keywords: "work instruction wi"
+            keywords: "work instructions wi"
         },
         {
             name: "Forms & Formats",
@@ -177,7 +172,6 @@ const GGL_LINKS = {
         }
     ],
 
-
     HR: [
         {
             name: "Keka",
@@ -186,7 +180,6 @@ const GGL_LINKS = {
             keywords: "hr keka employee hrms payroll"
         }
     ],
-
 
     IT: [
         {
@@ -208,7 +201,6 @@ const GGL_LINKS = {
             keywords: "it documents"
         }
     ],
-
 
     GOVERNMENT: [
         {
@@ -237,7 +229,6 @@ const GGL_LINKS = {
         }
     ],
 
-
     NETWORKS: [
         {
             name: "WPA",
@@ -255,10 +246,9 @@ const GGL_LINKS = {
             name: "Other Networks",
             description: "Other forwarding networks",
             url: "#",
-            keywords: "other network agents forwarding"
+            keywords: "other networks agents forwarding"
         }
     ],
-
 
     Website: [
         {
@@ -281,21 +271,46 @@ const GGL_LINKS = {
         }
     ],
 
-
-    Zoho: [
+    SUGGESTION: [
         {
-            name: "Zoho",
-            description: "GGL Zoho applications",
+            name: "Suggestion Box",
+            description: "Submit ideas and suggestions for improving GGL",
             url: "#",
-            keywords: "zoho crm mail applications"
+            keywords: "suggestion idea improvement feedback"
+        }
+    ],
+
+    SALES: [
+        {
+            name: "Sales Resources",
+            description: "Sales tools, reports and resources",
+            url: "#",
+            keywords: "sales customer business development leads"
+        }
+    ],
+
+    PRICING: [
+        {
+            name: "Pricing Resources",
+            description: "Pricing tools and commercial resources",
+            url: "#",
+            keywords: "pricing quotation rates commercial"
+        }
+    ],
+
+    "TOOLS & UTILITIES": [
+        {
+            name: "GGL Tools",
+            description: "Useful business calculators and utilities",
+            url: "#",
+            keywords: "tools utilities calculator converter"
         }
     ]
-
 };
 
 
 /* =========================================================
-   OPEN CATEGORY DIRECTLY
+   OPEN LINK
 ========================================================= */
 
 function openLink(category) {
@@ -306,15 +321,12 @@ function openLink(category) {
         return;
     }
 
-    const firstResource = resources[0];
+    const first = resources[0];
 
-    if (
-        firstResource.url &&
-        firstResource.url !== "#"
-    ) {
+    if (first.url && first.url !== "#") {
 
         window.open(
-            firstResource.url,
+            first.url,
             "_blank",
             "noopener,noreferrer"
         );
@@ -328,125 +340,82 @@ function openLink(category) {
 
 
 /* =========================================================
-   OPEN RESOURCE PANEL
+   OPEN PANEL
 ========================================================= */
 
 function openPanel(category) {
 
     const modal = document.getElementById("modal");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalSubtitle = document.getElementById("modalSubtitle");
-    const modalContent = document.getElementById("modalContent");
+    const title = document.getElementById("modalTitle");
+    const subtitle = document.getElementById("modalSubtitle");
+    const content = document.getElementById("modalContent");
 
-    if (!modal || !modalTitle || !modalContent) {
-        return;
-    }
+    if (!modal || !title || !content) return;
 
     const resources = GGL_LINKS[category];
 
-    if (!resources) {
-        return;
-    }
+    if (!resources) return;
 
+    title.textContent = category;
 
-    /* Title */
+    const subtitles = {
+        ERP: "Enterprise resource planning systems",
+        "G-SHEETS": "Operational sheets & dashboards",
+        QMS: "Quality management system",
+        WCA: "Global forwarding network",
+        LINERS: "Shipping lines & carrier portals",
+        DOCUMENTS: "Company documents and resources",
+        HR: "Human resources systems",
+        IT: "IT systems and support",
+        GOVERNMENT: "Government & regulatory portals",
+        NETWORKS: "Freight forwarding networks",
+        Website: "Gaerish Logistics websites",
+        SUGGESTION: "Ideas & improvement",
+        SALES: "Sales resources",
+        PRICING: "Pricing & commercial resources",
+        "TOOLS & UTILITIES": "Business tools and utilities"
+    };
 
-    modalTitle.textContent = category;
-
-
-    /* Subtitle */
-
-    if (modalSubtitle) {
-
-        const subtitles = {
-            ERP: "Enterprise resource planning systems",
-            "G-SHEETS": "Operational sheets & dashboards",
-            QMS: "Quality management system",
-            WCA: "Global forwarding network",
-            LINERS: "Shipping lines & carrier portals",
-            DOCUMENTS: "Company documents and resources",
-            HR: "Human resources systems",
-            IT: "IT systems and support",
-            GOVERNMENT: "Government & regulatory portals",
-            NETWORKS: "Freight forwarding networks",
-            Website: "Gaerish Logistics websites",
-            Zoho: "Zoho applications"
-        };
-
-        modalSubtitle.textContent =
+    if (subtitle) {
+        subtitle.textContent =
             subtitles[category] || "Access resources";
     }
 
+    content.innerHTML = "";
 
-    /* Clear old content */
-
-    modalContent.innerHTML = "";
-
-
-    /* Create resource items */
-
-    resources.forEach((resource) => {
+    resources.forEach(resource => {
 
         const item = document.createElement("div");
-
         item.className = "modal-resource";
 
-
-        /* Icon */
-
         const icon = document.createElement("div");
-
         icon.className = "modal-resource-icon";
-
-        icon.innerHTML = getResourceIcon(
-            category,
-            resource.name
-        );
-
-
-        /* Info */
+        icon.innerHTML =
+            getResourceIcon(category, resource.name);
 
         const info = document.createElement("div");
-
         info.className = "modal-resource-info";
 
-
         const name = document.createElement("h3");
-
         name.textContent = resource.name;
 
-
         const description = document.createElement("p");
-
-        description.textContent =
-            resource.description || "";
-
+        description.textContent = resource.description || "";
 
         info.appendChild(name);
         info.appendChild(description);
 
-
-        /* Arrow */
-
         const arrow = document.createElement("i");
-
         arrow.className =
             "fa-solid fa-arrow-up-right-from-square modal-resource-arrow";
-
 
         item.appendChild(icon);
         item.appendChild(info);
         item.appendChild(arrow);
 
+        item.addEventListener("click", () => {
 
-        /* Click */
-
-        item.addEventListener("click", function () {
-
-            if (
-                resource.url &&
-                resource.url !== "#"
-            ) {
+            if (resource.url && resource.url !== "#") {
 
                 window.open(
                     resource.url,
@@ -464,109 +433,72 @@ function openPanel(category) {
 
         });
 
-
-        modalContent.appendChild(item);
+        content.appendChild(item);
 
     });
 
-
-    /* Show modal */
-
     modal.classList.add("show");
-
     document.body.classList.add("modal-open");
 }
 
 
 /* =========================================================
-   RESOURCE ICONS
+   ICONS
 ========================================================= */
 
 function getResourceIcon(category, name) {
 
-    const lowerName =
-        name.toLowerCase();
+    const lower = name.toLowerCase();
 
-
-    if (category === "LINERS") {
-
+    if (category === "LINERS")
         return '<i class="fa-solid fa-ship"></i>';
 
-    }
-
-    if (category === "WCA") {
-
+    if (category === "WCA")
         return '<i class="fa-solid fa-globe"></i>';
 
-    }
-
-    if (category === "ERP") {
-
+    if (category === "ERP")
         return '<i class="fa-solid fa-desktop"></i>';
 
-    }
-
-    if (category === "G-SHEETS") {
-
+    if (category === "G-SHEETS")
         return '<i class="fa-solid fa-table"></i>';
 
-    }
-
-    if (category === "QMS") {
-
+    if (category === "QMS")
         return '<i class="fa-solid fa-shield-halved"></i>';
-
-    }
 
     if (category === "DOCUMENTS") {
 
-        if (lowerName.includes("drive")) {
+        if (lower.includes("drive"))
             return '<i class="fa-brands fa-google-drive"></i>';
-        }
-
-        if (lowerName.includes("sop")) {
-            return '<i class="fa-solid fa-file-lines"></i>';
-        }
 
         return '<i class="fa-solid fa-folder-open"></i>';
     }
 
-    if (category === "HR") {
-
+    if (category === "HR")
         return '<i class="fa-solid fa-users"></i>';
 
-    }
-
-    if (category === "IT") {
-
+    if (category === "IT")
         return '<i class="fa-solid fa-computer"></i>';
 
-    }
-
-    if (category === "GOVERNMENT") {
-
+    if (category === "GOVERNMENT")
         return '<i class="fa-solid fa-building-columns"></i>';
 
-    }
-
-    if (category === "NETWORKS") {
-
+    if (category === "NETWORKS")
         return '<i class="fa-solid fa-network-wired"></i>';
 
-    }
-
-    if (category === "Website") {
-
+    if (category === "Website")
         return '<i class="fa-solid fa-globe"></i>';
 
-    }
+    if (category === "SUGGESTION")
+        return '<i class="fa-solid fa-lightbulb"></i>';
 
-    if (category === "Zoho") {
+    if (category === "SALES")
+        return '<i class="fa-solid fa-chart-line"></i>';
 
-        return '<i class="fa-solid fa-cloud"></i>';
+    if (category === "PRICING")
+        return '<i class="fa-solid fa-tags"></i>';
 
-    }
-
+    if (category === "TOOLS & UTILITIES")
+        return '<i class="fa-solid fa-screwdriver-wrench"></i>';
 
     return '<i class="fa-solid fa-link"></i>';
 }
@@ -578,12 +510,9 @@ function getResourceIcon(category, name) {
 
 function closeModal() {
 
-    const modal =
-        document.getElementById("modal");
+    const modal = document.getElementById("modal");
 
-    if (!modal) {
-        return;
-    }
+    if (!modal) return;
 
     modal.classList.remove("show");
 
@@ -592,19 +521,15 @@ function closeModal() {
 
 
 /* =========================================================
-   CLOSE MODAL WHEN CLICKING OUTSIDE
+   CLOSE MODAL OUTSIDE
 ========================================================= */
 
 function closeModalOutside(event) {
 
-    if (
-        event.target &&
-        event.target.id === "modal"
-    ) {
-
+    if (event.target.id === "modal") {
         closeModal();
-
     }
+
 }
 
 
@@ -614,83 +539,46 @@ function closeModalOutside(event) {
 
 function searchPortal(query) {
 
-    const input =
-        document.getElementById("searchInput");
+    const input = document.getElementById("searchInput");
+    const results = document.getElementById("searchResults");
 
-    const results =
-        document.getElementById("searchResults");
+    if (!input || !results) return;
 
-
-    /* Support both direct calls and input events */
-
-    if (
-        typeof query !== "string" &&
-        input
-    ) {
-
-        query = input.value;
-
-    }
-
-
-    query =
-        (query || "").trim();
-
-
-    if (!results) {
-        return;
-    }
-
-
-    /* Empty search */
+    query = typeof query === "string"
+        ? query.trim()
+        : input.value.trim();
 
     if (!query) {
 
         results.innerHTML = "";
-
         results.classList.remove("show");
-
         results.dataset.hasMatches = "false";
 
         return;
     }
 
-
-    const searchTerm =
-        query.toLowerCase();
-
+    const term = query.toLowerCase();
 
     const matches = [];
 
+    Object.keys(GGL_LINKS).forEach(category => {
 
-    /* Search all categories */
+        GGL_LINKS[category].forEach(resource => {
 
-    Object.keys(GGL_LINKS).forEach((category) => {
-
-        GGL_LINKS[category].forEach((resource) => {
-
-            const searchableText = [
-
+            const text = [
                 category,
-
                 resource.name,
-
                 resource.description,
-
                 resource.keywords
-
             ]
                 .join(" ")
                 .toLowerCase();
 
-
-            if (
-                searchableText.includes(searchTerm)
-            ) {
+            if (text.includes(term)) {
 
                 matches.push({
-                    category: category,
-                    resource: resource
+                    category,
+                    resource
                 });
 
             }
@@ -700,133 +588,104 @@ function searchPortal(query) {
     });
 
 
-    /* Clear previous results */
-
     results.innerHTML = "";
 
 
-    /* Matches found */
-
-    if (matches.length > 0) {
+    if (matches.length) {
 
         results.dataset.hasMatches = "true";
-
         results.classList.add("show");
 
+        matches.slice(0, 10).forEach(match => {
 
-        matches
-            .slice(0, 10)
-            .forEach((match) => {
+            const result =
+                document.createElement("div");
 
-                const result =
-                    document.createElement("div");
+            result.className = "search-result";
 
-                result.className =
-                    "search-result";
+            const icon =
+                document.createElement("div");
 
+            icon.className =
+                "search-result-icon";
 
-                const icon =
-                    document.createElement("div");
-
-                icon.className =
-                    "search-result-icon";
-
-                icon.innerHTML =
-                    getResourceIcon(
-                        match.category,
-                        match.resource.name
-                    );
-
-
-                const info =
-                    document.createElement("div");
-
-                info.className =
-                    "search-result-info";
-
-
-                const title =
-                    document.createElement("strong");
-
-                title.innerHTML =
-                    highlightText(
-                        match.resource.name,
-                        query
-                    );
-
-
-                const description =
-                    document.createElement("span");
-
-                description.innerHTML =
-                    highlightText(
-                        match.resource.description,
-                        query
-                    );
-
-
-                const category =
-                    document.createElement("small");
-
-                category.textContent =
-                    match.category;
-
-
-                info.appendChild(title);
-                info.appendChild(description);
-                info.appendChild(category);
-
-
-                result.appendChild(icon);
-                result.appendChild(info);
-
-
-                result.addEventListener(
-                    "click",
-                    function () {
-
-                        const resource =
-                            match.resource;
-
-
-                        if (
-                            resource.url &&
-                            resource.url !== "#"
-                        ) {
-
-                            window.open(
-                                resource.url,
-                                "_blank",
-                                "noopener,noreferrer"
-                            );
-
-                        } else {
-
-                            openPanel(
-                                match.category
-                            );
-
-                        }
-
-                        results.classList.remove("show");
-
-                    }
+            icon.innerHTML =
+                getResourceIcon(
+                    match.category,
+                    match.resource.name
                 );
 
+            const info =
+                document.createElement("div");
 
-                results.appendChild(result);
+            info.className =
+                "search-result-info";
 
-            });
+            const title =
+                document.createElement("strong");
 
+            title.innerHTML =
+                highlightText(
+                    match.resource.name,
+                    query
+                );
+
+            const description =
+                document.createElement("span");
+
+            description.innerHTML =
+                highlightText(
+                    match.resource.description,
+                    query
+                );
+
+            const category =
+                document.createElement("small");
+
+            category.textContent =
+                match.category;
+
+            info.appendChild(title);
+            info.appendChild(description);
+            info.appendChild(category);
+
+            result.appendChild(icon);
+            result.appendChild(info);
+
+            result.addEventListener(
+                "click",
+                () => {
+
+                    if (
+                        match.resource.url &&
+                        match.resource.url !== "#"
+                    ) {
+
+                        window.open(
+                            match.resource.url,
+                            "_blank",
+                            "noopener,noreferrer"
+                        );
+
+                    } else {
+
+                        openPanel(match.category);
+
+                    }
+
+                    results.classList.remove("show");
+
+                }
+            );
+
+            results.appendChild(result);
+
+        });
 
     } else {
 
-        /* No internal result */
-
         results.dataset.hasMatches = "false";
-
         results.classList.add("show");
-
 
         const noResult =
             document.createElement("div");
@@ -834,18 +693,13 @@ function searchPortal(query) {
         noResult.className =
             "search-no-result";
 
-
         noResult.innerHTML = `
-
-            <i class="fa-solid fa-magnifying-glass"></i>
-
+            <i class="fa-brands fa-google"></i>
             <div>
                 <strong>No GGL resource found</strong>
                 <span>Press Enter to search Google</span>
             </div>
-
         `;
-
 
         results.appendChild(noResult);
 
@@ -855,15 +709,14 @@ function searchPortal(query) {
 
 
 /* =========================================================
-   SEARCH KEYBOARD
+   GOOGLE SEARCH
 ========================================================= */
 
 function handleSearchKey(event) {
 
-    if (event.key !== "Enter") {
-        return;
-    }
+    if (event.key !== "Enter") return;
 
+    event.preventDefault();
 
     const input =
         document.getElementById("searchInput");
@@ -871,88 +724,74 @@ function handleSearchKey(event) {
     const results =
         document.getElementById("searchResults");
 
-
-    if (!input) {
-        return;
-    }
-
+    if (!input) return;
 
     const query =
         input.value.trim();
 
-
-    if (!query) {
-        return;
-    }
+    if (!query) return;
 
 
-    const hasMatches =
+    /*
+       If an internal GGL result exists,
+       open the first result.
+    */
+
+    if (
         results &&
-        results.dataset.hasMatches === "true";
+        results.dataset.hasMatches === "true"
+    ) {
 
-
-    /* Internal result */
-
-    if (hasMatches) {
-
-        const firstResult =
+        const first =
             results.querySelector(
                 ".search-result"
             );
 
+        if (first) {
 
-        if (firstResult) {
+            first.click();
 
-            firstResult.click();
-
+            return;
         }
-
-        return;
     }
 
 
-    /* Google fallback */
+    /*
+       Otherwise search Google.
+    */
 
-    const googleUrl =
+    const googleSearch =
         "https://www.google.com/search?q=" +
         encodeURIComponent(query);
 
 
     window.open(
-        googleUrl,
-        "_blank",
-        "noopener,noreferrer"
+        googleSearch,
+        "_blank"
     );
 
 }
 
 
 /* =========================================================
-   SEARCH TEXT HIGHLIGHT
+   HIGHLIGHT
 ========================================================= */
 
 function highlightText(text, query) {
 
-    if (!text) {
-        return "";
-    }
-
     const safeText =
-        escapeHtml(text);
+        escapeHtml(text || "");
 
     const safeQuery =
         escapeRegExp(query);
 
-
-    if (!safeQuery) {
-        return safeText;
-    }
-
+    if (!safeQuery) return safeText;
 
     return safeText.replace(
         new RegExp(`(${safeQuery})`, "gi"),
         "<mark>$1</mark>"
     );
+
 }
 
 
@@ -988,59 +827,18 @@ function escapeRegExp(value) {
 
 
 /* =========================================================
-   SAFE URL
-========================================================= */
-
-function safeUrl(url) {
-
-    if (!url) {
-        return "#";
-    }
-
-    try {
-
-        const parsed =
-            new URL(url);
-
-        if (
-            parsed.protocol === "http:" ||
-            parsed.protocol === "https:"
-        ) {
-
-            return parsed.href;
-
-        }
-
-    } catch (error) {
-
-        return "#";
-
-    }
-
-    return "#";
-}
-
-
-/* =========================================================
    DATE
 ========================================================= */
 
 function setDate() {
 
-    const dateElement =
+    const element =
         document.getElementById("currentDate");
 
-    if (!dateElement) {
-        return;
-    }
+    if (!element) return;
 
-
-    const now =
-        new Date();
-
-
-    dateElement.textContent =
-        now.toLocaleDateString(
+    element.textContent =
+        new Date().toLocaleDateString(
             "en-IN",
             {
                 weekday: "short",
@@ -1049,6 +847,50 @@ function setDate() {
                 year: "numeric"
             }
         );
+
+}
+
+
+/* =========================================================
+   WORLD CLOCK
+========================================================= */
+
+function updateWorldClock() {
+
+    const cities = {
+
+        china: "Asia/Shanghai",
+
+        usa: "America/New_York",
+
+        france: "Europe/Paris",
+
+        philippines: "Asia/Manila"
+
+    };
+
+
+    Object.keys(cities).forEach(city => {
+
+        const element =
+            document.getElementById(
+                `clock-${city}`
+            );
+
+        if (!element) return;
+
+        element.textContent =
+            new Date().toLocaleTimeString(
+                "en-US",
+                {
+                    timeZone: cities[city],
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    hour12: true
+                }
+            );
+
+    });
 
 }
 
@@ -1063,88 +905,57 @@ function toggleTheme() {
         "dark-mode"
     );
 
-
     const isDark =
         document.body.classList.contains(
             "dark-mode"
         );
-
 
     localStorage.setItem(
         "ggl-theme",
         isDark ? "dark" : "light"
     );
 
-
     updateThemeIcon();
 
 }
 
 
-/* =========================================================
-   UPDATE THEME ICON
-========================================================= */
-
 function updateThemeIcon() {
 
-    const button =
+    const icon =
         document.querySelector(
             ".icon-btn i"
         );
 
-
-    if (!button) {
-        return;
-    }
-
+    if (!icon) return;
 
     const isDark =
         document.body.classList.contains(
             "dark-mode"
         );
 
-
-    if (isDark) {
-
-        button.className =
-            "fa-solid fa-sun";
-
-    } else {
-
-        button.className =
-            "fa-solid fa-moon";
-
-    }
+    icon.className =
+        isDark
+            ? "fa-solid fa-sun"
+            : "fa-solid fa-moon";
 
 }
 
 
-/* =========================================================
-   LOAD SAVED THEME
-========================================================= */
-
 function loadTheme() {
 
-    const savedTheme =
+    const theme =
         localStorage.getItem(
             "ggl-theme"
         );
 
-
-    if (savedTheme === "dark") {
+    if (theme === "dark") {
 
         document.body.classList.add(
             "dark-mode"
         );
 
-    } else {
-
-        document.body.classList.remove(
-            "dark-mode"
-        );
-
     }
-
 
     updateThemeIcon();
 
@@ -1159,10 +970,7 @@ function setupKeyboardShortcuts() {
 
     document.addEventListener(
         "keydown",
-        function (event) {
-
-
-            /* "/" → Search */
+        event => {
 
             if (
                 event.key === "/" &&
@@ -1177,17 +985,10 @@ function setupKeyboardShortcuts() {
                         "searchInput"
                     );
 
-
-                if (input) {
-
-                    input.focus();
-
-                }
+                if (input) input.focus();
 
             }
 
-
-            /* Ctrl + K → Search */
 
             if (
                 event.ctrlKey &&
@@ -1201,19 +1002,15 @@ function setupKeyboardShortcuts() {
                         "searchInput"
                     );
 
-
                 if (input) {
 
                     input.focus();
-
                     input.select();
 
                 }
 
             }
 
-
-            /* Escape → Close modal/search */
 
             if (event.key === "Escape") {
 
@@ -1224,7 +1021,6 @@ function setupKeyboardShortcuts() {
                         "searchResults"
                     );
 
-
                 if (results) {
 
                     results.classList.remove(
@@ -1232,37 +1028,6 @@ function setupKeyboardShortcuts() {
                     );
 
                 }
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   MODAL SETUP
-========================================================= */
-
-function setupModal() {
-
-    const modal =
-        document.getElementById("modal");
-
-
-    if (!modal) {
-        return;
-    }
-
-
-    document.addEventListener(
-        "keydown",
-        function (event) {
-
-            if (event.key === "Escape") {
-
-                closeModal();
 
             }
 
@@ -1283,31 +1048,16 @@ function setupSearch() {
             "searchInput"
         );
 
-
-    if (!input) {
-        return;
-    }
-
+    if (!input) return;
 
     input.addEventListener(
         "input",
-        function () {
-
-            searchPortal(
-                input.value
-            );
-
-        }
+        () => searchPortal(input.value)
     );
-
 
     input.addEventListener(
         "keydown",
-        function (event) {
-
-            handleSearchKey(event);
-
-        }
+        handleSearchKey
     );
 
 }
@@ -1319,37 +1069,28 @@ function setupSearch() {
 
 function hideWelcomeScreen() {
 
-    const welcomeScreen =
+    const screen =
         document.getElementById(
             "welcomeScreen"
         );
 
+    if (!screen) return;
 
-    if (!welcomeScreen) {
-        return;
-    }
+    setTimeout(() => {
 
+        screen.classList.add(
+            "hidden"
+        );
 
-    setTimeout(
-        function () {
+        setTimeout(() => {
 
-            welcomeScreen.classList.add(
-                "hidden"
-            );
+            if (screen) {
+                screen.remove();
+            }
 
+        }, 900);
 
-            setTimeout(
-                function () {
-
-                    welcomeScreen.remove();
-
-                },
-                900
-            );
-
-        },
-        2500
-    );
+    }, 2500);
 
 }
 
@@ -1362,11 +1103,16 @@ function startPortal() {
 
     setDate();
 
+    updateWorldClock();
+
+    setInterval(
+        updateWorldClock,
+        1000
+    );
+
     loadTheme();
 
     setupSearch();
-
-    setupModal();
 
     setupKeyboardShortcuts();
 
@@ -1381,11 +1127,7 @@ function startPortal() {
 
 window.addEventListener(
     "load",
-    function () {
-
-        startPortal();
-
-    }
+    startPortal
 );
 
 
@@ -1393,28 +1135,24 @@ window.addEventListener(
    FAIL-SAFE
 ========================================================= */
 
-setTimeout(
-    function () {
+setTimeout(() => {
 
-        const welcomeScreen =
-            document.getElementById(
-                "welcomeScreen"
-            );
+    const screen =
+        document.getElementById(
+            "welcomeScreen"
+        );
 
+    if (
+        screen &&
+        !screen.classList.contains(
+            "hidden"
+        )
+    ) {
 
-        if (
-            welcomeScreen &&
-            !welcomeScreen.classList.contains(
-                "hidden"
-            )
-        ) {
+        screen.classList.add(
+            "hidden"
+        );
 
-            welcomeScreen.classList.add(
-                "hidden"
-            );
+    }
 
-        }
-
-    },
-    6000
-);
+}, 6000);
