@@ -1386,29 +1386,28 @@ function loadTheme() {
 }
 
 
-/* ============================================================
-   WELCOME / LOADING SCREEN
-   HTML:
-   #welcomeScreen
-   ============================================================ */
-
-function hideWelcomeScreen() {
-    const welcomeScreen = document.getElementById("welcomeScreen");
-
-    if (!welcomeScreen) {
-        return;
+function initializePortal() {
+    try {
+        loadTheme();
+    } catch (error) {
+        console.error("Theme initialization error:", error);
     }
 
-    welcomeScreen.classList.add("hide");
+    try {
+        setDate();
+    } catch (error) {
+        console.error("Date initialization error:", error);
+    }
 
-    /* Guaranteed fallback */
-    welcomeScreen.style.opacity = "0";
-    welcomeScreen.style.visibility = "hidden";
-    welcomeScreen.style.pointerEvents = "none";
+    try {
+        setupEventListeners();
+    } catch (error) {
+        console.error("Event setup error:", error);
+    }
 
     window.setTimeout(() => {
-        welcomeScreen.style.display = "none";
-    }, 400);
+        hideWelcomeScreen();
+    }, 500);
 }
 
 /* ============================================================
