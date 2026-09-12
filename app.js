@@ -1393,42 +1393,23 @@ function loadTheme() {
    ============================================================ */
 
 function hideWelcomeScreen() {
-
-    const welcomeScreen =
-        document.getElementById(
-            "welcomeScreen"
-        );
-
+    const welcomeScreen = document.getElementById("welcomeScreen");
 
     if (!welcomeScreen) {
         return;
     }
 
+    welcomeScreen.classList.add("hide");
 
-    welcomeScreen.classList.add(
-        "hide"
-    );
+    /* Guaranteed fallback */
+    welcomeScreen.style.opacity = "0";
+    welcomeScreen.style.visibility = "hidden";
+    welcomeScreen.style.pointerEvents = "none";
+
+    window.setTimeout(() => {
+        welcomeScreen.style.display = "none";
+    }, 400);
 }
-
-
-function showWelcomeScreen() {
-
-    const welcomeScreen =
-        document.getElementById(
-            "welcomeScreen"
-        );
-
-
-    if (!welcomeScreen) {
-        return;
-    }
-
-
-    welcomeScreen.classList.remove(
-        "hide"
-    );
-}
-
 
 /* ============================================================
    GLOBAL KEYBOARD SHORTCUTS
