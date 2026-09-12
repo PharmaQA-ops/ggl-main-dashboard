@@ -1,4 +1,4 @@
-```javascript
+javascript
 /* ============================================================
    GAERISH LOGISTICS PVT. LTD.
    GGL MAIN BUSINESS PORTAL
@@ -1701,4 +1701,4 @@ if (
 
     initializePortal();
 }
-```
+
