@@ -23,13 +23,11 @@ const resources = {
         resources: [
             {
                 name: "GGL ERP - Logisys",
-                description: "Logistics ERP platform",
-                url: "#"
+                url: "https://gaerish.mylogisys.com/Login"
             },
             {
                 name: "GGL ERP - Sentinel",
-                description: "ERP and business management platform",
-                url: "#"
+                url: "https://gaerish.sentinel.com/Login"
             }
         ]
     },
@@ -46,33 +44,27 @@ const resources = {
         resources: [
             {
                 name: "Sea Export",
-                description: "Sea export operational sheets",
-                url: "#"
+                url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=2105414371#gid=2105414371"
             },
             {
                 name: "Air Export",
-                description: "Air export operational sheets",
-                url: "#"
+                url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=486617436#gid=486617436"
             },
             {
                 name: "Sea Import",
-                description: "Sea import operational sheets",
-                url: "#"
+                url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=0#gid=0"
             },
             {
                 name: "Air Import",
-                description: "Air import operational sheets",
-                url: "#"
+                url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=1420573940#gid=1420573940"
             },
             {
                 name: "NAP",
-                description: "NAP operational sheets",
-                url: "#"
+                url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=570041459#gid=570041459"
             },
             {
                 name: "Defence",
-                description: "Defence operational sheets",
-                url: "#"
+                url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=1706426280#gid=1706426280"
             }
         ]
     },
@@ -89,8 +81,7 @@ const resources = {
         resources: [
             {
                 name: "GGL QMS",
-                description: "Gaerish Quality Management System",
-                url: "#"
+                url: "https://script.google.com/a/~/macros/s/AKfycbwpDLadlpO3ZnFSHk1T0WShLs7V403jIGKhHE5UQHUZQ7W3VbA2lfRy0z7lc-JfovYPgw/exec"
             }
         ]
     },
@@ -108,7 +99,7 @@ const resources = {
             {
                 name: "Maersk",
                 description: "Maersk",
-                url: "#"
+                url: "https://www.maersk.com/"
             },
             {
                 name: "MSC",
@@ -204,7 +195,7 @@ const resources = {
             {
                 name: "Keka",
                 description: "HR and employee management",
-                url: "#"
+                url: "https://gaerish.keka.com"
             }
         ]
     },
