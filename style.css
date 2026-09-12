@@ -1167,3 +1167,92 @@ body.dark .search-shortcut {
   visibility: hidden !important;
   pointer-events: none !important;
 }
+/* =========================================
+   WORLD CLOCK
+========================================= */
+
+.world-clock {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.clock-title {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    opacity: 0.65;
+}
+
+.clock-cities {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.clock-city {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    font-size: 10px;
+    line-height: 1.1;
+}
+
+.clock-city span {
+    opacity: 0.65;
+}
+
+.clock-city strong {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   NEW RESOURCE ICONS
+========================================= */
+
+.card-icon.suggestion {
+    color: #f59e0b;
+}
+
+.card-icon.sales {
+    color: #10b981;
+}
+
+.card-icon.pricing {
+    color: #8b5cf6;
+}
+
+.card-icon.tools {
+    color: #64748b;
+}
+
+
+/* =========================================
+   MOBILE WORLD CLOCK
+========================================= */
+
+@media (max-width: 900px) {
+
+    .clock-cities {
+        gap: 7px;
+    }
+
+    .clock-city {
+        font-size: 8px;
+    }
+
+    .clock-city strong {
+        font-size: 9px;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .world-clock {
+        display: none;
+    }
+
+}
