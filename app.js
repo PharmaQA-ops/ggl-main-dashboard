@@ -1,4 +1,3 @@
-javascript
 /* ============================================================
    GAERISH LOGISTICS PVT. LTD.
    GGL MAIN BUSINESS PORTAL
@@ -1386,29 +1385,49 @@ function loadTheme() {
 }
 
 
-function initializePortal() {
-    try {
-        loadTheme();
-    } catch (error) {
-        console.error("Theme initialization error:", error);
-    }
+/* ============================================================
+   WELCOME / LOADING SCREEN
+   HTML:
+   #welcomeScreen
+   ============================================================ */
 
-    try {
-        setDate();
-    } catch (error) {
-        console.error("Date initialization error:", error);
-    }
+function hideWelcomeScreen() {
 
-    try {
-        setupEventListeners();
-    } catch (error) {
-        console.error("Event setup error:", error);
-    }
+    const welcomeScreen =
+        document.getElementById("welcomeScreen");
+
+    if (!welcomeScreen) return;
+
+    welcomeScreen.classList.add("hide");
+    welcomeScreen.style.opacity = "0";
+    welcomeScreen.style.visibility = "hidden";
+    welcomeScreen.style.pointerEvents = "none";
 
     window.setTimeout(() => {
-        hideWelcomeScreen();
-    }, 500);
+        welcomeScreen.style.display = "none";
+    }, 700);
 }
+
+
+
+function showWelcomeScreen() {
+
+    const welcomeScreen =
+        document.getElementById(
+            "welcomeScreen"
+        );
+
+
+    if (!welcomeScreen) {
+        return;
+    }
+
+
+    welcomeScreen.classList.remove(
+        "hide"
+    );
+}
+
 
 /* ============================================================
    GLOBAL KEYBOARD SHORTCUTS
@@ -1583,11 +1602,14 @@ function setupEventListeners() {
 
 function initializePortal() {
 
+    // Start the loading-screen removal first.
+    // This must not depend on any other initialization.
+    window.setTimeout(hideWelcomeScreen, 500);
+
     /*
      * IMPORTANT:
-     * Everything here is deliberately wrapped
-     * so one missing optional element cannot
-     * stop the loading screen from disappearing.
+     * Everything else is deliberately wrapped
+     * so optional failures cannot block the portal.
      */
 
     try {
@@ -1620,46 +1642,7 @@ function initializePortal() {
     }
 
 
-    /*
-     * Remove loading screen after the page
-     * has rendered.
-     *
-     * No clock.
-     * No external dependency.
-     */
 
-    window.setTimeout(
-        () => {
-
-            try {
-                hideWelcomeScreen();
-            } catch (error) {
-
-                console.error(
-                    "Welcome screen error:",
-                    error
-                );
-
-                /*
-                 * Emergency fallback:
-                 * ensure the loading overlay
-                 * cannot remain permanently.
-                 */
-
-                const welcome =
-                    document.getElementById(
-                        "welcomeScreen"
-                    );
-
-                if (welcome) {
-                    welcome.style.display =
-                        "none";
-                }
-            }
-
-        },
-        700
-    );
 }
 
 
@@ -1681,4 +1664,3 @@ if (
 
     initializePortal();
 }
-
