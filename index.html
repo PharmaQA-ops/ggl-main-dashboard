@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,7 +15,6 @@
 </head>
 
 <body>
-
 <!-- ================================
      GGL WELCOME / LOADING SCREEN
 ================================= -->
@@ -62,575 +60,482 @@
   </div>
 
 </div>
+  <!-- HEADER -->
 
+  <header class="topbar">
 
-<!-- ================================
-     HEADER
-================================= -->
+    <div class="brand">
 
-<header class="topbar">
-
-  <div class="brand">
-
-    <div class="brand-logo">
-      <img
-        src="logo.png"
-        alt="Gaerish Logistics"
-        class="company-logo"
-      >
-    </div>
-
-    <div>
-
-      <div class="company-name">
-        GAERISH LOGISTICS
+      <div class="brand-logo">
+        <img src="logo.png" alt="Gaerish Logistics" class="company-logo">
       </div>
-
-      <div class="portal-name">
-        MAIN PORTAL
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <div class="header-right">
-
-    <span id="currentDate"></span>
-
-    <button
-      class="icon-btn"
-      onclick="toggleTheme()"
-      aria-label="Toggle theme"
-    >
-      <i class="fa-solid fa-moon"></i>
-    </button>
-
-  </div>
-
-</header>
-
-
-<!-- ================================
-     MAIN
-================================= -->
-
-<main class="main-container">
-
-
-  <!-- ================================
-       HERO
-  ================================= -->
-
-  <section class="hero">
-
-    <div class="hero-text">
-
-      <p class="welcome">
-        “Great things are done by a series of small things brought together.”
-      </p>
-
-      <h1>
-        Welcome to Gaerish Logistics Main Portal
-      </h1>
-
-      <p class="subtitle">
-        One place for all your business systems, tools,
-        networks and resources.
-      </p>
-
-    </div>
-
-
-    <!-- SEARCH -->
-
-    <div class="search-container">
-
-      <i class="fa-solid fa-magnifying-glass"></i>
-
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Search ERP, Sheets, WCA, Liners, Documents..."
-        oninput="searchPortal()"
-        onkeydown="handleSearchKey(event)"
-      >
-
-      <span class="search-shortcut">
-        /
-      </span>
-
-    </div>
-
-    <div
-      id="searchResults"
-      class="search-results"
-    ></div>
-
-  </section>
-
-
-  <!-- ================================
-       QUICK ACCESS
-  ================================= -->
-
-  <section class="section">
-
-    <div class="section-heading">
-
-      <h2>
-        <i class="fa-solid fa-star"></i>
-        Quick Access
-      </h2>
-
-    </div>
-
-
-    <div class="quick-access">
-
-
-      <!-- ERP -->
-
-      <button
-        class="quick-btn quick-erp"
-        onclick="openLink('ERP')"
-      >
-        <i class="fa-solid fa-desktop"></i>
-        <span>ERP</span>
-      </button>
-
-
-      <!-- QMS -->
-
-      <button
-        class="quick-btn quick-qms"
-        onclick="openLink('QMS')"
-      >
-        <i class="fa-solid fa-shield-halved"></i>
-        <span>QMS</span>
-      </button>
-
-
-      <!-- G-SHEETS -->
-
-      <button
-        class="quick-btn quick-gsheets"
-        onclick="openPanel('G-SHEETS')"
-      >
-        <i class="fa-solid fa-table"></i>
-        <span>G-Sheets</span>
-      </button>
-
-
-      <!-- WCA -->
-
-      <button
-        class="quick-btn quick-wca"
-        onclick="openLink('WCA')"
-      >
-        <i class="fa-solid fa-globe"></i>
-        <span>WCA</span>
-      </button>
-
-
-    </div>
-
-  </section>
-
-
-  <!-- ================================
-       ALL RESOURCES
-  ================================= -->
-
-  <section class="section">
-
-    <div class="section-heading">
 
       <div>
+        <div class="company-name">
+          GAERISH LOGISTICS
+        </div>
+
+        <div class="portal-name">
+          MAIN PORTAL
+        </div>
+      </div>
+
+    </div>
+
+    <div class="header-right">
+
+      <span id="currentDate"></span>
+
+      <button class="icon-btn" onclick="toggleTheme()">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- MAIN -->
+
+  <main class="main-container">
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+      <div class="hero-text">
+
+        <p class="welcome">
+          “Great things are done by a series of small things brought together.”
+        </p>
+
+        <h1>
+          Welcome to Gaerish Logistics Main Portal
+        </h1>
+
+        <p class="subtitle">
+          One place for all your business systems, tools,
+          networks and resources.
+        </p>
+
+      </div>
+
+
+      <!-- SEARCH -->
+
+      <div class="search-container">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search ERP, Sheets, WCA, Liners, Documents..."
+          oninput="searchPortal()"
+        >
+
+        <span class="search-shortcut">
+          /
+        </span>
+
+      </div>
+
+      <div id="searchResults" class="search-results"></div>
+
+    </section>
+
+
+    <!-- QUICK ACCESS -->
+
+    <section class="section">
+
+      <div class="section-heading">
 
         <h2>
-          All Resources
+          <i class="fa-solid fa-star"></i>
+          Quick Access
         </h2>
-
-        <p>
-          Access everything from one place
-        </p>
 
       </div>
 
-    </div>
 
+      <div class="quick-access">
 
-    <div class="tile-grid">
-
-
-      <!-- ================================
-           ERP
-      ================================= -->
-
-      <div
-        class="portal-card"
-        onclick="openPanel('ERP')"
-        data-search="erp system operations shipment logistics"
-      >
-
-        <div class="card-icon erp">
+        <button onclick="openLink('ERP')">
           <i class="fa-solid fa-desktop"></i>
-        </div>
+          <span>ERP</span>
+        </button>
 
-        <div class="card-content">
-
-          <h3>ERP</h3>
-
-          <p>
-            Operations & business management
-          </p>
-
-        </div>
-
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
-
-      </div>
-
-
-      <!-- ================================
-           G-SHEETS
-      ================================= -->
-
-      <div
-        class="portal-card"
-        onclick="openPanel('G-SHEETS')"
-        data-search="google sheets sheets reports operations"
-      >
-
-        <div class="card-icon sheets">
-          <i class="fa-solid fa-table"></i>
-        </div>
-
-        <div class="card-content">
-
-          <h3>G-SHEETS</h3>
-
-          <p>
-            Operational sheets & dashboards
-          </p>
-
-        </div>
-
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
-
-      </div>
-
-
-      <!-- ================================
-           QMS
-      ================================= -->
-
-      <div
-        class="portal-card"
-        onclick="openLink('QMS')"
-        data-search="qms quality management capa ncr audits"
-      >
-
-        <div class="card-icon qms">
+        <button onclick="openLink('QMS')">
           <i class="fa-solid fa-shield-halved"></i>
-        </div>
-
-        <div class="card-content">
-
-          <h3>QMS</h3>
-
-          <p>
-            Quality management system
-          </p>
-
-        </div>
-
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
-
-      </div>
-
-
-      <!-- ================================
-           LINERS
-      ================================= -->
-
-      <div
-        class="portal-card"
-        onclick="openPanel('LINERS')"
-        data-search="liners shipping lines carrier maersk msc cma cgm hapag lloyd one cosco evergreen zim"
-      >
-
-        <div class="card-icon liners">
-          <i class="fa-solid fa-ship"></i>
-        </div>
-
-        <div class="card-content">
-
-          <h3>LINERS</h3>
-
-          <p>
-            Shipping lines & carrier portals
-          </p>
-
-        </div>
-
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
-
-      </div>
-
-
-      <!-- ================================
-           DOCUMENTS
-      ================================= -->
-
-      <div
-        class="portal-card"
-        onclick="openPanel('DOCUMENTS')"
-        data-search="documents google drive policies sop manuals forms"
-      >
-
-        <div class="card-icon documents">
-          <i class="fa-solid fa-folder-open"></i>
-        </div>
-
-        <div class="card-content">
-
-          <h3>DOCUMENTS</h3>
-
-          <p>
-            Policies, SOPs & company documents
-          </p>
-
-        </div>
-
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
-
-      </div>
-
-
-      <!-- ================================
-           HR
-      ================================= -->
-
-      <div
-        class="portal-card"
-        onclick="openPanel('HR')"
-        data-search="hr human resources keka employee"
-      >
-
-        <div class="card-icon hr">
-          <i class="fa-solid fa-users"></i>
-        </div>
-
-        <div class="card-content">
-
-          <h3>HR</h3>
-
-          <p>
-            HRMS & employee resources
-          </p>
-
-        </div>
-
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
-
-      </div>
-
-
-      <!-- ================================
-           IT
-      ================================= -->
-
-      <div
-        class="portal-card"
-        onclick="openPanel('IT')"
-        data-search="it technology support systems"
-      >
-
-        <div class="card-icon it">
-          <i class="fa-solid fa-computer"></i>
-        </div>
-
-        <div class="card-content">
-
-          <h3>IT</h3>
-
-          <p>
-            IT systems & support
-          </p>
-
-        </div>
-
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
-
-      </div>
-
-
-      <!-- ================================
-           GOVERNMENT
-      ================================= -->
-
-      <div
-        class="portal-card"
-        onclick="openPanel('GOVERNMENT')"
-        data-search="government icegate dgft gst customs"
-      >
-
-        <div class="card-icon government">
-          <i class="fa-solid fa-building-columns"></i>
-        </div>
-
-        <div class="card-content">
-
-          <h3>GOVERNMENT</h3>
-
-          <p>
-            Government & regulatory portals
-          </p>
-
-        </div>
-
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
-
-      </div>
-
-
-      <!-- ================================
-           NETWORKS
-      ================================= -->
-
-      <div
-        class="portal-card"
-        onclick="openPanel('NETWORKS')"
-        data-search="network wpa opec agents freight forwarding"
-      >
-
-        <div class="card-icon networks">
-          <i class="fa-solid fa-network-wired"></i>
-        </div>
-
-        <div class="card-content">
-
-          <h3>NETWORKS</h3>
-
-          <p>
-            Freight forwarding networks
-          </p>
-
-        </div>
-
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
-
-      </div>
-
-
-      <!-- ================================
-           WEBSITE
-      ================================= -->
-
-      <div
-        class="portal-card"
-        onclick="openPanel('Website')"
-        data-search="website company gaerish online tracking logistics"
-      >
-
-        <div class="card-icon website">
+          <span>QMS</span>
+        </button>
+
+        <button onclick="openLink('G-SHEETS')">
+          <i class="fa-solid fa-table"></i>
+          <span>G-Sheets</span>
+        </button>
+
+        <button onclick="openLink('WCA')">
           <i class="fa-solid fa-globe"></i>
-        </div>
+          <span>WCA</span>
+        </button>
 
-        <div class="card-content">
+      </div>
 
-          <h3>WEBSITE</h3>
+    </section>
+
+
+    <!-- MAIN TILES -->
+
+    <section class="section">
+
+      <div class="section-heading">
+
+        <div>
+
+          <h2>
+            All Resources
+          </h2>
 
           <p>
-            Company websites & online tracking
+            Access everything from one place
           </p>
 
         </div>
 
-        <i class="fa-solid fa-arrow-right card-arrow"></i>
+      </div>
+
+
+      <div class="tile-grid">
+
+
+        <!-- ERP -->
+
+        <div
+          class="portal-card"
+          onclick="openPanel('ERP')"
+          data-search="erp system operations shipment logistics">
+
+          <div class="card-icon erp">
+            <i class="fa-solid fa-desktop"></i>
+          </div>
+
+          <div class="card-content">
+
+            <h3>ERP</h3>
+
+            <p>
+              Operations & business management
+            </p>
+
+          </div>
+
+          <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+        </div>
+
+
+        <!-- G SHEETS -->
+
+        <div
+          class="portal-card"
+          onclick="openPanel('G-SHEETS')"
+          data-search="google sheets sheets reports operations">
+
+          <div class="card-icon sheets">
+            <i class="fa-solid fa-table"></i>
+          </div>
+
+          <div class="card-content">
+
+            <h3>G-SHEETS</h3>
+
+            <p>
+              Operational sheets & dashboards
+            </p>
+
+          </div>
+
+          <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+        </div>
+
+
+        <!-- QMS -->
+
+        <div
+          class="portal-card"
+          onclick="openLink('QMS')"
+          data-search="qms quality management capa ncr audits">
+
+          <div class="card-icon qms">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+
+          <div class="card-content">
+
+            <h3>QMS</h3>
+
+            <p>
+              Quality management system
+            </p>
+
+          </div>
+
+          <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+        </div>
+
+
+        <!-- WCA -->
+
+        <div
+          class="portal-card"
+          onclick="openPanel('WCA')"
+          data-search="wca network agents worldwide">
+
+          <div class="card-icon wca">
+            <i class="fa-solid fa-globe"></i>
+          </div>
+
+          <div class="card-content">
+
+            <h3>WCA</h3>
+
+            <p>
+              Global forwarding network
+            </p>
+
+          </div>
+
+          <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+        </div>
+
+
+        <!-- DOCUMENTS -->
+
+        <div
+          class="portal-card"
+          onclick="openPanel('DOCUMENTS')"
+          data-search="documents google drive policies sop manuals forms">
+
+          <div class="card-icon documents">
+            <i class="fa-solid fa-folder-open"></i>
+          </div>
+
+          <div class="card-content">
+
+            <h3>DOCUMENTS</h3>
+
+            <p>
+              Policies, SOPs & company documents
+            </p>
+
+          </div>
+
+          <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+        </div>
+
+
+        <!-- HR -->
+
+        <div
+          class="portal-card"
+          onclick="openPanel('HR')"
+          data-search="hr human resources keka employee">
+
+          <div class="card-icon hr">
+            <i class="fa-solid fa-users"></i>
+          </div>
+
+          <div class="card-content">
+
+            <h3>HR</h3>
+
+            <p>
+              HRMS & employee resources
+            </p>
+
+          </div>
+
+          <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+        </div>
+
+
+        <!-- IT -->
+
+        <div
+          class="portal-card"
+          onclick="openPanel('IT')"
+          data-search="it technology support systems">
+
+          <div class="card-icon it">
+            <i class="fa-solid fa-computer"></i>
+          </div>
+
+          <div class="card-content">
+
+            <h3>IT</h3>
+
+            <p>
+              IT systems & support
+            </p>
+
+          </div>
+
+          <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+        </div>
+
+
+        <!-- GOVERNMENT -->
+
+        <div
+          class="portal-card"
+          onclick="openPanel('GOVERNMENT')"
+          data-search="government icegate dgft gst customs">
+
+          <div class="card-icon government">
+            <i class="fa-solid fa-building-columns"></i>
+          </div>
+
+          <div class="card-content">
+
+            <h3>GOVERNMENT</h3>
+
+            <p>
+              Government & regulatory portals
+            </p>
+
+          </div>
+
+          <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+        </div>
+
+
+        <!-- NETWORKS -->
+
+        <div
+          class="portal-card"
+          onclick="openPanel('NETWORKS')"
+          data-search="network wpa opec agents freight forwarding">
+
+          <div class="card-icon networks">
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
+
+          <div class="card-content">
+
+            <h3>NETWORKS</h3>
+
+            <p>
+              Freight forwarding networks
+            </p>
+
+          </div>
+
+          <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+        </div>
+        
+        <!-- Website -->
+
+        <div
+          class="portal-card"
+          onclick="openPanel('Website')"
+          data-search="Our Company Website">
+
+          <div class="card-icon networks">
+            <i class="fa-brands fa-watchman-monitoring"></i>
+          </div>
+
+          <div class="card-content">
+
+            <h3>Website</h3>
+
+            <p>
+              Company Websites (Online Tracking)
+            </p>
+
+          </div>
+
+           <i class="fa-solid fa-arrow-right card-arrow"></i>
+
+        </div>
+    
+
+      </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+      <span>
+        © 2026 Gaerish Logistics Pvt. Ltd.
+      </span>
+
+      <span>
+        GGL Main Portal
+      </span>
+
+    </footer>
+
+  </main>
+
+
+  <!-- MODAL -->
+
+  <div
+    class="modal"
+    id="modal"
+    onclick="closeModalOutside(event)"
+  >
+
+    <div class="modal-box">
+
+      <div class="modal-header">
+
+        <div>
+
+          <h2 id="modalTitle">
+            Resources
+          </h2>
+
+          <p id="modalSubtitle">
+            Access resources
+          </p>
+
+        </div>
+
+        <button
+          class="close-btn"
+          onclick="closeModal()"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
 
       </div>
 
 
-    </div>
-
-  </section>
-
-
-  <!-- ================================
-       FOOTER
-  ================================= -->
-
-  <footer>
-
-    <span>
-      © 2026 Gaerish Logistics Pvt. Ltd.
-    </span>
-
-    <span>
-      GGL Main Portal
-    </span>
-
-  </footer>
-
-</main>
-
-
-<!-- ================================
-     MODAL
-================================= -->
-
-<div
-  class="modal"
-  id="modal"
-  onclick="closeModalOutside(event)"
->
-
-  <div class="modal-box">
-
-    <div class="modal-header">
-
-      <div>
-
-        <h2 id="modalTitle">
-          Resources
-        </h2>
-
-        <p id="modalSubtitle">
-          Access resources
-        </p>
-
-      </div>
-
-      <button
-        class="close-btn"
-        onclick="closeModal()"
-        aria-label="Close"
-      >
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+      <div
+        id="modalContent"
+        class="modal-content"
+      ></div>
 
     </div>
-
-
-    <div
-      id="modalContent"
-      class="modal-content"
-    ></div>
 
   </div>
 
-</div>
 
-
-<!-- ================================
-     JAVASCRIPT
-================================= -->
-
-<script src="app.js"></script>
+  <script src="app.js"></script>
 
 </body>
 </html>
