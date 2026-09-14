@@ -1448,13 +1448,11 @@ function hideWelcomeScreen() {
     if (!welcomeScreen) return;
 
     welcomeScreen.classList.add("hide");
-    welcomeScreen.style.opacity = "0";
-    welcomeScreen.style.visibility = "hidden";
-    welcomeScreen.style.pointerEvents = "none";
 
-    window.setTimeout(() => {
-        welcomeScreen.style.display = "none";
-    }, 700);
+    welcomeScreen.style.display = "none";
+    welcomeScreen.style.visibility = "hidden";
+    welcomeScreen.style.opacity = "0";
+    welcomeScreen.style.pointerEvents = "none";
 }
 
 
@@ -1653,7 +1651,7 @@ function initializePortal() {
 
     // Start the loading-screen removal first.
     // This must not depend on any other initialization.
-    window.setTimeout(hideWelcomeScreen, 500);
+   hideWelcomeScreen();
 
     /*
      * IMPORTANT:
