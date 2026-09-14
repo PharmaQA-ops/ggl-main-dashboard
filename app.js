@@ -361,8 +361,8 @@ const resources = {
             description: "International maritime safety and environmental regulations",
             url: "https://www.imo.org/en/about/conventions"
         }
-    ]
-},
+       ]
+    },
 
 
     /* =========================
