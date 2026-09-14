@@ -509,11 +509,12 @@ PRICING: {
     ]
 }
 
+};   // closes resources
+
 
 /* ============================================================
    RESOURCE ICONS
    ============================================================ */
-
 function getResourceIcon(category, name = "") {
 
     const value =
