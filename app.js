@@ -1651,7 +1651,7 @@ function initializePortal() {
 
     // Start the loading-screen removal first.
     // This must not depend on any other initialization.
-   hideWelcomeScreen();
+   window.setTimeout(hideWelcomeScreen, 500);
 
     /*
      * IMPORTANT:
