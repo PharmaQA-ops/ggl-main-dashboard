@@ -1109,7 +1109,28 @@
        JAVASCRIPT
   ========================================== -->
 
-  <script src="app.js"></script>
+<script src="app.js"></script>
 
+<script>
+(function () {
+    function removeLoadingScreen() {
+        const screen = document.getElementById("welcomeScreen");
+
+        if (!screen) return;
+
+        screen.classList.add("hide");
+        screen.style.opacity = "0";
+        screen.style.visibility = "hidden";
+        screen.style.pointerEvents = "none";
+
+        setTimeout(function () {
+            screen.style.display = "none";
+        }, 700);
+    }
+
+    // Safety fallback — works even if app.js has an error
+    setTimeout(removeLoadingScreen, 1200);
+})();
+</script>
 </body>
 </html>
