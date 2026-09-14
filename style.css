@@ -30,6 +30,7 @@ scroll-behavior: smooth;
 }
 
 body {
+    position: relative;
     margin: 0;
 
     font-family:
@@ -42,7 +43,7 @@ body {
         Arial,
         sans-serif;
 
-    background: transparent;
+    background: transparent !important;
 
     color: var(--text);
 
@@ -1354,12 +1355,15 @@ body.dark .portal-card,
 body.dark .modal-box,
 body.dark .modal-resource,
 body.dark .resource-count {
+    background: rgba(17, 28, 48, 0.84);
+    border-color: var(--border);
+}
 
-background:
-var(--surface);
-
-border-color:
-var(--border);
+body.dark .search-container,
+body.dark .quick-btn,
+body.dark .portal-card {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
 }
 
 body.dark .search-shortcut,
@@ -1942,39 +1946,56 @@ transition-duration:
 }
 /* =========================================
    LIVE VIDEO BACKGROUND
-========================================= */
+   ========================================= */
 
 .live-background {
-    position: fixed;
-    inset: 0;
-
-    width: 100%;
-    height: 100%;
-
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
     object-fit: cover;
-
-    z-index: -2;
-
-    pointer-events: none;
+    z-index: 0 !important;
+    pointer-events: none !important;
+    user-select: none;
 }
 
 .background-overlay {
-    position: fixed;
-    inset: 0;
-
-    background: rgba(5, 12, 25, 0.58);
-
-    z-index: -1;
-
-    pointer-events: none;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: linear-gradient(
+        135deg,
+        rgba(5, 12, 25, 0.58),
+        rgba(5, 12, 25, 0.68)
+    );
+    z-index: 0 !important;
+    pointer-events: none !important;
+    user-select: none;
 }
+
 /* =========================================
    CONTENT ABOVE VIDEO
-========================================= */
+   ========================================= */
 
 .topbar,
 .main-container,
 footer {
     position: relative;
     z-index: 1;
+}
+
+/* Keep interactive UI above background layers */
+.search-results {
+    z-index: 800 !important;
+}
+
+.modal {
+    z-index: 1000 !important;
+}
+
+.welcome-screen {
+    z-index: 99999 !important;
 }
