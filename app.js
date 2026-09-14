@@ -184,7 +184,7 @@ const resources = {
         resources: [
             {
                 name: "Keka",
-                description: "HR and employee management",
+                description: " - HR and employee management",
                 url: "https://gaerish.keka.com"
             }
         ]
@@ -202,17 +202,17 @@ const resources = {
         resources: [
             {
                 name: "IT Support",
-                description: "IT support services",
+                description: " - IT support services",
                 url: "https://forms.gle/cpDyKdebZqyA7Su57"
             },
             {
                 name: "IT Applications",
-                description: "Business applications",
+                description: " - Business applications",
                 url: "https://script.google.com/a/~/macros/s/AKfycbzLny-kwJPf-0t0IKZ3p2uScQ2q4m10_hnAOdu2-pzawLHvnl1rMe7jieVbVDsSkNvevA/exec"
             },
             {
                 name: "IT Documents",
-                description: "IT documentation",
+                description: " - IT documentation",
                 url: "https://drive.google.com/drive/folders/1_B1v3QK4--no8ko7G8HotVl4EMDZ-vAu?usp=sharing"
             }
         ]
@@ -333,32 +333,32 @@ const resources = {
         resources: [
            {
                name: "FIATA Freight Forwarding",
-               description: "International freight forwarding and logistics reference",
+               description: " - International freight forwarding and logistics reference",
                url: "https://fiata.org/about-freight-forwarding/"
            },
            {
                name: "Incoterms",
-               description: "International trade terms and Incoterms reference",
+               description: " - International trade terms and Incoterms reference",
             url: "https://iccwbo.org/business-solutions/incoterms-rules/"
            },
         {
             name: "Shipping & Maritime",
-            description: "International maritime transport, shipping and regulatory reference",
+            description: " - International maritime transport, shipping and regulatory reference",
             url: "https://www.imo.org/"
         },
         {
             name: "Customs & Trade",
-            description: "International customs terminology and trade facilitation",
+            description: " - International customs terminology and trade facilitation",
             url: "https://www.wcoomd.org/en/topics/facilitation/instrument-and-tools/tools/glossary-of-international-customs-terms.aspx"
         },
         {
             name: "Global Shipping Reports",
-            description: "Global maritime trade, ports, freight rates and shipping analysis",
+            description: " - Global maritime trade, ports, freight rates and shipping analysis",
             url: "https://unctad.org/topic/transport-and-trade-logistics/review-of-maritime-transport"
         },
         {
             name: "SOLAS & MARPOL",
-            description: "International maritime safety and environmental regulations",
+            description: " - International maritime safety and environmental regulations",
             url: "https://www.imo.org/en/about/conventions"
         }
        ]
@@ -376,66 +376,138 @@ const resources = {
         resources: [
             {
                 name: "Suggestion Box",
-                description: "Submit a suggestion or improvement idea",
+                description: " - Submit a suggestion or improvement idea",
                 url: "#"
             }
         ]
     },
 
 
-    /* =========================
-       13 SALES
-    ========================= */
+/* =========================
+   13 SALES
+========================= */
 
-    SALES: {
-        title: "SALES",
-        description: "Sales Resources",
+SALES: {
+    title: "SALES",
+    description: "Sales Resources",
 
-        resources: [
-            {
-                name: "Sales Resources",
-                description: "Sales tools and resources",
-                url: "#"
-            }
-        ]
-    },
+    resources: [
+        {
+            name: "WCAworld",
+            description: " - Global freight forwarding network and partner discovery",
+            url: "https://www.wcaworld.com/"
+        },
+
+        {
+            name: "WCA FIRST",
+            description: " - Connect with global exporters, importers and logistics partners",
+            url: "https://www.wcafirst.com/"
+        },
+
+        {
+            name: "FIATA",
+            description: " - Global freight forwarding industry association and resources",
+            url: "https://fiata.org/"
+        },
+
+        {
+            name: "LinkedIn",
+            description: " - B2B prospecting, company research and business networking",
+            url: "https://www.linkedin.com/"
+        },
+
+        {
+            name: "Global Logistics Partners",
+            description: " - International forwarding networks and partner opportunities",
+            url: "https://www.wcaworld.com/"
+        }
+    ]
+},
 
 
-    /* =========================
-       14 PRICING
-    ========================= */
+/* =========================
+   14 PRICING
+========================= */
 
-    PRICING: {
-        title: "PRICING",
-        description: "Pricing Resources",
+PRICING: {
+    title: "PRICING",
+    description: "Freight Rates and Market Intelligence",
 
-        resources: [
-            {
-                name: "Pricing Resources",
-                description: "Pricing tools and references",
-                url: "#"
-            }
-        ]
-    },
+    resources: [
+        {
+            name: "Drewry World Container Index",
+            description: " - Weekly global container freight rate benchmark",
+            url: "https://www.drewry.co.uk/supply-chain-advisors/supply-chain-expertise/world-container-index-assessed-by-drewry"
+        },
+       {
+            name: "G-sheet Enquiry",
+            url: "#"
+         }
+    ]
+},
+/* =========================
+   15 TOOLS & UTILITIES
+========================= */
 
+"TOOLS & UTILITIES": {
+    title: "TOOLS & UTILITIES",
+    description: "Logistics Calculators and Business Utilities",
 
-    /* =========================
-       15 TOOLS & UTILITIES
-    ========================= */
+    resources: [
+        {
+            name: "Container 3D",
+            description: " - The 3D Load Calculator",
+            url: "https://www.pier2pier.com/loadcalc/"
+        },
+        {
+            name: "Currency Converter",
+            description: " - Live international currency conversion",
+            url: "https://www.xe.com/currencyconverter/"
+        },
+       {
+            name: "Volumetric Weight",
+            description: " - Calculate sea cargo volumetric weight",
+            url: "https://www.pier2pier.com/?layout=links&sub=17"
+        },
 
-    "TOOLS & UTILITIES": {
-        title: "TOOLS & UTILITIES",
-        description: "Business Tools and Utilities",
+        {
+            name: "Volumetric Weight",
+            description: " - Calculate air cargo volumetric weight",
+            url: "https://aviationcargo.dhl.com/business-tools/volume-calculator"
+        },
 
-        resources: [
-            {
-                name: "GGL Tools",
-                description: "Useful business tools and utilities",
-                url: "#"
-            }
-        ]
-    }
-};
+        {
+            name: "Freight Calculator",
+            description: " - Estimate international air and sea freight costs",
+            url: "#"
+        },
+
+        {
+            name: "Shipping Routes",
+            description: " - Explore international shipping lanes and routes",
+            url: "#"
+        },
+
+        {
+            name: "FOB Calculator",
+            description: " - Estimate FOB costs for international shipments",
+            url: "#"
+        },
+
+        {
+            name: "IMO Ship Search",
+            description: " - Search ships and companies by IMO number",
+            url: "https://gisis.imo.org/Public/Default.aspx"
+        },
+
+       {
+            name: "Freight Tools",
+            description: " - Freight calculators, port codes and logistics tools",
+            url: "#"
+        }
+
+    ]
+}
 
 
 /* ============================================================
