@@ -98,43 +98,38 @@ const resources = {
         resources: [
             {
                 name: "Maersk",
-                description: "Maersk",
                 url: "https://www.maersk.com/"
             },
             {
                 name: "MSC",
-                description: "Mediterranean Shipping Company",
-                url: "#"
+                description: " - Mediterranean Shipping Company",
+                url: "https://www.msc.com/en/track-a-shipment?_gl=1*1qury40*_up*MQ..*_gs*MQ..&gclid=CjwKCAjwtp7VBhBjEiwAJfpV-24Bb_LUJTKP3oC6umLAu7Qtf2Fn59nMC5SrdJ1z_OnK2n33G_rdpBoCJQUQAvD_BwE&gclsrc=aw.ds&gbraid=0AAAAABYXqUsrwZNb-XUNGGdceIIKez3Nl"
             },
             {
                 name: "CMA CGM",
-                description: "CMA CGM",
-                url: "#"
+                url: "https://www.cma-cgm.com/ebusiness/tracking"
             },
             {
                 name: "Hapag-Lloyd",
-                description: "Hapag-Lloyd",
-                url: "#"
+                url: "https://identity.hapag-lloyd.com/hlagwebprod.onmicrosoft.com/b2c_1a_signup_signin/oauth2/v2.0/authorize?client_id=64d7a44b-1c5b-4b52-9ff9-254f7acd8fc0&scope=openid%20profile%20offline_access&redirect_uri=https%3A%2F%2Fwww.hapag-lloyd.com%2Fsolutions%2Fauth%2F&client-request-id=01a09edb-37d1-70ec-bceb-1bd99ded46d9&response_mode=fragment&client_info=1&clidata=1&nonce=01a09edb-37d1-7baa-a491-576f8f697661&state=eyJpZCI6IjAxYTA5ZWRiLTM3ZDEtNzViNi04ZjgzLWM3MTM0NjA5YTgwZSIsIm1ldGEiOnsiaW50ZXJhY3Rpb25UeXBlIjoicmVkaXJlY3QifX0%3D&x-client-SKU=msal.js.browser&x-client-VER=4.30.0&response_type=code&code_challenge=l8-6ABvXKfaGBrE9-FNLoAXTmaPqtBX6c_kL_L6x860&code_challenge_method=S256"
             },
             {
                 name: "ONE",
-                description: "Ocean Network Express",
-                url: "#"
+                description: " - Ocean Network Express",
+                url: "https://www.one-line.com/en"
             },
             {
                 name: "COSCO",
-                description: "COSCO Shipping",
-                url: "#"
+                url: "https://elines.coscoshipping.com/ebusiness/"
             },
             {
-                name: "Evergreen",
-                description: "Evergreen Marine",
-                url: "#"
+                name: "HMM",
+                url: "https://www.hmm21.com/e-service/general/DashBoard.do"
             },
             {
                 name: "ZIM",
                 description: "ZIM Integrated Shipping Services",
-                url: "#"
+                url: "https://mylogin.zim.com/mylogin.zim.com/b2c_1a_signup_signin_otp_for_all/oauth2/v2.0/authorize?client_id=4daa8630-5da0-4ed6-95bb-31c3267892b6&scope=https%3A%2F%2FZIMIDMPRD.onmicrosoft.com%2Ftasks%2Fread%20openid%20profile%20offline_access&redirect_uri=https%3A%2F%2Fmy.zim.com%2F&client-request-id=01a09ee0-ee53-7d1f-8be0-7b4a684397fc&response_mode=fragment&client_info=1&clidata=1&nonce=01a09ee0-ee55-7089-bc49-12a1c021ebd3&state=eyJpZCI6IjAxYTA5ZWUwLWVlNTQtNzdmMS1hMjZiLTQzMzBlZTc3ZTA3YiIsIm1ldGEiOnsiaW50ZXJhY3Rpb25UeXBlIjoicmVkaXJlY3QifX0%3D&claims=%7B%22id_token%22%3A%7B%22signin_state%22%3A%7B%22essential%22%3Afalse%7D%2C%22login_hint%22%3A%7B%22essential%22%3Afalse%7D%7D%7D&x-client-SKU=msal.js.browser&x-client-VER=5.16.0&response_type=code&code_challenge=KzjgD80b4TxFZ-Qh_JTPOdweJfLlnhIRp8o4Y-26N2A&code_challenge_method=S256"
             }
         ]
     },
@@ -150,34 +145,29 @@ const resources = {
 
         resources: [
             {
-                name: "Google Drive",
-                description: "GGL shared document repository",
-                url: "#"
-            },
-            {
                 name: "Policies",
-                description: "Company policies",
-                url: "#"
+                description: " - Company policies",
+                url: "https://drive.google.com/drive/folders/1xMXE0VhhqradKT4IjC_STx3jLNyTDLce?usp=drive_link"
             },
             {
                 name: "SOPs",
-                description: "Standard Operating Procedures",
-                url: "#"
+                description: " - Standard Operating Procedures",
+                url: "https://drive.google.com/drive/folders/1zrPg07iboGhNlQ2Z4u6igtJsXOW0A3KP?usp=sharing"
             },
             {
                 name: "Work Instructions",
-                description: "Operational work instructions",
-                url: "#"
+                description: " - Operational work instructions",
+                url: "https://drive.google.com/drive/folders/1_oZuinBxhplHFokcowPI6QR5I7zNyhYV?usp=sharing"
             },
             {
                 name: "Forms & Formats",
-                description: "Approved forms and formats",
-                url: "#"
+                description: " - Approved forms and formats",
+                url: "https://drive.google.com/drive/folders/1amV21lMncKGkbADVbjs-t4ZXFgfXsCbJ?usp=sharing"
             },
             {
                 name: "Manuals",
-                description: "Company and operational manuals",
-                url: "#"
+                description: " - Company and operational manuals",
+                url: "https://drive.google.com/drive/folders/1HjHp42JD0U3SU5tBbKKj26rNDOn5LsDp?usp=sharing"
             }
         ]
     },
@@ -213,17 +203,17 @@ const resources = {
             {
                 name: "IT Support",
                 description: "IT support services",
-                url: "#"
+                url: "https://forms.gle/cpDyKdebZqyA7Su57"
             },
             {
                 name: "IT Applications",
                 description: "Business applications",
-                url: "#"
+                url: "https://script.google.com/a/~/macros/s/AKfycbzLny-kwJPf-0t0IKZ3p2uScQ2q4m10_hnAOdu2-pzawLHvnl1rMe7jieVbVDsSkNvevA/exec"
             },
             {
                 name: "IT Documents",
                 description: "IT documentation",
-                url: "#"
+                url: "https://drive.google.com/drive/folders/1_B1v3QK4--no8ko7G8HotVl4EMDZ-vAu?usp=sharing"
             }
         ]
     },
@@ -240,23 +230,23 @@ const resources = {
         resources: [
             {
                 name: "ICEGATE",
-                description: "Indian Customs electronic gateway",
-                url: "#"
+                description: " - Indian Customs electronic gateway",
+                url: "https://foservices.icegate.gov.in/#/login"
             },
             {
                 name: "DGFT",
-                description: "Directorate General of Foreign Trade",
-                url: "#"
+                description: " - Directorate General of Foreign Trade",
+                url: "https://www.dgft.gov.in/CP/"
             },
             {
                 name: "GST",
-                description: "Goods and Services Tax portal",
-                url: "#"
+                description: " - Goods and Services Tax portal",
+                url: "https://www.gst.gov.in/docadvisor/"
             },
             {
                 name: "Customs",
-                description: "Customs resources",
-                url: "#"
+                description: " - Customs resources",
+                url: "https://www.cbic.gov.in/"
             }
         ]
     },
@@ -273,18 +263,13 @@ const resources = {
         resources: [
             {
                 name: "WPA",
-                description: "World logistics network",
-                url: "#"
+                description: " - World logistics network",
+                url: "https://ourwpa.com/en/members/dashboard"
             },
-            {
-                name: "OPEC",
-                description: "OPEC network",
-                url: "#"
-            },
-            {
+           {
                 name: "Other Networks",
-                description: "Other business networks",
-                url: "#"
+                description: " - Other business networks",
+                url: "https://docs.google.com/spreadsheets/d/19GAkeGgL8TXrXt3-SYJhdPbIl_HyOVs2LbgVEgK2hzc/edit?gid=701763697#gid=701763697"
             }
         ]
     },
@@ -301,18 +286,18 @@ const resources = {
         resources: [
             {
                 name: "Gaerish Logistics",
-                description: "Corporate website",
-                url: "#"
+                description: " - Corporate website",
+                url: "gaerishlogistic.com"
             },
             {
                 name: "Gaerish Defence",
-                description: "Defence logistics website",
-                url: "#"
+                description: " - Defence logistics website",
+                url: "gaerishdefence.com"
             },
             {
                 name: "Gaerish E-Trade",
-                description: "E-Trade platform",
-                url: "#"
+                description: " - E-Trade platform",
+                url: "gaerishetrade.com"
             }
         ]
     },
@@ -330,7 +315,7 @@ const resources = {
         resources: [
             {
                 name: "WCA World",
-                description: "World Cargo Alliance",
+                description: " - World Cargo Alliance",
                 url: "https://www.wcaworld.com/"
             }
         ]
@@ -341,43 +326,43 @@ const resources = {
        11 GGL KNOWLEDGE
     ========================= */
 
-    "GGL KNOWLEDGE": {
-        title: "GGL KNOWLEDGE",
-        description: "Logistics Knowledge & Reference",
+   "GGL KNOWLEDGE": {
+    title: "GGL KNOWLEDGE",
+    description: "International Logistics Knowledge & Reference",
 
-        resources: [
-            {
-                name: "Logistics Knowledge",
-                description: "Core logistics concepts and references",
-                url: "#"
-            },
-            {
-                name: "Incoterms",
-                description: "Incoterms and trade references",
-                url: "#"
-            },
-            {
-                name: "Shipping Terminology",
-                description: "Shipping and freight terminology",
-                url: "#"
-            },
-            {
-                name: "Customs & Trade",
-                description: "Customs and international trade references",
-                url: "#"
-            },
-            {
-                name: "Learning Resources",
-                description: "Useful learning and reference material",
-                url: "#"
-            },
-            {
-                name: "FAQs & Guides",
-                description: "Frequently used guides and references",
-                url: "#"
-            }
-        ]
-    },
+    resources: [
+        {
+            name: "FIATA Freight Forwarding",
+            description: "International freight forwarding and logistics reference",
+            url: "https://fiata.org/about-freight-forwarding/"
+        },
+        {
+            name: "Incoterms",
+            description: "International trade terms and Incoterms reference",
+            url: "https://iccwbo.org/business-solutions/incoterms-rules/"
+        },
+        {
+            name: "Shipping & Maritime",
+            description: "International maritime transport, shipping and regulatory reference",
+            url: "https://www.imo.org/"
+        },
+        {
+            name: "Customs & Trade",
+            description: "International customs terminology and trade facilitation",
+            url: "https://www.wcoomd.org/en/topics/facilitation/instrument-and-tools/tools/glossary-of-international-customs-terms.aspx"
+        },
+        {
+            name: "Global Shipping Reports",
+            description: "Global maritime trade, ports, freight rates and shipping analysis",
+            url: "https://unctad.org/topic/transport-and-trade-logistics/review-of-maritime-transport"
+        },
+        {
+            name: "SOLAS & MARPOL",
+            description: "International maritime safety and environmental regulations",
+            url: "https://www.imo.org/en/about/conventions"
+        }
+    ]
+},
 
 
     /* =========================
