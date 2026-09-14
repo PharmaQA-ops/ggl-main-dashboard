@@ -30,38 +30,27 @@ scroll-behavior: smooth;
 }
 
 body {
-margin: 0;
+    margin: 0;
 
-font-family:
-Inter,
-ui-sans-serif,
-system-ui,
--apple-system,
-BlinkMacSystemFont,
-"Segoe UI",
-Arial,
-sans-serif;
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
 
-background:
-radial-gradient(
-circle at 10% 0%,
-rgba(37, 99, 235, .055),
-transparent 28%
-),
-radial-gradient(
-circle at 90% 15%,
-rgba(14, 165, 233, .045),
-transparent 25%
-),
-var(--bg);
+    background: transparent;
 
-color: var(--text);
+    color: var(--text);
 
-min-height: 100vh;
+    min-height: 100vh;
 
-transition:
-background .25s ease,
-color .25s ease;
+    transition:
+        background .25s ease,
+        color .25s ease;
 }
 
 button,
@@ -335,32 +324,35 @@ margin:
 }
 
 .search-container {
-height: 62px;
+    height: 62px;
 
-display: flex;
-align-items: center;
+    display: flex;
 
-gap: 12px;
+    align-items: center;
 
-padding:
-0 17px;
+    gap: 12px;
 
-background:
-rgba(255, 255, 255, .94);
+    padding:
+        0 17px;
 
-border:
-1px solid #dfe4ec;
+    background:
+        rgba(255, 255, 255, 0.86);
 
-border-radius: 15px;
+    border:
+        1px solid rgba(223, 228, 236, 0.90);
 
-box-shadow:
-0 10px 28px
-rgba(16, 24, 40, .08);
+    border-radius: 15px;
 
-transition:
-.2s ease;
+    box-shadow:
+        0 10px 30px
+        rgba(16, 24, 40, .10);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    transition:
+        .2s ease;
 }
-
 .search-container:focus-within {
 border-color: #9dbcf5;
 
@@ -656,40 +648,41 @@ gap: 14px;
 }
 
 .quick-btn {
-min-width: 0;
+    min-width: 0;
 
-min-height: 78px;
+    min-height: 78px;
 
-display: flex;
+    display: flex;
 
-align-items: center;
+    align-items: center;
 
-gap: 12px;
+    gap: 12px;
 
-padding:
-13px 15px;
+    padding: 13px 15px;
 
-border:
-1px solid var(--border);
+    border:
+        1px solid rgba(228, 231, 236, 0.85);
 
-background:
-var(--surface);
+    background: rgba(255, 255, 255, 0.90);
 
-color: var(--text);
+    color: var(--text);
 
-border-radius: 14px;
+    border-radius: 14px;
 
-cursor: pointer;
+    cursor: pointer;
 
-text-align: left;
+    text-align: left;
 
-box-shadow:
-var(--shadow-sm);
+    box-shadow:
+        0 8px 30px rgba(16, 24, 40, 0.07);
 
-transition:
-transform .2s ease,
-box-shadow .2s ease,
-border-color .2s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        border-color .2s ease;
 }
 
 .quick-btn:hover {
@@ -804,31 +797,33 @@ RESOURCE CARD
 ========================================= */
 
 .portal-card {
-position: relative;
+    position: relative;
 
-min-height: 178px;
+    min-height: 178px;
 
-padding: 20px;
+    padding: 20px;
 
-overflow: hidden;
+    overflow: hidden;
 
-background:
-var(--surface);
+    background: rgba(255, 255, 255, 0.90);
 
-border:
-1px solid var(--border);
+    border:
+        1px solid rgba(228, 231, 236, 0.85);
 
-border-radius: 15px;
+    border-radius: 15px;
 
-cursor: pointer;
+    cursor: pointer;
 
-box-shadow:
-var(--shadow-sm);
+    box-shadow:
+        0 8px 30px rgba(16, 24, 40, 0.08);
 
-transition:
-transform .22s ease,
-box-shadow .22s ease,
-border-color .22s ease;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    transition:
+        transform .22s ease,
+        box-shadow .22s ease,
+        border-color .22s ease;
 }
 
 .portal-card::after {
@@ -1344,7 +1339,7 @@ circle at 90% 15%,
 rgba(14, 165, 233, .08),
 transparent 25%
 ),
-var(--bg);
+transparent;
 }
 
 body.dark .topbar {
@@ -1944,4 +1939,42 @@ transition-duration:
 .modal-resource-arrow {
     flex: 0 0 auto;
     margin-left: auto;
+}
+/* =========================================
+   LIVE VIDEO BACKGROUND
+========================================= */
+
+.live-background {
+    position: fixed;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: -2;
+
+    pointer-events: none;
+}
+
+.background-overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(5, 12, 25, 0.58);
+
+    z-index: -1;
+
+    pointer-events: none;
+}
+/* =========================================
+   CONTENT ABOVE VIDEO
+========================================= */
+
+.topbar,
+.main-container,
+footer {
+    position: relative;
+    z-index: 1;
 }
