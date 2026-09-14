@@ -1912,3 +1912,41 @@ transition-duration:
 }
 
 }
+/* FIX ALL RESOURCE CARDS */
+
+.resource-card {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.resource-card .resource-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.resource-card .resource-title {
+    display: block;
+    width: 100%;
+    margin: 0 0 4px 0;
+    line-height: 1.25;
+}
+
+.resource-card .resource-description {
+    display: block;
+    width: 100%;
+    margin: 0;
+    line-height: 1.35;
+}
+
+.resource-card .resource-action {
+    margin-left: auto;
+    flex-shrink: 0;
+}
+.resource-content {
+    display: flex;
+    flex-direction: column;
+}
