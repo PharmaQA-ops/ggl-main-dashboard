@@ -326,21 +326,21 @@ const resources = {
        11 GGL KNOWLEDGE
     ========================= */
 
-   "GGL KNOWLEDGE": {
-    title: "GGL KNOWLEDGE",
-    description: "International Logistics Knowledge & Reference",
+   "KNOWLEDGE HUB": {
+        title: "KNOWLEDGE HUB",
+        description: "International Logistics Knowledge & Reference",
 
-    resources: [
-        {
-            name: "FIATA Freight Forwarding",
-            description: "International freight forwarding and logistics reference",
-            url: "https://fiata.org/about-freight-forwarding/"
-        },
-        {
-            name: "Incoterms",
-            description: "International trade terms and Incoterms reference",
+        resources: [
+           {
+               name: "FIATA Freight Forwarding",
+               description: "International freight forwarding and logistics reference",
+               url: "https://fiata.org/about-freight-forwarding/"
+           },
+           {
+               name: "Incoterms",
+               description: "International trade terms and Incoterms reference",
             url: "https://iccwbo.org/business-solutions/incoterms-rules/"
-        },
+           },
         {
             name: "Shipping & Maritime",
             description: "International maritime transport, shipping and regulatory reference",
