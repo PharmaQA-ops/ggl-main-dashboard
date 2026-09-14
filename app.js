@@ -611,7 +611,7 @@ function getResourceIcon(category, name = "") {
     }
 
 
-    if (value.includes("GGL KNOWLEDGE")) {
+    if (value.includes("KNOWLEDGE HUB")) {
         return "fa-solid fa-brain";
     }
 
