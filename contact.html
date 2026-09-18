@@ -850,7 +850,8 @@ content="#0b1220"
         '&callback=' +
         encodeURIComponent(
           callbackName
-        );
+        ) +
+        '&v=1';
 
 
       script.onerror =
@@ -1040,7 +1041,47 @@ content="#0b1220"
 
 
       photo.src =
-        photoUrl;
+        normalizePhotoUrl(
+          photoUrl
+        );
+
+    }
+
+
+    function normalizePhotoUrl(
+      value
+    ) {
+
+      const url =
+        String(
+          value || ''
+        ).trim();
+
+      if (!url) {
+        return '';
+      }
+
+      /*
+       * Accept a normal image URL or a
+       * Google Drive file URL.
+       */
+      const driveMatch =
+        url.match(
+          /drive\.google\.com\/file\/d\/([^/]+)/
+        );
+
+      if (driveMatch) {
+
+        return (
+          'https://drive.google.com/uc?export=view&id=' +
+          encodeURIComponent(
+            driveMatch[1]
+          )
+        );
+
+      }
+
+      return url;
 
     }
 
