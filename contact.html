@@ -226,6 +226,124 @@ content="#0b1220"
     }
 
 
+
+    /* =====================================================
+       DEPARTMENT / SPECIALTY BADGES
+       ===================================================== */
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 7px;
+      margin: 12px auto 0;
+      max-width: 100%;
+    }
+
+    .badge {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 28px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.78);
+      background: rgba(255,255,255,.34);
+      color: #0b4278;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .35px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      box-shadow:
+        0 5px 16px rgba(16,92,160,.10),
+        inset 0 1px 0 rgba(255,255,255,.72);
+      backdrop-filter: blur(14px) saturate(150%);
+      -webkit-backdrop-filter: blur(14px) saturate(150%);
+    }
+
+    .badge::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      box-shadow: 0 0 8px currentColor;
+      flex: 0 0 6px;
+    }
+
+    .badge-dg {
+      color: #0756b8;
+      background: rgba(83,169,255,.18);
+    }
+
+    .badge-pharma {
+      color: #08756c;
+      background: rgba(71,211,190,.18);
+    }
+
+    .badge-projects {
+      color: #6941c6;
+      background: rgba(167,139,250,.18);
+    }
+
+    .badge-qa {
+      color: #b54708;
+      background: rgba(255,184,92,.18);
+    }
+
+    .badge-operations {
+      color: #175cd3;
+      background: rgba(99,153,255,.18);
+    }
+
+    .badge-sales {
+      color: #027a48;
+      background: rgba(72,207,137,.18);
+    }
+
+    .badge-finance {
+      color: #1570ef;
+      background: rgba(96,165,250,.18);
+    }
+
+    .badge-hr {
+      color: #c11574;
+      background: rgba(244,114,182,.16);
+    }
+
+    .badge-it {
+      color: #3538cd;
+      background: rgba(129,140,248,.18);
+    }
+
+    .badge-management {
+      color: #344054;
+      background: rgba(152,162,179,.20);
+    }
+
+    .badge-default {
+      color: #0b4278;
+      background: rgba(255,255,255,.38);
+    }
+
+    @media (max-width: 360px) {
+      .badges {
+        gap: 5px;
+        margin-top: 10px;
+      }
+
+      .badge {
+        min-height: 26px;
+        padding: 5px 9px;
+        font-size: 9px;
+      }
+    }
+
+
     .divider {
       height: 1px;
       background: #eaecf0;
@@ -460,6 +578,10 @@ content="#0b1220"
       .content {
         padding-left: clamp(14px, 5vw, 22px);
         padding-right: clamp(14px, 5vw, 22px);
+      }
+
+      .badges {
+        padding: 0 4px;
       }
 
       .details {
@@ -759,6 +881,12 @@ content="#0b1220"
     <div
       class="company"
       id="company"
+    ></div>
+
+    <div
+      class="badges"
+      id="badges"
+      aria-label="Department badges"
     ></div>
 
 
@@ -1218,6 +1346,8 @@ content="#0b1220"
         data.company
       );
 
+      renderBadges(data);
+
 
       renderPhoto(
         data.photo,
@@ -1269,6 +1399,154 @@ content="#0b1220"
 
     }
 
+
+
+    /* =====================================================
+       BADGES
+       ===================================================== */
+
+    function renderBadges(data) {
+
+      const container =
+        document.getElementById('badges');
+
+      if (!container) {
+        return;
+      }
+
+      const badges = getDepartmentBadges(data);
+
+      container.innerHTML = badges
+        .map(function(badge) {
+          return (
+            '<span class="badge ' +
+            badge.className +
+            '">' +
+            escapeHtml(badge.label) +
+            '</span>'
+          );
+        })
+        .join('');
+
+      container.style.display =
+        badges.length ? 'flex' : 'none';
+    }
+
+
+    function getDepartmentBadges(data) {
+
+      const department =
+        String(data.department || '').trim();
+
+      const designation =
+        String(data.designation || '').trim();
+
+      const combined =
+        (department + ' ' + designation).toLowerCase();
+
+      const result = [];
+
+      /*
+       * Special department badges.
+       * One badge is shown for each matching specialty.
+       */
+      const rules = [
+        {
+          keys: ['dg', 'dangerous goods', 'dgr', 'imdg'],
+          label: 'DG',
+          className: 'badge-dg'
+        },
+        {
+          keys: ['pharma', 'pharmaceutical', 'pharmaceuticals'],
+          label: 'PHARMA',
+          className: 'badge-pharma'
+        },
+        {
+          keys: ['project', 'projects', 'pm', 'transformation'],
+          label: 'PROJECTS',
+          className: 'badge-projects'
+        },
+        {
+          keys: ['qa', 'quality', 'quality assurance', 'qms'],
+          label: 'QA',
+          className: 'badge-qa'
+        },
+        {
+          keys: ['operation', 'operations', 'export', 'import', 'logistics'],
+          label: 'OPERATIONS',
+          className: 'badge-operations'
+        },
+        {
+          keys: ['sales', 'business development', 'bd', 'marketing'],
+          label: 'SALES',
+          className: 'badge-sales'
+        },
+        {
+          keys: ['finance', 'accounts', 'accounting'],
+          label: 'FINANCE',
+          className: 'badge-finance'
+        },
+        {
+          keys: ['hr', 'human resource', 'human resources'],
+          label: 'HR',
+          className: 'badge-hr'
+        },
+        {
+          keys: ['it', 'information technology', 'technology'],
+          label: 'IT',
+          className: 'badge-it'
+        },
+        {
+          keys: ['management', 'admin', 'administration'],
+          label: 'MANAGEMENT',
+          className: 'badge-management'
+        }
+      ];
+
+      rules.forEach(function(rule) {
+
+        const matched =
+          rule.keys.some(function(key) {
+            return combined.indexOf(key) !== -1;
+          });
+
+        if (matched) {
+          result.push({
+            label: rule.label,
+            className: rule.className
+          });
+        }
+      });
+
+      /*
+       * If the department does not match a predefined specialty,
+       * show the actual department as a neutral badge.
+       */
+      if (!result.length && department) {
+        result.push({
+          label: department,
+          className: 'badge-default'
+        });
+      }
+
+      /*
+       * If QA is the designation and the department is another
+       * specialty, QA is also useful as a second badge.
+       */
+      if (
+        /\bqa\b|quality assurance/i.test(designation) &&
+        !result.some(function(item) {
+          return item.label === 'QA';
+        })
+      ) {
+        result.push({
+          label: 'QA',
+          className: 'badge-qa'
+        });
+      }
+
+      return result;
+    }
 
     /* =====================================================
        PHOTO
