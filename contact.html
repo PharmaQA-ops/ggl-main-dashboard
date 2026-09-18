@@ -43,11 +43,10 @@ content="#0b1220"
         Arial,
         sans-serif;
       background:
-        linear-gradient(
-          145deg,
-          #eef2f7,
-          #dfe6ef
-        );
+        radial-gradient(circle at 15% 10%, rgba(86,190,255,.34), transparent 30%),
+        radial-gradient(circle at 90% 85%, rgba(16,105,207,.30), transparent 34%),
+        linear-gradient(145deg, #d9efff 0%, #eef8ff 45%, #c8e6fb 100%);
+      background-attachment: fixed;
       color: #101828;
     }
 
@@ -70,27 +69,70 @@ content="#0b1220"
     .card {
       position: relative;
       overflow: hidden;
-      background: rgba(255,255,255,.96);
-      border: 1px solid rgba(255,255,255,.8);
-      border-radius: 28px;
+      isolation: isolate;
+      background:
+        linear-gradient(145deg, rgba(255,255,255,.48), rgba(226,242,255,.20)),
+        rgba(255,255,255,.24);
+      border: 1px solid rgba(255,255,255,.72);
+      border-radius: 32px;
       box-shadow:
-        0 25px 70px rgba(15,23,42,.16);
+        0 35px 90px rgba(10,73,132,.20),
+        inset 0 1px 0 rgba(255,255,255,.88),
+        inset 0 -1px 0 rgba(255,255,255,.18);
+      backdrop-filter: blur(30px) saturate(155%);
+      -webkit-backdrop-filter: blur(30px) saturate(155%);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 1px;
+      z-index: -1;
+      border-radius: 31px;
+      background:
+        radial-gradient(circle at 8% 5%, rgba(255,255,255,.72), transparent 28%),
+        radial-gradient(circle at 95% 90%, rgba(54,161,255,.20), transparent 34%);
+      pointer-events: none;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      width: 170%;
+      height: 120px;
+      left: -35%;
+      top: -65px;
+      transform: rotate(-8deg);
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.40), transparent);
+      filter: blur(18px);
+      pointer-events: none;
     }
 
 
     .cover {
-      height: 125px;
+      height: 145px;
+      position: relative;
+      overflow: hidden;
       background:
-        radial-gradient(
-          circle at 10% 20%,
-          rgba(255,255,255,.20),
-          transparent 35%
-        ),
-        linear-gradient(
-          135deg,
-          #0b1220,
-          #1d2939
-        );
+        radial-gradient(circle at 12% 18%, rgba(255,255,255,.46), transparent 25%),
+        radial-gradient(circle at 88% 80%, rgba(81,190,255,.42), transparent 34%),
+        linear-gradient(135deg, #0877d1 0%, #0b5bb3 45%, #07356f 100%);
+    }
+
+    .cover::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(120deg, transparent 20%, rgba(255,255,255,.18) 45%, transparent 70%);
+      transform: translateX(-60%);
+      animation: glassSweep 7s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    @keyframes glassSweep {
+      0%, 45% { transform: translateX(-65%); }
+      75%, 100% { transform: translateX(65%); }
     }
 
 
@@ -101,11 +143,19 @@ content="#0b1220"
 
 
     .photo-wrap {
-      width: 124px;
-      height: 124px;
-      margin:
-        -62px auto 15px;
+      width: 132px;
+      height: 132px;
+      margin: -66px auto 17px;
       position: relative;
+      z-index: 5;
+      padding: 4px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, rgba(255,255,255,.95), rgba(157,220,255,.52));
+      box-shadow:
+        0 18px 42px rgba(0,67,128,.25),
+        0 0 0 1px rgba(255,255,255,.78);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
     }
 
 
@@ -113,11 +163,12 @@ content="#0b1220"
       width: 124px;
       height: 124px;
       object-fit: cover;
+      object-position: center;
       border-radius: 50%;
-      border: 5px solid #fff;
-      background: #e5e7eb;
+      border: 3px solid rgba(255,255,255,.94);
+      background: #eaf6ff;
       box-shadow:
-        0 8px 30px rgba(15,23,42,.18);
+        0 10px 28px rgba(0,55,110,.22);
       display: block;
     }
 
@@ -189,23 +240,32 @@ content="#0b1220"
       display: flex;
       align-items: flex-start;
       gap: 11px;
-      padding: 11px 12px;
-      border-radius: 13px;
-      background: #f8fafc;
+      padding: 12px 13px;
+      border-radius: 17px;
+      background: linear-gradient(135deg, rgba(255,255,255,.46), rgba(231,246,255,.22));
+      border: 1px solid rgba(255,255,255,.58);
+      box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.58),
+        0 8px 24px rgba(12,87,150,.06);
+      backdrop-filter: blur(18px) saturate(135%);
+      -webkit-backdrop-filter: blur(18px) saturate(135%);
     }
 
 
     .icon {
-      width: 30px;
-      height: 30px;
-      border-radius: 9px;
+      width: 32px;
+      height: 32px;
+      border-radius: 11px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #e9eef5;
-      color: #172033;
+      background: linear-gradient(145deg, rgba(255,255,255,.70), rgba(89,184,255,.22));
+      border: 1px solid rgba(255,255,255,.65);
+      color: #075da8;
       font-size: 14px;
-      flex: 0 0 30px;
+      font-weight: 800;
+      flex: 0 0 32px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
     }
 
 
@@ -257,14 +317,20 @@ content="#0b1220"
 
 
     .btn-primary {
-      background: #0b1220;
+      background: linear-gradient(135deg, #087fe1, #0756a7);
       color: #fff;
+      border: 1px solid rgba(255,255,255,.38);
+      box-shadow: 0 12px 28px rgba(0,91,173,.24), inset 0 1px 0 rgba(255,255,255,.35);
     }
 
 
     .btn-secondary {
-      background: #eef2f6;
-      color: #172033;
+      background: linear-gradient(135deg, rgba(255,255,255,.58), rgba(223,242,255,.30));
+      color: #07559d;
+      border: 1px solid rgba(255,255,255,.62);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.75), 0 8px 20px rgba(0,73,137,.07);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
 
 
@@ -438,10 +504,20 @@ content="#0b1220"
     }
     @keyframes glassSweep { 50%,100%{transform:translateX(100%)} }
     .brand-logo {
-      position:absolute; top:18px; left:20px; height:42px; width:auto;
-      max-width:210px; object-fit:contain; object-position:left center;
-      filter:drop-shadow(0 5px 12px rgba(0,30,100,.22));
-      z-index:2;
+      position:absolute;
+      top:18px;
+      left:20px;
+      height:48px;
+      width:auto;
+      max-width:225px;
+      padding:7px 13px;
+      object-fit:contain;
+      object-position:left center;
+      background:rgba(255,255,255,.96);
+      border:1px solid rgba(255,255,255,.98);
+      border-radius:15px;
+      box-shadow:0 10px 28px rgba(0,35,90,.20), inset 0 1px 0 rgba(255,255,255,1);
+      z-index:3;
     }
     .content { padding:0 25px 25px; }
     .photo {
@@ -493,7 +569,7 @@ content="#0b1220"
     .footer { color:#6689aa; }
     @media(max-width:420px) {
       .cover { height:125px; }
-      .brand-logo { top:16px; left:18px; height:36px; max-width:185px; }
+      .brand-logo { top:16px; left:18px; height:40px; max-width:195px; padding:6px 11px; }
       .content { padding-left:18px; padding-right:18px; }
     }
 
@@ -1133,20 +1209,24 @@ content="#0b1220"
         };
 
 
-      photo.onerror =
-        function() {
+      const candidates = getPhotoCandidates(photoUrl);
+      let index = 0;
 
-          showInitials(
-            name
-          );
+      photo.onload = function() {
+        photo.style.display = 'block';
+        initials.style.display = 'none';
+      };
 
-        };
+      photo.onerror = function() {
+        index++;
+        if (index < candidates.length) {
+          photo.src = candidates[index];
+        } else {
+          showInitials(name);
+        }
+      };
 
-
-      photo.src =
-        normalizePhotoUrl(
-          photoUrl
-        );
+      photo.src = candidates[0] || '';
 
     }
 
@@ -1186,6 +1266,29 @@ content="#0b1220"
 
       return url;
 
+    }
+
+
+    function getPhotoCandidates(value) {
+      const url = String(value || '').trim();
+      if (!url) return [];
+
+      const candidates = [];
+      const driveMatch = url.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?id=)([^/&?]+)/);
+
+      if (driveMatch) {
+        const id = driveMatch[1];
+        candidates.push(
+          'https://drive.google.com/thumbnail?id=' + encodeURIComponent(id) + '&sz=w1000'
+        );
+        candidates.push(
+          'https://drive.google.com/uc?export=view&id=' + encodeURIComponent(id)
+        );
+      }
+
+      candidates.push(url);
+
+      return [...new Set(candidates)];
     }
 
 
