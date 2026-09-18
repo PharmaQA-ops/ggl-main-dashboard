@@ -175,6 +175,29 @@ svg#liquidDefs{position:absolute;width:0;height:0;overflow:hidden;pointer-events
   position:relative;z-index:6;padding:0 20px 20px;text-align:center;
   overflow:hidden;
 }
+.profile-banner{
+  position:absolute;z-index:-1;left:0;right:0;top:0;height:190px;
+  overflow:hidden;
+  background:#0878e8;
+}
+.profile-banner img{
+  width:100%;height:100%;display:block;object-fit:cover;object-position:center;
+  transform:scale(1.03);
+}
+.profile-banner:after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(180deg,rgba(0,92,185,.10) 0%,rgba(0,125,226,.16) 42%,rgba(236,249,255,.96) 100%),
+    linear-gradient(105deg,rgba(0,107,235,.20),transparent 45%,rgba(36,207,255,.18));
+}
+.profile-banner-glass{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(280px 120px at 18% 15%,rgba(255,255,255,.30),transparent 65%),
+    linear-gradient(180deg,rgba(255,255,255,.06),transparent 55%);
+  backdrop-filter:saturate(145%);
+}
+
 .photo-wrap{
   position:relative;width:138px;height:138px;margin:96px auto 16px;isolation:isolate;
 }
@@ -199,10 +222,10 @@ svg#liquidDefs{position:absolute;width:0;height:0;overflow:hidden;pointer-events
   color:#fff;font-size:39px;font-weight:950;letter-spacing:-1px;
   background:radial-gradient(circle at 28% 22%,rgba(255,255,255,.26),transparent 25%),linear-gradient(145deg,#0878e8,#20b7f2);
 }
-.name{position:relative;margin:0;font-size:30px;line-height:1.06;font-weight:950;letter-spacing:-.8px;text-shadow:0 1px 0 rgba(255,255,255,.72)}
-.designation{margin-top:8px;font-size:15px;font-weight:850;color:#315e84}
-.department{margin-top:3px;font-size:12px;color:#7892a9}
-.company{margin-top:11px;font-size:13px;font-weight:950;color:#0878e8}
+.name{position:relative;margin:0;font-size:28px;line-height:1.06;font-weight:950;letter-spacing:-.8px;text-shadow:0 1px 0 rgba(255,255,255,.72)}
+.designation{margin-top:8px;font-size:14px;font-weight:850;color:#315e84}
+.department{margin-top:3px;font-size:11px;color:#7892a9}
+.company{margin-top:11px;font-size:12px;font-weight:950;color:#0878e8}
 
 .company-switcher{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin:15px auto 0}
 .company-chip{
@@ -248,8 +271,8 @@ svg#liquidDefs{position:absolute;width:0;height:0;overflow:hidden;pointer-events
 
 .details{position:relative;z-index:6;padding:0 20px 8px}
 .detail{
-  position:relative;overflow:hidden;display:flex;align-items:center;gap:14px;min-height:66px;
-  margin-bottom:8px;padding:10px 13px;border-radius:17px;
+  position:relative;overflow:hidden;display:flex;align-items:center;gap:12px;min-height:57px;
+  margin-bottom:7px;padding:9px 12px;border-radius:17px;
   border:1px solid rgba(255,255,255,.82);
   background:linear-gradient(135deg,rgba(255,255,255,.38),rgba(255,255,255,.10));
   box-shadow:0 8px 22px rgba(18,98,148,.08),inset 0 1px 0 rgba(255,255,255,.86);
@@ -267,26 +290,15 @@ svg#liquidDefs{position:absolute;width:0;height:0;overflow:hidden;pointer-events
   66%{opacity:1}
   88%,100%{left:125%;opacity:0}
 }
- .icon{
-  flex:0 0 42px;width:42px;height:42px;display:flex;align-items:center;justify-content:center;
-  border-radius:13px;color:#0878e8;
-  background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(207,240,255,.48));
-  border:1px solid rgba(255,255,255,.94);
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.98),
-    inset 0 -5px 10px rgba(65,165,220,.07),
-    0 6px 15px rgba(20,105,155,.06);
+.icon{
+  flex:0 0 34px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+  border-radius:11px;color:#0878e8;font-size:13px;font-weight:950;
+  background:linear-gradient(145deg,rgba(255,255,255,.78),rgba(207,240,255,.50));
+  border:1px solid rgba(255,255,255,.90);box-shadow:inset 0 1px 0 #fff;
 }
-.icon svg{
-  width:21px;height:21px;display:block;fill:none;stroke:currentColor;
-  stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;
-  filter:drop-shadow(0 1px 1px rgba(255,255,255,.7));
-}
-.icon.linkedin-mark{font-size:16px;font-weight:950;letter-spacing:-.8px}
-.icon.whatsapp-mark svg{width:22px;height:22px}
 .detail-text{min-width:0;text-align:left}
-.detail-label{font-size:10px;font-weight:950;color:#7691a8;text-transform:uppercase;letter-spacing:1px}
-.detail-value{margin-top:4px;font-size:13px;line-height:1.45;font-weight:750;color:#143b60;word-break:break-word}
+.detail-label{font-size:8px;font-weight:950;color:#7691a8;text-transform:uppercase;letter-spacing:1px}
+.detail-value{margin-top:3px;font-size:11px;line-height:1.45;font-weight:750;color:#143b60;word-break:break-word}
 .detail-value a{color:inherit;text-decoration:none}
 
 .buttons{position:relative;z-index:6;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:25px 20px 20px}
@@ -296,7 +308,7 @@ svg#liquidDefs{position:absolute;width:0;height:0;overflow:hidden;pointer-events
   box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 8px 17px rgba(15,92,143,.08);
   backdrop-filter:blur(14px) saturate(175%);
 }
- .button-icon{
+.button-icon{
   width:17px;height:17px;display:inline-block;vertical-align:-3px;
   margin-right:6px;fill:none;stroke:currentColor;
   stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;
@@ -327,8 +339,8 @@ svg#liquidDefs{position:absolute;width:0;height:0;overflow:hidden;pointer-events
 }
 @media(max-width:430px){
   body{padding:0;align-items:stretch}.card{width:100%;min-height:100vh;border-radius:0}
-  .brand-strip{min-height:104px}.photo-wrap{width:122px;height:122px;margin-top:88px}.name{font-size:25px}
-  .buttons{grid-template-columns:1fr;padding-bottom:16px}.company-logo{width:160px;height:60px}.detail-value{font-size:12.5px}.detail-label{font-size:9px}.icon{flex-basis:40px;width:40px;height:40px}
+  .brand-strip{min-height:104px}.profile-banner{height:174px}.photo-wrap{width:122px;height:122px;margin-top:88px}.name{font-size:25px}
+  .buttons{grid-template-columns:1fr;padding-bottom:16px}.company-logo{width:160px;height:60px}
   .badge{width:58px;height:58px}.badge-inner{width:49px;height:49px}
 }
 @media(prefers-reduced-motion:reduce){
@@ -380,6 +392,11 @@ svg#liquidDefs{position:absolute;width:0;height:0;overflow:hidden;pointer-events
   </div>
 
   <section class="profile">
+    <div class="profile-banner" aria-hidden="true">
+      <img src="https://raw.githubusercontent.com/PharmaQA-ops/ggl-main-dashboard/main/banner.png" alt="">
+      <div class="profile-banner-glass"></div>
+    </div>
+
     <div class="photo-wrap">
       <div class="photo-halo"></div>
       <div class="photo-ring"></div>
@@ -399,30 +416,12 @@ svg#liquidDefs{position:absolute;width:0;height:0;overflow:hidden;pointer-events
   </section>
 
   <section class="details">
-    <div class="detail" id="mobileRow">
-      <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7.4 3.7 5.7 4.9c-.8.6-1.1 1.7-.7 2.6 2 4.8 5.7 8.5 10.5 10.5.9.4 2 .1 2.6-.7l1.2-1.7c.4-.6.3-1.4-.3-1.8l-2.5-1.7c-.5-.3-1.2-.2-1.6.2l-1.1 1.1a12.8 12.8 0 0 1-3.4-2.3 12.8 12.8 0 0 1-2.3-3.4l1.1-1.1c.4-.4.5-1.1.2-1.6L9.2 4c-.4-.6-1.2-.7-1.8-.3Z"/></svg></div>
-      <div class="detail-text"><div class="detail-label">Mobile</div><div class="detail-value" id="mobile"></div></div>
-    </div>
-    <div class="detail" id="whatsappRow">
-      <div class="icon whatsapp-mark" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20.1 11.5a8.1 8.1 0 0 1-11.8 7.1L4 20l1.4-4.1A8.1 8.1 0 1 1 20.1 11.5Z"/><path d="M8.2 8.1c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.3.1.5-.1.7l-.5.6c-.1.1-.1.3 0 .5.5.9 1.2 1.6 2.1 2.1.2.1.4.1.5 0l.6-.5c.2-.2.4-.2.7-.1l1.6.7c.3.1.4.3.4.5v.5c0 .3 0 .5-.4.7-.4.2-1 .4-1.6.2-1.4-.3-2.8-1.2-4-2.4-1.2-1.2-2.1-2.6-2.4-4-.2-.6 0-1.2.2-1.6Z"/></svg></div>
-      <div class="detail-text"><div class="detail-label">WhatsApp</div><div class="detail-value" id="whatsapp"></div></div>
-    </div>
-    <div class="detail" id="emailRow">
-      <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="3"/><path d="m5.2 7.5 6.8 5 6.8-5"/></svg></div>
-      <div class="detail-text"><div class="detail-label">Email</div><div class="detail-value" id="email"></div></div>
-    </div>
-    <div class="detail" id="websiteRow">
-      <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.7 12h16.6M12 3.5c2.1 2.3 3.2 5.1 3.2 8.5s-1.1 6.2-3.2 8.5c-2.1-2.3-3.2-5.1-3.2-8.5S9.9 5.8 12 3.5Z"/></svg></div>
-      <div class="detail-text"><div class="detail-label">Website</div><div class="detail-value" id="website"></div></div>
-    </div>
-    <div class="detail" id="linkedinRow">
-      <div class="icon linkedin-mark" aria-hidden="true">in</div>
-      <div class="detail-text"><div class="detail-label">LinkedIn</div><div class="detail-value" id="linkedin"></div></div>
-    </div>
-    <div class="detail" id="addressRow">
-      <div class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 20.5h15M6.5 20.5V8.8L12 5l5.5 3.8v11.7M9 20.5v-5h6v5M8.5 10.5h.1M12 10.5h.1M15.5 10.5h.1"/></svg></div>
-      <div class="detail-text"><div class="detail-label">Office</div><div class="detail-value" id="address"></div></div>
-    </div>
+    <div class="detail" id="mobileRow"><div class="icon">☎</div><div class="detail-text"><div class="detail-label">Mobile</div><div class="detail-value" id="mobile"></div></div></div>
+    <div class="detail" id="whatsappRow"><div class="icon">WA</div><div class="detail-text"><div class="detail-label">WhatsApp</div><div class="detail-value" id="whatsapp"></div></div></div>
+    <div class="detail" id="emailRow"><div class="icon">@</div><div class="detail-text"><div class="detail-label">Email</div><div class="detail-value" id="email"></div></div></div>
+    <div class="detail" id="websiteRow"><div class="icon">↗</div><div class="detail-text"><div class="detail-label">Website</div><div class="detail-value" id="website"></div></div></div>
+    <div class="detail" id="linkedinRow"><div class="icon">in</div><div class="detail-text"><div class="detail-label">LinkedIn</div><div class="detail-value" id="linkedin"></div></div></div>
+    <div class="detail" id="addressRow"><div class="icon">⌖</div><div class="detail-text"><div class="detail-label">Office</div><div class="detail-value" id="address"></div></div></div>
   </section>
 
   <div class="buttons">
@@ -723,88 +722,26 @@ function renderAddress(value){
 
 async function addToContacts(){
   if(!employee)return;
-
   const company=currentCompany();
-
-  const data=Object.assign({},employee,{
-    company:company.name,
-    website:employee.website||company.website
-  });
-
+  const data=Object.assign({},employee,{company:company.name,website:employee.website||company.website});
   const vcard=createVCard(data);
-
-  const safeName=String(
-    employee.name||employee.employeeId||'contact'
-  )
-  .replace(/[^a-z0-9 _-]/gi,'')
-  .trim()||'contact';
-
-  const fileName=safeName+'.vcf';
+  const safeName=String(employee.name||employee.employeeId||'contact').replace(/[^a-z0-9 _-]/gi,'').trim()||'contact';
+  const blob=new Blob([vcard],{type:'text/vcard;charset=utf-8'});
 
   try{
-    const blob=new Blob(
-      [vcard],
-      {type:'text/vcard;charset=utf-8'}
-    );
-
-    /*
-     * MOBILE:
-     * Send the VCF directly to the device's native share/open handler.
-     * On supported Android/iOS devices this can expose Contacts / Add to Contacts.
-     */
-    if(navigator.share){
-      const file=new File(
-        [blob],
-        fileName,
-        {type:'text/vcard'}
-      );
-
-      if(
-        navigator.canShare &&
-        navigator.canShare({files:[file]})
-      ){
-        await navigator.share({
-          title:employee.name||'Gaerish Contact',
-          text:'Save this contact',
-          files:[file]
-        });
-
-        return;
-      }
-    }
-
-    /*
-     * FALLBACK:
-     * Browsers that cannot share VCF files download the vCard.
-     */
-    const url=URL.createObjectURL(blob);
-
-    const link=document.createElement('a');
-    link.href=url;
-    link.download=fileName;
-    link.rel='noopener';
-    link.style.display='none';
-
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
-
-    setTimeout(function(){
-      URL.revokeObjectURL(url);
-    },5000);
-
-  }catch(error){
-
-    if(error && error.name==='AbortError'){
+    const file=new File([blob],safeName+'.vcf',{type:'text/vcard'});
+    if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
+      await navigator.share({title:employee.name||'Gaerish Contact',text:'Save this contact to your phone.',files:[file]});
       return;
     }
-
-    console.error('vCard error:',error);
-
-    alert(
-      'Unable to open the contact card. Please try again.'
-    );
+  }catch(error){
+    if(error&&error.name==='AbortError')return;
   }
+
+  const url=URL.createObjectURL(blob),link=document.createElement('a');
+  link.href=url;link.download=safeName+'.vcf';link.style.display='none';
+  document.body.appendChild(link);link.click();link.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),3000);
 }
 
 function createVCard(data){
