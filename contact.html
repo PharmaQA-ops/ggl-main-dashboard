@@ -1416,75 +1416,110 @@ content="#0b1220"
        ADD TO CONTACTS
        ===================================================== */
 
-    function addToContacts() {
+    async function addToContacts() {
 
       if (!employee) {
-
         return;
-
       }
 
+      const vcard = createVCard(employee);
 
-      const vcard =
-        createVCard(
-          employee
-        );
+      const safeName =
+        String(
+          employee.name ||
+          employee.employeeId ||
+          'contact'
+        )
+        .replace(/[^a-z0-9 _-]/gi, '')
+        .trim() || 'contact';
 
+      const fileName = safeName + '.vcf';
 
-      const blob =
-        new Blob(
-          [vcard],
+      const blob = new Blob(
+        [vcard],
+        {
+          type: 'text/vcard;charset=utf-8'
+        }
+      );
+
+      /*
+       * MOBILE-FIRST:
+       * Try the native phone share sheet with the VCF attached.
+       * This avoids the old contact-service dependency completely.
+       */
+      try {
+
+        const file = new File(
+          [blob],
+          fileName,
           {
-            type:
-              'text/vcard;charset=utf-8'
+            type: 'text/vcard'
           }
         );
 
+        if (
+          navigator.share &&
+          navigator.canShare &&
+          navigator.canShare({
+            files: [file]
+          })
+        ) {
 
+          await navigator.share({
+            title:
+              employee.name ||
+              'Gaerish Logistics Contact',
+
+            text:
+              'Save this contact to your phone.',
+
+            files: [file]
+          });
+
+          return;
+        }
+
+      } catch (error) {
+
+        /*
+         * AbortError means the user closed/cancelled
+         * the native share sheet. Do not show an error.
+         */
+        if (
+          error &&
+          error.name === 'AbortError'
+        ) {
+          return;
+        }
+
+      }
+
+      /*
+       * FALLBACK:
+       * Generate the VCF locally and download it.
+       * No Apps Script contact service is required.
+       */
       const url =
-        URL.createObjectURL(
-          blob
-        );
-
+        URL.createObjectURL(blob);
 
       const link =
-        document.createElement(
-          'a'
-        );
+        document.createElement('a');
 
+      link.href = url;
+      link.download = fileName;
+      link.style.display = 'none';
 
-      link.href =
-        url;
-
-
-      link.download =
-        (
-          employee.employeeId ||
-          'contact'
-        ) +
-        '.vcf';
-
-
-      document.body.appendChild(
-        link
-      );
-
+      document.body.appendChild(link);
 
       link.click();
 
-
       link.remove();
-
 
       setTimeout(
         function() {
-
-          URL.revokeObjectURL(
-            url
-          );
-
+          URL.revokeObjectURL(url);
         },
-        2000
+        3000
       );
 
     }
