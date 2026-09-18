@@ -3,172 +3,341 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#0878e8">
+<meta name="theme-color" content="#dff4ff">
 <title>Gaerish Digital Business Card</title>
+
 <style>
 *{box-sizing:border-box}
 :root{
- --blue:#0878e8;--blue2:#20b7f2;--ink:#0b2d52;--muted:#6d849b;
- --glass:rgba(255,255,255,.72);--line:rgba(255,255,255,.88);
- --shadow:0 28px 80px rgba(8,78,140,.20)
+  --blue:#0878e8;--blue2:#20b7f2;--ink:#092d52;--muted:#7089a0;
+  --glass:rgba(255,255,255,.30);--line:rgba(255,255,255,.82);
+  --shadow:0 38px 110px rgba(5,65,115,.28);
+  --mx:50%;--my:20%;
 }
 html,body{margin:0;min-height:100%;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink)}
 body{
- min-height:100vh;display:flex;align-items:center;justify-content:center;padding:22px;
- position:relative;overflow-x:hidden;
- background:
- radial-gradient(circle at 8% 8%,rgba(58,173,255,.55),transparent 32%),
- radial-gradient(circle at 92% 12%,rgba(38,211,255,.42),transparent 30%),
- radial-gradient(circle at 50% 95%,rgba(79,145,255,.25),transparent 35%),
- linear-gradient(135deg,#eaf7ff,#cfeaff 48%,#f8fcff)
+  min-height:100vh;display:flex;align-items:center;justify-content:center;padding:18px;
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 8% 5%,rgba(70,190,255,.60),transparent 30%),
+    radial-gradient(circle at 94% 12%,rgba(28,225,255,.42),transparent 29%),
+    radial-gradient(circle at 48% 100%,rgba(91,151,255,.34),transparent 38%),
+    linear-gradient(135deg,#effaff 0%,#cfeeff 48%,#f8fcff 100%);
 }
 body:before,body:after{
- content:"";position:fixed;z-index:-1;border-radius:50%;filter:blur(35px);
- pointer-events:none;mix-blend-mode:screen
+  content:"";position:fixed;z-index:-2;pointer-events:none;border-radius:50%;
+  filter:blur(18px);mix-blend-mode:screen;
 }
 body:before{
- width:240px;height:240px;left:-70px;top:28%;background:rgba(0,178,255,.28);
- animation:liquidFloat 9s ease-in-out infinite alternate
+  width:430px;height:430px;left:-180px;top:15%;
+  background:
+    radial-gradient(circle at 35% 40%,rgba(0,155,255,.80),transparent 52%),
+    radial-gradient(circle at 70% 70%,rgba(93,237,255,.60),transparent 50%);
+  animation:orbA 12s ease-in-out infinite alternate;
 }
 body:after{
- width:280px;height:280px;right:-90px;bottom:8%;background:rgba(55,120,255,.25);
- animation:liquidFloat2 11s ease-in-out infinite alternate
+  width:480px;height:480px;right:-190px;bottom:-40px;
+  background:
+    radial-gradient(circle at 35% 35%,rgba(0,192,255,.55),transparent 52%),
+    radial-gradient(circle at 70% 70%,rgba(73,112,255,.65),transparent 52%);
+  animation:orbB 15s ease-in-out infinite alternate;
 }
-@keyframes liquidFloat{to{transform:translate(55px,-35px) scale(1.15)}}
-@keyframes liquidFloat2{to{transform:translate(-45px,-25px) scale(1.12)}}
-.shell{width:min(520px,100%);position:relative}
-.shell:before{
- content:"";position:absolute;inset:12% -10% -8%;z-index:-1;
- background:radial-gradient(circle,rgba(71,181,255,.30),transparent 62%);
- filter:blur(35px)
+
+/* Extra glass "objects" behind the card. They remain visible through the lens. */
+body{
+  --blob-a:rgba(17,145,255,.55);
+  --blob-b:rgba(74,222,255,.45);
 }
+body > .glass-orb-a,
+body > .glass-orb-b,
+body > .glass-orb-c{
+  position:fixed;z-index:-1;pointer-events:none;border-radius:42% 58% 63% 37% / 43% 39% 61% 57%;
+  filter:blur(2px);
+  opacity:.72;
+}
+body > .glass-orb-a{
+  width:210px;height:150px;left:calc(50% - 380px);top:15%;
+  background:linear-gradient(135deg,rgba(0,139,255,.78),rgba(67,231,255,.48));
+  transform:rotate(-18deg);
+}
+body > .glass-orb-b{
+  width:260px;height:185px;right:calc(50% - 395px);bottom:18%;
+  background:linear-gradient(135deg,rgba(44,109,255,.68),rgba(35,224,255,.42));
+  transform:rotate(22deg);
+}
+body > .glass-orb-c{
+  width:150px;height:150px;left:calc(50% + 190px);top:40%;
+  background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.85),rgba(0,171,255,.55) 40%,rgba(73,90,255,.38));
+  border-radius:50%;
+}
+body:before{
+  width:430px;height:430px;left:-180px;top:15%;
+  background:
+    radial-gradient(circle at 35% 40%,rgba(0,155,255,.78),transparent 54%),
+    radial-gradient(circle at 70% 70%,rgba(93,237,255,.58),transparent 52%);
+  animation:orbA 12s ease-in-out infinite alternate;
+}
+body:after{
+  width:480px;height:480px;right:-190px;bottom:-40px;
+  background:
+    radial-gradient(circle at 35% 35%,rgba(0,192,255,.50),transparent 54%),
+    radial-gradient(circle at 70% 70%,rgba(73,112,255,.60),transparent 55%);
+  animation:orbB 15s ease-in-out infinite alternate;
+}
+@keyframes orbA{to{transform:translate(110px,55px) scale(1.10)}}
+@keyframes orbB{to{transform:translate(-110px,-65px) scale(.90)}}
+
+svg#liquidDefs{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
+
+/* The important part: this is not only blur.
+   Chrome/Edge can apply the SVG displacement filter to the live backdrop,
+   producing the edge bend/chromatic lens effect used by liquid-glass-react. */
 .card{
- position:relative;overflow:hidden;border-radius:34px;
- background:linear-gradient(135deg,rgba(255,255,255,.48),rgba(255,255,255,.20));
- border:1px solid rgba(255,255,255,.88);
- box-shadow:0 30px 90px rgba(8,78,140,.22),inset 0 1px 0 rgba(255,255,255,.95);
- backdrop-filter:blur(34px) saturate(180%) contrast(110%);
- -webkit-backdrop-filter:blur(34px) saturate(180%) contrast(110%)
+  position:relative;width:min(520px,100%);overflow:hidden;border-radius:34px;
+  border:1px solid rgba(255,255,255,.90);
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.54),rgba(255,255,255,.20) 45%,rgba(215,244,255,.25));
+  box-shadow:
+    0 42px 115px rgba(4,64,113,.27),
+    0 10px 35px rgba(15,122,188,.10),
+    inset 0 1px 0 rgba(255,255,255,.98),
+    inset 0 -1px 0 rgba(255,255,255,.36);
+  backdrop-filter:blur(10px) saturate(190%) brightness(1.07) url(#gglLens);
+  -webkit-backdrop-filter:blur(10px) saturate(190%) brightness(1.07) url(#gglLens);
+  isolation:isolate;
 }
-.card:before{
- content:"";position:absolute;inset:0;pointer-events:none;
- background:
- radial-gradient(circle at 18% 0%,rgba(255,255,255,.72),transparent 28%),
- radial-gradient(circle at 92% 38%,rgba(117,211,255,.18),transparent 32%),
- linear-gradient(115deg,rgba(255,255,255,.18),transparent 35%,rgba(255,255,255,.08));
- mix-blend-mode:screen
+ .card:before{
+  content:"";position:absolute;z-index:5;inset:1px;pointer-events:none;border-radius:35px;
+  background:
+    radial-gradient(500px 190px at var(--mx) var(--my),
+      rgba(255,255,255,.72),transparent 55%),
+    linear-gradient(118deg,
+      rgba(255,255,255,.50) 0%,
+      transparent 17%,
+      transparent 67%,
+      rgba(255,255,255,.25) 100%);
+  mix-blend-mode:screen;
 }
 .card:after{
- content:"";position:absolute;left:8%;right:8%;top:0;height:1px;
- background:linear-gradient(90deg,transparent,rgba(255,255,255,.95),transparent);
- pointer-events:none
+  content:"";position:absolute;z-index:5;inset:0;pointer-events:none;border-radius:inherit;
+  border:1px solid rgba(255,255,255,.42);
+  box-shadow:
+    inset 0 0 0 1px rgba(100,210,255,.10),
+    inset 0 24px 70px rgba(255,255,255,.08);
 }
-.shell{width:min(520px,100%);position:relative}
-.card{
- overflow:hidden;border-radius:34px;background:var(--glass);border:1px solid var(--line);
- box-shadow:var(--shadow);backdrop-filter:blur(28px) saturate(145%);-webkit-backdrop-filter:blur(28px)
+.card .glass-rim{
+  position:absolute;z-index:7;inset:0;pointer-events:none;border-radius:inherit;
+  background:
+    linear-gradient(90deg,rgba(255,255,255,.60),transparent 13%,transparent 86%,rgba(255,255,255,.30)),
+    linear-gradient(180deg,rgba(255,255,255,.58),transparent 9%,transparent 89%,rgba(95,173,218,.18));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  padding:1px;
 }
-.brand-strip{position:relative;padding:18px 20px 14px;display:flex;justify-content:center;align-items:center;border-bottom:1px solid rgba(255,255,255,.45);background:rgba(255,255,255,.12);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
-.company-logo{width:180px;height:66px;object-fit:contain;background:rgba(255,255,255,.88);border-radius:18px;padding:7px;border:1px solid rgba(255,255,255,.95);box-shadow:0 10px 28px rgba(15,80,130,.13),inset 0 1px 0 #fff}
-.profile{padding:24px 24px 20px;text-align:center}
-.photo-wrap{position:relative;width:132px;height:132px;margin:0 auto 15px}
-.photo-ring{position:absolute;inset:0;border-radius:50%;padding:4px;background:linear-gradient(135deg,var(--blue),var(--blue2))}
-.photo-box{position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden;background:#dceeff;border:4px solid #fff;box-shadow:0 12px 30px rgba(8,78,140,.20)}
-.photo{width:100%;height:100%;object-fit:cover;display:none}
-.initials{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:38px;font-weight:900;background:linear-gradient(135deg,#0878e8,#20b7f2)}
-.name{margin:0;font-size:28px;line-height:1.08;font-weight:900;letter-spacing:-.7px}
-.designation{margin-top:7px;font-size:14px;font-weight:800;color:#315e84}
-.department{margin-top:3px;font-size:11px;color:#7690a7}
-.company{margin-top:11px;font-size:12px;font-weight:900;color:#0878e8}
+.card .glass-glow{
+  position:absolute;z-index:2;pointer-events:none;
+  width:230px;height:230px;left:-85px;top:90px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,193,255,.18),transparent 67%);
+  filter:blur(18px);
+  animation:glassGlow 9s ease-in-out infinite alternate;
+}
+@keyframes glassGlow{
+  to{transform:translate(260px,260px) scale(1.35);opacity:.60}
+}
+
+.brand-strip{
+  position:relative;z-index:6;min-height:112px;padding:17px 20px 15px;
+  display:flex;justify-content:center;align-items:center;
+  border-bottom:1px solid rgba(255,255,255,.56);
+  background:linear-gradient(180deg,rgba(255,255,255,.52),rgba(255,255,255,.10));
+  backdrop-filter:blur(18px) saturate(180%);
+  -webkit-backdrop-filter:blur(18px) saturate(180%);
+}
+.logo-glass{
+  position:relative;width:182px;height:68px;display:flex;align-items:center;justify-content:center;
+  padding:7px 15px;border-radius:21px;overflow:hidden;
+  background:linear-gradient(145deg,rgba(255,255,255,.74),rgba(255,255,255,.20));
+  border:1px solid rgba(255,255,255,.96);
+  box-shadow:
+    0 18px 38px rgba(15,80,130,.18),
+    inset 0 2px 0 rgba(255,255,255,.98),
+    inset 0 -10px 20px rgba(70,180,230,.08);
+  backdrop-filter:blur(15px) saturate(180%);
+}
+.logo-glass:after{
+  content:"";position:absolute;inset:1px;border-radius:20px;pointer-events:none;
+  background:linear-gradient(105deg,rgba(255,255,255,.78),transparent 28%,transparent 72%,rgba(255,255,255,.30));
+}
+.company-logo{position:relative;z-index:1;width:100%;height:100%;object-fit:contain}
+
+.profile{position:relative;z-index:6;padding:25px 20px 20px;text-align:center}
+.photo-wrap{position:relative;width:138px;height:138px;margin:0 auto 16px;isolation:isolate}
+.photo-halo{
+  position:absolute;inset:-14px;border-radius:50%;
+  background:conic-gradient(from 20deg,#fff,#18a5f4,#8eeeff,#0878e8,#fff);
+  filter:blur(11px);opacity:.52;z-index:-1;
+}
+.photo-ring{
+  position:absolute;inset:0;border-radius:50%;padding:4px;
+  background:conic-gradient(from 0deg,#fff,#0878e8,#62eaff,#0878e8,#fff);
+  box-shadow:0 18px 42px rgba(5,86,146,.28),0 0 0 1px rgba(255,255,255,.75);
+}
+.photo-box{
+  position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden;
+  background:linear-gradient(145deg,#e6f8ff,#93dcff);border:4px solid #fff;
+  box-shadow:inset 0 1px 2px rgba(255,255,255,.95),inset 0 -14px 30px rgba(8,92,145,.08);
+}
+.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:none;z-index:2}
+.initials{
+  position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-size:39px;font-weight:950;letter-spacing:-1px;
+  background:radial-gradient(circle at 28% 22%,rgba(255,255,255,.26),transparent 25%),linear-gradient(145deg,#0878e8,#20b7f2);
+}
+.name{margin:0;font-size:28px;line-height:1.06;font-weight:950;letter-spacing:-.8px;text-shadow:0 1px 0 rgba(255,255,255,.72)}
+.designation{margin-top:8px;font-size:14px;font-weight:850;color:#315e84}
+.department{margin-top:3px;font-size:11px;color:#7892a9}
+.company{margin-top:11px;font-size:12px;font-weight:950;color:#0878e8}
+
 .company-switcher{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin:15px auto 0}
-.company-chip{box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 5px 16px rgba(12,80,130,.06);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .company-chip{
- border:1px solid #d6e8f6;background:rgba(255,255,255,.78);border-radius:999px;
- padding:7px 10px;display:inline-flex;align-items:center;gap:6px;color:#315e84;
- font-size:10px;font-weight:850;cursor:pointer
+  position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.90);
+  background:rgba(255,255,255,.30);border-radius:999px;padding:7px 10px;
+  display:inline-flex;align-items:center;gap:6px;color:#315e84;font-size:10px;font-weight:900;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 7px 17px rgba(24,104,155,.08);
+  backdrop-filter:blur(15px) saturate(180%);-webkit-backdrop-filter:blur(15px) saturate(180%);
+  transition:.2s ease;
 }
-.company-chip img{width:18px;height:18px;object-fit:contain;background:#fff;border-radius:5px}
-.company-chip.active{border-color:#1688e8;background:#e8f6ff;color:#075b9d;box-shadow:0 5px 14px rgba(22,136,232,.12)}
-.badges{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:18px}
+.company-chip:hover{transform:translateY(-1px)}
+.company-chip img{width:18px;height:18px;object-fit:contain;background:rgba(255,255,255,.76);border-radius:5px}
+.company-chip.active{
+  border-color:rgba(20,143,235,.65);
+  background:linear-gradient(135deg,rgba(255,255,255,.76),rgba(193,236,255,.48));
+  color:#075b9d;box-shadow:0 7px 20px rgba(22,136,232,.15),inset 0 1px 0 #fff;
+}
+
+.badges{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin-top:18px}
 .badge{
- width:62px;height:62px;position:relative;display:flex;align-items:center;justify-content:center;
- clip-path:polygon(25% 3%,75% 3%,97% 25%,97% 75%,75% 97%,25% 97%,3% 75%,3% 25%);
- filter:drop-shadow(0 7px 9px rgba(12,72,120,.15))
+  width:61px;height:61px;position:relative;display:flex;align-items:center;justify-content:center;
+  clip-path:polygon(25% 3%,75% 3%,97% 25%,97% 75%,75% 97%,25% 97%,3% 75%,3% 25%);
+  filter:drop-shadow(0 8px 11px rgba(12,72,120,.17));
 }
-.badge::before{content:"";position:absolute;inset:4px;clip-path:inherit;background:linear-gradient(135deg,var(--c1),var(--c2))}
-.badge-inner{position:relative;z-index:1;width:52px;height:52px;clip-path:polygon(25% 3%,75% 3%,97% 25%,97% 75%,75% 97%,25% 97%,3% 75%,3% 25%);background:rgba(255,255,255,.16);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center}
-.badge-icon{font-size:14px;line-height:1;margin-bottom:4px;text-shadow:0 1px 2px rgba(0,0,0,.2)}
-.badge-label{font-size:6px;line-height:1.05;font-weight:950;letter-spacing:.35px;max-width:57px}
-.details{padding:0 20px 8px}
-.detail{display:flex;gap:11px;align-items:center;padding:11px 12px;border-radius:15px;background:linear-gradient(135deg,rgba(255,255,255,.42),rgba(255,255,255,.18));border:1px solid rgba(255,255,255,.62);margin:7px 0;box-shadow:inset 0 1px 0 rgba(255,255,255,.75),0 8px 22px rgba(15,85,140,.07);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
-.icon{width:32px;height:32px;flex:0 0 32px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#e9f6ff;color:#0878e8;font-weight:950;font-size:13px}
-.detail-text{min-width:0}
-.detail-label{font-size:8px;font-weight:900;letter-spacing:.7px;color:#7890a7;text-transform:uppercase}
-.detail-value{margin-top:2px;font-size:11px;font-weight:750;overflow-wrap:anywhere}
+.badge:before{
+  content:"";position:absolute;inset:0;clip-path:inherit;
+  background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(255,255,255,.18)),linear-gradient(135deg,var(--c1),var(--c2));
+}
+.badge:after{
+  content:"";position:absolute;inset:4px;clip-path:inherit;
+  background:linear-gradient(135deg,var(--c1),var(--c2));opacity:.92;
+}
+.badge-inner{
+  position:relative;z-index:2;width:51px;height:51px;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;color:#fff;clip-path:inherit;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.34),rgba(255,255,255,.04)),
+    radial-gradient(circle at 30% 20%,rgba(255,255,255,.30),transparent 42%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.52),inset 0 -7px 14px rgba(0,0,0,.08);
+}
+.badge-icon{font-size:14px;line-height:1;font-weight:950;text-shadow:0 1px 2px rgba(0,0,0,.20)}
+.badge-label{margin-top:4px;font-size:6px;line-height:1;font-weight:950;letter-spacing:.15px;text-transform:uppercase}
+
+.details{position:relative;z-index:6;padding:0 20px 8px}
+.detail{
+  position:relative;overflow:hidden;display:flex;align-items:center;gap:12px;min-height:57px;
+  margin-bottom:7px;padding:9px 12px;border-radius:17px;
+  border:1px solid rgba(255,255,255,.82);
+  background:linear-gradient(135deg,rgba(255,255,255,.38),rgba(255,255,255,.10));
+  box-shadow:0 8px 22px rgba(18,98,148,.08),inset 0 1px 0 rgba(255,255,255,.86);
+  backdrop-filter:blur(22px) saturate(210%) brightness(1.08);
+  -webkit-backdrop-filter:blur(22px) saturate(210%) brightness(1.08);
+}
+.detail:after{
+  content:"";position:absolute;left:-55%;top:-140%;width:65%;height:380%;
+  transform:rotate(24deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.42),transparent);
+  pointer-events:none;animation:surfaceSweep 7s ease-in-out infinite;
+}
+@keyframes surfaceSweep{
+  0%,58%{left:-55%;opacity:0}
+  66%{opacity:1}
+  88%,100%{left:125%;opacity:0}
+}
+.icon{
+  flex:0 0 34px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;
+  border-radius:11px;color:#0878e8;font-size:13px;font-weight:950;
+  background:linear-gradient(145deg,rgba(255,255,255,.78),rgba(207,240,255,.50));
+  border:1px solid rgba(255,255,255,.90);box-shadow:inset 0 1px 0 #fff;
+}
+.detail-text{min-width:0;text-align:left}
+.detail-label{font-size:8px;font-weight:950;color:#7691a8;text-transform:uppercase;letter-spacing:1px}
+.detail-value{margin-top:3px;font-size:11px;line-height:1.45;font-weight:750;color:#143b60;word-break:break-word}
 .detail-value a{color:inherit;text-decoration:none}
-.buttons{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:18px 20px 20px}
-.btn{border:0;border-radius:13px;padding:12px 9px;font-size:10px;font-weight:900}
-.btn-primary{color:#fff;background:linear-gradient(135deg,#0878e8,#19b7ef);box-shadow:0 9px 18px rgba(8,120,232,.20)}
-.btn-secondary{color:var(--ink);background:rgba(255,255,255,.84);border:1px solid #d8e8f4}
-.footer{text-align:center;padding:13px;border-top:1px solid #dcecf7;color:#7891a8;font-size:9px;font-weight:700}
-.loader,.error-card{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;background:linear-gradient(135deg,#edf8ff,#d9efff);z-index:50}
-.loader-box,.error-box{width:min(420px,94vw);padding:28px;border-radius:25px;background:rgba(255,255,255,.78);border:1px solid #fff;text-align:center;box-shadow:var(--shadow);backdrop-filter:blur(22px)}
-.spinner{width:34px;height:34px;margin:auto;border:3px solid #dbeafa;border-top-color:#0878e8;border-radius:50%;animation:spin .75s linear infinite}
+
+.buttons{position:relative;z-index:6;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:25px 20px 20px}
+.btn{
+  width:100%;min-height:40px;border:1px solid rgba(255,255,255,.84);border-radius:14px;
+  font-size:11px;font-weight:900;transition:.18s ease;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 8px 17px rgba(15,92,143,.08);
+  backdrop-filter:blur(14px) saturate(175%);
+}
+.btn:hover{transform:translateY(-1px)}.btn:active{transform:scale(.985)}
+.btn-primary{color:#fff;border-color:rgba(255,255,255,.24);background:linear-gradient(135deg,#0878e8,#20b7f2);box-shadow:0 12px 25px rgba(8,120,232,.23),inset 0 1px 0 rgba(255,255,255,.30)}
+.btn-secondary{color:#163a5d;background:rgba(255,255,255,.43)}
+
+.footer{position:relative;z-index:6;padding:12px 20px 17px;text-align:center;border-top:1px solid rgba(255,255,255,.55);font-size:9px;color:#6d899f;background:rgba(255,255,255,.12)}
+
+.loader,.error-card{
+  position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;
+  background:rgba(216,241,255,.62);backdrop-filter:blur(18px);z-index:100;
+}
+.loader-box,.error-box{
+  width:min(420px,94vw);padding:28px;border-radius:25px;text-align:center;
+  background:rgba(255,255,255,.52);border:1px solid rgba(255,255,255,.90);
+  box-shadow:0 30px 90px rgba(8,78,140,.20);backdrop-filter:blur(25px) saturate(180%);
+}
+.spinner{width:35px;height:35px;margin:auto;border:3px solid rgba(255,255,255,.82);border-top-color:#0878e8;border-radius:50%;animation:spin .75s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 .error-card{display:none}.hidden{display:none!important}
-.error-icon{font-size:34px}.error-box h2{margin:8px 0}.error-box p{font-size:12px;color:var(--muted)}
+.error-icon{font-size:35px}.error-box h2{margin:8px 0}.error-box p{font-size:12px;color:var(--muted);line-height:1.5}
+
+@media(max-width:560px){
+  body{padding:10px}.card{border-radius:27px}.profile{padding-left:15px;padding-right:15px}
+  .details{padding-left:13px;padding-right:13px}.buttons{padding-left:13px;padding-right:13px}
+}
 @media(max-width:430px){
- body{padding:10px}.card{border-radius:27px}.profile{padding:20px 15px 16px}.name{font-size:25px}
- .photo-wrap{width:118px;height:118px}.buttons{grid-template-columns:1fr;padding:15px}
- .company-logo{width:155px;height:58px}.badge{width:58px;height:58px}.badge-inner{width:49px;height:49px}
+  body{padding:0;align-items:stretch}.card{width:100%;min-height:100vh;border-radius:0}
+  .brand-strip{min-height:104px}.photo-wrap{width:122px;height:122px}.name{font-size:25px}
+  .buttons{grid-template-columns:1fr;padding-bottom:16px}.company-logo{width:160px;height:60px}
+  .badge{width:58px;height:58px}.badge-inner{width:49px;height:49px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important}
 }
 </style>
 </head>
+
 <body>
-<div class="shell">
-  <main class="card" id="card" style="display:none">
-    <div class="brand-strip">
-      <img id="companyLogo" class="company-logo" alt="Company logo">
-    </div>
+<div class="glass-orb-a"></div>
+<div class="glass-orb-b"></div>
+<div class="glass-orb-c"></div>
 
-    <section class="profile">
-      <div class="photo-wrap">
-        <div class="photo-ring">
-          <div class="photo-box">
-            <img id="photo" class="photo" alt="Employee photo">
-            <div id="initials" class="initials">G</div>
-          </div>
-        </div>
-      </div>
-
-      <h1 class="name" id="name"></h1>
-      <div class="designation" id="designation"></div>
-      <div class="department" id="department"></div>
-      <div class="company" id="company"></div>
-      <div class="company-switcher" id="companySwitcher"></div>
-      <div class="badges" id="badges"></div>
-    </section>
-
-    <section class="details">
-      <div class="detail" id="mobileRow"><div class="icon">☎</div><div class="detail-text"><div class="detail-label">Mobile</div><div class="detail-value" id="mobile"></div></div></div>
-      <div class="detail" id="whatsappRow"><div class="icon">WA</div><div class="detail-text"><div class="detail-label">WhatsApp</div><div class="detail-value" id="whatsapp"></div></div></div>
-      <div class="detail" id="emailRow"><div class="icon">@</div><div class="detail-text"><div class="detail-label">Email</div><div class="detail-value" id="email"></div></div></div>
-      <div class="detail" id="websiteRow"><div class="icon">↗</div><div class="detail-text"><div class="detail-label">Website</div><div class="detail-value" id="website"></div></div></div>
-      <div class="detail" id="linkedinRow"><div class="icon">in</div><div class="detail-text"><div class="detail-label">LinkedIn</div><div class="detail-value" id="linkedin"></div></div></div>
-      <div class="detail" id="addressRow"><div class="icon">⌖</div><div class="detail-text"><div class="detail-label">Office</div><div class="detail-value" id="address"></div></div></div>
-    </section>
-
-    <div class="buttons">
-      <button class="btn btn-primary" onclick="addToContacts()">Add to Contacts</button>
-      <button class="btn btn-secondary" onclick="shareCard()">Share Contact</button>
-      <button class="btn btn-secondary" onclick="copyCardLink()">Copy Contact Link</button>
-    </div>
-    <div class="footer" id="footer">Digital Business Card</div>
-  </main>
-</div>
+<svg id="liquidDefs" aria-hidden="true">
+  <defs>
+    <filter id="gglLens" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018 0.030" numOctaves="2" seed="23" result="noise"/>
+      <feColorMatrix in="noise" type="saturate" values="0" result="grayNoise"/>
+      <feDisplacementMap in="SourceGraphic" in2="grayNoise" scale="30" xChannelSelector="R" yChannelSelector="G" result="warp"/>
+      <feGaussianBlur in="warp" stdDeviation=".25"/>
+    </filter>
+  </defs>
+</svg>
 
 <div class="loader" id="loader">
-  <div class="loader-box"><div class="spinner"></div><div style="margin-top:13px;font-weight:900;font-size:13px">Loading contact</div><div style="margin-top:4px;color:#7891a8;font-size:10px">Gaerish Digital Business Card</div></div>
+  <div class="loader-box">
+    <div class="spinner"></div>
+    <div style="margin-top:13px;font-weight:900;font-size:13px">Loading contact</div>
+    <div style="margin-top:4px;color:#7891a8;font-size:10px">Gaerish Digital Business Card</div>
+  </div>
 </div>
 
 <div class="error-card" id="errorCard">
@@ -178,6 +347,53 @@ body:after{
     <p id="errorMessage">The requested employee contact could not be found.</p>
   </div>
 </div>
+
+<main class="card" id="card" style="display:none">
+  <div class="glass-glow"></div>
+  <div class="glass-rim"></div>
+
+  <div class="brand-strip">
+    <div class="logo-glass">
+      <img id="companyLogo" class="company-logo" alt="Company logo">
+    </div>
+  </div>
+
+  <section class="profile">
+    <div class="photo-wrap">
+      <div class="photo-halo"></div>
+      <div class="photo-ring"></div>
+      <div class="photo-box">
+        <div class="initials" id="initials">GC</div>
+        <img id="photo" class="photo" alt="Employee photo" referrerpolicy="no-referrer">
+      </div>
+    </div>
+
+    <h1 class="name" id="name"></h1>
+    <div class="designation" id="designation"></div>
+    <div class="department" id="department"></div>
+    <div class="company" id="company"></div>
+
+    <div class="company-switcher" id="companySwitcher"></div>
+    <div class="badges" id="badges"></div>
+  </section>
+
+  <section class="details">
+    <div class="detail" id="mobileRow"><div class="icon">☎</div><div class="detail-text"><div class="detail-label">Mobile</div><div class="detail-value" id="mobile"></div></div></div>
+    <div class="detail" id="whatsappRow"><div class="icon">WA</div><div class="detail-text"><div class="detail-label">WhatsApp</div><div class="detail-value" id="whatsapp"></div></div></div>
+    <div class="detail" id="emailRow"><div class="icon">@</div><div class="detail-text"><div class="detail-label">Email</div><div class="detail-value" id="email"></div></div></div>
+    <div class="detail" id="websiteRow"><div class="icon">↗</div><div class="detail-text"><div class="detail-label">Website</div><div class="detail-value" id="website"></div></div></div>
+    <div class="detail" id="linkedinRow"><div class="icon">in</div><div class="detail-text"><div class="detail-label">LinkedIn</div><div class="detail-value" id="linkedin"></div></div></div>
+    <div class="detail" id="addressRow"><div class="icon">⌖</div><div class="detail-text"><div class="detail-label">Office</div><div class="detail-value" id="address"></div></div></div>
+  </section>
+
+  <div class="buttons">
+    <button class="btn btn-primary" onclick="addToContacts()">Add to Contacts</button>
+    <button class="btn btn-secondary" onclick="shareCard()">Share Contact</button>
+    <button class="btn btn-secondary" onclick="copyCardLink()">Copy Contact Link</button>
+  </div>
+
+  <div class="footer" id="footer">Digital Business Card</div>
+</main>
 
 <script>
 'use strict';
@@ -190,14 +406,20 @@ const COMPANY_ASSETS={
   ETRADE:{name:'Gaerish eTrade Pvt Ltd',shortName:'Gaerish eTrade',logo:'logo2.png',website:'',c1:'#0a8f70',c2:'#35c6a4'}
 };
 
-let employee=null;
-let employeeId='';
-let selectedCompany='';
+let employee=null,employeeId='',selectedCompany='',photoCandidates=[],photoIndex=0;
 
-document.addEventListener('DOMContentLoaded',loadContact);
+document.addEventListener('DOMContentLoaded',function(){
+  loadContact();
+  const card=document.getElementById('card');
+  card.addEventListener('pointermove',function(e){
+    const r=card.getBoundingClientRect();
+    card.style.setProperty('--mx',((e.clientX-r.left)/r.width*100)+'%');
+    card.style.setProperty('--my',((e.clientY-r.top)/r.height*100)+'%');
+  },{passive:true});
+});
 
 function loadContact(){
-  const params=new URLSearchParams(window.location.search);
+  const params=new URLSearchParams(location.search);
   employeeId=(params.get('employee')||params.get('id')||'').trim().toUpperCase();
   selectedCompany=normalizeCompany(params.get('company'));
   if(!employeeId){showError('Employee ID is missing from the contact link.');return;}
@@ -207,46 +429,75 @@ function loadContact(){
 
   window[callbackName]=function(response){
     try{
-      if(!response||!response.success||!response.employee){showError(getApiError(response));return;}
+      if(!response||!response.success||!response.employee){
+        showError(getApiError(response));return;
+      }
       employee=response.employee;
-      if(!selectedCompany || !(employee.companies||[]).includes(selectedCompany)){
-        selectedCompany=employee.companyKey||((employee.companies||[])[0]||'LOGISTICS');
+
+      const companies=normalizeCompanies(employee.companies);
+      if(!selectedCompany || !companies.some(c=>c.key===selectedCompany)){
+        selectedCompany=normalizeCompany(employee.companyKey)||companies[0]?.key||'LOGISTICS';
       }
       renderContact(employee);
-    }catch(error){showError(error.message);}
-    finally{cleanupJsonp(script,callbackName);}
+    }catch(error){
+      showError(error.message||'Unable to render the contact.');
+    }finally{
+      cleanupJsonp(script,callbackName);
+    }
   };
 
-  script.src=API_URL+'?action=contact&employee='+encodeURIComponent(employeeId)+'&company='+encodeURIComponent(selectedCompany||'')+'&callback='+encodeURIComponent(callbackName)+'&v=company3';
-  script.onerror=function(){showError('Unable to connect to the contact service.');cleanupJsonp(script,callbackName);};
+  script.src=API_URL+
+    '?action=contact&employee='+encodeURIComponent(employeeId)+
+    '&company='+encodeURIComponent(selectedCompany||'')+
+    '&callback='+encodeURIComponent(callbackName)+
+    '&v=liquidglass4';
+
+  script.onerror=function(){
+    showError('Unable to connect to the contact service.');
+    cleanupJsonp(script,callbackName);
+  };
   document.body.appendChild(script);
 }
 
-function switchCompany(key){
-  key=normalizeCompany(key);
-  if(!employee || !(employee.companies||[]).includes(key)) return;
-  const url=new URL(window.location.href);
-  url.searchParams.set('employee',employee.employeeId);
-  url.searchParams.set('company',key);
-  window.location.href=url.toString();
+function normalizeCompanies(list){
+  if(!Array.isArray(list))return[];
+  return list.map(function(c){
+    if(typeof c==='string'){
+      const key=normalizeCompany(c),a=COMPANY_ASSETS[key]||{};
+      return {key:key,name:a.name||c,shortName:a.shortName||c,logo:a.logo||'',website:a.website||''};
+    }
+    const key=normalizeCompany(c.key||c.companyKey||c.companyId||c.shortName||c.companyName);
+    const a=COMPANY_ASSETS[key]||{};
+    return {
+      key:key,
+      name:c.name||c.companyName||a.name||key,
+      shortName:c.shortName||a.shortName||c.companyName||key,
+      logo:c.logo||c.logoUrl||a.logo||'',
+      website:c.website||a.website||''
+    };
+  }).filter(c=>c.key);
 }
 
 function renderContact(data){
-  const company=data.companies&&data.companies.length
-    ? data.companies.find(c=>c.key===selectedCompany)||data.companies[0]
-    : {key:selectedCompany||'LOGISTICS',name:data.company,logo:COMPANY_ASSETS[selectedCompany||'LOGISTICS'].logo,website:data.website};
+  const companies=normalizeCompanies(data.companies);
+  const fallbackKey=selectedCompany||normalizeCompany(data.companyKey)||'LOGISTICS';
+  const company=companies.find(c=>c.key===fallbackKey)||
+    companies[0]||
+    (function(){
+      const a=COMPANY_ASSETS[fallbackKey]||COMPANY_ASSETS.LOGISTICS;
+      return {key:fallbackKey,name:data.company||a.name,shortName:a.shortName,logo:a.logo,website:data.website||a.website};
+    })();
 
   selectedCompany=company.key;
-  document.getElementById('companyLogo').src=company.logo||COMPANY_ASSETS[selectedCompany].logo;
-  document.getElementById('companyLogo').alt=company.name+' logo';
 
+  setLogo(company.logo,company.name);
   setText('name',data.name);
   setText('designation',data.designation);
   setText('department',data.department);
   setText('company',company.name);
 
-  renderCompanySwitcher(data.companies||[]);
-  renderPhoto(data.photo,data.name);
+  renderCompanySwitcher(companies);
+  renderPhoto(data.photo||data.photoUrl||data.photoURL||data.image||'',data.name);
   renderMobile(data.mobile);
   renderWhatsApp(data.whatsapp);
   renderEmail(data.email);
@@ -260,90 +511,192 @@ function renderContact(data){
   document.getElementById('loader').classList.add('hidden');
 }
 
+function setLogo(value,name){
+  const img=document.getElementById('companyLogo');
+  const candidates=[];
+  const raw=String(value||'').trim();
+  if(raw)candidates.push(raw);
+  const key=normalizeCompany(selectedCompany);
+  if(COMPANY_ASSETS[key]?.logo)candidates.push(COMPANY_ASSETS[key].logo);
+  const unique=[...new Set(candidates)];
+  let i=0;
+  function next(){
+    if(i>=unique.length){img.removeAttribute('src');return;}
+    img.onerror=next;img.src=unique[i++];
+  }
+  img.alt=(name||'Company')+' logo';
+  next();
+}
+
 function renderCompanySwitcher(companies){
   const box=document.getElementById('companySwitcher');
   if(!companies||companies.length<2){box.innerHTML='';return;}
   box.innerHTML=companies.map(function(c){
-    return '<button class="company-chip '+(c.key===selectedCompany?'active':'')+'" onclick="switchCompany(\''+js(c.key)+'\')" title="'+escapeHtml(c.name)+'"><img src="'+escapeAttr(c.logo)+'" alt=""><span>'+escapeHtml(c.shortName||c.name)+'</span></button>';
+    return '<button type="button" class="company-chip '+(c.key===selectedCompany?'active':'')+
+      '" onclick="switchCompany(\''+js(c.key)+'\')" title="'+escapeAttr(c.name)+'">'+
+      '<img src="'+escapeAttr(c.logo)+'" alt=""><span>'+escapeHtml(c.shortName||c.name)+'</span></button>';
   }).join('');
+}
+
+function switchCompany(key){
+  key=normalizeCompany(key);
+  if(!employee)return;
+  const companies=normalizeCompanies(employee.companies);
+  if(!companies.some(c=>c.key===key))return;
+  const url=new URL(location.href);
+  url.searchParams.set('employee',employee.employeeId);
+  url.searchParams.set('company',key);
+  location.href=url.toString();
 }
 
 function renderBadges(list){
   const box=document.getElementById('badges');
-  if(!list.length){box.innerHTML='';return;}
+  if(!Array.isArray(list)||!list.length){box.innerHTML='';return;}
+  const marks={DG:'⚡',PHARMA:'✚',PROJECTS:'◆',QA:'✓',OPERATIONS:'⚙',SALES:'↗',FINANCE:'₹',HR:'●●',IT:'▣',MANAGEMENT:'♛',SPECIALIST:'★',ENTHUSIAST:'♥',INITIATOR:'⚡',SUPPORT:'◉'};
   box.innerHTML=list.map(function(b){
-    const key=String(b.badgeKey||'').toUpperCase();
-    const marks={DG:'⚡',PHARMA:'✚',PROJECTS:'◆',QA:'✓',OPERATIONS:'⚙',SALES:'↗',FINANCE:'₹',HR:'●●',IT:'▣',MANAGEMENT:'♛',SPECIALIST:'★',ENTHUSIAST:'♥',INITIATOR:'⚡',SUPPORT:'◉'};
-    const c1='#'+(b.color1||'4AAEFF'),c2='#'+(b.color2||'1768C0');
-    return '<div class="badge" style="--c1:'+c1+';--c2:'+c2+'" title="'+escapeAttr(b.description||b.label||'')+'"><div class="badge-inner"><div class="badge-icon">'+(marks[key]||'★')+'</div><div class="badge-label">'+escapeHtml(b.label||b.badgeName||key)+'</div></div></div>';
+    const key=String(b.badgeKey||b.key||b.BadgeKey||'').toUpperCase();
+    const c1=String(b.color1||b.Color1||'4AAEFF').replace('#','');
+    const c2=String(b.color2||b.Color2||'1768C0').replace('#','');
+    const label=b.label||b.badgeName||b.name||b.BadgeName||key;
+    return '<div class="badge" style="--c1:#'+c1+';--c2:#'+c2+'" title="'+escapeAttr(b.description||'')+'">'+
+      '<div class="badge-inner"><div class="badge-icon">'+(marks[key]||'★')+'</div>'+
+      '<div class="badge-label">'+escapeHtml(label)+'</div></div></div>';
   }).join('');
 }
 
+/* PHOTO FIX:
+   Accepts Drive file links, ?id= links, uc?id= links, lh3 links and normal image URLs.
+   It also tries several Drive delivery formats before falling back to initials.
+   The Drive file itself still has to be shared so the public contact page can read it. */
 function renderPhoto(url,name){
   const photo=document.getElementById('photo'),initials=document.getElementById('initials');
-  if(!url){showInitials(name);return;}
-  photo.onload=function(){photo.style.display='block';initials.style.display='none';};
-  photo.onerror=function(){showInitials(name);};
-  photo.src=normalizePhotoUrl(url);
+  photoCandidates=buildPhotoCandidates(url);
+  photoIndex=0;
+
+  photo.onload=function(){
+    photo.style.display='block';
+    initials.style.display='none';
+  };
+  photo.onerror=function(){
+    photoIndex++;
+    if(photoIndex<photoCandidates.length){
+      photo.src=photoCandidates[photoIndex];
+    }else{
+      showInitials(name);
+    }
+  };
+
+  if(photoCandidates.length)photo.src=photoCandidates[0];
+  else showInitials(name);
 }
 
-function normalizePhotoUrl(value){
-  const url=String(value||'').trim();
-  if(!url)return '';
-  const m=url.match(/drive\.google\.com\/file\/d\/([^/]+)/);
-  if(m)return 'https://drive.google.com/thumbnail?id='+encodeURIComponent(m[1])+'&sz=w800';
-  return url;
+function buildPhotoCandidates(value){
+  const raw=String(value||'').trim();
+  if(!raw)return[];
+
+  const result=[];
+  const add=u=>{
+    if(u && !result.includes(u))result.push(u);
+  };
+
+  add(raw);
+
+  let id='';
+  let m=raw.match(/drive\.google\.com\/file\/d\/([^/?#]+)/i);
+  if(m)id=m[1];
+  if(!id){
+    m=raw.match(/[?&]id=([^&#]+)/i);
+    if(m)id=decodeURIComponent(m[1]);
+  }
+  if(!id){
+    m=raw.match(/drive\.usercontent\.google\.com\/download\?id=([^&#]+)/i);
+    if(m)id=decodeURIComponent(m[1]);
+  }
+
+  if(id){
+    add('https://drive.google.com/thumbnail?id='+encodeURIComponent(id)+'&sz=w1000');
+    add('https://drive.google.com/uc?export=view&id='+encodeURIComponent(id));
+    add('https://drive.google.com/uc?id='+encodeURIComponent(id));
+    add('https://lh3.googleusercontent.com/d/'+encodeURIComponent(id)+'=w1000');
+  }
+
+  /* Google Drive URLs sometimes contain an escaped /view or /preview endpoint. */
+  if(/drive\.google\.com/i.test(raw)){
+    add(raw.replace(/\/view(\?.*)?$/i,'/preview'));
+  }
+
+  return result;
 }
 
 function showInitials(name){
-  document.getElementById('photo').style.display='none';
-  const el=document.getElementById('initials');el.textContent=getInitials(name);el.style.display='flex';
+  const photo=document.getElementById('photo');
+  photo.style.display='none';
+  const el=document.getElementById('initials');
+  el.textContent=getInitials(name);
+  el.style.display='flex';
 }
 
 function renderMobile(value){
   const row=document.getElementById('mobileRow'),target=document.getElementById('mobile');
-  if(!value){row.style.display='none';return;} row.style.display='flex';target.innerHTML='<a href="tel:'+encodeURIComponent(value)+'">'+escapeHtml(value)+'</a>';
+  if(!value){row.style.display='none';return}
+  row.style.display='flex';
+  target.innerHTML='<a href="tel:'+encodeURIComponent(value)+'">'+escapeHtml(value)+'</a>';
 }
 function renderWhatsApp(value){
   const row=document.getElementById('whatsappRow'),target=document.getElementById('whatsapp');
-  if(!value){row.style.display='none';return;} row.style.display='flex';
-  const digits=String(value).replace(/\D/g,'');target.innerHTML='<a href="https://wa.me/'+digits+'" target="_blank" rel="noopener">'+escapeHtml(value)+'</a>';
+  if(!value){row.style.display='none';return}
+  row.style.display='flex';
+  const digits=String(value).replace(/\D/g,'');
+  target.innerHTML='<a href="https://wa.me/'+digits+'" target="_blank" rel="noopener">'+escapeHtml(value)+'</a>';
 }
 function renderEmail(value){
   const row=document.getElementById('emailRow'),target=document.getElementById('email');
-  if(!value){row.style.display='none';return;} row.style.display='flex';target.innerHTML='<a href="mailto:'+encodeURIComponent(value)+'">'+escapeHtml(value)+'</a>';
+  if(!value){row.style.display='none';return}
+  row.style.display='flex';
+  target.innerHTML='<a href="mailto:'+encodeURIComponent(value)+'">'+escapeHtml(value)+'</a>';
 }
 function renderWebsite(value){
   const row=document.getElementById('websiteRow'),target=document.getElementById('website');
-  if(!value){row.style.display='none';return;} row.style.display='flex';
-  const url=normalizeUrl(value);target.innerHTML='<a href="'+escapeAttr(url)+'" target="_blank" rel="noopener">'+escapeHtml(url.replace(/^https?:\/\//i,''))+'</a>';
+  if(!value){row.style.display='none';return}
+  row.style.display='flex';
+  const url=normalizeUrl(value);
+  target.innerHTML='<a href="'+escapeAttr(url)+'" target="_blank" rel="noopener">'+escapeHtml(url.replace(/^https?:\/\//i,''))+'</a>';
 }
 function renderLinkedIn(value){
   const row=document.getElementById('linkedinRow'),target=document.getElementById('linkedin');
-  if(!value){row.style.display='none';return;} row.style.display='flex';
-  const url=normalizeUrl(value);target.innerHTML='<a href="'+escapeAttr(url)+'" target="_blank" rel="noopener">LinkedIn Profile</a>';
+  if(!value){row.style.display='none';return}
+  row.style.display='flex';
+  const url=normalizeUrl(value);
+  target.innerHTML='<a href="'+escapeAttr(url)+'" target="_blank" rel="noopener">LinkedIn Profile</a>';
 }
 function renderAddress(value){
   const row=document.getElementById('addressRow'),target=document.getElementById('address');
-  if(!value){row.style.display='none';return;} row.style.display='flex';target.textContent=value;
+  if(!value){row.style.display='none';return}
+  row.style.display='flex';target.textContent=value;
 }
 
 async function addToContacts(){
   if(!employee)return;
-  const data=Object.assign({},employee,{company:currentCompany().name,website:employee.website||currentCompany().website});
+  const company=currentCompany();
+  const data=Object.assign({},employee,{company:company.name,website:employee.website||company.website});
   const vcard=createVCard(data);
   const safeName=String(employee.name||employee.employeeId||'contact').replace(/[^a-z0-9 _-]/gi,'').trim()||'contact';
   const blob=new Blob([vcard],{type:'text/vcard;charset=utf-8'});
+
   try{
     const file=new File([blob],safeName+'.vcf',{type:'text/vcard'});
     if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
       await navigator.share({title:employee.name||'Gaerish Contact',text:'Save this contact to your phone.',files:[file]});
       return;
     }
-  }catch(error){if(error&&error.name==='AbortError')return;}
+  }catch(error){
+    if(error&&error.name==='AbortError')return;
+  }
+
   const url=URL.createObjectURL(blob),link=document.createElement('a');
-  link.href=url;link.download=safeName+'.vcf';link.style.display='none';document.body.appendChild(link);link.click();link.remove();
-  setTimeout(function(){URL.revokeObjectURL(url);},3000);
+  link.href=url;link.download=safeName+'.vcf';link.style.display='none';
+  document.body.appendChild(link);link.click();link.remove();
+  setTimeout(()=>URL.revokeObjectURL(url),3000);
 }
 
 function createVCard(data){
@@ -360,34 +713,58 @@ function createVCard(data){
   if(data.linkedin)v+='X-SOCIALPROFILE;TYPE=linkedin:'+vcardEscape(normalizeUrl(data.linkedin))+'\r\n';
   if(data.address)v+='ADR;TYPE=WORK:;;'+vcardEscape(data.address)+';;;;\r\n';
   if(data.employeeId)v+='NOTE:GGL Employee ID - '+vcardEscape(data.employeeId)+'\r\n';
-  v+='END:VCARD'; return v;
+  v+='END:VCARD';
+  return v;
 }
 
 async function shareCard(){
-  const url=window.location.href;
-  if(navigator.share){try{await navigator.share({title:employee?employee.name:'GGL Contact',text:employee?employee.name+' — '+(employee.designation||currentCompany().name):'Gaerish contact',url:url});return;}catch(error){if(error&&error.name==='AbortError')return;}}
+  const url=location.href;
+  if(navigator.share){
+    try{
+      await navigator.share({
+        title:employee?employee.name:'GGL Contact',
+        text:employee?employee.name+' — '+(employee.designation||currentCompany().name):'Gaerish contact',
+        url:url
+      });
+      return;
+    }catch(error){if(error&&error.name==='AbortError')return}
+  }
   copyText(url,'Contact link copied.');
 }
-function copyCardLink(){copyText(window.location.href,'Contact link copied.');}
+function copyCardLink(){copyText(location.href,'Contact link copied.')}
 async function copyText(text,msg){
   try{
-    if(navigator.clipboard&&navigator.clipboard.writeText)await navigator.clipboard.writeText(text);
-    else{const input=document.createElement('textarea');input.value=text;input.style.position='fixed';input.style.opacity='0';document.body.appendChild(input);input.select();document.execCommand('copy');input.remove();}
+    if(navigator.clipboard?.writeText)await navigator.clipboard.writeText(text);
+    else{
+      const input=document.createElement('textarea');
+      input.value=text;input.style.position='fixed';input.style.opacity='0';
+      document.body.appendChild(input);input.select();document.execCommand('copy');input.remove();
+    }
     alert(msg);
-  }catch(error){alert('Unable to copy the contact link.');}
+  }catch(error){alert('Unable to copy the contact link.')}
 }
 
 function currentCompany(){
-  return (employee&&employee.companies||[]).find(function(c){return c.key===selectedCompany;})||COMPANY_ASSETS[selectedCompany]||COMPANY_ASSETS.LOGISTICS;
+  const companies=normalizeCompanies(employee?.companies);
+  return companies.find(c=>c.key===selectedCompany)||COMPANY_ASSETS[selectedCompany]||COMPANY_ASSETS.LOGISTICS;
 }
 function normalizeCompany(value){
   const raw=String(value||'').trim().toUpperCase();
-  const aliases={'GAERISH LOGISTICS':'LOGISTICS','GAERISH LOGISTICS PVT LTD':'LOGISTICS','GAERISH DEFENCE':'DEFENCE','GAERISH DEFENCE PVT LTD':'DEFENCE','GAERISH ETRADE':'ETRADE','GAERISH ETRADE PVT LTD':'ETRADE','E-TRADE':'ETRADE'};
+  const aliases={
+    'GAERISH LOGISTICS':'LOGISTICS','GAERISH LOGISTICS PVT LTD':'LOGISTICS',
+    'GAERISH DEFENCE':'DEFENCE','GAERISH DEFENCE PVT LTD':'DEFENCE',
+    'GAERISH ETRADE':'ETRADE','GAERISH ETRADE PVT LTD':'ETRADE','E-TRADE':'ETRADE'
+  };
   return aliases[raw]||raw;
 }
 function getApiError(r){
   if(!r)return 'No response received from the contact service.';
-  return ({EMPLOYEE_ID_REQUIRED:'Employee ID is missing.',EMPLOYEE_NOT_FOUND:'Employee contact was not found.',CONTACT_UNAVAILABLE:'This employee contact is currently unavailable.',INVALID_CALLBACK:'Invalid contact request.'})[r.error]||r.error||'Contact unavailable.';
+  return ({
+    EMPLOYEE_ID_REQUIRED:'Employee ID is missing.',
+    EMPLOYEE_NOT_FOUND:'Employee contact was not found.',
+    CONTACT_UNAVAILABLE:'This employee contact is currently unavailable.',
+    INVALID_CALLBACK:'Invalid contact request.'
+  })[r.error]||r.error||'Contact unavailable.';
 }
 function showError(message){
   document.getElementById('loader').classList.add('hidden');
@@ -395,13 +772,32 @@ function showError(message){
   document.getElementById('errorCard').style.display='flex';
   document.getElementById('errorMessage').textContent=message||'The requested employee contact could not be found.';
 }
-function cleanupJsonp(script,callbackName){if(script)script.remove();try{delete window[callbackName];}catch(e){window[callbackName]=undefined;}}
-function setText(id,value){document.getElementById(id).textContent=value||'';}
-function getInitials(name){const p=String(name||'').trim().split(/\s+/).filter(Boolean);if(!p.length)return'G';if(p.length===1)return p[0].substring(0,2).toUpperCase();return(p[0][0]+p[p.length-1][0]).toUpperCase();}
-function normalizeUrl(value){const t=String(value||'').trim();if(!t)return'';return/^https?:\/\//i.test(t)?t:'https://'+t;}
-function escapeHtml(value){return String(value==null?'':value).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');}
-function escapeAttr(value){return escapeHtml(value);}
-function js(value){return String(value||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");}
+function cleanupJsonp(script,callbackName){
+  if(script)script.remove();
+  try{delete window[callbackName]}catch(e){window[callbackName]=undefined}
+}
+function setText(id,value){document.getElementById(id).textContent=value||''}
+function getInitials(name){
+  const p=String(name||'').trim().split(/\s+/).filter(Boolean);
+  if(!p.length)return'G';
+  if(p.length===1)return p[0].substring(0,2).toUpperCase();
+  return(p[0][0]+p[p.length-1][0]).toUpperCase();
+}
+function normalizeUrl(value){
+  const t=String(value||'').trim();
+  if(!t)return'';
+  return/^https?:\/\//i.test(t)?t:'https://'+t;
+}
+function vcardEscape(value){
+  return String(value||'').replace(/\\/g,'\\\\').replace(/\r?\n/g,'\\n').replace(/;/g,'\\;').replace(/,/g,'\\,');
+}
+function escapeHtml(value){
+  return String(value==null?'':value)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#039;');
+}
+function escapeAttr(value){return escapeHtml(value)}
+function js(value){return String(value||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'")}
 </script>
 </body>
 </html>
