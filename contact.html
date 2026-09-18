@@ -1,405 +1,330 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  >
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1, viewport-fit=cover"
 
-  <meta
-    name="theme-color"
-    content="#ffffff"
-  >
+>
 
-  <meta
-    name="apple-mobile-web-app-capable"
-    content="yes"
-  >
+<meta
+name="theme-color"
+content="#0b1220"
 
-  <meta
-    name="apple-mobile-web-app-status-bar-style"
-    content="default"
-  >
+>
 
-  <title>Contact | Gaerish Logistics</title>
+  <title>
+    Gaerish Logistics — Digital Contact
+  </title>
 
   <style>
 
     * {
       box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+
+    html,
+    body {
       margin: 0;
       padding: 0;
-    }
-
-    html {
       min-height: 100%;
-      background: #f5f7fa;
-    }
-
-    body {
-      min-height: 100vh;
       font-family:
+        Inter,
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
-        Roboto,
-        Helvetica,
         Arial,
         sans-serif;
-
       background:
         linear-gradient(
-          180deg,
-          #ffffff 0%,
-          #f5f7fa 100%
+          145deg,
+          #eef2f7,
+          #dfe6ef
         );
-
-      color: #111827;
-
-      -webkit-font-smoothing: antialiased;
-
-      padding:
-        env(safe-area-inset-top)
-        0
-        env(safe-area-inset-bottom)
-        0;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    button {
-      font: inherit;
+      color: #101828;
     }
 
 
-    /* =================================================
-       PAGE
-       ================================================= */
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
 
     .page {
       width: 100%;
-      max-width: 520px;
-      min-height: 100vh;
-      margin: 0 auto;
-      padding: 24px 18px 40px;
+      max-width: 430px;
     }
 
 
-    /* =================================================
-       BRAND
-       ================================================= */
-
-    .brand {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-
-    .brand-logo {
-      width: 72px;
-      height: 72px;
-      object-fit: contain;
-      border-radius: 18px;
-      margin-bottom: 10px;
-    }
-
-    .brand-name {
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: #374151;
-    }
-
-
-    /* =================================================
-       CARD
-       ================================================= */
-
-    .contact-card {
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      border-radius: 24px;
-      padding: 26px 20px 22px;
+    .card {
+      position: relative;
+      overflow: hidden;
+      background: rgba(255,255,255,.96);
+      border: 1px solid rgba(255,255,255,.8);
+      border-radius: 28px;
       box-shadow:
-        0 12px 35px rgba(0, 0, 0, 0.07);
+        0 25px 70px rgba(15,23,42,.16);
     }
 
 
-    /* =================================================
-       PROFILE
-       ================================================= */
-
-    .profile {
-      text-align: center;
-    }
-
-    .avatar {
-      width: 88px;
-      height: 88px;
-      margin: 0 auto 16px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      border-radius: 50%;
-
+    .cover {
+      height: 125px;
       background:
+        radial-gradient(
+          circle at 10% 20%,
+          rgba(255,255,255,.20),
+          transparent 35%
+        ),
         linear-gradient(
           135deg,
-          #111827,
-          #374151
+          #0b1220,
+          #1d2939
         );
-
-      color: #ffffff;
-
-      font-size: 30px;
-      font-weight: 700;
-
-      overflow: hidden;
     }
 
-    .avatar img {
-      width: 100%;
-      height: 100%;
+
+    .content {
+      padding: 0 25px 25px;
+      text-align: center;
+    }
+
+
+    .photo-wrap {
+      width: 124px;
+      height: 124px;
+      margin:
+        -62px auto 15px;
+      position: relative;
+    }
+
+
+    .photo {
+      width: 124px;
+      height: 124px;
       object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      background: #e5e7eb;
+      box-shadow:
+        0 8px 30px rgba(15,23,42,.18);
+      display: block;
     }
+
+
+    .initials {
+      width: 124px;
+      height: 124px;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      background: #0b1220;
+      color: #fff;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 38px;
+      font-weight: 800;
+      box-shadow:
+        0 8px 30px rgba(15,23,42,.18);
+    }
+
 
     .name {
+      margin: 0;
       font-size: 25px;
       line-height: 1.2;
-      font-weight: 750;
-      letter-spacing: -0.02em;
-      color: #111827;
+      font-weight: 800;
+      letter-spacing: -.4px;
     }
+
 
     .designation {
       margin-top: 7px;
-      font-size: 15px;
-      line-height: 1.4;
-      color: #4b5563;
-      font-weight: 500;
+      font-size: 14px;
+      font-weight: 600;
+      color: #475467;
     }
+
 
     .department {
       margin-top: 3px;
-      font-size: 14px;
-      color: #6b7280;
+      font-size: 12px;
+      color: #667085;
     }
+
 
     .company {
-      margin-top: 5px;
-      font-size: 14px;
-      font-weight: 650;
-      color: #374151;
-    }
-
-
-    /* =================================================
-       ADD CONTACT
-       ================================================= */
-
-    .add-contact {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-
-      width: 100%;
-
-      margin-top: 22px;
-      padding: 15px 18px;
-
-      border: 0;
-      border-radius: 14px;
-
-      background: #111827;
-      color: #ffffff;
-
-      font-size: 16px;
+      margin-top: 8px;
+      font-size: 13px;
       font-weight: 700;
-
-      cursor: pointer;
-
-      box-shadow:
-        0 8px 20px rgba(17, 24, 39, 0.18);
-
-      transition:
-        transform 0.15s ease,
-        opacity 0.15s ease;
-    }
-
-    .add-contact:active {
-      transform: scale(0.98);
-      opacity: 0.9;
-    }
-
-    .add-contact svg {
-      width: 20px;
-      height: 20px;
-      flex-shrink: 0;
+      color: #344054;
     }
 
 
-    /* =================================================
-       ACTIONS
-       ================================================= */
+    .divider {
+      height: 1px;
+      background: #eaecf0;
+      margin: 21px 0;
+    }
 
-    .actions {
+
+    .details {
+      text-align: left;
       display: grid;
-      grid-template-columns:
-        repeat(4, 1fr);
-
-      gap: 10px;
-
-      margin-top: 18px;
-    }
-
-    .action {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-
-      min-height: 70px;
-
-      border: 1px solid #e5e7eb;
-      border-radius: 14px;
-
-      background: #fafafa;
-
-      color: #374151;
-
-      transition:
-        background 0.15s ease,
-        transform 0.15s ease;
-    }
-
-    .action:active {
-      transform: scale(0.97);
-      background: #f3f4f6;
-    }
-
-    .action-icon {
-      width: 23px;
-      height: 23px;
-      margin-bottom: 7px;
-    }
-
-    .action-label {
-      font-size: 11px;
-      font-weight: 650;
+      gap: 11px;
     }
 
 
-    /* =================================================
-       INFORMATION
-       ================================================= */
-
-    .info {
-      margin-top: 24px;
-      border-top: 1px solid #e5e7eb;
-      padding-top: 6px;
-    }
-
-    .info-row {
+    .detail {
       display: flex;
       align-items: flex-start;
-      gap: 13px;
-
-      padding: 14px 2px;
-
-      border-bottom: 1px solid #f0f1f3;
+      gap: 11px;
+      padding: 11px 12px;
+      border-radius: 13px;
+      background: #f8fafc;
     }
 
-    .info-icon {
-      width: 21px;
-      height: 21px;
-      flex: 0 0 21px;
-      color: #6b7280;
-      margin-top: 1px;
+
+    .icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #e9eef5;
+      color: #172033;
+      font-size: 14px;
+      flex: 0 0 30px;
     }
 
-    .info-content {
+
+    .detail-text {
       min-width: 0;
       flex: 1;
     }
 
-    .info-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
+
+    .detail-label {
+      font-size: 10px;
+      color: #98a2b3;
       font-weight: 700;
-      color: #9ca3af;
-      margin-bottom: 3px;
+      text-transform: uppercase;
+      letter-spacing: .5px;
     }
 
-    .info-value {
-      font-size: 14px;
-      line-height: 1.45;
-      color: #374151;
+
+    .detail-value {
+      margin-top: 2px;
+      font-size: 13px;
+      color: #344054;
       word-break: break-word;
     }
 
-    .info-value a {
-      color: #374151;
+
+    .detail-value a {
+      color: #344054;
+      text-decoration: none;
     }
 
 
-    /* =================================================
-       FOOTER
-       ================================================= */
+    .buttons {
+      display: grid;
+      gap: 9px;
+      margin-top: 22px;
+    }
+
+
+    .btn {
+      width: 100%;
+      min-height: 48px;
+      border: 0;
+      border-radius: 13px;
+      font-size: 14px;
+      font-weight: 750;
+      cursor: pointer;
+    }
+
+
+    .btn-primary {
+      background: #0b1220;
+      color: #fff;
+    }
+
+
+    .btn-secondary {
+      background: #eef2f6;
+      color: #172033;
+    }
+
+
+    .btn:active {
+      transform: scale(.985);
+    }
+
 
     .footer {
-      text-align: center;
-      margin-top: 20px;
-      color: #9ca3af;
-      font-size: 11px;
+      margin-top: 18px;
+      font-size: 10px;
+      color: #98a2b3;
       line-height: 1.5;
     }
 
 
-    /* =================================================
-       LOADING
-       ================================================= */
-
-    .loading {
-      min-height: 100vh;
-
+    .loader {
+      position: fixed;
+      inset: 0;
+      background: #f5f7fa;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-
-      text-align: center;
-
-      padding: 30px;
+      align-items: center;
+      z-index: 100;
+      transition:
+        opacity .25s ease,
+        visibility .25s ease;
     }
+
+
+    .loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+
+    .loader-box {
+      text-align: center;
+    }
+
 
     .spinner {
-      width: 38px;
-      height: 38px;
-
-      border: 3px solid #e5e7eb;
-      border-top-color: #111827;
-
+      width: 35px;
+      height: 35px;
       border-radius: 50%;
-
+      border: 3px solid #d9dee7;
+      border-top-color: #0b1220;
       animation:
-        spin 0.8s linear infinite;
-
-      margin-bottom: 16px;
+        spin .8s linear infinite;
+      margin: auto;
     }
 
-    .loading-text {
-      font-size: 14px;
-      color: #6b7280;
+
+    .loader-text {
+      margin-top: 13px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #475467;
     }
+
 
     @keyframes spin {
       to {
@@ -408,795 +333,586 @@
     }
 
 
-    /* =================================================
-       ERROR
-       ================================================= */
-
     .error {
-      min-height: 100vh;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 24px;
-    }
-
-    .error-card {
-      width: 100%;
-      max-width: 420px;
-
-      background: #ffffff;
-
-      border: 1px solid #e5e7eb;
-
-      border-radius: 20px;
-
-      padding: 30px 22px;
-
+      display: none;
       text-align: center;
-
-      box-shadow:
-        0 12px 35px rgba(0, 0, 0, 0.07);
+      padding: 45px 25px;
     }
 
-    .error-title {
-      font-size: 20px;
-      font-weight: 750;
-      color: #111827;
-      margin-bottom: 8px;
+
+    .error.show {
+      display: block;
     }
 
-    .error-message {
-      font-size: 14px;
+
+    .error-icon {
+      font-size: 40px;
+      margin-bottom: 12px;
+    }
+
+
+    .error h2 {
+      margin: 0;
+      font-size: 21px;
+    }
+
+
+    .error p {
+      margin:
+        8px 0 20px;
+      color: #667085;
+      font-size: 13px;
       line-height: 1.5;
-      color: #6b7280;
     }
 
 
-    /* =================================================
-       DESKTOP
-       ================================================= */
-
-    @media (min-width: 700px) {
+    @media(max-width:420px) {
 
       body {
-        padding-top: 40px;
-        padding-bottom: 40px;
+        padding: 0;
+        align-items: stretch;
       }
 
       .page {
-        min-height: auto;
+        max-width: none;
       }
 
-      .contact-card {
-        padding: 32px 28px 26px;
+      .card {
+        min-height: 100vh;
+        border-radius: 0;
       }
+
+      .cover {
+        height: 115px;
+      }
+
+      .content {
+        padding-left: 20px;
+        padding-right: 20px;
+      }
+
     }
 
   </style>
-</head>
 
+</head>
 
 <body>
 
-  <!-- =================================================
-       LOADING
-       ================================================= -->
+  <!-- LOADING -->
 
   <div
-    id="loading"
-    class="loading"
+    class="loader"
+    id="loader"
   >
 
-    <div class="spinner"></div>
+```
+<div class="loader-box">
 
-    <div class="loading-text">
-      Loading contact...
-    </div>
+  <div class="spinner"></div>
+
+  <div class="loader-text">
+    Loading contact...
+  </div>
+
+</div>
+```
 
   </div>
 
+  <div class="page">
 
-  <!-- =================================================
-       ERROR
-       ================================================= -->
+```
+<div
+  class="card"
+  id="card"
+  style="display:none;"
+>
 
-  <div
-    id="error"
-    class="error"
-    style="display:none;"
-  >
 
-    <div class="error-card">
+  <div class="cover"></div>
 
-      <div class="error-title">
-        Contact unavailable
-      </div>
+
+  <div class="content">
+
+
+    <!-- PHOTO -->
+
+    <div class="photo-wrap">
+
+      <img
+        id="photo"
+        class="photo"
+        alt="Employee photo"
+      >
 
       <div
-        id="errorMessage"
-        class="error-message"
-      >
-        We could not load this contact.
-      </div>
-
-    </div>
-
-  </div>
-
-
-  <!-- =================================================
-       MAIN PAGE
-       ================================================= -->
-
-  <main
-    id="app"
-    class="page"
-    style="display:none;"
-  >
-
-    <div class="brand">
-
-      <!-- Replace with your GitHub logo path if required -->
-      <img
-        class="brand-logo"
-        src="assets/logo.png"
-        alt="Gaerish Logistics"
-        onerror="this.style.display='none';"
-      >
-
-      <div class="brand-name">
-        Gaerish Logistics Pvt Ltd
-      </div>
+        id="initials"
+        class="initials"
+      ></div>
 
     </div>
 
 
-    <section class="contact-card">
+    <!-- NAME -->
+
+    <h1
+      class="name"
+      id="name"
+    ></h1>
 
 
-      <!-- PROFILE -->
+    <div
+      class="designation"
+      id="designation"
+    ></div>
 
-      <div class="profile">
 
-        <div
-          id="avatar"
-          class="avatar"
-        >
+    <div
+      class="department"
+      id="department"
+    ></div>
+
+
+    <div
+      class="company"
+      id="company"
+    ></div>
+
+
+    <div class="divider"></div>
+
+
+    <!-- DETAILS -->
+
+    <div class="details">
+
+
+      <div
+        class="detail"
+        id="mobileRow"
+      >
+
+        <div class="icon">
+          ☎
         </div>
 
-        <div
-          id="name"
-          class="name"
-        >
-        </div>
+        <div class="detail-text">
 
-        <div
-          id="designation"
-          class="designation"
-        >
-        </div>
+          <div class="detail-label">
+            Mobile
+          </div>
 
-        <div
-          id="department"
-          class="department"
-        >
-        </div>
+          <div
+            class="detail-value"
+            id="mobile"
+          ></div>
 
-        <div
-          id="company"
-          class="company"
-        >
         </div>
 
       </div>
 
 
-      <!-- ADD CONTACT -->
-
-      <a
-        id="addContact"
-        class="add-contact"
-        href="#"
-        download
+      <div
+        class="detail"
+        id="whatsappRow"
       >
 
-        <svg
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
+        <div class="icon">
+          W
+        </div>
 
-          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+        <div class="detail-text">
 
-          <circle
-            cx="9"
-            cy="7"
-            r="4"
-          ></circle>
-
-          <line
-            x1="19"
-            y1="8"
-            x2="19"
-            y2="14"
-          ></line>
-
-          <line
-            x1="22"
-            y1="11"
-            x2="16"
-            y2="11"
-          ></line>
-
-        </svg>
-
-        Add to Contacts
-
-      </a>
-
-
-      <!-- QUICK ACTIONS -->
-
-      <div class="actions">
-
-
-        <!-- CALL -->
-
-        <a
-          id="callAction"
-          class="action"
-          href="#"
-        >
-
-          <svg
-            class="action-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-
-            <path
-              d="M22 16.92v3a2 2 0 0 1-2.18 2
-              19.79 19.79 0 0 1-8.63-3.07
-              19.5 19.5 0 0 1-6-6
-              19.79 19.79 0 0 1-3.07-8.67
-              A2 2 0 0 1 4.11 2h3
-              a2 2 0 0 1 2 1.72
-              12.84 12.84 0 0 0 .7 2.81
-              2 2 0 0 1-.45 2.11L8.09 9.91
-              a16 16 0 0 0 6 6l1.27-1.27
-              a2 2 0 0 1 2.11-.45
-              12.84 12.84 0 0 0 2.81.7
-              A2 2 0 0 1 22 16.92z"
-            ></path>
-
-          </svg>
-
-          <span class="action-label">
-            Call
-          </span>
-
-        </a>
-
-
-        <!-- WHATSAPP -->
-
-        <a
-          id="whatsappAction"
-          class="action"
-          href="#"
-          target="_blank"
-          rel="noopener"
-        >
-
-          <svg
-            class="action-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-
-            <path
-              d="M21 11.5a8.38 8.38 0 0 1-9
-              8.5 8.4 8.4 0 0 1-4-.9
-              L3 20l1.2-4.5
-              A8.4 8.4 0 0 1 3 11.5
-              8.5 8.5 0 0 1 21 11.5z"
-            ></path>
-
-            <path
-              d="M8 9.5c.3 1.7
-              1.8 3.2 3.5 3.5
-              .5.1.9-.1 1.2-.4
-              l.5-.5"
-            ></path>
-
-          </svg>
-
-          <span class="action-label">
+          <div class="detail-label">
             WhatsApp
-          </span>
+          </div>
 
-        </a>
+          <div
+            class="detail-value"
+            id="whatsapp"
+          ></div>
+
+        </div>
+
+      </div>
 
 
-        <!-- EMAIL -->
+      <div
+        class="detail"
+        id="emailRow"
+      >
 
-        <a
-          id="emailAction"
-          class="action"
-          href="#"
-        >
+        <div class="icon">
+          @
+        </div>
 
-          <svg
-            class="action-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
+        <div class="detail-text">
 
-            <rect
-              x="3"
-              y="5"
-              width="18"
-              height="14"
-              rx="2"
-            ></rect>
-
-            <polyline
-              points="3,7 12,13 21,7"
-            ></polyline>
-
-          </svg>
-
-          <span class="action-label">
+          <div class="detail-label">
             Email
-          </span>
+          </div>
 
-        </a>
+          <div
+            class="detail-value"
+            id="email"
+          ></div>
+
+        </div>
+
+      </div>
 
 
-        <!-- WEBSITE -->
+      <div
+        class="detail"
+        id="websiteRow"
+      >
 
-        <a
-          id="websiteAction"
-          class="action"
-          href="#"
-          target="_blank"
-          rel="noopener"
-        >
+        <div class="icon">
+          ↗
+        </div>
 
-          <svg
-            class="action-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
+        <div class="detail-text">
 
-            <circle
-              cx="12"
-              cy="12"
-              r="9"
-            ></circle>
-
-            <line
-              x1="3"
-              y1="12"
-              x2="21"
-              y2="12"
-            ></line>
-
-            <path
-              d="M12 3
-              a14 14 0 0 1 0 18
-              a14 14 0 0 1 0-18z"
-            ></path>
-
-          </svg>
-
-          <span class="action-label">
+          <div class="detail-label">
             Website
-          </span>
+          </div>
 
-        </a>
+          <div
+            class="detail-value"
+            id="website"
+          ></div>
+
+        </div>
 
       </div>
 
 
-      <!-- INFORMATION -->
+      <div
+        class="detail"
+        id="linkedinRow"
+      >
 
-      <div class="info">
-
-
-        <!-- MOBILE -->
-
-        <div
-          id="mobileRow"
-          class="info-row"
-        >
-
-          <svg
-            class="info-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-
-            <rect
-              x="5"
-              y="2"
-              width="14"
-              height="20"
-              rx="2"
-            ></rect>
-
-            <line
-              x1="9"
-              y1="18"
-              x2="15"
-              y2="18"
-            ></line>
-
-          </svg>
-
-          <div class="info-content">
-
-            <div class="info-label">
-              Mobile
-            </div>
-
-            <div
-              id="mobile"
-              class="info-value"
-            >
-            </div>
-
-          </div>
-
+        <div class="icon">
+          in
         </div>
 
+        <div class="detail-text">
 
-        <!-- EMAIL -->
-
-        <div
-          id="emailRow"
-          class="info-row"
-        >
-
-          <svg
-            class="info-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-
-            <rect
-              x="3"
-              y="5"
-              width="18"
-              height="14"
-              rx="2"
-            ></rect>
-
-            <polyline
-              points="3,7 12,13 21,7"
-            ></polyline>
-
-          </svg>
-
-          <div class="info-content">
-
-            <div class="info-label">
-              Email
-            </div>
-
-            <div
-              id="email"
-              class="info-value"
-            >
-            </div>
-
+          <div class="detail-label">
+            LinkedIn
           </div>
 
-        </div>
-
-
-        <!-- ADDRESS -->
-
-        <div
-          id="addressRow"
-          class="info-row"
-        >
-
-          <svg
-            class="info-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-
-            <path
-              d="M20 10
-              c0 5-8 11-8 11
-              S4 15 4 10
-              a8 8 0 1 1 16 0z"
-            ></path>
-
-            <circle
-              cx="12"
-              cy="10"
-              r="2.5"
-            ></circle>
-
-          </svg>
-
-          <div class="info-content">
-
-            <div class="info-label">
-              Address
-            </div>
-
-            <div
-              id="address"
-              class="info-value"
-            >
-            </div>
-
-          </div>
+          <div
+            class="detail-value"
+            id="linkedin"
+          ></div>
 
         </div>
-
-
-        <!-- LINKEDIN -->
-
-        <div
-          id="linkedinRow"
-          class="info-row"
-        >
-
-          <svg
-            class="info-icon"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-
-            <rect
-              x="3"
-              y="3"
-              width="18"
-              height="18"
-              rx="2"
-            ></rect>
-
-            <line
-              x1="8"
-              y1="10"
-              x2="8"
-              y2="16"
-            ></line>
-
-            <line
-              x1="8"
-              y1="7"
-              x2="8"
-              y2="7"
-            ></line>
-
-            <path
-              d="M12 16v-3
-              a2 2 0 0 1 4 0v3"
-            ></path>
-
-            <line
-              x1="12"
-              y1="10"
-              x2="12"
-              y2="16"
-            ></line>
-
-          </svg>
-
-          <div class="info-content">
-
-            <div class="info-label">
-              LinkedIn
-            </div>
-
-            <div
-              id="linkedin"
-              class="info-value"
-            >
-            </div>
-
-          </div>
-
-        </div>
-
 
       </div>
 
 
-    </section>
+      <div
+        class="detail"
+        id="addressRow"
+      >
+
+        <div class="icon">
+          ⌖
+        </div>
+
+        <div class="detail-text">
+
+          <div class="detail-label">
+            Office
+          </div>
+
+          <div
+            class="detail-value"
+            id="address"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- ACTIONS -->
+
+    <div class="buttons">
+
+
+      <button
+        class="btn btn-primary"
+        onclick="addToContacts()"
+      >
+        Add to Contacts
+      </button>
+
+
+      <button
+        class="btn btn-secondary"
+        onclick="shareCard()"
+      >
+        Share Contact
+      </button>
+
+
+      <button
+        class="btn btn-secondary"
+        onclick="copyCardLink()"
+      >
+        Copy Contact Link
+      </button>
+
+
+    </div>
 
 
     <div class="footer">
-      Digital contact card · Gaerish Logistics Pvt Ltd
+
+      Digital Business Card ·
+      Gaerish Logistics Pvt Ltd
+
     </div>
 
-  </main>
 
+  </div>
+
+</div>
+
+
+<!-- ERROR -->
+
+<div
+  class="card"
+  id="errorCard"
+  style="display:none;"
+>
+
+  <div class="error show">
+
+    <div class="error-icon">
+      ⚠
+    </div>
+
+    <h2>
+      Contact unavailable
+    </h2>
+
+    <p id="errorMessage">
+      The requested employee contact
+      could not be found.
+    </p>
+
+  </div>
+
+</div>
+```
+
+  </div>
 
   <script>
 
+
     /*
-     * =================================================
-     * CONFIGURATION
-     * =================================================
+     * IMPORTANT
+     *
+     * This must be your deployed
+     * Apps Script Web App URL.
      */
 
     const API_URL =
       'https://script.google.com/macros/s/AKfycbyOnaQEYIqjIqdAeBY8KNk0brPmJ4IvBA5pPHfvdDhP18zFknmOwmPw8R-9PG8hS7lLIg/exec';
 
 
-    /*
-     * =================================================
-     * GET EMPLOYEE ID FROM URL
-     * =================================================
-     */
-
-    const params =
-      new URLSearchParams(
-        window.location.search
-      );
-
-    const employeeId =
-      params.get('employee');
+    let employee =
+      null;
 
 
-    /*
-     * =================================================
-     * DOM
-     * =================================================
-     */
+    /* =====================================================
+       START
+       ===================================================== */
 
-    const loading =
-      document.getElementById(
-        'loading'
-      );
-
-    const app =
-      document.getElementById(
-        'app'
-      );
-
-    const error =
-      document.getElementById(
-        'error'
-      );
-
-    const errorMessage =
-      document.getElementById(
-        'errorMessage'
-      );
+    document.addEventListener(
+      'DOMContentLoaded',
+      loadContact
+    );
 
 
-    /*
-     * =================================================
-     * LOAD CONTACT
-     * =================================================
-     */
+    /* =====================================================
+       LOAD CONTACT
+       ===================================================== */
 
-    async function loadContact() {
+    function loadContact() {
+
+      const params =
+        new URLSearchParams(
+          window.location.search
+        );
+
+
+      const employeeId =
+        (
+          params.get('employee') ||
+          params.get('id') ||
+          ''
+        )
+        .trim()
+        .toUpperCase();
+
 
       if (!employeeId) {
 
         showError(
-          'No employee ID was provided.'
+          'Employee ID is missing from the contact link.'
         );
 
         return;
+
+      }
+
+
+      const callbackName =
+        'gglContactCallback_' +
+        Date.now();
+
+
+      window[callbackName] =
+        function(response) {
+
+          try {
+
+            if (
+              !response ||
+              !response.success ||
+              !response.employee
+            ) {
+
+              showError(
+                getApiError(
+                  response
+                )
+              );
+
+              return;
+
+            }
+
+
+            employee =
+              response.employee;
+
+
+            renderContact(
+              employee
+            );
+
+          }
+
+          catch (error) {
+
+            showError(
+              error.message
+            );
+
+          }
+
+          finally {
+
+            cleanupJsonp(
+              script,
+              callbackName
+            );
+
+          }
+
+        };
+
+
+      const script =
+        document.createElement(
+          'script'
+        );
+
+
+      script.src =
+        API_URL +
+        '?action=contact' +
+        '&employee=' +
+        encodeURIComponent(
+          employeeId
+        ) +
+        '&callback=' +
+        encodeURIComponent(
+          callbackName
+        );
+
+
+      script.onerror =
+        function() {
+
+          showError(
+            'Unable to connect to the contact service.'
+          );
+
+          cleanupJsonp(
+            script,
+            callbackName
+          );
+
+        };
+
+
+      document.body.appendChild(
+        script
+      );
+
+    }
+
+
+    function cleanupJsonp(
+      script,
+      callbackName
+    ) {
+
+      if (script) {
+
+        script.remove();
+
       }
 
 
       try {
 
-        const url =
-          API_URL +
-          '?action=contact&employee=' +
-          encodeURIComponent(
-            employeeId
-          );
+        delete window[
+          callbackName
+        ];
 
-
-        const response =
-          await fetch(
-            url,
-            {
-              method: 'GET',
-              cache: 'no-store',
-              redirect: 'follow'
-            }
-          );
-
-
-        if (!response.ok) {
-
-          throw new Error(
-            'API HTTP ' +
-            response.status
-          );
-        }
-
-
-        const data =
-          await response.json();
-
-
-        if (
-          !data.success
-        ) {
-
-          throw new Error(
-            data.error ||
-            'Employee not found'
-          );
-        }
-
-
-        renderContact(data);
-
-
-      } catch (err) {
-
-        console.error(
-          'Contact API error:',
-          err
-        );
-
-        showError(
-          'Unable to load this contact. Please check the QR code or try again.'
-        );
       }
+
+      catch (error) {
+
+        window[
+          callbackName
+        ] = undefined;
+
+      }
+
     }
 
 
-    /*
-     * =================================================
-     * RENDER CONTACT
-     * =================================================
-     */
+    /* =====================================================
+       RENDER
+       ===================================================== */
 
-    function renderContact(data) {
+    function renderContact(
+      data
+    ) {
 
       setText(
         'name',
@@ -1219,238 +935,165 @@
       );
 
 
-      /*
-       * Avatar initials
-       */
-
-      const avatar =
-        document.getElementById(
-          'avatar'
-        );
-
-      avatar.textContent =
-        getInitials(
-          data.name
-        );
+      renderPhoto(
+        data.photo,
+        data.name
+      );
 
 
-      /*
-       * Add Contact
-       */
-
-      const addContact =
-        document.getElementById(
-          'addContact'
-        );
-
-      if (data.vCardUrl) {
-
-        addContact.href =
-          data.vCardUrl;
-
-        addContact.download =
-          data.employeeId +
-          '.vcf';
-
-        addContact.target =
-          '_blank';
-
-      } else {
-
-        addContact.style.display =
-          'none';
-      }
-
-
-      /*
-       * Call
-       */
-
-      const callAction =
-        document.getElementById(
-          'callAction'
-        );
-
-      if (data.mobile) {
-
-        callAction.href =
-          'tel:' +
-          normalizePhone(
-            data.mobile
-          );
-
-      } else {
-
-        callAction.style.display =
-          'none';
-      }
-
-
-      /*
-       * WhatsApp
-       */
-
-      const whatsappAction =
-        document.getElementById(
-          'whatsappAction'
-        );
-
-      const whatsappNumber =
-        data.whatsapp ||
-        data.mobile;
-
-      if (whatsappNumber) {
-
-        whatsappAction.href =
-          'https://wa.me/' +
-          normalizeWhatsApp(
-            whatsappNumber
-          );
-
-      } else {
-
-        whatsappAction.style.display =
-          'none';
-      }
-
-
-      /*
-       * Email
-       */
-
-      const emailAction =
-        document.getElementById(
-          'emailAction'
-        );
-
-      if (data.email) {
-
-        emailAction.href =
-          'mailto:' +
-          data.email;
-
-      } else {
-
-        emailAction.style.display =
-          'none';
-      }
-
-
-      /*
-       * Website
-       */
-
-      const websiteAction =
-        document.getElementById(
-          'websiteAction'
-        );
-
-      if (data.website) {
-
-        websiteAction.href =
-          normalizeUrl(
-            data.website
-          );
-
-      } else {
-
-        websiteAction.style.display =
-          'none';
-      }
-
-
-      /*
-       * Information
-       */
-
-      renderOptionalRow(
-        'mobileRow',
-        'mobile',
+      renderMobile(
         data.mobile
       );
 
-      renderOptionalRow(
-        'emailRow',
-        'email',
+
+      renderWhatsApp(
+        data.whatsapp
+      );
+
+
+      renderEmail(
         data.email
       );
 
-      renderOptionalRow(
-        'addressRow',
-        'address',
+
+      renderWebsite(
+        data.website
+      );
+
+
+      renderLinkedIn(
+        data.linkedin
+      );
+
+
+      renderAddress(
         data.address
       );
 
 
-      /*
-       * LinkedIn
-       */
-
-      const linkedinRow =
-        document.getElementById(
-          'linkedinRow'
-        );
-
-      const linkedin =
-        document.getElementById(
-          'linkedin'
-        );
-
-      if (data.linkedin) {
-
-        linkedin.innerHTML =
-          '<a href="' +
-          escapeHtml(
-            normalizeUrl(
-              data.linkedin
-            )
-          ) +
-          '" target="_blank" rel="noopener">' +
-          escapeHtml(
-            data.linkedin
-          ) +
-          '</a>';
-
-      } else {
-
-        linkedinRow.style.display =
-          'none';
-      }
-
-
-      /*
-       * Show page
-       */
-
-      loading.style.display =
-        'none';
-
-      app.style.display =
+      document.getElementById(
+        'card'
+      ).style.display =
         'block';
+
+
+      document.getElementById(
+        'loader'
+      )
+      .classList
+      .add('hidden');
+
     }
 
 
-    /*
-     * =================================================
-     * OPTIONAL ROW
-     * =================================================
-     */
+    /* =====================================================
+       PHOTO
+       ===================================================== */
 
-    function renderOptionalRow(
-      rowId,
-      valueId,
+    function renderPhoto(
+      photoUrl,
+      name
+    ) {
+
+      const photo =
+        document.getElementById(
+          'photo'
+        );
+
+      const initials =
+        document.getElementById(
+          'initials'
+        );
+
+
+      if (!photoUrl) {
+
+        showInitials(
+          name
+        );
+
+        return;
+
+      }
+
+
+      photo.onload =
+        function() {
+
+          photo.style.display =
+            'block';
+
+          initials.style.display =
+            'none';
+
+        };
+
+
+      photo.onerror =
+        function() {
+
+          showInitials(
+            name
+          );
+
+        };
+
+
+      photo.src =
+        photoUrl;
+
+    }
+
+
+    function showInitials(
+      name
+    ) {
+
+      const photo =
+        document.getElementById(
+          'photo'
+        );
+
+      const initials =
+        document.getElementById(
+          'initials'
+        );
+
+
+      photo.style.display =
+        'none';
+
+
+      initials.textContent =
+        getInitials(
+          name
+        );
+
+
+      initials.style.display =
+        'flex';
+
+    }
+
+
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+
+    function renderMobile(
       value
     ) {
 
       const row =
         document.getElementById(
-          rowId
+          'mobileRow'
         );
 
-      const element =
+      const target =
         document.getElementById(
-          valueId
+          'mobile'
         );
+
 
       if (!value) {
 
@@ -1458,243 +1101,914 @@
           'none';
 
         return;
+
       }
 
-      element.textContent =
-        value;
+
+      row.style.display =
+        'flex';
+
+
+      target.innerHTML =
+        '<a href="tel:' +
+        escapeAttr(
+          value
+        ) +
+        '">' +
+        escapeHtml(
+          value
+        ) +
+        '</a>';
+
     }
 
 
-    /*
-     * =================================================
-     * TEXT
-     * =================================================
-     */
+    /* =====================================================
+       WHATSAPP
+       ===================================================== */
+
+    function renderWhatsApp(
+      value
+    ) {
+
+      const row =
+        document.getElementById(
+          'whatsappRow'
+        );
+
+      const target =
+        document.getElementById(
+          'whatsapp'
+        );
+
+
+      if (!value) {
+
+        row.style.display =
+          'none';
+
+        return;
+
+      }
+
+
+      const number =
+        value.replace(
+          /[^\d+]/g,
+          ''
+        );
+
+
+      row.style.display =
+        'flex';
+
+
+      target.innerHTML =
+        '<a href="https://wa.me/' +
+        encodeURIComponent(
+          number.replace(
+            /^\+/,
+            ''
+          )
+        ) +
+        '" target="_blank" rel="noopener">' +
+        escapeHtml(
+          value
+        ) +
+        '</a>';
+
+    }
+
+
+    /* =====================================================
+       EMAIL
+       ===================================================== */
+
+    function renderEmail(
+      value
+    ) {
+
+      const row =
+        document.getElementById(
+          'emailRow'
+        );
+
+      const target =
+        document.getElementById(
+          'email'
+        );
+
+
+      if (!value) {
+
+        row.style.display =
+          'none';
+
+        return;
+
+      }
+
+
+      row.style.display =
+        'flex';
+
+
+      target.innerHTML =
+        '<a href="mailto:' +
+        escapeAttr(
+          value
+        ) +
+        '">' +
+        escapeHtml(
+          value
+        ) +
+        '</a>';
+
+    }
+
+
+    /* =====================================================
+       WEBSITE
+       ===================================================== */
+
+    function renderWebsite(
+      value
+    ) {
+
+      const row =
+        document.getElementById(
+          'websiteRow'
+        );
+
+      const target =
+        document.getElementById(
+          'website'
+        );
+
+
+      if (!value) {
+
+        row.style.display =
+          'none';
+
+        return;
+
+      }
+
+
+      row.style.display =
+        'flex';
+
+
+      const url =
+        normalizeUrl(
+          value
+        );
+
+
+      target.innerHTML =
+        '<a href="' +
+        escapeAttr(
+          url
+        ) +
+        '" target="_blank" rel="noopener">' +
+        escapeHtml(
+          value
+        ) +
+        '</a>';
+
+    }
+
+
+    /* =====================================================
+       LINKEDIN
+       ===================================================== */
+
+    function renderLinkedIn(
+      value
+    ) {
+
+      const row =
+        document.getElementById(
+          'linkedinRow'
+        );
+
+      const target =
+        document.getElementById(
+          'linkedin'
+        );
+
+
+      if (!value) {
+
+        row.style.display =
+          'none';
+
+        return;
+
+      }
+
+
+      row.style.display =
+        'flex';
+
+
+      const url =
+        normalizeUrl(
+          value
+        );
+
+
+      target.innerHTML =
+        '<a href="' +
+        escapeAttr(
+          url
+        ) +
+        '" target="_blank" rel="noopener">' +
+        escapeHtml(
+          value
+        ) +
+        '</a>';
+
+    }
+
+
+    /* =====================================================
+       ADDRESS
+       ===================================================== */
+
+    function renderAddress(
+      value
+    ) {
+
+      const row =
+        document.getElementById(
+          'addressRow'
+        );
+
+      const target =
+        document.getElementById(
+          'address'
+        );
+
+
+      if (!value) {
+
+        row.style.display =
+          'none';
+
+        return;
+
+      }
+
+
+      row.style.display =
+        'flex';
+
+
+      target.textContent =
+        value;
+
+    }
+
+
+    /* =====================================================
+       ADD TO CONTACTS
+       ===================================================== */
+
+    function addToContacts() {
+
+      if (!employee) {
+
+        return;
+
+      }
+
+
+      const vcard =
+        createVCard(
+          employee
+        );
+
+
+      const blob =
+        new Blob(
+          [vcard],
+          {
+            type:
+              'text/vcard;charset=utf-8'
+          }
+        );
+
+
+      const url =
+        URL.createObjectURL(
+          blob
+        );
+
+
+      const link =
+        document.createElement(
+          'a'
+        );
+
+
+      link.href =
+        url;
+
+
+      link.download =
+        (
+          employee.employeeId ||
+          'contact'
+        ) +
+        '.vcf';
+
+
+      document.body.appendChild(
+        link
+      );
+
+
+      link.click();
+
+
+      link.remove();
+
+
+      setTimeout(
+        function() {
+
+          URL.revokeObjectURL(
+            url
+          );
+
+        },
+        2000
+      );
+
+    }
+
+
+    /* =====================================================
+       VCARD GENERATOR
+       ===================================================== */
+
+    function createVCard(
+      data
+    ) {
+
+      let vcard =
+        'BEGIN:VCARD\r\n';
+
+      vcard +=
+        'VERSION:3.0\r\n';
+
+      vcard +=
+        'FN:' +
+        vcardEscape(
+          data.name
+        ) +
+        '\r\n';
+
+      vcard +=
+        'N:' +
+        vcardEscape(
+          data.name
+        ) +
+        ';;;;\r\n';
+
+
+      if (data.company) {
+
+        vcard +=
+          'ORG:' +
+          vcardEscape(
+            data.company
+          ) +
+          '\r\n';
+
+      }
+
+
+      if (data.designation) {
+
+        vcard +=
+          'TITLE:' +
+          vcardEscape(
+            data.designation
+          ) +
+          '\r\n';
+
+      }
+
+
+      if (data.department) {
+
+        vcard +=
+          'ROLE:' +
+          vcardEscape(
+            data.department
+          ) +
+          '\r\n';
+
+      }
+
+
+      if (data.mobile) {
+
+        vcard +=
+          'TEL;TYPE=CELL:' +
+          vcardEscape(
+            data.mobile
+          ) +
+          '\r\n';
+
+      }
+
+
+      if (
+        data.whatsapp &&
+        data.whatsapp !==
+          data.mobile
+      ) {
+
+        vcard +=
+          'TEL;TYPE=WORK:' +
+          vcardEscape(
+            data.whatsapp
+          ) +
+          '\r\n';
+
+      }
+
+
+      if (data.email) {
+
+        vcard +=
+          'EMAIL;TYPE=WORK:' +
+          vcardEscape(
+            data.email
+          ) +
+          '\r\n';
+
+      }
+
+
+      if (data.website) {
+
+        vcard +=
+          'URL:' +
+          vcardEscape(
+            normalizeUrl(
+              data.website
+            )
+          ) +
+          '\r\n';
+
+      }
+
+
+      if (data.linkedin) {
+
+        vcard +=
+          'X-SOCIALPROFILE;TYPE=linkedin:' +
+          vcardEscape(
+            normalizeUrl(
+              data.linkedin
+            )
+          ) +
+          '\r\n';
+
+      }
+
+
+      if (data.address) {
+
+        vcard +=
+          'ADR;TYPE=WORK:;;' +
+          vcardEscape(
+            data.address
+          ) +
+          ';;;;\r\n';
+
+      }
+
+
+      if (data.employeeId) {
+
+        vcard +=
+          'NOTE:GGL Employee ID - ' +
+          vcardEscape(
+            data.employeeId
+          ) +
+          '\r\n';
+
+      }
+
+
+      vcard +=
+        'END:VCARD';
+
+
+      return vcard;
+
+    }
+
+
+    function vcardEscape(
+      value
+    ) {
+
+      return String(
+        value || ''
+      )
+
+      .replace(
+        /\\/g,
+        '\\\\'
+      )
+
+      .replace(
+        /\r?\n/g,
+        '\\n'
+      )
+
+      .replace(
+        /;/g,
+        '\\;'
+      )
+
+      .replace(
+        /,/g,
+        '\\,'
+      );
+
+    }
+
+
+    /* =====================================================
+       SHARE
+       ===================================================== */
+
+    async function shareCard() {
+
+      const url =
+        window.location.href;
+
+
+      if (
+        navigator.share
+      ) {
+
+        try {
+
+          await navigator.share({
+
+            title:
+              employee
+                ? employee.name
+                : 'GGL Contact',
+
+            text:
+              employee
+                ? employee.name +
+                  ' — ' +
+                  (
+                    employee.designation ||
+                    'Gaerish Logistics'
+                  )
+                : 'Gaerish Logistics contact',
+
+            url:
+              url
+
+          });
+
+          return;
+
+        }
+
+        catch (error) {
+
+          /*
+           * User cancelled share.
+           */
+
+        }
+
+      }
+
+
+      copyText(
+        url,
+        'Contact link copied.'
+      );
+
+    }
+
+
+    /* =====================================================
+       COPY
+       ===================================================== */
+
+    function copyCardLink() {
+
+      copyText(
+        window.location.href,
+        'Contact link copied.'
+      );
+
+    }
+
+
+    async function copyText(
+      text,
+      successMessage
+    ) {
+
+      try {
+
+        if (
+          navigator.clipboard &&
+          navigator.clipboard.writeText
+        ) {
+
+          await navigator.clipboard.writeText(
+            text
+          );
+
+        }
+
+        else {
+
+          const input =
+            document.createElement(
+              'textarea'
+            );
+
+          input.value =
+            text;
+
+          input.style.position =
+            'fixed';
+
+          input.style.opacity =
+            '0';
+
+          document.body.appendChild(
+            input
+          );
+
+          input.select();
+
+          document.execCommand(
+            'copy'
+          );
+
+          input.remove();
+
+        }
+
+
+        alert(
+          successMessage
+        );
+
+      }
+
+      catch (error) {
+
+        alert(
+          'Unable to copy the contact link.'
+        );
+
+      }
+
+    }
+
+
+    /* =====================================================
+       ERROR
+       ===================================================== */
+
+    function showError(
+      message
+    ) {
+
+      document.getElementById(
+        'loader'
+      )
+      .classList
+      .add('hidden');
+
+
+      document.getElementById(
+        'card'
+      ).style.display =
+        'none';
+
+
+      document.getElementById(
+        'errorCard'
+      ).style.display =
+        'block';
+
+
+      document.getElementById(
+        'errorMessage'
+      ).textContent =
+        message ||
+        'The requested employee contact could not be found.';
+
+    }
+
+
+    function getApiError(
+      response
+    ) {
+
+      if (!response) {
+
+        return 'No response received from the contact service.';
+
+      }
+
+
+      switch (
+        response.error
+      ) {
+
+        case 'EMPLOYEE_ID_REQUIRED':
+
+          return 'Employee ID is missing.';
+
+        case 'EMPLOYEE_NOT_FOUND':
+
+          return 'Employee contact was not found.';
+
+        case 'CONTACT_UNAVAILABLE':
+
+          return 'This employee contact is currently unavailable.';
+
+        case 'INVALID_CALLBACK':
+
+          return 'Invalid contact request.';
+
+        default:
+
+          return (
+            response.error ||
+            'Contact unavailable.'
+          );
+
+      }
+
+    }
+
+
+    /* =====================================================
+       GENERAL HELPERS
+       ===================================================== */
 
     function setText(
       id,
       value
     ) {
 
-      const element =
-        document.getElementById(
-          id
-        );
+      document.getElementById(
+        id
+      ).textContent =
+        value || '';
 
-      if (element) {
-
-        element.textContent =
-          value || '';
-      }
     }
 
-
-    /*
-     * =================================================
-     * INITIALS
-     * =================================================
-     */
 
     function getInitials(
       name
     ) {
 
-      if (!name) {
-        return '?';
+      const parts =
+        String(
+          name || ''
+        )
+        .trim()
+        .split(/\s+/)
+        .filter(Boolean);
+
+
+      if (!parts.length) {
+
+        return 'G';
+
       }
 
-      const words =
-        name
-          .trim()
-          .split(/\s+/)
-          .filter(Boolean);
 
+      if (
+        parts.length === 1
+      ) {
 
-      if (words.length === 1) {
-
-        return words[0]
-          .substring(0, 2)
+        return parts[0]
+          .substring(0,2)
           .toUpperCase();
+
       }
 
 
       return (
-        words[0][0] +
-        words[words.length - 1][0]
+        parts[0][0] +
+        parts[
+          parts.length - 1
+        ][0]
       ).toUpperCase();
+
     }
 
-
-    /*
-     * =================================================
-     * PHONE
-     * =================================================
-     */
-
-    function normalizePhone(
-      value
-    ) {
-
-      return String(value)
-        .trim()
-        .replace(
-          /[^\d+]/g,
-          ''
-        );
-    }
-
-
-    /*
-     * =================================================
-     * WHATSAPP
-     * =================================================
-     */
-
-    function normalizeWhatsApp(
-      value
-    ) {
-
-      let phone =
-        String(value)
-          .trim()
-          .replace(
-            /\D/g,
-            ''
-          );
-
-
-      /*
-       * India:
-       * If number is stored as
-       * 9876543210, add 91.
-       */
-
-      if (
-        phone.length === 10
-      ) {
-
-        phone =
-          '91' +
-          phone;
-      }
-
-
-      /*
-       * If stored with 0091
-       */
-
-      if (
-        phone.startsWith('00')
-      ) {
-
-        phone =
-          phone.substring(2);
-      }
-
-
-      return phone;
-    }
-
-
-    /*
-     * =================================================
-     * URL
-     * =================================================
-     */
 
     function normalizeUrl(
       value
     ) {
 
-      const url =
-        String(value)
-          .trim();
+      const text =
+        String(
+          value || ''
+        ).trim();
+
+
+      if (!text) {
+
+        return '';
+
+      }
 
 
       if (
         /^https?:\/\//i.test(
-          url
+          text
         )
       ) {
 
-        return url;
+        return text;
+
       }
 
 
-      return (
-        'https://' +
-        url
-      );
+      return 'https://' + text;
+
     }
 
-
-    /*
-     * =================================================
-     * HTML ESCAPE
-     * =================================================
-     */
 
     function escapeHtml(
       value
     ) {
 
-      return String(value)
-        .replace(
-          /&/g,
-          '&amp;'
-        )
-        .replace(
-          /</g,
-          '&lt;'
-        )
-        .replace(
-          />/g,
-          '&gt;'
-        )
-        .replace(
-          /"/g,
-          '&quot;'
-        )
-        .replace(
-          /'/g,
-          '&#039;'
-        );
+      return String(
+        value == null
+          ? ''
+          : value
+      )
+
+      .replace(
+        /&/g,
+        '&amp;'
+      )
+
+      .replace(
+        /</g,
+        '&lt;'
+      )
+
+      .replace(
+        />/g,
+        '&gt;'
+      )
+
+      .replace(
+        /"/g,
+        '&quot;'
+      )
+
+      .replace(
+        /'/g,
+        '&#039;'
+      );
+
     }
 
 
-    /*
-     * =================================================
-     * ERROR
-     * =================================================
-     */
-
-    function showError(
-      message
+    function escapeAttr(
+      value
     ) {
 
-      loading.style.display =
-        'none';
+      return escapeHtml(
+        value
+      );
 
-      app.style.display =
-        'none';
-
-      error.style.display =
-        'flex';
-
-      errorMessage.textContent =
-        message;
     }
 
-
-    /*
-     * =================================================
-     * START
-     * =================================================
-     */
-
-    loadContact();
 
   </script>
 
 </body>
+
 </html>
