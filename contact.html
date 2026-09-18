@@ -1,2780 +1,363 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
-  <meta charset="UTF-8">
-
-<meta
-name="viewport"
-content="width=device-width, initial-scale=1, viewport-fit=cover"
-
->
-
-<meta
-name="theme-color"
-content="#0b1220"
-
->
-
-  <title>
-    Gaerish Logistics — Digital Contact
-  </title>
-
-  <style>
-
-    * {
-      box-sizing: border-box;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-
-    html,
-    body {
-      margin: 0;
-      padding: 0;
-      min-height: 100%;
-      font-family:
-        Inter,
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        Arial,
-        sans-serif;
-      background:
-        radial-gradient(circle at 15% 10%, rgba(86,190,255,.34), transparent 30%),
-        radial-gradient(circle at 90% 85%, rgba(16,105,207,.30), transparent 34%),
-        linear-gradient(145deg, #d9efff 0%, #eef8ff 45%, #c8e6fb 100%);
-      background-attachment: fixed;
-      color: #101828;
-    }
-
-
-    body {
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: clamp(8px, 2.5vw, 24px);
-      overflow-x: hidden;
-    }
-
-
-    .page {
-      width: min(100%, 460px);
-      max-width: 460px;
-      margin: 0 auto;
-    }
-
-
-    .card {
-      position: relative;
-      overflow: hidden;
-      isolation: isolate;
-      background:
-        linear-gradient(145deg, rgba(255,255,255,.48), rgba(226,242,255,.20)),
-        rgba(255,255,255,.24);
-      border: 1px solid rgba(255,255,255,.72);
-      border-radius: 32px;
-      box-shadow:
-        0 35px 90px rgba(10,73,132,.20),
-        inset 0 1px 0 rgba(255,255,255,.88),
-        inset 0 -1px 0 rgba(255,255,255,.18);
-      backdrop-filter: blur(30px) saturate(155%);
-      -webkit-backdrop-filter: blur(30px) saturate(155%);
-    }
-
-    .card::before {
-      content: "";
-      position: absolute;
-      inset: 1px;
-      z-index: -1;
-      border-radius: 31px;
-      background:
-        radial-gradient(circle at 8% 5%, rgba(255,255,255,.72), transparent 28%),
-        radial-gradient(circle at 95% 90%, rgba(54,161,255,.20), transparent 34%);
-      pointer-events: none;
-    }
-
-    .card::after {
-      content: "";
-      position: absolute;
-      width: 170%;
-      height: 120px;
-      left: -35%;
-      top: -65px;
-      transform: rotate(-8deg);
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,.40), transparent);
-      filter: blur(18px);
-      pointer-events: none;
-    }
-
-
-    .cover {
-      height: 145px;
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 12% 18%, rgba(255,255,255,.46), transparent 25%),
-        radial-gradient(circle at 88% 80%, rgba(81,190,255,.42), transparent 34%),
-        linear-gradient(135deg, #0877d1 0%, #0b5bb3 45%, #07356f 100%);
-    }
-
-    .cover::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(120deg, transparent 20%, rgba(255,255,255,.18) 45%, transparent 70%);
-      transform: translateX(-60%);
-      animation: glassSweep 7s ease-in-out infinite;
-      pointer-events: none;
-    }
-
-    @keyframes glassSweep {
-      0%, 45% { transform: translateX(-65%); }
-      75%, 100% { transform: translateX(65%); }
-    }
-
-
-    .content {
-      padding: 0 25px 25px;
-      text-align: center;
-    }
-
-
-    .photo-wrap {
-      width: 132px;
-      height: 132px;
-      margin: -66px auto 17px;
-      position: relative;
-      z-index: 5;
-      padding: 4px;
-      border-radius: 50%;
-      background: linear-gradient(145deg, rgba(255,255,255,.95), rgba(157,220,255,.52));
-      box-shadow:
-        0 18px 42px rgba(0,67,128,.25),
-        0 0 0 1px rgba(255,255,255,.78);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-    }
-
-
-    .photo {
-      width: 124px;
-      height: 124px;
-      object-fit: cover;
-      object-position: center;
-      border-radius: 50%;
-      border: 3px solid rgba(255,255,255,.94);
-      background: #eaf6ff;
-      box-shadow:
-        0 10px 28px rgba(0,55,110,.22);
-      display: block;
-      opacity: 1;
-    }
-
-
-    .initials {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      border: 5px solid #fff;
-      background: #0b1220;
-      color: #fff;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      font-size: 38px;
-      font-weight: 800;
-      box-shadow:
-        0 8px 30px rgba(15,23,42,.18);
-    }
-
-
-    .name {
-      margin: 0;
-      font-size: 25px;
-      line-height: 1.2;
-      font-weight: 800;
-      letter-spacing: -.4px;
-    }
-
-
-    .designation {
-      margin-top: 7px;
-      font-size: 14px;
-      font-weight: 600;
-      color: #475467;
-    }
-
-
-    .department {
-      margin-top: 3px;
-      font-size: 12px;
-      color: #667085;
-    }
-
-
-    .company {
-      margin-top: 8px;
-      font-size: 13px;
-      font-weight: 700;
-      color: #344054;
-    }
-
-
-
-    /* =====================================================
-       SPECIALTY BADGES — HEX / AWARD STYLE
-       ===================================================== */
-
-    .badges {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: flex-start;
-      gap: 14px 18px;
-      margin: 14px auto 2px;
-      max-width: 100%;
-    }
-
-    .badge-item {
-      position: relative;
-      width: 82px;
-      height: 82px;
-      flex: 0 0 82px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      filter: drop-shadow(0 9px 14px rgba(10,70,135,.18));
-    }
-
-    .badge-hex {
-      position: absolute;
-      inset: 4px 0 9px;
-      clip-path: polygon(
-        25% 2%, 75% 2%,
-        100% 28%, 92% 72%,
-        75% 98%, 25% 98%,
-        8% 72%, 0 28%
-      );
-      border: 0;
-      background: linear-gradient(145deg, var(--b1), var(--b2));
-      box-shadow:
-        inset 0 2px 0 rgba(255,255,255,.55),
-        inset 0 -8px 18px rgba(0,0,0,.10);
-    }
-
-    .badge-hex::before {
-      content: "";
-      position: absolute;
-      inset: 1px;
-      clip-path: inherit;
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,.48) 0 26%,
-          transparent 26% 100%
-        );
-      opacity: .72;
-    }
-
-    .badge-core {
-      position: absolute;
-      top: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: rgba(255,255,255,.94);
-      border: 2px solid rgba(255,255,255,.95);
-      color: var(--bc);
-      box-shadow:
-        0 4px 12px rgba(0,0,0,.10),
-        inset 0 1px 0 rgba(255,255,255,.95);
-      z-index: 2;
-    }
-
-    .badge-core svg {
-      width: 24px;
-      height: 24px;
-      fill: currentColor;
-      stroke: currentColor;
-      stroke-width: 1.5;
-    }
-
-    .badge-label {
-      position: absolute;
-      z-index: 4;
-      left: -7px;
-      right: -7px;
-      bottom: 0;
-      min-height: 23px;
-      padding: 4px 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 5px;
-      background: linear-gradient(180deg, rgba(34,42,52,.94), rgba(17,24,32,.96));
-      border: 1px solid rgba(255,255,255,.18);
-      color: #fff;
-      font-size: 8.5px;
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: .35px;
-      text-transform: uppercase;
-      white-space: nowrap;
-      box-shadow: 0 4px 10px rgba(0,0,0,.18);
-    }
-
-    .badge-dg        { --b1:#ffe55b; --b2:#ff9d00; --bc:#f07800; }
-    .badge-pharma    { --b1:#54e0ce; --b2:#087d75; --bc:#087d75; }
-    .badge-projects  { --b1:#b56cff; --b2:#5620a8; --bc:#6828bd; }
-    .badge-qa        { --b1:#ff7360; --b2:#c91f22; --bc:#c51e22; }
-    .badge-operations{--b1:#63d9d2; --b2:#078d87; --bc:#078d87; }
-    .badge-sales     { --b1:#66cfff; --b2:#1467c8; --bc:#176dcc; }
-    .badge-finance   { --b1:#83b9ff; --b2:#1f5bb4; --bc:#1f5bb4; }
-    .badge-hr        { --b1:#ff86bc; --b2:#c62573; --bc:#bd246e; }
-    .badge-it        { --b1:#8d9cff; --b2:#3438b8; --bc:#3438b8; }
-    .badge-management{--b1:#f7d66d; --b2:#a36a12; --bc:#9b6611; }
-    .badge-specialist{--b1:#6dd6ff; --b2:#1169bd; --bc:#126bbd; }
-    .badge-enthusiast{--b1:#ff8f5b; --b2:#e43b17; --bc:#dd3918; }
-    .badge-initiator { --b1:#ffe34f; --b2:#e99600; --bc:#e88d00; }
-    .badge-support   { --b1:#78e2b1; --b2:#16845b; --bc:#16845b; }
-    .badge-default   { --b1:#b9d9f8; --b2:#3979ba; --bc:#2868ad; }
-
-    @media (max-width: 360px) {
-      .badges {
-        gap: 10px 11px;
-      }
-
-      .badge-item {
-        width: 72px;
-        height: 72px;
-        flex-basis: 72px;
-      }
-
-      .badge-core {
-        width: 40px;
-        height: 40px;
-        top: 14px;
-      }
-
-      .badge-core svg {
-        width: 21px;
-        height: 21px;
-      }
-
-      .badge-label {
-        font-size: 7.5px;
-        min-height: 21px;
-      }
-    }
-
-    .divider {
-      height: 1px;
-      background: #eaecf0;
-      margin: 21px 0;
-    }
-
-
-    .details {
-      text-align: left;
-      display: grid;
-      gap: 11px;
-    }
-
-
-    .detail {
-      display: flex;
-      align-items: flex-start;
-      gap: 11px;
-      padding: 12px 13px;
-      border-radius: 17px;
-      background: linear-gradient(135deg, rgba(255,255,255,.46), rgba(231,246,255,.22));
-      border: 1px solid rgba(255,255,255,.58);
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.58),
-        0 8px 24px rgba(12,87,150,.06);
-      backdrop-filter: blur(18px) saturate(135%);
-      -webkit-backdrop-filter: blur(18px) saturate(135%);
-    }
-
-
-    .icon {
-      width: 32px;
-      height: 32px;
-      border-radius: 11px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(145deg, rgba(255,255,255,.70), rgba(89,184,255,.22));
-      border: 1px solid rgba(255,255,255,.65);
-      color: #075da8;
-      font-size: 14px;
-      font-weight: 800;
-      flex: 0 0 32px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
-    }
-
-
-    .detail-text {
-      min-width: 0;
-      flex: 1;
-    }
-
-
-    .detail-label {
-      font-size: 10px;
-      color: #98a2b3;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .5px;
-    }
-
-
-    .detail-value {
-      margin-top: 2px;
-      font-size: 13px;
-      color: #344054;
-      word-break: break-word;
-    }
-
-
-    .detail-value a {
-      color: #344054;
-      text-decoration: none;
-    }
-
-
-    .buttons {
-      display: grid;
-      gap: 9px;
-      margin-top: 22px;
-    }
-
-
-    .btn {
-      width: 100%;
-      min-height: 48px;
-      border: 0;
-      border-radius: 13px;
-      font-size: 14px;
-      font-weight: 750;
-      cursor: pointer;
-    }
-
-
-    .btn-primary {
-      background: linear-gradient(135deg, #087fe1, #0756a7);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,.38);
-      box-shadow: 0 12px 28px rgba(0,91,173,.24), inset 0 1px 0 rgba(255,255,255,.35);
-    }
-
-
-    .btn-secondary {
-      background: linear-gradient(135deg, rgba(255,255,255,.58), rgba(223,242,255,.30));
-      color: #07559d;
-      border: 1px solid rgba(255,255,255,.62);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.75), 0 8px 20px rgba(0,73,137,.07);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-    }
-
-
-    .btn:active {
-      transform: scale(.985);
-    }
-
-
-    .footer {
-      margin-top: 18px;
-      font-size: 10px;
-      color: #98a2b3;
-      line-height: 1.5;
-    }
-
-
-    .loader {
-      position: fixed;
-      inset: 0;
-      background: #f5f7fa;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 100;
-      transition:
-        opacity .25s ease,
-        visibility .25s ease;
-    }
-
-
-    .loader.hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
-
-
-    .loader-box {
-      text-align: center;
-    }
-
-
-    .spinner {
-      width: 35px;
-      height: 35px;
-      border-radius: 50%;
-      border: 3px solid #d9dee7;
-      border-top-color: #0b1220;
-      animation:
-        spin .8s linear infinite;
-      margin: auto;
-    }
-
-
-    .loader-text {
-      margin-top: 13px;
-      font-size: 13px;
-      font-weight: 700;
-      color: #475467;
-    }
-
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-
-    .error {
-      display: none;
-      text-align: center;
-      padding: 45px 25px;
-    }
-
-
-    .error.show {
-      display: block;
-    }
-
-
-    .error-icon {
-      font-size: 40px;
-      margin-bottom: 12px;
-    }
-
-
-    .error h2 {
-      margin: 0;
-      font-size: 21px;
-    }
-
-
-    .error p {
-      margin:
-        8px 0 20px;
-      color: #667085;
-      font-size: 13px;
-      line-height: 1.5;
-    }
-
-
-    @media (max-width: 520px) {
-
-      body {
-        padding: 8px;
-        align-items: center;
-      }
-
-      .page {
-        width: 100%;
-        max-width: 460px;
-      }
-
-      .card {
-        min-height: calc(100dvh - 16px);
-        border-radius: 26px;
-      }
-
-      .cover {
-        height: clamp(105px, 29vw, 135px);
-      }
-
-      .content {
-        padding-left: clamp(14px, 5vw, 22px);
-        padding-right: clamp(14px, 5vw, 22px);
-      }
-
-      .badges {
-        padding: 0 4px;
-      }
-
-      .details {
-        gap: 9px;
-      }
-
-      .detail {
-        padding: 10px;
-      }
-
-      .btn {
-        min-height: 47px;
-      }
-    }
-
-    @media (max-width: 360px) {
-
-      body {
-        padding: 4px;
-      }
-
-      .card {
-        min-height: calc(100dvh - 8px);
-        border-radius: 22px;
-      }
-
-      .name {
-        font-size: 22px;
-      }
-
-      .detail-value {
-        font-size: 12px;
-      }
-    }
-
-    @media (min-width: 521px) {
-
-      .page {
-        width: min(92vw, 460px);
-      }
-    }
-
-  
-    /* === GGL BLUE LIQUID GLASS THEME === */
-    body {
-      background:
-        radial-gradient(circle at 15% 10%, rgba(79,158,255,.38), transparent 34%),
-        radial-gradient(circle at 90% 20%, rgba(0,198,255,.28), transparent 32%),
-        radial-gradient(circle at 50% 100%, rgba(38,91,255,.24), transparent 38%),
-        linear-gradient(135deg,#eaf4ff 0%,#cfe5ff 45%,#edf7ff 100%);
-      color:#0b1f3a;
-    }
-    body::before {
-      content:"";
-      position:fixed; inset:-20%;
-      background:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,.55), transparent 24%),
-        radial-gradient(circle at 70% 65%, rgba(70,150,255,.18), transparent 28%);
-      filter:blur(45px);
-      pointer-events:none;
-      z-index:-1;
-    }
-    .page { position:relative; z-index:1; }
-    .card {
-      background:linear-gradient(135deg,rgba(255,255,255,.68),rgba(255,255,255,.38));
-      border:1px solid rgba(255,255,255,.75);
-      box-shadow:0 28px 80px rgba(20,78,150,.22), inset 0 1px 0 rgba(255,255,255,.8);
-      backdrop-filter:blur(24px) saturate(150%);
-      -webkit-backdrop-filter:blur(24px) saturate(150%);
-    }
-    .cover {
-      height:150px;
-      background:
-        radial-gradient(circle at 15% 25%,rgba(255,255,255,.42),transparent 24%),
-        radial-gradient(circle at 85% 70%,rgba(120,210,255,.30),transparent 30%),
-        linear-gradient(135deg,#0757d9,#0b8cff 48%,#21c4ff);
-      position:relative;
-    }
-    .cover::after {
-      content:"";
-      position:absolute; inset:0;
-      background:linear-gradient(115deg,transparent 20%,rgba(255,255,255,.24) 45%,transparent 70%);
-      transform:translateX(-100%);
-      animation:glassSweep 5s ease-in-out infinite;
-    }
-    @keyframes glassSweep { 50%,100%{transform:translateX(100%)} }
-    .brand-logo {
-      position:absolute;
-      top:18px;
-      left:20px;
-      height:48px;
-      width:auto;
-      max-width:225px;
-      padding:7px 13px;
-      object-fit:contain;
-      object-position:left center;
-      background:rgba(255,255,255,.96);
-      border:1px solid rgba(255,255,255,.98);
-      border-radius:15px;
-      box-shadow:0 10px 28px rgba(0,35,90,.20), inset 0 1px 0 rgba(255,255,255,1);
-      z-index:3;
-    }
-    .content { padding:0 25px 25px; }
-    .photo {
-      border-color:rgba(255,255,255,.92);
-      box-shadow:0 10px 34px rgba(12,75,155,.24);
-    }
-    .initials {
-      border-color:rgba(255,255,255,.92);
-      background:linear-gradient(135deg,#0757d9,#13a9ff);
-    }
-    .name { color:#09244a; }
-    .designation { color:#1760a9; }
-    .department { color:#4b6d91; }
-    .company { color:#164b7c; }
-    .divider { background:rgba(39,103,170,.14); }
-    .detail {
-      background:linear-gradient(135deg,rgba(255,255,255,.56),rgba(232,244,255,.42));
-      border:1px solid rgba(255,255,255,.68);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.5);
-      backdrop-filter:blur(14px);
-      -webkit-backdrop-filter:blur(14px);
-    }
-    .icon {
-      background:linear-gradient(135deg,rgba(44,130,235,.16),rgba(0,183,255,.12));
-      color:#0757d9;
-      border:1px solid rgba(255,255,255,.7);
-    }
-    .detail-label { color:#5f86ad; }
-    .detail-value, .detail-value a { color:#173e67; }
-    .btn {
-      border:1px solid rgba(255,255,255,.65);
-      box-shadow:0 8px 22px rgba(18,92,170,.12),inset 0 1px 0 rgba(255,255,255,.55);
-      backdrop-filter:blur(14px);
-      -webkit-backdrop-filter:blur(14px);
-    }
-    .btn-primary {
-      background:linear-gradient(135deg,#0757d9,#0b8cff 55%,#16b9ff);
-      color:#fff;
-      box-shadow:0 10px 28px rgba(8,91,220,.30),inset 0 1px 0 rgba(255,255,255,.35);
-    }
-    .btn-secondary {
-      background:rgba(255,255,255,.48);
-      color:#0b3f76;
-    }
-    .btn-secondary:hover { background:rgba(255,255,255,.68); }
-    .loader { background:linear-gradient(135deg,#eaf4ff,#d5eaff); }
-    .spinner { border-color:#c7dcf5; border-top-color:#0757d9; }
-    .loader-text { color:#24547f; }
-    .footer { color:#6689aa; }
-    @media (max-width: 520px) {
-
-      body {
-        padding: 8px;
-        align-items: center;
-      }
-
-      .page {
-        width: 100%;
-        max-width: 460px;
-      }
-
-      .card {
-        min-height: calc(100dvh - 16px);
-        border-radius: 26px;
-      }
-
-      .cover {
-        height: clamp(105px, 29vw, 135px);
-      }
-
-      .content {
-        padding-left: clamp(14px, 5vw, 22px);
-        padding-right: clamp(14px, 5vw, 22px);
-      }
-
-      .details {
-        gap: 9px;
-      }
-
-      .detail {
-        padding: 10px;
-      }
-
-      .btn {
-        min-height: 47px;
-      }
-    }
-
-    @media (max-width: 360px) {
-
-      body {
-        padding: 4px;
-      }
-
-      .card {
-        min-height: calc(100dvh - 8px);
-        border-radius: 22px;
-      }
-
-      .name {
-        font-size: 22px;
-      }
-
-      .detail-value {
-        font-size: 12px;
-      }
-    }
-
-    @media (min-width: 521px) {
-
-      .page {
-        width: min(92vw, 460px);
-      }
-    }
-
-  </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0878e8">
+<title>Gaerish Digital Business Card</title>
+<style>
+*{box-sizing:border-box}
+:root{
+ --blue:#0878e8;--blue2:#20b7f2;--ink:#0b2d52;--muted:#6d849b;
+ --glass:rgba(255,255,255,.72);--line:rgba(255,255,255,.88);
+ --shadow:0 28px 80px rgba(8,78,140,.20)
+}
+html,body{margin:0;min-height:100%;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:var(--ink)}
+body{
+ min-height:100vh;display:flex;align-items:center;justify-content:center;padding:22px;
+ background:
+ radial-gradient(circle at 8% 8%,rgba(58,173,255,.42),transparent 32%),
+ radial-gradient(circle at 92% 12%,rgba(38,211,255,.30),transparent 30%),
+ linear-gradient(135deg,#edf8ff,#d9efff 48%,#f8fcff)
+}
+.shell{width:min(520px,100%);position:relative}
+.card{
+ overflow:hidden;border-radius:34px;background:var(--glass);border:1px solid var(--line);
+ box-shadow:var(--shadow);backdrop-filter:blur(28px) saturate(145%);-webkit-backdrop-filter:blur(28px)
+}
+.brand-strip{padding:18px 20px 14px;display:flex;justify-content:center;align-items:center;border-bottom:1px solid rgba(213,232,247,.75)}
+.company-logo{width:180px;height:66px;object-fit:contain;background:#fff;border-radius:16px;padding:7px;border:1px solid #e0ebf4;box-shadow:0 8px 24px rgba(15,80,130,.10)}
+.profile{padding:24px 24px 20px;text-align:center}
+.photo-wrap{position:relative;width:132px;height:132px;margin:0 auto 15px}
+.photo-ring{position:absolute;inset:0;border-radius:50%;padding:4px;background:linear-gradient(135deg,var(--blue),var(--blue2))}
+.photo-box{position:relative;width:100%;height:100%;border-radius:50%;overflow:hidden;background:#dceeff;border:4px solid #fff;box-shadow:0 12px 30px rgba(8,78,140,.20)}
+.photo{width:100%;height:100%;object-fit:cover;display:none}
+.initials{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:38px;font-weight:900;background:linear-gradient(135deg,#0878e8,#20b7f2)}
+.name{margin:0;font-size:28px;line-height:1.08;font-weight:900;letter-spacing:-.7px}
+.designation{margin-top:7px;font-size:14px;font-weight:800;color:#315e84}
+.department{margin-top:3px;font-size:11px;color:#7690a7}
+.company{margin-top:11px;font-size:12px;font-weight:900;color:#0878e8}
+.company-switcher{display:flex;flex-wrap:wrap;justify-content:center;gap:7px;margin:15px auto 0}
+.company-chip{
+ border:1px solid #d6e8f6;background:rgba(255,255,255,.78);border-radius:999px;
+ padding:7px 10px;display:inline-flex;align-items:center;gap:6px;color:#315e84;
+ font-size:10px;font-weight:850;cursor:pointer
+}
+.company-chip img{width:18px;height:18px;object-fit:contain;background:#fff;border-radius:5px}
+.company-chip.active{border-color:#1688e8;background:#e8f6ff;color:#075b9d;box-shadow:0 5px 14px rgba(22,136,232,.12)}
+.badges{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:18px}
+.badge{
+ width:78px;height:78px;position:relative;display:flex;align-items:center;justify-content:center;
+ clip-path:polygon(25% 3%,75% 3%,97% 25%,97% 75%,75% 97%,25% 97%,3% 75%,3% 25%);
+ filter:drop-shadow(0 7px 9px rgba(12,72,120,.15))
+}
+.badge::before{content:"";position:absolute;inset:4px;clip-path:inherit;background:linear-gradient(135deg,var(--c1),var(--c2))}
+.badge-inner{position:relative;z-index:1;width:66px;height:66px;clip-path:polygon(25% 3%,75% 3%,97% 25%,97% 75%,75% 97%,25% 97%,3% 75%,3% 25%);background:rgba(255,255,255,.16);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;text-align:center}
+.badge-icon{font-size:18px;line-height:1;margin-bottom:4px;text-shadow:0 1px 2px rgba(0,0,0,.2)}
+.badge-label{font-size:7px;line-height:1.05;font-weight:950;letter-spacing:.35px;max-width:57px}
+.details{padding:0 20px 8px}
+.detail{display:flex;gap:11px;align-items:center;padding:11px 12px;border-radius:15px;background:rgba(255,255,255,.55);border:1px solid rgba(215,233,247,.7);margin:7px 0}
+.icon{width:32px;height:32px;flex:0 0 32px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:#e9f6ff;color:#0878e8;font-weight:950;font-size:13px}
+.detail-text{min-width:0}
+.detail-label{font-size:8px;font-weight:900;letter-spacing:.7px;color:#7890a7;text-transform:uppercase}
+.detail-value{margin-top:2px;font-size:11px;font-weight:750;overflow-wrap:anywhere}
+.detail-value a{color:inherit;text-decoration:none}
+.buttons{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;padding:18px 20px 20px}
+.btn{border:0;border-radius:13px;padding:12px 9px;font-size:10px;font-weight:900}
+.btn-primary{color:#fff;background:linear-gradient(135deg,#0878e8,#19b7ef);box-shadow:0 9px 18px rgba(8,120,232,.20)}
+.btn-secondary{color:var(--ink);background:rgba(255,255,255,.84);border:1px solid #d8e8f4}
+.footer{text-align:center;padding:13px;border-top:1px solid #dcecf7;color:#7891a8;font-size:9px;font-weight:700}
+.loader,.error-card{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:20px;background:linear-gradient(135deg,#edf8ff,#d9efff);z-index:50}
+.loader-box,.error-box{width:min(420px,94vw);padding:28px;border-radius:25px;background:rgba(255,255,255,.78);border:1px solid #fff;text-align:center;box-shadow:var(--shadow);backdrop-filter:blur(22px)}
+.spinner{width:34px;height:34px;margin:auto;border:3px solid #dbeafa;border-top-color:#0878e8;border-radius:50%;animation:spin .75s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.error-card{display:none}.hidden{display:none!important}
+.error-icon{font-size:34px}.error-box h2{margin:8px 0}.error-box p{font-size:12px;color:var(--muted)}
+@media(max-width:430px){
+ body{padding:10px}.card{border-radius:27px}.profile{padding:20px 15px 16px}.name{font-size:25px}
+ .photo-wrap{width:118px;height:118px}.buttons{grid-template-columns:1fr;padding:15px}
+ .company-logo{width:155px;height:58px}.badge{width:70px;height:70px}.badge-inner{width:59px;height:59px}
+}
+</style>
 </head>
-
 <body>
-
-  <!-- LOADING -->
-
-  <div
-    class="loader"
-    id="loader"
-  >
-
-<div class="loader-box">
-
-  <div class="spinner"></div>
-
-  <div class="loader-text">
-    Loading contact...
-  </div>
-
-</div>
-
-
-  </div>
-
-  <div class="page">
-
-
-<div
-  class="card"
-  id="card"
-  style="display:none;"
->
-
-
-  <div class="cover"><img class="brand-logo" src="https://raw.githubusercontent.com/PharmaQA-ops/ggl-main-dashboard/main/logo.png" alt="Gaerish Logistics"></div>
-
-
-  <div class="content">
-
-
-    <!-- PHOTO -->
-
-    <div class="photo-wrap">
-
-      <img
-        id="photo"
-        class="photo"
-        alt="Employee photo"
-      >
-
-      <div
-        id="initials"
-        class="initials"
-      ></div>
-
+<div class="shell">
+  <main class="card" id="card" style="display:none">
+    <div class="brand-strip">
+      <img id="companyLogo" class="company-logo" alt="Company logo">
     </div>
 
-
-    <!-- NAME -->
-
-    <h1
-      class="name"
-      id="name"
-    ></h1>
-
-
-    <div
-      class="designation"
-      id="designation"
-    ></div>
-
-
-    <div
-      class="department"
-      id="department"
-    ></div>
-
-
-    <div
-      class="company"
-      id="company"
-    ></div>
-
-    <div
-      class="badges"
-      id="badges"
-      aria-label="Department badges"
-    ></div>
-
-
-    <div class="divider"></div>
-
-
-    <!-- DETAILS -->
-
-    <div class="details">
-
-
-      <div
-        class="detail"
-        id="mobileRow"
-      >
-
-        <div class="icon">
-          ☎
-        </div>
-
-        <div class="detail-text">
-
-          <div class="detail-label">
-            Mobile
+    <section class="profile">
+      <div class="photo-wrap">
+        <div class="photo-ring">
+          <div class="photo-box">
+            <img id="photo" class="photo" alt="Employee photo">
+            <div id="initials" class="initials">G</div>
           </div>
-
-          <div
-            class="detail-value"
-            id="mobile"
-          ></div>
-
         </div>
-
       </div>
 
+      <h1 class="name" id="name"></h1>
+      <div class="designation" id="designation"></div>
+      <div class="department" id="department"></div>
+      <div class="company" id="company"></div>
+      <div class="company-switcher" id="companySwitcher"></div>
+      <div class="badges" id="badges"></div>
+    </section>
 
-      <div
-        class="detail"
-        id="whatsappRow"
-      >
-
-        <div class="icon">
-          W
-        </div>
-
-        <div class="detail-text">
-
-          <div class="detail-label">
-            WhatsApp
-          </div>
-
-          <div
-            class="detail-value"
-            id="whatsapp"
-          ></div>
-
-        </div>
-
-      </div>
-
-
-      <div
-        class="detail"
-        id="emailRow"
-      >
-
-        <div class="icon">
-          @
-        </div>
-
-        <div class="detail-text">
-
-          <div class="detail-label">
-            Email
-          </div>
-
-          <div
-            class="detail-value"
-            id="email"
-          ></div>
-
-        </div>
-
-      </div>
-
-
-      <div
-        class="detail"
-        id="websiteRow"
-      >
-
-        <div class="icon">
-          ↗
-        </div>
-
-        <div class="detail-text">
-
-          <div class="detail-label">
-            Website
-          </div>
-
-          <div
-            class="detail-value"
-            id="website"
-          ></div>
-
-        </div>
-
-      </div>
-
-
-      <div
-        class="detail"
-        id="linkedinRow"
-      >
-
-        <div class="icon">
-          in
-        </div>
-
-        <div class="detail-text">
-
-          <div class="detail-label">
-            LinkedIn
-          </div>
-
-          <div
-            class="detail-value"
-            id="linkedin"
-          ></div>
-
-        </div>
-
-      </div>
-
-
-      <div
-        class="detail"
-        id="addressRow"
-      >
-
-        <div class="icon">
-          ⌖
-        </div>
-
-        <div class="detail-text">
-
-          <div class="detail-label">
-            Office
-          </div>
-
-          <div
-            class="detail-value"
-            id="address"
-          ></div>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-
-    <!-- ACTIONS -->
+    <section class="details">
+      <div class="detail" id="mobileRow"><div class="icon">☎</div><div class="detail-text"><div class="detail-label">Mobile</div><div class="detail-value" id="mobile"></div></div></div>
+      <div class="detail" id="whatsappRow"><div class="icon">WA</div><div class="detail-text"><div class="detail-label">WhatsApp</div><div class="detail-value" id="whatsapp"></div></div></div>
+      <div class="detail" id="emailRow"><div class="icon">@</div><div class="detail-text"><div class="detail-label">Email</div><div class="detail-value" id="email"></div></div></div>
+      <div class="detail" id="websiteRow"><div class="icon">↗</div><div class="detail-text"><div class="detail-label">Website</div><div class="detail-value" id="website"></div></div></div>
+      <div class="detail" id="linkedinRow"><div class="icon">in</div><div class="detail-text"><div class="detail-label">LinkedIn</div><div class="detail-value" id="linkedin"></div></div></div>
+      <div class="detail" id="addressRow"><div class="icon">⌖</div><div class="detail-text"><div class="detail-label">Office</div><div class="detail-value" id="address"></div></div></div>
+    </section>
 
     <div class="buttons">
-
-
-      <button
-        class="btn btn-primary"
-        onclick="addToContacts()"
-      >
-        Add to Contacts
-      </button>
-
-
-      <button
-        class="btn btn-secondary"
-        onclick="shareCard()"
-      >
-        Share Contact
-      </button>
-
-
-      <button
-        class="btn btn-secondary"
-        onclick="copyCardLink()"
-      >
-        Copy Contact Link
-      </button>
-
-
+      <button class="btn btn-primary" onclick="addToContacts()">Add to Contacts</button>
+      <button class="btn btn-secondary" onclick="shareCard()">Share Contact</button>
+      <button class="btn btn-secondary" onclick="copyCardLink()">Copy Contact Link</button>
     </div>
-
-
-    <div class="footer">
-
-      Digital Business Card ·
-      Gaerish Logistics Pvt Ltd
-
-    </div>
-
-
-  </div>
-
+    <div class="footer" id="footer">Digital Business Card</div>
+  </main>
 </div>
 
-
-<!-- ERROR -->
-
-<div
-  class="card"
-  id="errorCard"
-  style="display:none;"
->
-
-  <div class="error show">
-
-    <div class="error-icon">
-      ⚠
-    </div>
-
-    <h2>
-      Contact unavailable
-    </h2>
-
-    <p id="errorMessage">
-      The requested employee contact
-      could not be found.
-    </p>
-
-  </div>
-
+<div class="loader" id="loader">
+  <div class="loader-box"><div class="spinner"></div><div style="margin-top:13px;font-weight:900;font-size:13px">Loading contact</div><div style="margin-top:4px;color:#7891a8;font-size:10px">Gaerish Digital Business Card</div></div>
 </div>
 
-
+<div class="error-card" id="errorCard">
+  <div class="error-box">
+    <div class="error-icon">⚠</div>
+    <h2>Contact unavailable</h2>
+    <p id="errorMessage">The requested employee contact could not be found.</p>
   </div>
+</div>
 
-  <script>
+<script>
+'use strict';
 
+const API_URL='https://script.google.com/macros/s/AKfycbyOnaQEYIqjIqdAeBY8KNk0brPmJ4IvBA5pPHfvdDhP18zFknmOwmPw8R-9PG8hS7lLIg/exec';
 
-    /*
-     * IMPORTANT
-     *
-     * This must be your deployed
-     * Apps Script Web App URL.
-     */
+const COMPANY_ASSETS={
+  LOGISTICS:{name:'Gaerish Logistics Pvt Ltd',shortName:'Gaerish Logistics',logo:'logo.png',website:'https://www.gaerishlogistics.com',c1:'#0878e8',c2:'#20b7f2'},
+  DEFENCE:{name:'Gaerish Defence Pvt Ltd',shortName:'Gaerish Defence',logo:'logo1.png',website:'',c1:'#123a61',c2:'#4e8ac7'},
+  ETRADE:{name:'Gaerish eTrade Pvt Ltd',shortName:'Gaerish eTrade',logo:'logo2.png',website:'',c1:'#0a8f70',c2:'#35c6a4'}
+};
 
-    const API_URL =
-      'https://script.google.com/macros/s/AKfycbyOnaQEYIqjIqdAeBY8KNk0brPmJ4IvBA5pPHfvdDhP18zFknmOwmPw8R-9PG8hS7lLIg/exec';
+let employee=null;
+let employeeId='';
+let selectedCompany='';
 
+document.addEventListener('DOMContentLoaded',loadContact);
 
-    let employee =
-      null;
+function loadContact(){
+  const params=new URLSearchParams(window.location.search);
+  employeeId=(params.get('employee')||params.get('id')||'').trim().toUpperCase();
+  selectedCompany=normalizeCompany(params.get('company'));
+  if(!employeeId){showError('Employee ID is missing from the contact link.');return;}
 
+  const callbackName='gglContactCallback_'+Date.now();
+  const script=document.createElement('script');
 
-    /* =====================================================
-       START
-       ===================================================== */
-
-    document.addEventListener(
-      'DOMContentLoaded',
-      loadContact
-    );
-
-
-    /* =====================================================
-       LOAD CONTACT
-       ===================================================== */
-
-    function loadContact() {
-
-      const params =
-        new URLSearchParams(
-          window.location.search
-        );
-
-
-      const employeeId =
-        (
-          params.get('employee') ||
-          params.get('id') ||
-          ''
-        )
-        .trim()
-        .toUpperCase();
-
-
-      if (!employeeId) {
-
-        showError(
-          'Employee ID is missing from the contact link.'
-        );
-
-        return;
-
+  window[callbackName]=function(response){
+    try{
+      if(!response||!response.success||!response.employee){showError(getApiError(response));return;}
+      employee=response.employee;
+      if(!selectedCompany || !(employee.companies||[]).includes(selectedCompany)){
+        selectedCompany=employee.companyKey||((employee.companies||[])[0]||'LOGISTICS');
       }
+      renderContact(employee);
+    }catch(error){showError(error.message);}
+    finally{cleanupJsonp(script,callbackName);}
+  };
 
+  script.src=API_URL+'?action=contact&employee='+encodeURIComponent(employeeId)+'&company='+encodeURIComponent(selectedCompany||'')+'&callback='+encodeURIComponent(callbackName)+'&v=company3';
+  script.onerror=function(){showError('Unable to connect to the contact service.');cleanupJsonp(script,callbackName);};
+  document.body.appendChild(script);
+}
 
-      const callbackName =
-        'gglContactCallback_' +
-        Date.now();
+function switchCompany(key){
+  key=normalizeCompany(key);
+  if(!employee || !(employee.companies||[]).includes(key)) return;
+  const url=new URL(window.location.href);
+  url.searchParams.set('employee',employee.employeeId);
+  url.searchParams.set('company',key);
+  window.location.href=url.toString();
+}
 
+function renderContact(data){
+  const company=data.companies&&data.companies.length
+    ? data.companies.find(c=>c.key===selectedCompany)||data.companies[0]
+    : {key:selectedCompany||'LOGISTICS',name:data.company,logo:COMPANY_ASSETS[selectedCompany||'LOGISTICS'].logo,website:data.website};
 
-      window[callbackName] =
-        function(response) {
+  selectedCompany=company.key;
+  document.getElementById('companyLogo').src=company.logo||COMPANY_ASSETS[selectedCompany].logo;
+  document.getElementById('companyLogo').alt=company.name+' logo';
 
-          try {
+  setText('name',data.name);
+  setText('designation',data.designation);
+  setText('department',data.department);
+  setText('company',company.name);
 
-            if (
-              !response ||
-              !response.success ||
-              !response.employee
-            ) {
+  renderCompanySwitcher(data.companies||[]);
+  renderPhoto(data.photo,data.name);
+  renderMobile(data.mobile);
+  renderWhatsApp(data.whatsapp);
+  renderEmail(data.email);
+  renderWebsite(data.website||company.website);
+  renderLinkedIn(data.linkedin);
+  renderAddress(data.address);
+  renderBadges(data.badges||[]);
 
-              showError(
-                getApiError(
-                  response
-                )
-              );
+  document.getElementById('footer').textContent='Digital Business Card · '+company.name;
+  document.getElementById('card').style.display='block';
+  document.getElementById('loader').classList.add('hidden');
+}
 
-              return;
+function renderCompanySwitcher(companies){
+  const box=document.getElementById('companySwitcher');
+  if(!companies||companies.length<2){box.innerHTML='';return;}
+  box.innerHTML=companies.map(function(c){
+    return '<button class="company-chip '+(c.key===selectedCompany?'active':'')+'" onclick="switchCompany(\''+js(c.key)+'\')" title="'+escapeHtml(c.name)+'"><img src="'+escapeAttr(c.logo)+'" alt=""><span>'+escapeHtml(c.shortName||c.name)+'</span></button>';
+  }).join('');
+}
 
-            }
+function renderBadges(list){
+  const box=document.getElementById('badges');
+  if(!list.length){box.innerHTML='';return;}
+  box.innerHTML=list.map(function(b){
+    const key=String(b.badgeKey||'').toUpperCase();
+    const marks={DG:'⚡',PHARMA:'✚',PROJECTS:'◆',QA:'✓',OPERATIONS:'⚙',SALES:'↗',FINANCE:'₹',HR:'●●',IT:'▣',MANAGEMENT:'♛',SPECIALIST:'★',ENTHUSIAST:'♥',INITIATOR:'⚡',SUPPORT:'◉'};
+    const c1='#'+(b.color1||'4AAEFF'),c2='#'+(b.color2||'1768C0');
+    return '<div class="badge" style="--c1:'+c1+';--c2:'+c2+'" title="'+escapeAttr(b.description||b.label||'')+'"><div class="badge-inner"><div class="badge-icon">'+(marks[key]||'★')+'</div><div class="badge-label">'+escapeHtml(b.label||b.badgeName||key)+'</div></div></div>';
+  }).join('');
+}
 
+function renderPhoto(url,name){
+  const photo=document.getElementById('photo'),initials=document.getElementById('initials');
+  if(!url){showInitials(name);return;}
+  photo.onload=function(){photo.style.display='block';initials.style.display='none';};
+  photo.onerror=function(){showInitials(name);};
+  photo.src=normalizePhotoUrl(url);
+}
 
-            employee =
-              response.employee;
+function normalizePhotoUrl(value){
+  const url=String(value||'').trim();
+  if(!url)return '';
+  const m=url.match(/drive\.google\.com\/file\/d\/([^/]+)/);
+  if(m)return 'https://drive.google.com/thumbnail?id='+encodeURIComponent(m[1])+'&sz=w800';
+  return url;
+}
 
+function showInitials(name){
+  document.getElementById('photo').style.display='none';
+  const el=document.getElementById('initials');el.textContent=getInitials(name);el.style.display='flex';
+}
 
-            renderContact(
-              employee
-            );
+function renderMobile(value){
+  const row=document.getElementById('mobileRow'),target=document.getElementById('mobile');
+  if(!value){row.style.display='none';return;} row.style.display='flex';target.innerHTML='<a href="tel:'+encodeURIComponent(value)+'">'+escapeHtml(value)+'</a>';
+}
+function renderWhatsApp(value){
+  const row=document.getElementById('whatsappRow'),target=document.getElementById('whatsapp');
+  if(!value){row.style.display='none';return;} row.style.display='flex';
+  const digits=String(value).replace(/\D/g,'');target.innerHTML='<a href="https://wa.me/'+digits+'" target="_blank" rel="noopener">'+escapeHtml(value)+'</a>';
+}
+function renderEmail(value){
+  const row=document.getElementById('emailRow'),target=document.getElementById('email');
+  if(!value){row.style.display='none';return;} row.style.display='flex';target.innerHTML='<a href="mailto:'+encodeURIComponent(value)+'">'+escapeHtml(value)+'</a>';
+}
+function renderWebsite(value){
+  const row=document.getElementById('websiteRow'),target=document.getElementById('website');
+  if(!value){row.style.display='none';return;} row.style.display='flex';
+  const url=normalizeUrl(value);target.innerHTML='<a href="'+escapeAttr(url)+'" target="_blank" rel="noopener">'+escapeHtml(url.replace(/^https?:\/\//i,''))+'</a>';
+}
+function renderLinkedIn(value){
+  const row=document.getElementById('linkedinRow'),target=document.getElementById('linkedin');
+  if(!value){row.style.display='none';return;} row.style.display='flex';
+  const url=normalizeUrl(value);target.innerHTML='<a href="'+escapeAttr(url)+'" target="_blank" rel="noopener">LinkedIn Profile</a>';
+}
+function renderAddress(value){
+  const row=document.getElementById('addressRow'),target=document.getElementById('address');
+  if(!value){row.style.display='none';return;} row.style.display='flex';target.textContent=value;
+}
 
-          }
-
-          catch (error) {
-
-            showError(
-              error.message
-            );
-
-          }
-
-          finally {
-
-            cleanupJsonp(
-              script,
-              callbackName
-            );
-
-          }
-
-        };
-
-
-      const script =
-        document.createElement(
-          'script'
-        );
-
-
-      script.src =
-        API_URL +
-        '?action=contact' +
-        '&employee=' +
-        encodeURIComponent(
-          employeeId
-        ) +
-        '&callback=' +
-        encodeURIComponent(
-          callbackName
-        ) +
-        '&v=' +
-        Date.now();
-
-
-      script.onerror =
-        function() {
-
-          showError(
-            'Unable to connect to the contact service.'
-          );
-
-          cleanupJsonp(
-            script,
-            callbackName
-          );
-
-        };
-
-
-      document.body.appendChild(
-        script
-      );
-
+async function addToContacts(){
+  if(!employee)return;
+  const data=Object.assign({},employee,{company:currentCompany().name,website:employee.website||currentCompany().website});
+  const vcard=createVCard(data);
+  const safeName=String(employee.name||employee.employeeId||'contact').replace(/[^a-z0-9 _-]/gi,'').trim()||'contact';
+  const blob=new Blob([vcard],{type:'text/vcard;charset=utf-8'});
+  try{
+    const file=new File([blob],safeName+'.vcf',{type:'text/vcard'});
+    if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){
+      await navigator.share({title:employee.name||'Gaerish Contact',text:'Save this contact to your phone.',files:[file]});
+      return;
     }
-
-
-    function cleanupJsonp(
-      script,
-      callbackName
-    ) {
-
-      if (script) {
-
-        script.remove();
-
-      }
-
-
-      try {
-
-        delete window[
-          callbackName
-        ];
-
-      }
-
-      catch (error) {
-
-        window[
-          callbackName
-        ] = undefined;
-
-      }
-
-    }
-
-
-    /* =====================================================
-       RENDER
-       ===================================================== */
-
-    function renderContact(
-      data
-    ) {
-
-      setText(
-        'name',
-        data.name
-      );
-
-      setText(
-        'designation',
-        data.designation
-      );
-
-      setText(
-        'department',
-        data.department
-      );
-
-      setText(
-        'company',
-        data.company
-      );
-
-      renderBadges(data);
-
-
-      renderPhoto(
-        data.photo,
-        data.name
-      );
-
-
-      renderMobile(
-        data.mobile
-      );
-
-
-      renderWhatsApp(
-        data.whatsapp
-      );
-
-
-      renderEmail(
-        data.email
-      );
-
-
-      renderWebsite(
-        data.website
-      );
-
-
-      renderLinkedIn(
-        data.linkedin
-      );
-
-
-      renderAddress(
-        data.address
-      );
-
-
-      document.getElementById(
-        'card'
-      ).style.display =
-        'block';
-
-
-      document.getElementById(
-        'loader'
-      )
-      .classList
-      .add('hidden');
-
-    }
-
-
-
-    /* =====================================================
-       BADGES
-       ===================================================== */
-
-    const BADGE_ICONS = {
-
-      DG:
-        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.2 2 5 13h5.2L9.8 22 19 10.2h-5.1L16 2z"/></svg>',
-
-      PHARMA:
-        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3a4 4 0 0 0 0 8h2v2H7a4 4 0 0 0 0 8h3a4 4 0 0 0 4-4v-5h3a4 4 0 0 0 0-8h-3a4 4 0 0 0-4 4v3H7a2 2 0 1 1 0-4h3V3H7zm7 4h3a2 2 0 1 1 0 4h-3V7zm-2 5h2v5a2 2 0 0 1-2 2h-3a2 2 0 1 1 0-4h3v-3z"/></svg>',
-
-      PROJECTS:
-        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h6v6H4V5zm10 0h6v6h-6V5zM9 15h6v6H9v-6zM10 8h4v2h-4V8zm2 3h2v4h-2v-4z"/></svg>',
-
-      QA:
-        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 20 5v6c0 5.2-3.4 9.4-8 11-4.6-1.6-8-5.8-8-11V5l8-3zm-1.2 13.2 6-6-1.4-1.4-4.6 4.6-2.2-2.2-1.4 1.4 3.6 3.6z"/></svg>',
-
-      OPERATIONS:
-        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="m19.4 13.5 1.4 1.1-2 3.4-1.7-.7a7.4 7.4 0 0 1-1.7 1l-.2 1.8h-4l-.2-1.8a7.4 7.4 0 0 1-1.7-1l-1.7.7-2-3.4 1.4-1.1a7 7 0 0 1 0-2l-1.4-1.1 2-3.4 1.7.7a7.4 7.4 0 0 1 1.7-1L11.2 5h4l.2 1.8a7.4 7.4 0 0 1 1.7 1l1.7-.7 2 3.4-1.4 1.1a7 7 0 0 1 0 2zM13.2 15a2.8 2.8 0 1 0 0-5.6 2.8 2.8 0 0 0 0 5.6z"/></svg>',
-
-      SALES:
-        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 19h16v2H2V3h2v16zm3-3 3.5-4 3 2.5L20 7.8V11l-6.4 6-3-2.5L8.5 18 7 16z"/></svg>',
-
-      FINANCE:
-        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 16h-2v-1.1c-1.8-.3-3-1.3-3.3-3.2h2.2c.2.9.9 1.4 2.1 1.4 1.1 0 1.8-.5 1.8-1.2 0-.8-.6-1.1-2.1-1.5-2.2-.5-3.5-1.4-3.5-3.4 0-1.7 1.1-2.9 2.8-3.3V5h2v1.6c1.7.3 2.7 1.4 3 3h-2.2c-.2-.7-.7-1.1-1.7-1.1-1 0-1.6.4-1.6 1 0 .7.6 1 2.1 1.4 2.3.5 3.5 1.5 3.5 3.5 0 1.7-1.2 3-3.1 3.5V18z"/></svg>',
-
-      HR:
-        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm6-1a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM2 20a7 7 0 0 1 14 0v1H2v-1zm14.5-5.8A5.9 5.9 0 0 1 19 19v2h3v-1a5.5 5.5 0 0 0-5.5-5.8z"/></svg>',
-
-      IT:
-        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v11H4V4zm-2 13h20v2H2v-2zm6 3h8v2H8v-2z"/></svg>',
-
-      MANAGEMENT:
-        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h4l2 4 3-7 3 7 2-4h4l-2 10H5L3 6zm4 12h10v2H7v-2z"/></svg>',
-
-      SPECIALIST:
-        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6l1 3h3v4h-2v11H7V10H5V6h3l1-3zm1.5 3h3L13 5h-2l-.5 1zM9 11v8h6v-8H9z"/></svg>',
-
-      ENTHUSIAST:
-        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-4.4-9.5-9C.6 8.5 2.4 5 5.9 5c2 0 3.3 1.2 4.1 2.4C10.8 6.2 12.1 5 14.1 5c3.5 0 5.3 3.5 3.4 7-1.3 2.4-3.6 4.5-5.5 6z"/></svg>',
-
-      INITIATOR:
-        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 11-14h-6l-1-6z"/></svg>',
-
-      SUPPORT:
-        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a7 7 0 0 0-7 7v4H3v3h4v-7a5 5 0 0 1 10 0v7h4v-3h-2v-4a7 7 0 0 0-7-7zm-5 12H5v-2h2v2zm12 0h-2v-2h2v2z"/></svg>',
-
-      DEFAULT:
-        '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 14.5 9l7.5 3-7.5 3L12 22l-2.5-7L2 12l7.5-3L12 2z"/></svg>'
-    };
-
-
-    function renderBadges(data) {
-
-      const container =
-        document.getElementById('badges');
-
-      if (!container) {
-        return;
-      }
-
-      const badges =
-        normalizeBadgeList(data && data.badges);
-
-      container.innerHTML =
-        badges.map(function(badge) {
-
-          const key =
-            badge.key || 'DEFAULT';
-
-          const icon =
-            BADGE_ICONS[key] ||
-            BADGE_ICONS.DEFAULT;
-
-          const label =
-            badge.label ||
-            key;
-
-          return (
-            '<div class="badge-item badge-' +
-            key.toLowerCase() +
-            '" title="' +
-            escapeAttr(label) +
-            '">' +
-
-              '<div class="badge-hex"></div>' +
-
-              '<div class="badge-core">' +
-                icon +
-              '</div>' +
-
-              '<div class="badge-label">' +
-                escapeHtml(label) +
-              '</div>' +
-
-            '</div>'
-          );
-
-        }).join('');
-
-      container.style.display =
-        badges.length ? 'flex' : 'none';
-    }
-
-
-    function normalizeBadgeList(value) {
-
-      if (Array.isArray(value)) {
-
-        return value
-          .map(function(item) {
-
-            if (typeof item === 'string') {
-              return normalizeBadgeValue(item);
-            }
-
-            return {
-              key:
-                String(
-                  item.key ||
-                  item.id ||
-                  item.name ||
-                  ''
-                ).trim().toUpperCase(),
-
-              label:
-                String(
-                  item.label ||
-                  item.name ||
-                  item.key ||
-                  ''
-                ).trim()
-            };
-
-          })
-          .filter(function(item) {
-            return item.key && item.label;
-          });
-
-      }
-
-      if (typeof value === 'string') {
-
-        return value
-          .split(/[|,;\n]+/)
-          .map(normalizeBadgeValue)
-          .filter(function(item) {
-            return item.key && item.label;
-          });
-
-      }
-
-      return [];
-    }
-
-
-    function normalizeBadgeValue(value) {
-
-      const raw =
-        String(value || '').trim();
-
-      const key =
-        raw
-          .toUpperCase()
-          .replace(/[^A-Z0-9]+/g, '_');
-
-      return {
-        key: key,
-        label: raw
-      };
-    }
-
-
-    /* =====================================================
-       PHOTO
-       ===================================================== */
-
-    function renderPhoto(
-      photoUrl,
-      name
-    ) {
-
-      const photo =
-        document.getElementById(
-          'photo'
-        );
-
-      const initials =
-        document.getElementById(
-          'initials'
-        );
-
-      const raw =
-        String(
-          photoUrl || ''
-        ).trim();
-
-      if (!raw) {
-        showInitials(name);
-        return;
-      }
-
-      /*
-       * Try several Google Drive delivery formats.
-       * This is important because a Drive "view" URL can work
-       * on desktop but fail as an <img> source on some mobiles.
-       */
-      const candidates =
-        buildPhotoCandidates(raw);
-
-      let index = 0;
-
-      photo.style.display = 'block';
-      initials.style.display = 'none';
-
-      photo.onload =
-        function() {
-          photo.style.display = 'block';
-          initials.style.display = 'none';
-        };
-
-      photo.onerror =
-        function() {
-          index++;
-
-          if (index < candidates.length) {
-            photo.src = candidates[index];
-          } else {
-            showInitials(name);
-          }
-        };
-
-      photo.src = candidates[0];
-    }
-
-
-    function buildPhotoCandidates(value) {
-
-      const url =
-        String(value || '').trim();
-
-      if (!url) {
-        return [];
-      }
-
-      const candidates = [];
-
-      const driveMatch =
-        url.match(
-          /drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?[^#]*id=)([A-Za-z0-9_-]+)/
-        );
-
-      if (driveMatch) {
-
-        const id = driveMatch[1];
-
-        candidates.push(
-          'https://drive.google.com/thumbnail?id=' +
-          encodeURIComponent(id) +
-          '&sz=w1000'
-        );
-
-        candidates.push(
-          'https://drive.google.com/uc?export=view&id=' +
-          encodeURIComponent(id)
-        );
-
-        candidates.push(
-          'https://drive.google.com/uc?export=download&id=' +
-          encodeURIComponent(id)
-        );
-      }
-
-      candidates.push(url);
-
-      return [...new Set(candidates)];
-    }
-
-
-    function normalizePhotoUrl(
-      value
-    ) {
-
-      const url =
-        String(
-          value || ''
-        ).trim();
-
-      if (!url) {
-        return '';
-      }
-
-      /*
-       * Accept a normal image URL or a
-       * Google Drive file URL.
-       */
-      const driveMatch =
-        url.match(
-          /drive\.google\.com\/file\/d\/([^/]+)/
-        );
-
-      if (driveMatch) {
-
-        return (
-          'https://drive.google.com/uc?export=view&id=' +
-          encodeURIComponent(
-            driveMatch[1]
-          )
-        );
-
-      }
-
-      return url;
-
-    }
-
-
-    function getPhotoCandidates(value) {
-      const url = String(value || '').trim();
-      if (!url) return [];
-
-      const candidates = [];
-      const driveMatch = url.match(/drive\.google\.com\/(?:file\/d\/|open\?id=|uc\?id=)([^/&?]+)/);
-
-      if (driveMatch) {
-        const id = driveMatch[1];
-        candidates.push(
-          'https://drive.google.com/thumbnail?id=' + encodeURIComponent(id) + '&sz=w1000'
-        );
-        candidates.push(
-          'https://drive.google.com/uc?export=view&id=' + encodeURIComponent(id)
-        );
-      }
-
-      candidates.push(url);
-
-      return [...new Set(candidates)];
-    }
-
-
-    function showInitials(
-      name
-    ) {
-
-      const photo =
-        document.getElementById(
-          'photo'
-        );
-
-      const initials =
-        document.getElementById(
-          'initials'
-        );
-
-
-      photo.style.display =
-        'none';
-
-
-      initials.textContent =
-        getInitials(
-          name
-        );
-
-
-      initials.style.display =
-        'flex';
-
-    }
-
-
-    /* =====================================================
-       MOBILE
-       ===================================================== */
-
-    function renderMobile(
-      value
-    ) {
-
-      const row =
-        document.getElementById(
-          'mobileRow'
-        );
-
-      const target =
-        document.getElementById(
-          'mobile'
-        );
-
-
-      if (!value) {
-
-        row.style.display =
-          'none';
-
-        return;
-
-      }
-
-
-      row.style.display =
-        'flex';
-
-
-      target.innerHTML =
-        '<a href="tel:' +
-        escapeAttr(
-          value
-        ) +
-        '">' +
-        escapeHtml(
-          value
-        ) +
-        '</a>';
-
-    }
-
-
-    /* =====================================================
-       WHATSAPP
-       ===================================================== */
-
-    function renderWhatsApp(
-      value
-    ) {
-
-      const row =
-        document.getElementById(
-          'whatsappRow'
-        );
-
-      const target =
-        document.getElementById(
-          'whatsapp'
-        );
-
-
-      if (!value) {
-
-        row.style.display =
-          'none';
-
-        return;
-
-      }
-
-
-      const number =
-        value.replace(
-          /[^\d+]/g,
-          ''
-        );
-
-
-      row.style.display =
-        'flex';
-
-
-      target.innerHTML =
-        '<a href="https://wa.me/' +
-        encodeURIComponent(
-          number.replace(
-            /^\+/,
-            ''
-          )
-        ) +
-        '" target="_blank" rel="noopener">' +
-        escapeHtml(
-          value
-        ) +
-        '</a>';
-
-    }
-
-
-    /* =====================================================
-       EMAIL
-       ===================================================== */
-
-    function renderEmail(
-      value
-    ) {
-
-      const row =
-        document.getElementById(
-          'emailRow'
-        );
-
-      const target =
-        document.getElementById(
-          'email'
-        );
-
-
-      if (!value) {
-
-        row.style.display =
-          'none';
-
-        return;
-
-      }
-
-
-      row.style.display =
-        'flex';
-
-
-      target.innerHTML =
-        '<a href="mailto:' +
-        escapeAttr(
-          value
-        ) +
-        '">' +
-        escapeHtml(
-          value
-        ) +
-        '</a>';
-
-    }
-
-
-    /* =====================================================
-       WEBSITE
-       ===================================================== */
-
-    function renderWebsite(
-      value
-    ) {
-
-      const row =
-        document.getElementById(
-          'websiteRow'
-        );
-
-      const target =
-        document.getElementById(
-          'website'
-        );
-
-
-      if (!value) {
-
-        row.style.display =
-          'none';
-
-        return;
-
-      }
-
-
-      row.style.display =
-        'flex';
-
-
-      const url =
-        normalizeUrl(
-          value
-        );
-
-
-      target.innerHTML =
-        '<a href="' +
-        escapeAttr(
-          url
-        ) +
-        '" target="_blank" rel="noopener">' +
-        escapeHtml(
-          value
-        ) +
-        '</a>';
-
-    }
-
-
-    /* =====================================================
-       LINKEDIN
-       ===================================================== */
-
-    function renderLinkedIn(
-      value
-    ) {
-
-      const row =
-        document.getElementById(
-          'linkedinRow'
-        );
-
-      const target =
-        document.getElementById(
-          'linkedin'
-        );
-
-
-      if (!value) {
-
-        row.style.display =
-          'none';
-
-        return;
-
-      }
-
-
-      row.style.display =
-        'flex';
-
-
-      const url =
-        normalizeUrl(
-          value
-        );
-
-
-      target.innerHTML =
-        '<a href="' +
-        escapeAttr(
-          url
-        ) +
-        '" target="_blank" rel="noopener">' +
-        escapeHtml(
-          value
-        ) +
-        '</a>';
-
-    }
-
-
-    /* =====================================================
-       ADDRESS
-       ===================================================== */
-
-    function renderAddress(
-      value
-    ) {
-
-      const row =
-        document.getElementById(
-          'addressRow'
-        );
-
-      const target =
-        document.getElementById(
-          'address'
-        );
-
-
-      if (!value) {
-
-        row.style.display =
-          'none';
-
-        return;
-
-      }
-
-
-      row.style.display =
-        'flex';
-
-
-      target.textContent =
-        value;
-
-    }
-
-
-    /* =====================================================
-       ADD TO CONTACTS
-       ===================================================== */
-
-    async function addToContacts() {
-
-      if (!employee) {
-        return;
-      }
-
-      const vcard = createVCard(employee);
-
-      const safeName =
-        String(
-          employee.name ||
-          employee.employeeId ||
-          'contact'
-        )
-        .replace(/[^a-z0-9 _-]/gi, '')
-        .trim() || 'contact';
-
-      const fileName = safeName + '.vcf';
-
-      const blob = new Blob(
-        [vcard],
-        {
-          type: 'text/vcard;charset=utf-8'
-        }
-      );
-
-      /*
-       * MOBILE-FIRST:
-       * Try the native phone share sheet with the VCF attached.
-       * This avoids the old contact-service dependency completely.
-       */
-      try {
-
-        const file = new File(
-          [blob],
-          fileName,
-          {
-            type: 'text/vcard'
-          }
-        );
-
-        if (
-          navigator.share &&
-          navigator.canShare &&
-          navigator.canShare({
-            files: [file]
-          })
-        ) {
-
-          await navigator.share({
-            title:
-              employee.name ||
-              'Gaerish Logistics Contact',
-
-            text:
-              'Save this contact to your phone.',
-
-            files: [file]
-          });
-
-          return;
-        }
-
-      } catch (error) {
-
-        /*
-         * AbortError means the user closed/cancelled
-         * the native share sheet. Do not show an error.
-         */
-        if (
-          error &&
-          error.name === 'AbortError'
-        ) {
-          return;
-        }
-
-      }
-
-      /*
-       * FALLBACK:
-       * Generate the VCF locally and download it.
-       * No Apps Script contact service is required.
-       */
-      const url =
-        URL.createObjectURL(blob);
-
-      const link =
-        document.createElement('a');
-
-      link.href = url;
-      link.download = fileName;
-      link.style.display = 'none';
-
-      document.body.appendChild(link);
-
-      link.click();
-
-      link.remove();
-
-      setTimeout(
-        function() {
-          URL.revokeObjectURL(url);
-        },
-        3000
-      );
-
-    }
-
-
-    /* =====================================================
-       VCARD GENERATOR
-       ===================================================== */
-
-    function createVCard(
-      data
-    ) {
-
-      let vcard =
-        'BEGIN:VCARD\r\n';
-
-      vcard +=
-        'VERSION:3.0\r\n';
-
-      vcard +=
-        'FN:' +
-        vcardEscape(
-          data.name
-        ) +
-        '\r\n';
-
-      vcard +=
-        'N:' +
-        vcardEscape(
-          data.name
-        ) +
-        ';;;;\r\n';
-
-
-      if (data.company) {
-
-        vcard +=
-          'ORG:' +
-          vcardEscape(
-            data.company
-          ) +
-          '\r\n';
-
-      }
-
-
-      if (data.designation) {
-
-        vcard +=
-          'TITLE:' +
-          vcardEscape(
-            data.designation
-          ) +
-          '\r\n';
-
-      }
-
-
-      if (data.department) {
-
-        vcard +=
-          'ROLE:' +
-          vcardEscape(
-            data.department
-          ) +
-          '\r\n';
-
-      }
-
-
-      if (data.mobile) {
-
-        vcard +=
-          'TEL;TYPE=CELL:' +
-          vcardEscape(
-            data.mobile
-          ) +
-          '\r\n';
-
-      }
-
-
-      if (
-        data.whatsapp &&
-        data.whatsapp !==
-          data.mobile
-      ) {
-
-        vcard +=
-          'TEL;TYPE=WORK:' +
-          vcardEscape(
-            data.whatsapp
-          ) +
-          '\r\n';
-
-      }
-
-
-      if (data.email) {
-
-        vcard +=
-          'EMAIL;TYPE=WORK:' +
-          vcardEscape(
-            data.email
-          ) +
-          '\r\n';
-
-      }
-
-
-      if (data.website) {
-
-        vcard +=
-          'URL:' +
-          vcardEscape(
-            normalizeUrl(
-              data.website
-            )
-          ) +
-          '\r\n';
-
-      }
-
-
-      if (data.linkedin) {
-
-        vcard +=
-          'X-SOCIALPROFILE;TYPE=linkedin:' +
-          vcardEscape(
-            normalizeUrl(
-              data.linkedin
-            )
-          ) +
-          '\r\n';
-
-      }
-
-
-      if (data.address) {
-
-        vcard +=
-          'ADR;TYPE=WORK:;;' +
-          vcardEscape(
-            data.address
-          ) +
-          ';;;;\r\n';
-
-      }
-
-
-      if (data.employeeId) {
-
-        vcard +=
-          'NOTE:GGL Employee ID - ' +
-          vcardEscape(
-            data.employeeId
-          ) +
-          '\r\n';
-
-      }
-
-
-      vcard +=
-        'END:VCARD';
-
-
-      return vcard;
-
-    }
-
-
-    function vcardEscape(
-      value
-    ) {
-
-      return String(
-        value || ''
-      )
-
-      .replace(
-        /\\/g,
-        '\\\\'
-      )
-
-      .replace(
-        /\r?\n/g,
-        '\\n'
-      )
-
-      .replace(
-        /;/g,
-        '\\;'
-      )
-
-      .replace(
-        /,/g,
-        '\\,'
-      );
-
-    }
-
-
-    /* =====================================================
-       SHARE
-       ===================================================== */
-
-    async function shareCard() {
-
-      const url =
-        window.location.href;
-
-
-      if (
-        navigator.share
-      ) {
-
-        try {
-
-          await navigator.share({
-
-            title:
-              employee
-                ? employee.name
-                : 'GGL Contact',
-
-            text:
-              employee
-                ? employee.name +
-                  ' — ' +
-                  (
-                    employee.designation ||
-                    'Gaerish Logistics'
-                  )
-                : 'Gaerish Logistics contact',
-
-            url:
-              url
-
-          });
-
-          return;
-
-        }
-
-        catch (error) {
-
-          /*
-           * User cancelled share.
-           */
-
-        }
-
-      }
-
-
-      copyText(
-        url,
-        'Contact link copied.'
-      );
-
-    }
-
-
-    /* =====================================================
-       COPY
-       ===================================================== */
-
-    function copyCardLink() {
-
-      copyText(
-        window.location.href,
-        'Contact link copied.'
-      );
-
-    }
-
-
-    async function copyText(
-      text,
-      successMessage
-    ) {
-
-      try {
-
-        if (
-          navigator.clipboard &&
-          navigator.clipboard.writeText
-        ) {
-
-          await navigator.clipboard.writeText(
-            text
-          );
-
-        }
-
-        else {
-
-          const input =
-            document.createElement(
-              'textarea'
-            );
-
-          input.value =
-            text;
-
-          input.style.position =
-            'fixed';
-
-          input.style.opacity =
-            '0';
-
-          document.body.appendChild(
-            input
-          );
-
-          input.select();
-
-          document.execCommand(
-            'copy'
-          );
-
-          input.remove();
-
-        }
-
-
-        alert(
-          successMessage
-        );
-
-      }
-
-      catch (error) {
-
-        alert(
-          'Unable to copy the contact link.'
-        );
-
-      }
-
-    }
-
-
-    /* =====================================================
-       ERROR
-       ===================================================== */
-
-    function showError(
-      message
-    ) {
-
-      document.getElementById(
-        'loader'
-      )
-      .classList
-      .add('hidden');
-
-
-      document.getElementById(
-        'card'
-      ).style.display =
-        'none';
-
-
-      document.getElementById(
-        'errorCard'
-      ).style.display =
-        'block';
-
-
-      document.getElementById(
-        'errorMessage'
-      ).textContent =
-        message ||
-        'The requested employee contact could not be found.';
-
-    }
-
-
-    function getApiError(
-      response
-    ) {
-
-      if (!response) {
-
-        return 'No response received from the contact service.';
-
-      }
-
-
-      switch (
-        response.error
-      ) {
-
-        case 'EMPLOYEE_ID_REQUIRED':
-
-          return 'Employee ID is missing.';
-
-        case 'EMPLOYEE_NOT_FOUND':
-
-          return 'Employee contact was not found.';
-
-        case 'CONTACT_UNAVAILABLE':
-
-          return 'This employee contact is currently unavailable.';
-
-        case 'INVALID_CALLBACK':
-
-          return 'Invalid contact request.';
-
-        default:
-
-          return (
-            response.error ||
-            'Contact unavailable.'
-          );
-
-      }
-
-    }
-
-
-    /* =====================================================
-       GENERAL HELPERS
-       ===================================================== */
-
-    function setText(
-      id,
-      value
-    ) {
-
-      document.getElementById(
-        id
-      ).textContent =
-        value || '';
-
-    }
-
-
-    function getInitials(
-      name
-    ) {
-
-      const parts =
-        String(
-          name || ''
-        )
-        .trim()
-        .split(/\s+/)
-        .filter(Boolean);
-
-
-      if (!parts.length) {
-
-        return 'G';
-
-      }
-
-
-      if (
-        parts.length === 1
-      ) {
-
-        return parts[0]
-          .substring(0,2)
-          .toUpperCase();
-
-      }
-
-
-      return (
-        parts[0][0] +
-        parts[
-          parts.length - 1
-        ][0]
-      ).toUpperCase();
-
-    }
-
-
-    function normalizeUrl(
-      value
-    ) {
-
-      const text =
-        String(
-          value || ''
-        ).trim();
-
-
-      if (!text) {
-
-        return '';
-
-      }
-
-
-      if (
-        /^https?:\/\//i.test(
-          text
-        )
-      ) {
-
-        return text;
-
-      }
-
-
-      return 'https://' + text;
-
-    }
-
-
-    function escapeHtml(
-      value
-    ) {
-
-      return String(
-        value == null
-          ? ''
-          : value
-      )
-
-      .replace(
-        /&/g,
-        '&amp;'
-      )
-
-      .replace(
-        /</g,
-        '&lt;'
-      )
-
-      .replace(
-        />/g,
-        '&gt;'
-      )
-
-      .replace(
-        /"/g,
-        '&quot;'
-      )
-
-      .replace(
-        /'/g,
-        '&#039;'
-      );
-
-    }
-
-
-    function escapeAttr(
-      value
-    ) {
-
-      return escapeHtml(
-        value
-      );
-
-    }
-
-
-  </script>
-
+  }catch(error){if(error&&error.name==='AbortError')return;}
+  const url=URL.createObjectURL(blob),link=document.createElement('a');
+  link.href=url;link.download=safeName+'.vcf';link.style.display='none';document.body.appendChild(link);link.click();link.remove();
+  setTimeout(function(){URL.revokeObjectURL(url);},3000);
+}
+
+function createVCard(data){
+  let v='BEGIN:VCARD\r\nVERSION:3.0\r\n';
+  v+='FN:'+vcardEscape(data.name)+'\r\n';
+  v+='N:'+vcardEscape(data.name)+';;;;\r\n';
+  if(data.company)v+='ORG:'+vcardEscape(data.company)+'\r\n';
+  if(data.designation)v+='TITLE:'+vcardEscape(data.designation)+'\r\n';
+  if(data.department)v+='ROLE:'+vcardEscape(data.department)+'\r\n';
+  if(data.mobile)v+='TEL;TYPE=CELL,WORK:'+vcardEscape(data.mobile)+'\r\n';
+  if(data.whatsapp&&data.whatsapp!==data.mobile)v+='TEL;TYPE=WORK:'+vcardEscape(data.whatsapp)+'\r\n';
+  if(data.email)v+='EMAIL;TYPE=WORK:'+vcardEscape(data.email)+'\r\n';
+  if(data.website)v+='URL:'+vcardEscape(normalizeUrl(data.website))+'\r\n';
+  if(data.linkedin)v+='X-SOCIALPROFILE;TYPE=linkedin:'+vcardEscape(normalizeUrl(data.linkedin))+'\r\n';
+  if(data.address)v+='ADR;TYPE=WORK:;;'+vcardEscape(data.address)+';;;;\r\n';
+  if(data.employeeId)v+='NOTE:GGL Employee ID - '+vcardEscape(data.employeeId)+'\r\n';
+  v+='END:VCARD'; return v;
+}
+
+async function shareCard(){
+  const url=window.location.href;
+  if(navigator.share){try{await navigator.share({title:employee?employee.name:'GGL Contact',text:employee?employee.name+' — '+(employee.designation||currentCompany().name):'Gaerish contact',url:url});return;}catch(error){if(error&&error.name==='AbortError')return;}}
+  copyText(url,'Contact link copied.');
+}
+function copyCardLink(){copyText(window.location.href,'Contact link copied.');}
+async function copyText(text,msg){
+  try{
+    if(navigator.clipboard&&navigator.clipboard.writeText)await navigator.clipboard.writeText(text);
+    else{const input=document.createElement('textarea');input.value=text;input.style.position='fixed';input.style.opacity='0';document.body.appendChild(input);input.select();document.execCommand('copy');input.remove();}
+    alert(msg);
+  }catch(error){alert('Unable to copy the contact link.');}
+}
+
+function currentCompany(){
+  return (employee&&employee.companies||[]).find(function(c){return c.key===selectedCompany;})||COMPANY_ASSETS[selectedCompany]||COMPANY_ASSETS.LOGISTICS;
+}
+function normalizeCompany(value){
+  const raw=String(value||'').trim().toUpperCase();
+  const aliases={'GAERISH LOGISTICS':'LOGISTICS','GAERISH LOGISTICS PVT LTD':'LOGISTICS','GAERISH DEFENCE':'DEFENCE','GAERISH DEFENCE PVT LTD':'DEFENCE','GAERISH ETRADE':'ETRADE','GAERISH ETRADE PVT LTD':'ETRADE','E-TRADE':'ETRADE'};
+  return aliases[raw]||raw;
+}
+function getApiError(r){
+  if(!r)return 'No response received from the contact service.';
+  return ({EMPLOYEE_ID_REQUIRED:'Employee ID is missing.',EMPLOYEE_NOT_FOUND:'Employee contact was not found.',CONTACT_UNAVAILABLE:'This employee contact is currently unavailable.',INVALID_CALLBACK:'Invalid contact request.'})[r.error]||r.error||'Contact unavailable.';
+}
+function showError(message){
+  document.getElementById('loader').classList.add('hidden');
+  document.getElementById('card').style.display='none';
+  document.getElementById('errorCard').style.display='flex';
+  document.getElementById('errorMessage').textContent=message||'The requested employee contact could not be found.';
+}
+function cleanupJsonp(script,callbackName){if(script)script.remove();try{delete window[callbackName];}catch(e){window[callbackName]=undefined;}}
+function setText(id,value){document.getElementById(id).textContent=value||'';}
+function getInitials(name){const p=String(name||'').trim().split(/\s+/).filter(Boolean);if(!p.length)return'G';if(p.length===1)return p[0].substring(0,2).toUpperCase();return(p[0][0]+p[p.length-1][0]).toUpperCase();}
+function normalizeUrl(value){const t=String(value||'').trim();if(!t)return'';return/^https?:\/\//i.test(t)?t:'https://'+t;}
+function escapeHtml(value){return String(value==null?'':value).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;');}
+function escapeAttr(value){return escapeHtml(value);}
+function js(value){return String(value||'').replace(/\\/g,'\\\\').replace(/'/g,"\\'");}
+</script>
 </body>
-
 </html>
