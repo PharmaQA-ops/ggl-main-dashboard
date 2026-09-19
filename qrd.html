@@ -21,12 +21,80 @@
 <script>
 const API='https://script.google.com/macros/s/AKfycbyOnaQEYIqjIqdAeBY8KNk0brPmJ4IvBA5pPHfvdDhP18zFknmOwmPw8R-9PG8hS7lLIg/exec';
 let rows=[];
-let timeout;
-function jsonp(url){return new Promise((resolve,reject)=>{const cb='gglQR_'+Date.now()+'_'+Math.floor(Math.random()*100000);const s=document.createElement('script');let done=false;function finish(err,data){if(done)return;done=true;clearTimeout(timeout);delete window[cb];s.remove();err?reject(err):resolve(data)}window[cb]=d=>finish(null,d);s.onerror=()=>finish(new Error('API script failed'));document.body.appendChild(s);s.src=url+'&callback='+encodeURIComponent(cb);timeout=setTimeout(()=>finish(new Error('API timeout')),15000)})}
-async function loadDirectory(){document.getElementById('status').textContent='Loading QR directory...';try{const data=await jsonp(API+'?action=qrdirectory');if(!data||data.success!==true)throw new Error((data&&data.error)||'API_ERROR');rows=Array.isArray(data.employees)?data.employees:[];render();document.getElementById('status').textContent=rows.length+' existing QR code(s) available.'}catch(e){console.error(e);document.getElementById('status').textContent='Unable to connect to QR service: '+e.message;document.getElementById('grid').innerHTML='<div class="empty">QR service did not return data. Make sure the Apps Script Web App is deployed as a new version with access set to Anyone.</div>'}}
-function render(){const q=document.getElementById('search').value.trim().toLowerCase();const data=rows.filter(x=>[x.employeeId,x.name,x.designation,x.department].join(' ').toLowerCase().includes(q));const grid=document.getElementById('grid');if(!data.length){grid.innerHTML='<div class="empty">No QR codes found.</div>';return}grid.innerHTML=data.map(x=>`<div class="card"><div class="id">${esc(x.employeeId)}</div><div class="name">${esc(x.name||'—')}</div><div class="meta">${esc(x.designation||'—')}<br>${esc(x.department||'—')}</div><a class="download" href="${escAttr(x.downloadUrl)}" download="${escAttr(x.fileName)}">Download ${esc(x.fileName)}</a></div>`).join('')}
-async function downloadZip(){const b=document.getElementById('zipBtn');b.disabled=true;b.textContent='Preparing ZIP...';try{const d=await jsonp(API+'?action=qrzip');if(!d||!d.success)throw new Error((d&&d.error)||'ZIP_ERROR');window.location.href=d.downloadUrl}catch(e){alert('Unable to create QR ZIP: '+e.message)}finally{b.disabled=false;b.textContent='Download All QR ZIP'}}
-function esc(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function escAttr(v){return esc(v)}
+
+function jsonp(url){
+  return new Promise((resolve,reject)=>{
+    const cb='gglQR_'+Date.now()+'_'+Math.floor(Math.random()*100000);
+    const s=document.createElement('script');
+    let done=false;
+    const timeout=setTimeout(()=>finish(new Error('API timeout')),20000);
+
+    function cleanup(){
+      clearTimeout(timeout);
+      delete window[cb];
+      if(s.parentNode)s.parentNode.removeChild(s);
+    }
+    function finish(err,data){
+      if(done)return;
+      done=true;
+      cleanup();
+      err?reject(err):resolve(data);
+    }
+
+    window[cb]=function(data){finish(null,data)};
+    s.onerror=function(){finish(new Error('API script failed'))};
+    s.src=url+(url.indexOf('?')>=0?'&':'?')+'callback='+encodeURIComponent(cb)+'&_='+Date.now();
+    document.body.appendChild(s);
+  });
+}
+
+async function loadDirectory(){
+  document.getElementById('status').textContent='Loading QR directory...';
+  try{
+    const data=await jsonp(API+'?action=qrdirectory');
+    if(!data||data.success!==true)throw new Error((data&&data.error)||'API_ERROR');
+    rows=Array.isArray(data.employees)?data.employees:[];
+    render();
+    document.getElementById('status').textContent=rows.length+' existing QR code(s) available.';
+  }catch(e){
+    console.error(e);
+    document.getElementById('status').textContent='Unable to connect to QR service: '+e.message;
+    document.getElementById('grid').innerHTML='<div class="empty">QR service did not return data. Check the Apps Script JSONP response and Web App deployment.</div>';
+  }
+}
+
+function render(){
+  const q=document.getElementById('search').value.trim().toLowerCase();
+  const data=rows.filter(x=>[x.employeeId,x.name,x.designation,x.department].join(' ').toLowerCase().includes(q));
+  const grid=document.getElementById('grid');
+  if(!data.length){
+    grid.innerHTML='<div class="empty">No QR codes found.</div>';
+    return;
+  }
+  grid.innerHTML=data.map(x=>`<div class="card"><div class="id">${esc(x.employeeId)}</div><div class="name">${esc(x.name||'—')}</div><div class="meta">${esc(x.designation||'—')}<br>${esc(x.department||'—')}</div><a class="download" href="${escAttr(x.downloadUrl)}" download="${escAttr(x.fileName)}">Download ${esc(x.fileName)}</a></div>`).join('');
+}
+
+async function downloadZip(){
+  const b=document.getElementById('zipBtn');
+  b.disabled=true;
+  b.textContent='Preparing ZIP...';
+  try{
+    const d=await jsonp(API+'?action=qrzip');
+    if(!d||!d.success)throw new Error((d&&d.error)||'ZIP_ERROR');
+    window.location.href=d.downloadUrl;
+  }catch(e){
+    alert('Unable to create QR ZIP: '+e.message);
+  }finally{
+    b.disabled=false;
+    b.textContent='Download All QR ZIP';
+  }
+}
+
+function esc(v){
+  return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+function escAttr(v){return esc(v)}
+
 loadDirectory();
 </script>
 </body>
