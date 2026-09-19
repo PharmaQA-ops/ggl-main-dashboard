@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GGL QR Code Download</title>
+<style>
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#f5f8fc;color:#102a43}
+  .wrap{max-width:1100px;margin:0 auto;padding:28px 18px}
+  .head{display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap;margin-bottom:20px}
+  h1{margin:0;font-size:26px}
+  .sub{margin:5px 0 0;color:#627d98;font-size:14px}
+  .actions{display:flex;gap:10px;flex-wrap:wrap}
+  button{border:0;border-radius:8px;padding:11px 16px;font-weight:700;cursor:pointer;background:#0878e8;color:#fff}
+  button.secondary{background:#123a61}
+  input{width:100%;padding:12px 14px;border:1px solid #bcccdc;border-radius:8px;margin:0 0 16px;font-size:15px}
+  .status{padding:12px 14px;background:#fff;border-radius:8px;margin-bottom:16px;color:#486581}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+  .card{background:#fff;border:1px solid #d9e2ec;border-radius:12px;padding:16px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+  .id{font-weight:800;color:#123a61}
+  .name{font-weight:700;margin-top:4px}
+  .meta{font-size:12px;color:#627d98;margin-top:4px}
+  .download{white-space:nowrap;padding:9px 12px;font-size:12px}
+  .error{color:#c62828}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="head">
+    <div>
+      <h1>Gaerish QR Codes</h1>
+      <div class="sub">Marketing Team — Download existing employee QR codes</div>
+    </div>
+    <div class="actions">
+      <button class="secondary" id="refreshBtn">Refresh</button>
+      <button id="zipBtn">Download All QR ZIP</button>
+    </div>
+  </div>
+
+  <input id="search" type="search" placeholder="Search Employee ID, Name, Department or Designation">
+  <div id="status" class="status">Loading QR codes...</div>
+  <div id="grid" class="grid"></div>
+</div>
+
+<script>
+const API_URL = 'https://script.google.com/macros/s/AKfycbyOnaQEYIqjIqdAeBY8KNk0brPmJ4IvBA5pPHfvdDhP18zFknmOwmPw8R-9PG8hS7lLIg/exec';
+let records = [];
+
+function jsonp(action, params = {}) {
+  return new Promise((resolve, reject) => {
+    const cb = 'gglQR_' + Date.now() + '_' + Math.random().toString(36).slice(2);
+    const script = document.createElement('script');
+    script.src = API_URL + '?action=' + encodeURIComponent(action) +
+      Object.entries(params).map(([k,v]) => '&' + encodeURIComponent(k) + '=' + encodeURIComponent(v)).join('') +
+      '&callback=' + cb + '&v=' + Date.now();
+
+    window[cb] = data => {
+      cleanup();
+      resolve(data);
+    };
+
+    script.onerror = () => {
+      cleanup();
+      reject(new Error('Unable to connect to QR service.'));
+    };
+
+    function cleanup() {
+      script.remove();
+      try { delete window[cb]; } catch(e) {}
+    }
+
+    document.head.appendChild(script);
+  });
+}
+
+async function loadQRs() {
+  const status = document.getElementById('status');
+  status.textContent = 'Loading QR codes...';
+  status.classList.remove('error');
+
+  try {
+    const result = await jsonp('qrdirectory');
+
+    if (!result.success) throw new Error(result.error || 'Unable to load QR codes.');
+
+    records = result.employees || [];
+    render();
+
+    status.textContent = records.length + ' QR code(s) available. These are existing QR files; nothing is regenerated.';
+  } catch (e) {
+    status.textContent = e.message;
+    status.classList.add('error');
+  }
+}
+
+function render() {
+  const q = document.getElementById('search').value.trim().toLowerCase();
+  const grid = document.getElementById('grid');
+
+  const filtered = records.filter(r =>
+    [r.employeeId, r.name, r.department, r.designation]
+      .join(' ').toLowerCase().includes(q)
+  );
+
+  grid.innerHTML = filtered.map(r => `
+    <div class="card">
+      <div>
+        <div class="id">${escapeHtml(r.employeeId)}</div>
+        <div class="name">${escapeHtml(r.name)}</div>
+        <div class="meta">${escapeHtml(r.designation)} · ${escapeHtml(r.department)}</div>
+      </div>
+      <button class="download" onclick="downloadQR('${encodeURIComponent(r.downloadUrl)}')">Download</button>
+    </div>
+  `).join('');
+
+  if (!filtered.length) {
+    grid.innerHTML = '<div class="status">No QR codes found.</div>';
+  }
+}
+
+function downloadQR(url) {
+  window.location.href = decodeURIComponent(url);
+}
+
+async function downloadAll() {
+  const btn = document.getElementById('zipBtn');
+  btn.disabled = true;
+  btn.textContent = 'Preparing ZIP...';
+
+  try {
+    const result = await jsonp('qrzip');
+    if (!result.success) throw new Error(result.error || 'Unable to create ZIP.');
+    window.location.href = result.downloadUrl;
+  } catch (e) {
+    alert(e.message);
+  } finally {
+    btn.disabled = false;
+    btn.textContent = 'Download All QR ZIP';
+  }
+}
+
+function escapeHtml(v) {
+  return String(v || '').replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+
+document.getElementById('search').addEventListener('input', render);
+document.getElementById('refreshBtn').addEventListener('click', loadQRs);
+document.getElementById('zipBtn').addEventListener('click', downloadAll);
+loadQRs();
+</script>
+</body>
+</html>
