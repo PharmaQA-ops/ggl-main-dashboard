@@ -1,8 +1,0 @@
-fastapi
-uvicorn[standard]
-pydantic
-httpx
-beautifulsoup4
-lxml
-pydantic-settings
-pywebview>=5.4

@@ -1,103 +1,1150 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>GEORUSH SEO</title>
-<link rel="stylesheet" href="styles.css?v=13">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#0b1220">
+
+  <title>Gaerish Logistics Main Portal</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  >
 </head>
+
 <body>
-<aside class="sidebar">
-  <div class="brand"><span>G</span><div><b>GEORUSH</b><small>SEO INTELLIGENCE</small></div></div>
-  <nav id="mainNav">
-    <a class="nav-link active" href="#dashboard" data-page="dashboard">Dashboard</a>
-    <a class="nav-link" href="#keywords" data-page="keywords">Keywords</a>
-    <a class="nav-link" href="#rankings" data-page="rankings">Rankings</a>
-    <a class="nav-link" href="#competitors" data-page="competitors">Competitors</a>
-    <a class="nav-link" href="#audit" data-page="audit">Site Audit</a>
-    <a class="nav-link" href="#content" data-page="content">Content</a>
-    <a class="nav-link" href="#backlinks" data-page="backlinks">Backlinks</a>
-    <a class="nav-link" href="#analytics" data-page="analytics">Analytics</a>
-    <a class="nav-link" href="#reports" data-page="reports">Reports</a>
-  </nav>
-  <div class="ai"><b>GEORUSH AI</b><p>Ask the SEO analyst after connecting your data sources.</p></div>
-</aside>
+<video
+    class="live-background"
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="auto"
+>
+    <source
+        src="https://raw.githubusercontent.com/PharmaQA-ops/library/a3daff9d80bd6d04c3811c5fb9a130c50ca15c81/Pharmaceutical_logistics_global_%E2%80%A6_1080p_20260910150219.mp4"
+        type="video/mp4"
+    >
+</video>
 
-<main>
-<header>
-  <div><small>MARKETING / SEO</small><h1 id="pageTitle">SEO Command Center</h1><p>Your internal search intelligence platform.</p></div>
-  <div class="actions">
-    <input id="globalSearch" type="search" placeholder="Search crawled URLs, titles, H1...">
-    <button id="searchBtn" type="button">Search</button>
-    <input id="site" value="https://example.com" placeholder="https://your-site.com">
-    <button id="runAudit" type="button">Run audit</button>
+<div class="background-overlay"></div>
+  <!-- =========================================
+       GGL WELCOME / LOADING SCREEN
+  ========================================== -->
+
+  <div id="welcomeScreen" class="welcome-screen">
+
+
+<div class="welcome-content">
+
+  <div class="welcome-logo-wrap">
+    <img
+      src="logo.png"
+      alt="Gaerish Logistics"
+      class="welcome-logo"
+    >
   </div>
-</header>
 
-<section id="dashboard" data-section="dashboard">
-  <section class="cards">
-    <div class="card score"><small>GEORUSH SEO SCORE</small><strong id="score">—</strong><span>Technical crawl health</span></div>
-    <div class="card"><small>PAGES CRAWLED</small><strong id="pages">—</strong><span>Current audit</span></div>
-    <div class="card"><small>ISSUES</small><strong id="issues">—</strong><span>Detected problems</span></div>
-    <div class="card"><small>CRAWL STATUS</small><strong id="status">READY</strong><span id="apiStatus">Checking API...</span></div>
-  </section>
-  <section class="panel"><div class="head"><div><h2>Technical SEO</h2><p>Live results from the GEORUSH crawler.</p></div><div id="msg"></div></div>
-    <table><thead><tr><th>URL</th><th>Status</th><th>Title</th><th>Words</th><th>Load</th><th>Issues</th></tr></thead><tbody id="rows"><tr><td colspan="6">Enter a site and run an audit.</td></tr></tbody></table>
-  </section>
+  <div class="welcome-company">
+    GAERISH LOGISTICS
+  </div>
+
+  <div class="welcome-portal">
+    MAIN BUSINESS PORTAL
+  </div>
+
+  <div class="welcome-line"></div>
+
+  <div class="welcome-message">
+    Welcome to GGL
+  </div>
+
+  <div class="loading-area">
+
+    <div class="loading-bar">
+      <div class="loading-progress"></div>
+    </div>
+
+    <div class="loading-text">
+      Loading your workspace...
+    </div>
+
+  </div>
+
+</div>
+
+
+  </div>
+
+  <!-- =========================================
+       HEADER
+  ========================================== -->
+
+  <header class="topbar">
+
+
+<div class="brand">
+
+  <div class="brand-logo">
+
+    <img
+      src="logo.png"
+      alt="Gaerish Logistics"
+      class="company-logo"
+    >
+
+  </div>
+
+  <div class="brand-copy">
+
+    <div class="company-name">
+      GAERISH LOGISTICS
+    </div>
+
+    <div class="portal-name">
+      MAIN BUSINESS PORTAL
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="header-right">
+
+  <!-- Current Date -->
+  <span
+    id="currentDate"
+    class="current-date"
+  ></span>
+
+
+  <!-- Theme -->
+  <button
+    class="icon-btn"
+    onclick="toggleTheme()"
+    aria-label="Toggle dark/light mode"
+    title="Toggle theme"
+  >
+    <i class="fa-solid fa-moon"></i>
+  </button>
+
+</div>
+
+
+  </header>
+
+  <!-- =========================================
+       MAIN
+  ========================================== -->
+
+  <main class="main-container">
+
+
+<!-- =========================================
+     HERO
+========================================== -->
+
+<section class="hero">
+
+  <div class="hero-badge">
+
+    <span class="status-dot"></span>
+
+  </div>
+
+
+  <p class="welcome">
+    Everything your team needs, in one place.
+  </p>
+
+
+  <h1>
+    Welcome to the
+    <span>Gaerish Logistics</span>
+    Main Portal
+  </h1>
+
+
+  <p class="subtitle">
+
+    Access business systems, operational resources,
+    carrier portals, documents and networks from
+    a single workspace.
+
+  </p>
+
+
+  <!-- =========================================
+       SEARCH
+  ========================================== -->
+
+  <div class="search-wrap">
+
+    <div class="search-container">
+
+      <i class="fa-solid fa-magnifying-glass"></i>
+
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search ERP, Sheets, QMS, Liners, Documents..."
+        autocomplete="off"
+        oninput="searchPortal()"
+        onkeydown="handleSearchKey(event)"
+      >
+
+      <span
+        class="search-shortcut"
+        title="Press / to search"
+      >
+        /
+      </span>
+
+    </div>
+
+
+    <div
+      id="searchResults"
+      class="search-results"
+    ></div>
+
+  </div>
+
 </section>
 
-<section id="keywords" data-section="keywords" class="module">
-  <div class="module-head">
-    <div><h2>Keyword Intelligence</h2><p>Analyze GSC keyword exports, identify opportunities and map keywords to crawled pages.</p></div>
-    <span class="badge" id="keywordSource">GSC / EVIDENCE</span>
+
+<!-- =========================================
+     QUICK ACCESS
+========================================== -->
+
+<section class="section quick-section">
+
+  <div class="section-heading">
+
+    <div>
+
+      
+      <h2>
+        Quick Access
+      </h2>
+
+    </div>
+
   </div>
-  <div class="keyword-toolbar">
-    <input id="keywordFilter" type="search" placeholder="Filter keywords...">
-    <select id="keywordIntentFilter"><option value="">All intent</option><option>Informational</option><option>Commercial</option><option>Transactional</option><option>Navigational</option></select>
-    <button id="keywordIntelRun" type="button">Run Keyword Intelligence</button><button id="keywordDemo" type="button">Load demo data</button>
-    <label class="file-button">Import GSC CSV<input id="keywordCsv" type="file" accept=".csv,text/csv" hidden></label>
+
+
+  <div class="quick-access">
+
+
+    <!-- ERP -->
+
+    <button
+      class="quick-btn quick-erp"
+      onclick="openLink('ERP')"
+    >
+
+      <span class="quick-icon">
+        <i class="fa-solid fa-desktop"></i>
+      </span>
+
+      <span class="quick-label">
+
+        <strong>
+          ERP
+        </strong>
+
+        <small>
+          Operations
+        </small>
+
+      </span>
+
+      <i class="fa-solid fa-arrow-up-right-from-square quick-arrow"></i>
+
+    </button>
+
+
+    <!-- QMS -->
+
+    <button
+      class="quick-btn quick-qms"
+      onclick="openLink('QMS')"
+    >
+
+      <span class="quick-icon">
+        <i class="fa-solid fa-shield-halved"></i>
+      </span>
+
+      <span class="quick-label">
+
+        <strong>
+          QMS
+        </strong>
+
+        <small>
+          Quality management
+        </small>
+
+      </span>
+
+      <i class="fa-solid fa-arrow-up-right-from-square quick-arrow"></i>
+
+    </button>
+
+
+    <!-- G-SHEETS -->
+
+    <button
+      class="quick-btn quick-gsheets"
+      onclick="openPanel('G-SHEETS')"
+    >
+
+      <span class="quick-icon">
+        <i class="fa-solid fa-table"></i>
+      </span>
+
+      <span class="quick-label">
+
+        <strong>
+          G-Sheets
+        </strong>
+
+        <small>
+          Operational dashboards
+        </small>
+
+      </span>
+
+      <i class="fa-solid fa-arrow-up-right-from-square quick-arrow"></i>
+
+    </button>
+
+
+    <!-- WCA -->
+
+    <button
+      class="quick-btn quick-wca"
+      onclick="openLink('WCA')"
+    >
+
+      <span class="quick-icon">
+        <i class="fa-solid fa-globe"></i>
+      </span>
+
+      <span class="quick-label">
+
+        <strong>
+          WCA
+        </strong>
+
+        <small>
+          Global network
+        </small>
+
+      </span>
+
+      <i class="fa-solid fa-arrow-up-right-from-square quick-arrow"></i>
+
+    </button>
+
   </div>
-  <div id="keywordIntelResult" class="panel-lite"><div class="empty-state">Run Keyword Intelligence after an audit to extract evidence-based keyword themes. Search volume and rankings require GSC or a keyword provider.</div></div>
-  <div id="keywordIntelResult" class="panel-lite"><div class="empty-state">Run Keyword Intelligence after an audit to extract evidence-based keyword themes. Search volume and rankings require GSC or a keyword provider.</div></div>
-  <div class="metric-grid" id="keywordMetrics"></div>
-  <div class="table-wrap"><table><thead><tr><th>Keyword</th><th>Intent</th><th>Clicks</th><th>Impressions</th><th>CTR</th><th>Position</th><th>Opportunity</th></tr></thead>
-  <tbody id="keywordRows"><tr><td colspan="7">Load demo data or import a Google Search Console CSV export.</td></tr></tbody></table></div>
+
 </section>
 
-<section id="rankings" data-section="rankings" class="module"><div class="module-head"><div><h2>Rankings</h2><p>Organic ranking visibility and landing-page performance.</p></div><span class="badge" id="rankingSource">GSC REQUIRED</span></div><div class="metric-grid" id="rankingMetrics"></div><div class="empty-state" id="rankingEmpty">Real keyword positions require Google Search Console. Run an audit to populate page-level SEO signals below.</div><div class="table-wrap"><table><thead><tr><th>Landing Page</th><th>SEO Score Signal</th><th>Words</th><th>H1</th><th>Issues</th></tr></thead><tbody id="rankingRows"><tr><td colspan="5">Run an audit first.</td></tr></tbody></table></div></section>
 
-<section id="competitors" data-section="competitors" class="module"><div class="module-head"><div><h2>Competitor Intelligence</h2><p>Automatically discover and benchmark the top relevant competitor domains.</p></div><span class="badge">AUTO DISCOVERY</span></div>
-<div class="compare-controls"><input id="competitorUrl" placeholder="Competitor URL e.g. https://example.com"><button id="inspectCompetitor" type="button">Inspect competitor</button><button id="discoverCompetitors" type="button">Auto-discover competitors</button></div><div id="competitorProfile" class="intel-summary">Target site title will appear here after an audit or competitor discovery.</div>
-<div id="competitorResult" class="compare-grid"><div class="empty-state">Enter a competitor URL and inspect it.</div></div></section>
+<!-- =========================================
+     ALL RESOURCES
+========================================== -->
 
-<section id="audit" data-section="audit" class="module"><div class="module-head"><div><h2>Site Audit</h2><p>Prioritized technical SEO issues detected by GEORUSH.</p></div><span class="badge" id="auditGrade">NO AUDIT</span></div><div class="metric-grid" id="auditMetrics"></div><div class="issue-grid" id="issueSummary"></div><div class="table-wrap"><table><thead><tr><th>URL</th><th>Status</th><th>Severity</th><th>Issues</th><th>Load</th></tr></thead><tbody id="auditRows"><tr><td colspan="5">Run an audit first.</td></tr></tbody></table></div></section>
+<section class="section">
 
-<section id="content" data-section="content" class="module"><div class="module-head"><div><h2>Content Intelligence</h2><p>Content depth, titles, descriptions and heading structure from the crawl.</p></div><span class="badge">CRAWL DATA</span></div><div class="metric-grid" id="contentMetrics"></div><div class="table-wrap"><table><thead><tr><th>Page</th><th>Title</th><th>Words</th><th>Description</th><th>H1</th><th>Content Issues</th></tr></thead><tbody id="contentRows"><tr><td colspan="6">Run an audit first.</td></tr></tbody></table></div></section>
+  <div class="section-heading resources-heading">
 
-<section id="backlinks" data-section="backlinks" class="module"><div class="module-head"><div><h2>Backlink Intelligence</h2><p>Internal and external link signals discovered during crawling.</p></div><span class="badge">CRAWL SIGNALS</span></div><div class="metric-grid" id="backlinkMetrics"></div><div class="table-wrap"><table><thead><tr><th>Page</th><th>Internal Links</th><th>External Links</th><th>Link Signal</th></tr></thead><tbody id="backlinkRows"><tr><td colspan="4">Run an audit first.</td></tr></tbody></table></div></section>
+    <div>
 
-<section id="reports" data-section="reports" class="module">
-  <div class="module-head">
-    <div><h2>SEO Reports</h2><p>Turn the latest GEORUSH audit into a management-ready report.</p></div>
-    <span class="badge">LOCAL REPORTING</span>
+      <div class="eyebrow">
+
+        <i class="fa-solid fa-grid-2"></i>
+
+        RESOURCE HUB
+
+      </div>
+    
+      <p>
+        Explore every GGL business resource from one place.
+      </p>
+
+    </div>
+
+
+    <span class="resource-count">
+      15 categories
+    </span>
+
   </div>
-  <div class="report-controls">
-    <input id="reportTitle" value="GEORUSH SEO Audit Report" placeholder="Report title">
-    <input id="reportCompany" placeholder="Company / website name">
-    <button id="generateReport" type="button">Generate Report</button>
-    <button id="fullIntelReport" type="button">Full Intelligence Report</button><button id="ollamaAI" type="button">Run Ollama AI</button><button id="deepResearch" type="button">3-Agent Deep Research</button><span id="ollamaStatus" class="badge">OLLAMA CHECKING</span>
-    <button id="downloadReport" type="button">Download HTML</button>
-    <button id="downloadReportCsv" type="button">Export CSV</button>
-    <button id="printReport" type="button">Print / Save PDF</button>
+
+
+  <div class="tile-grid">
+
+
+    <!-- =====================================
+         01 ERP
+    ====================================== -->
+
+    <div
+      class="portal-card"
+      onclick="openPanel('ERP')"
+      data-search="erp system operations shipment logistics business management"
+    >
+
+      <div class="card-top">
+
+        <div class="card-icon erp">
+          <i class="fa-solid fa-desktop"></i>
+        </div>
+
+        <span class="card-number">
+          01
+        </span>
+
+      </div>
+
+      <div class="card-content">
+
+        <h3>
+          ERP
+        </h3>
+
+        <p>
+          Operations &amp; business management
+        </p>
+
+      </div>
+
+      <div class="card-footer">
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         02 G-SHEETS
+    ====================================== -->
+
+    <div
+      class="portal-card"
+      onclick="openPanel('G-SHEETS')"
+      data-search="google sheets g sheets reports operations dashboards sea air import export"
+    >
+
+      <div class="card-top">
+
+        <div class="card-icon sheets">
+          <i class="fa-solid fa-table"></i>
+        </div>
+
+        <span class="card-number">
+          02
+        </span>
+
+      </div>
+
+      <div class="card-content">
+
+        <h3>
+          G-SHEETS
+        </h3>
+
+        <p>
+          Operational sheets &amp; dashboards
+        </p>
+
+      </div>
+
+      <div class="card-footer">
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         03 QMS
+    ====================================== -->
+
+    <div
+      class="portal-card"
+      onclick="openLink('QMS')"
+      data-search="qms quality management capa ncr audits compliance gdp"
+    >
+
+      <div class="card-top">
+
+        <div class="card-icon qms">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+
+        <span class="card-number">
+          03
+        </span>
+
+      </div>
+
+      <div class="card-content">
+
+        <h3>
+          QMS
+        </h3>
+
+        <p>
+          Quality management system
+        </p>
+
+      </div>
+
+      <div class="card-footer">
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         04 LINERS
+    ====================================== -->
+
+    <div
+      class="portal-card"
+      onclick="openPanel('LINERS')"
+      data-search="liners shipping lines carrier maersk msc cma cgm hapag lloyd one cosco evergreen zim"
+    >
+
+      <div class="card-top">
+
+        <div class="card-icon liners">
+          <i class="fa-solid fa-ship"></i>
+        </div>
+
+        <span class="card-number">
+          04
+        </span>
+
+      </div>
+
+      <div class="card-content">
+
+        <h3>
+          LINERS
+        </h3>
+
+        <p>
+          Shipping lines &amp; carrier portals
+        </p>
+
+      </div>
+
+      <div class="card-footer">
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         05 DOCUMENTS
+    ====================================== -->
+
+    <div
+      class="portal-card"
+      onclick="openPanel('DOCUMENTS')"
+      data-search="documents google drive policies sop manuals forms work instructions formats"
+    >
+
+      <div class="card-top">
+
+        <div class="card-icon documents">
+          <i class="fa-solid fa-folder-open"></i>
+        </div>
+
+        <span class="card-number">
+          05
+        </span>
+
+      </div>
+
+      <div class="card-content">
+
+        <h3>
+          DOCUMENTS
+        </h3>
+
+        <p>
+          Policies, SOPs &amp; company documents
+        </p>
+
+      </div>
+
+      <div class="card-footer">
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         06 HR
+    ====================================== -->
+
+    <div
+      class="portal-card"
+      onclick="openPanel('HR')"
+      data-search="hr human resources keka employee hrms payroll"
+    >
+
+      <div class="card-top">
+
+        <div class="card-icon hr">
+          <i class="fa-solid fa-users"></i>
+        </div>
+
+        <span class="card-number">
+          06
+        </span>
+
+      </div>
+
+      <div class="card-content">
+
+        <h3>
+          HR
+        </h3>
+
+        <p>
+          HRMS &amp; employee resources
+        </p>
+
+      </div>
+
+      <div class="card-footer">
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         07 IT
+    ====================================== -->
+
+    <div
+      class="portal-card"
+      onclick="openPanel('IT')"
+      data-search="it technology support applications software systems documents helpdesk"
+    >
+
+      <div class="card-top">
+
+        <div class="card-icon it">
+          <i class="fa-solid fa-computer"></i>
+        </div>
+
+        <span class="card-number">
+          07
+        </span>
+
+      </div>
+
+      <div class="card-content">
+
+        <h3>
+          IT
+        </h3>
+
+        <p>
+          IT systems &amp; support
+        </p>
+
+      </div>
+
+      <div class="card-footer">
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         08 GOVERNMENT
+    ====================================== -->
+
+    <div
+      class="portal-card"
+      onclick="openPanel('GOVERNMENT')"
+      data-search="government icegate dgft gst customs regulatory export import tax"
+    >
+
+      <div class="card-top">
+
+        <div class="card-icon government">
+          <i class="fa-solid fa-building-columns"></i>
+        </div>
+
+        <span class="card-number">
+          08
+        </span>
+
+      </div>
+
+      <div class="card-content">
+
+        <h3>
+          GOVERNMENT
+        </h3>
+
+        <p>
+          Government &amp; regulatory portals
+        </p>
+
+      </div>
+
+      <div class="card-footer">
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         09 NETWORKS
+    ====================================== -->
+
+    <div
+      class="portal-card"
+      onclick="openPanel('NETWORKS')"
+      data-search="networks wpa opec freight forwarding agents forwarding network"
+    >
+
+      <div class="card-top">
+
+        <div class="card-icon networks">
+          <i class="fa-solid fa-network-wired"></i>
+        </div>
+
+        <span class="card-number">
+          09
+        </span>
+
+      </div>
+
+      <div class="card-content">
+
+        <h3>
+          NETWORKS
+        </h3>
+
+        <p>
+          Freight forwarding networks
+        </p>
+
+      </div>
+
+      <div class="card-footer">
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         10 WEBSITE
+    ====================================== -->
+
+    <div
+      class="portal-card"
+      onclick="openPanel('Website')"
+      data-search="website company gaerish logistics online tracking websites"
+    >
+
+      <div class="card-top">
+
+        <div class="card-icon website">
+          <i class="fa-solid fa-globe"></i>
+        </div>
+
+        <span class="card-number">
+          10
+        </span>
+
+      </div>
+
+      <div class="card-content">
+
+        <h3>
+          WEBSITE
+        </h3>
+
+        <p>
+          Company websites &amp; online tracking
+        </p>
+
+      </div>
+
+      <div class="card-footer">
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+
+    </div>
+
+
+ 
+<!-- =====================================
+     11 GGL KNOWLEDGE
+====================================== -->
+
+<div
+  class="portal-card"
+  onclick="openPanel('KNOWLEDGE HUB')"
+  data-search="KNOWLEDGE HUB logistics learning incoterms trade shipping customs terminology guides reference knowledge base"
+>
+
+  <div class="card-top">
+
+    <div class="card-icon KNOWLEDGE HUB">
+      <i class="fa-solid fa-brain"></i>
+    </div>
+
+    <span class="card-number">
+      11
+    </span>
+
   </div>
-  <div id="deepResearchResult" class="report-section"></div><div id="reportPreview" class="report-preview">
-    <div class="empty-state">Run an audit first, then click Generate Report.</div>
+
+  <div class="card-content">
+
+    <h3>
+      KNOWLEDGE HUB
+    </h3>
+
+    <p>
+      Learn. Reference. Navigate.
+    </p>
+
   </div>
+
+  <div class="card-footer">
+
+    <i class="fa-solid fa-arrow-right"></i>
+
+  </div>
+
+</div>
+
+
+
+
+    <!-- =====================================
+         12 SUGGESTION
+    ====================================== -->
+
+    <div
+      class="portal-card"
+      onclick="openPanel('SUGGESTION')"
+      data-search="suggestion ideas improvement feedback suggestion box"
+    >
+
+      <div class="card-top">
+
+        <div class="card-icon suggestion">
+          <i class="fa-solid fa-lightbulb"></i>
+        </div>
+
+        <span class="card-number">
+          12
+        </span>
+
+      </div>
+
+      <div class="card-content">
+
+        <h3>
+          SUGGESTION
+        </h3>
+
+        <p>
+          Ideas &amp; improvement feedback
+        </p>
+
+      </div>
+
+      <div class="card-footer">
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         13 SALES
+    ====================================== -->
+
+    <div
+      class="portal-card"
+      onclick="openPanel('SALES')"
+      data-search="sales customer business development leads reports sales resources"
+    >
+
+      <div class="card-top">
+
+        <div class="card-icon sales">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+
+        <span class="card-number">
+          13
+        </span>
+
+      </div>
+
+      <div class="card-content">
+
+        <h3>
+          SALES
+        </h3>
+
+        <p>
+          Sales tools, reports &amp; resources
+        </p>
+
+      </div>
+
+      <div class="card-footer">
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         14 PRICING
+    ====================================== -->
+
+    <div
+      class="portal-card"
+      onclick="openPanel('PRICING')"
+      data-search="pricing quotation rates commercial pricing resources"
+    >
+
+      <div class="card-top">
+
+        <div class="card-icon pricing">
+          <i class="fa-solid fa-tags"></i>
+        </div>
+
+        <span class="card-number">
+          14
+        </span>
+
+      </div>
+
+      <div class="card-content">
+
+        <h3>
+          PRICING
+        </h3>
+
+        <p>
+          Pricing, quotation &amp; commercial resources
+        </p>
+
+      </div>
+
+      <div class="card-footer">
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+
+    </div>
+
+
+    <!-- =====================================
+         15 TOOLS & UTILITIES
+    ====================================== -->
+
+    <div
+      class="portal-card"
+      onclick="openPanel('TOOLS & UTILITIES')"
+      data-search="tools utilities calculators calculator converter converters trackers business tools"
+    >
+
+      <div class="card-top">
+
+        <div class="card-icon tools">
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+        </div>
+
+        <span class="card-number">
+          15
+        </span>
+
+      </div>
+
+      <div class="card-content">
+
+        <h3>
+          TOOLS &amp; UTILITIES
+        </h3>
+
+        <p>
+          Calculators, converters, trackers &amp; useful tools
+        </p>
+
+      </div>
+
+      <div class="card-footer">
+
+        <i class="fa-solid fa-arrow-right"></i>
+
+      </div>
+
+    </div>
+
+  </div>
+
 </section>
 
-<section id="analytics" data-section="analytics" class="module"><div class="module-head"><div><h2>Analytics</h2><p>Crawl performance now; GA4 metrics when connected.</p></div><span class="badge">GA4 READY</span></div><div class="metric-grid" id="analyticsMetrics"></div><div class="panel-lite"><h3>Data source status</h3><p><b>Crawler:</b> <span id="analyticsCrawlerStatus">No audit loaded</span></p><p><b>Google Analytics 4:</b> Not connected</p><p><b>Google Search Console:</b> Not connected</p></div></section>
-</main>
-<script src="api-config.js?v=14"></script>
-<script src="app.js?v=14"></script>
+
+<!-- =========================================
+     FOOTER
+========================================== -->
+
+<footer>
+
+  <span>
+    © 2026 Gaerish Logistics Pvt. Ltd.
+  </span>
+
+  <span>
+    GGL Main Business Portal
+  </span>
+
+</footer>
+
+
+  </main>
+
+  <!-- =========================================
+       RESOURCE MODAL
+  ========================================== -->
+
+  <div
+    class="modal"
+    id="modal"
+    onclick="closeModalOutside(event)"
+  >
+
+
+<div class="modal-box">
+
+  <div class="modal-header">
+
+    <div>
+
+      <div class="modal-kicker">
+        RESOURCE CATEGORY
+      </div>
+
+      <h2 id="modalTitle">
+        Resources
+      </h2>
+
+      <p id="modalSubtitle">
+        Access resources
+      </p>
+
+    </div>
+
+
+    <button
+      class="close-btn"
+      onclick="closeModal()"
+      aria-label="Close"
+      title="Close"
+    >
+
+      <i class="fa-solid fa-xmark"></i>
+
+    </button>
+
+  </div>
+
+
+  <div
+    id="modalContent"
+    class="modal-content"
+  ></div>
+
+</div>
+
+
+  </div>
+
+  <!-- =========================================
+       JAVASCRIPT
+  ========================================== -->
+
+<script src="app.js"></script>
+
+<script>
+(function () {
+    function removeLoadingScreen() {
+        const screen = document.getElementById("welcomeScreen");
+
+        if (!screen) return;
+
+        screen.classList.add("hide");
+        screen.style.opacity = "0";
+        screen.style.visibility = "hidden";
+        screen.style.pointerEvents = "none";
+
+        setTimeout(function () {
+            screen.style.display = "none";
+        }, 700);
+    }
+
+    // Safety fallback — works even if app.js has an error
+    setTimeout(removeLoadingScreen, 1200);
+})();
+</script>
 </body>
 </html>
